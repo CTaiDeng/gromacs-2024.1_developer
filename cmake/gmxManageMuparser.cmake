@@ -49,20 +49,17 @@ function(gmx_manage_muparser)
     if(GMX_USE_MUPARSER STREQUAL "INTERNAL")
         # Use cmake's FetchContent to organize the build, even though
         # the content is already present in src/external. In
-        # particular, it sets up an easy call to add_subdirectory().
+        # particular, it sets up an easy call to FetchContent_MakeAvailable().
         include(FetchContent)
         FetchContent_Declare(muparser SOURCE_DIR ${CMAKE_SOURCE_DIR}/src/external/muparser)
-        if (NOT ${muparser}_POPULATED)
-            if (OpenMP_CXX_FLAGS)
-                set(OpenMP_FIND_QUIETLY ON)
-            endif()
-            FetchContent_Populate(muparser)
+        if (OpenMP_CXX_FLAGS)
+            set(OpenMP_FIND_QUIETLY ON)
         endif()
         set(ENABLE_SAMPLES OFF)
         set(ENABLE_OPENMP ${GMX_OPENMP})
         set(ENABLE_WIDE_CHAR OFF)
         set(BUILD_TESTING OFF)
-        add_subdirectory(${muparser_SOURCE_DIR} ${muparser_BINARY_DIR} EXCLUDE_FROM_ALL)
+        FetchContent_MakeAvailable(muparser)
         if (BUILD_SHARED_LIBS)
             # Ensure muparser is in the export set called libgromacs,
             # so that it gets installed along with libgromacs.

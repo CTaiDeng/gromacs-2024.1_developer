@@ -2,3 +2,4 @@
 /.idea/
 /cmake-build-release-wsl/
 /cmake-build-release-visual-studio-2022-x64/
+out/
