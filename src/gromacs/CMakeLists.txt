@@ -448,7 +448,8 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
      /wd6386  #buffer overrun
      /wd6387  #could be '0'
      /wd28199 #uninitialized memory
-     # For compile time constant (e.g. templates) the following warnings have flase postives
+     # For compile time constant (e.g. templates) the following warnings have false positives
+     /wd6237  #(<zero> && <expr>)
      /wd6239  #(<non-zero> && <expr>)
      /wd6240  #(<expr> && <non-zero>)
      /wd6294  #Ill-defined for-loop
@@ -457,13 +458,22 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
      # Misc
      /wd6330  #incorrect type to function (warns for char (instead of unsigned) for isspace/isalpha/isdigit/..))
      /wd6993  #OpenMP ignored
+     /wd6285  #(<non-zero constant> || <non-zero constant>)
      #TODO
      /wd6031  #return value ignored (important - mostly warnigns about sscanf)
      /wd6244  #hides declaration (known issue - we ingore similar warnings for other compilers)
      /wd6246  #hides declaration
      >
    )
+   # Force UTF-8 decoding for MSVC builds (avoids C4819 on codepage 936)
+   target_compile_options(libgromacs PRIVATE
+       $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<COMPILE_LANGUAGE:CXX>>:/utf-8>
+       $<$<AND:$<C_COMPILER_ID:MSVC>,$<COMPILE_LANGUAGE:C>>:/utf-8>
+   )
+   # Disable MSVC /analyze for calc_verletbuf.cpp to avoid internal compiler error (C1001)
+   set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/mdlib/calc_verletbuf.cpp PROPERTIES COMPILE_OPTIONS "/analyze-;/d2ssaoptimizer-;/O1")
 endif()
+
 
 if (GMX_CLANG_TIDY)
    # Temporarily exclude Colvars headers to silence warnings from code that is not built with GROMACS
