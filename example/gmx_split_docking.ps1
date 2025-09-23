@@ -6,6 +6,11 @@ param(
 $ErrorActionPreference = "Stop"
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $root = Resolve-Path (Join-Path $scriptDir "..")
+$gmxExe = Join-Path $root "cmake-build-release-visual-studio-2022/bin/gmx.exe"
+if (!(Test-Path $gmxExe)) {
+    throw "Cannot find GROMACS executable: $gmxExe"
+}
+$gmxQuoted = "\"$gmxExe\""
 $outRoot = Join-Path $root "out"
 if (!(Test-Path $outRoot)) {
     New-Item -ItemType Directory -Path $outRoot | Out-Null
@@ -21,19 +26,21 @@ $receptorNdx = Join-Path $jobDir "receptor.ndx"
 $receptorPdb = Join-Path $jobDir "receptor.pdb"
 
 # Convert PDB to GRO for consistent processing
-& gmx editconf -quiet -f $complexPdb -o $complexGro | Out-Null
+& $gmxExe editconf -quiet -f $complexPdb -o $complexGro | Out-Null
 
 # Select ligand atoms
 $selLigand = "resname $ligandResidue"
-& gmx select -quiet -f $complexGro -s $complexGro -on $ligandNdx -select $selLigand | Out-Null
+& $gmxExe select -quiet -f $complexGro -s $complexGro -on $ligandNdx -select $selLigand | Out-Null
 
 # Dump ligand coordinates (group 0 from the generated index)
-cmd /c "echo 0 | gmx trjconv -quiet -f `"$complexGro`" -s `"$complexGro`" -o `"$ligandPdb`" -n `"$ligandNdx`" -dump 0" | Out-Null
+cmd /c "echo 0 | $gmxQuoted trjconv -quiet -f `"$complexGro`" -s `"$complexGro`" -o `"$ligandPdb`" -n `"$ligandNdx`" -dump 0" | Out-Null
 
 # Select receptor (everything except ligand)
 $selReceptor = "not resname $ligandResidue"
-& gmx select -quiet -f $complexGro -s $complexGro -on $receptorNdx -select $selReceptor | Out-Null
-cmd /c "echo 0 | gmx trjconv -quiet -f `"$complexGro`" -s `"$complexGro`" -o `"$receptorPdb`" -n `"$receptorNdx`" -dump 0" | Out-Null
+& $gmxExe select -quiet -f $complexGro -s $complexGro -on $receptorNdx -select $selReceptor | Out-Null
+cmd /c "echo 0 | $gmxQuoted trjconv -quiet -f `"$complexGro`" -s `"$complexGro`" -o `"$receptorPdb`" -n `"$receptorNdx`" -dump 0" | Out-Null
 
 Write-Host "Ligand written to $ligandPdb"
 Write-Host "Receptor written to $receptorPdb"
+
+
