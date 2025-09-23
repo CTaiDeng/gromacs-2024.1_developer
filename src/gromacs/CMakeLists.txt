@@ -471,7 +471,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
        $<$<AND:$<C_COMPILER_ID:MSVC>,$<COMPILE_LANGUAGE:C>>:/utf-8>
    )
    # Disable MSVC /analyze for calc_verletbuf.cpp to avoid internal compiler error (C1001)
-   set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/mdlib/calc_verletbuf.cpp PROPERTIES COMPILE_OPTIONS "/analyze-;/d2ssaoptimizer-;/O1")
+   set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/mdlib/calc_verletbuf.cpp PROPERTIES COMPILE_OPTIONS "/analyze-;/Od")
 endif()
 
 
