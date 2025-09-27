@@ -1,5 +1,5 @@
 Param(
-  [string]$DataDir = 'data',
+  [string]$DataDir = 'my_scripts/data',
   [string]$Charmm36Url = 'https://mackerell.umaryland.edu/download.php?filename=CHARMM_ff_params_files/charmm36-jul2021.ff.tgz',
   # 默认改为 Lemkul-Lab 的 cgenff_charmm2gmx 脚本（RAW 链接）
   [string]$CGenFFScriptUrl = 'https://raw.githubusercontent.com/Lemkul-Lab/cgenff_charmm2gmx/main/cgenff_charmm2gmx.py'
