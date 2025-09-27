@@ -118,12 +118,14 @@ install_source() {
   echo "[INFO] Installing to ${PREFIX}"
   cmake --install .
 
-  echo "[INFO] Adding GMXRC to ~/.bashrc if not present"
-  local gmxc="source ${PREFIX}/bin/GMXRC"
-  if ! grep -Fq "$gmxc" "$HOME/.bashrc" 2>/dev/null; then
-    printf '\n# GROMACS %s\n%s\n' "$VERSION" "$gmxc" >> "$HOME/.bashrc"
+  echo "[INFO] 配置环境变量到 ~/.bashrc（使用固定路径）"
+  if ! grep -Fq "/home/coder/src/gromacs-2024.1/build/bin" "$HOME/.bashrc" 2>/dev/null; then
+    {
+      echo "# GROMACS 2024.1"
+      echo "export PATH=/home/coder/src/gromacs-2024.1/build/bin:\$PATH"
+    } >> "$HOME/.bashrc"
   fi
-  echo "[DONE] Reload shell or run: source ${PREFIX}/bin/GMXRC; then 'gmx --version'"
+  echo "[DONE] 已写入 PATH 到 ~/.bashrc。请重新打开终端或执行: source ~/.bashrc"
 }
 
 case "$METHOD" in
@@ -131,4 +133,3 @@ case "$METHOD" in
   source) install_source ;;
   *) echo "Unknown method: $METHOD" >&2; usage; exit 1;;
 esac
-
