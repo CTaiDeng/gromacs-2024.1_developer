@@ -14,7 +14,7 @@
 - PowerShell（Windows / PowerShell 7）：
   - `pwsh -File my_scripts/align_my_documents.ps1`
 - 或 Python 直接调用：
-  - `python3 scripts/align_my_documents.py`
+  - `python3 my_scripts/align_my_documents.py`
 
 脚本说明
 - 路径：`my_scripts/align_my_documents.py`
@@ -29,3 +29,8 @@
 目录约定
 - `my_docs/dev_docs`：项目开发文档（开发说明、环境、依赖、流程、安装脚本说明等）。
 - `my_docs/project_docs`：项目知识库（论文笔记、方案、研究记录等，一般以“时间戳_标题.md”命名）。
+ 
+�����ٷ����ű�Լ��
+- ���м��η�/�����Զ���ű�ͳһ���� `my_scripts/` Ŀ¼��֧�� bash/ps1/py �ȡ�
+- �µ����ű�����д�룬��ֹ�洢�� `scripts/` ��Ŀ¼��
+- ʾ�������� `my_scripts/install_cmake_wsl.sh`��
