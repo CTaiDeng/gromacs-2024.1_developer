@@ -29,14 +29,7 @@ freezedim   = Y Y Y
 1) 准备 `topol.tpr / start.gro / index.ndx`。
 2) 运行示例脚本，生成 N 个随机候选并评分：
 ```
-python example/docking_prototype/dock_minimal.py \
-  --tpr path/to/topol.tpr \
-  --structure path/to/start.gro \
-  --ndx path/to/index.ndx \
-  --n-poses 50 \
-  --trans 0.5 \
-  --rot 20 \
-  --workdir out --nt 1
+E:\PythonSDK\Anaconda3\envs\win_py312_gromacs\python.exe example\docking_prototype\dock_minimal.py --tpr C:\path\to\topol.tpr --structure out\gmx_split_20250924_011827\complex.gro --ndx out\gmx_split_20250924_011827\index.ndx --workdir out\dock_run --n-poses 50 --trans 0.5 --rot 20 --jobs 4 --nt 1
 ```
 
 参数说明（关键）
