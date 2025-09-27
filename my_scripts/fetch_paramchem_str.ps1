@@ -30,9 +30,8 @@ $py = Ensure-Python
 Ensure-Package 'selenium'
 Ensure-Package 'webdriver-manager'
 
-$args = @('scripts/fetch_paramchem_str.py','--mol2', $Mol2, '--out', $OutDir)
+$args = @('my_scripts/fetch_paramchem_str.py','--mol2', $Mol2, '--out', $OutDir)
 if ($Headless) { $args += '--headless' }
 
 Write-Host ("CMD> $py " + ($args -join ' ')) -ForegroundColor DarkGray
 & $py @args
-

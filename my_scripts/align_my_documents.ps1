@@ -13,8 +13,8 @@ function Ensure-Python() {
 }
 
 $py = Ensure-Python
-$args = @('scripts/align_my_documents.py')
+$script = Join-Path $PSScriptRoot 'align_my_documents.py'
+$args = @($script)
 if ($DryRun) { $args += @('--dry-run') }
 Write-Host ("CMD> $py " + ($args -join ' ')) -ForegroundColor DarkGray
 & $py @args
-

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Align MyDocuments knowledge-base files:
+Align my_docs knowledge-base files:
 1) Rename files whose name starts with `<digits>_` so that the `<digits>` equals
    the file's first Git add timestamp (Unix seconds).
 2) For Markdown files, insert a date line `日期：YYYY年MM月DD日` right after the
@@ -19,7 +19,7 @@ import sys
 import time
 from pathlib import Path
 
-ROOT = Path("MyDocuments")
+ROOT = Path("my_docs")
 
 
 def run_git(args: list[str]) -> str:
@@ -100,7 +100,7 @@ def ensure_date_in_markdown(md_path: Path, ts: int) -> bool:
 
 def main() -> int:
     if not ROOT.exists():
-        print("MyDocuments not found; nothing to do.")
+        print("my_docs not found; nothing to do.")
         return 0
     renamed: list[str] = []
     dated: list[str] = []
@@ -138,4 +138,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
