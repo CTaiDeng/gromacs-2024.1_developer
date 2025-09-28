@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# prepare-commit-msg hook
+# Usage: prepare-commit-msg <commit-msg-file> [<source>] [<sha1>]
+set -euo pipefail
+
+msg_file="$1"
+source_type="${2-}"
+
+# 不处理合并或压缩提交信息
+if [[ "$source_type" == "merge" || "$source_type" == "squash" ]]; then
+  exit 0
+fi
+
+# 优先使用本地虚拟环境 .venv\Scripts\python.exe，其次 .venv/bin/python，最后系统 python / py -3
+run_python() {
+  # Windows venv
+  if [[ -x ".venv/Scripts/python.exe" || -f ".venv/Scripts/python.exe" ]]; then
+    ".venv/Scripts/python.exe" "scripts/gen_commit_msg.py" "$@"
+    return $?
+  fi
+  # POSIX venv（兼容 WSL/Unix）
+  if [[ -x ".venv/bin/python" || -f ".venv/bin/python" ]]; then
+    ".venv/bin/python" "scripts/gen_commit_msg.py" "$@"
+    return $?
+  fi
+  # 系统 Python
+  if command -v python >/dev/null 2>&1; then
+    python "scripts/gen_commit_msg.py" "$@"
+    return $?
+  fi
+  # Windows Python Launcher
+  if command -v py >/dev/null 2>&1; then
+    py -3 "scripts/gen_commit_msg.py" "$@"
+    return $?
+  fi
+  return 127
+}
+
+# 如果脚本存在则尝试执行；失败不阻塞提交
+if [[ -f "scripts/gen_commit_msg.py" ]]; then
+  run_python "$msg_file" "$source_type" || true
+fi
+
+exit 0
