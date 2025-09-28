@@ -67,6 +67,17 @@
 目录约定
 - `my_docs/dev_docs`：项目开发文档（开发说明、环境、依赖、流程、安装脚本说明等）。
 - `my_docs/project_docs`：项目知识库（论文笔记、方案、研究记录等，一般以“时间戳_标题.md”命名）。
+- `my_project/`：存档的案例项目（归档从 `out/` 迁移的完整案例目录，内含该案例的 Markdown 报告与相关文件）。
+
+命名与维护（my_project/**/docs）
+- `my_project/**/docs` 下的文档命名与维护方式与 `my_docs/project_docs` 保持一致：
+  - 文件名使用“<秒级时间戳>_标题.md”
+  - 文档首行为标题（`# `），标题下一行添加日期行（`日期：YYYY年MM月DD日`）
+  - 可使用对齐脚本（`my_scripts/align_my_documents.py`/`.ps1`）进行幂等对齐
+
+临时文件清理
+- 任务执行过程中如需创建临时探测/占位文件（例如 `my_project/.write_test`），在任务完成后必须删除。
+- 临时文件不得提交到版本库；如确需短暂存在，应添加到 `.gitignore` 或显式在任务收尾阶段清理。
 
 通用脚本约定
 - 自定义/自动化脚本统一放在 `my_scripts/` 目录（支持 bash/ps1/py 等）。
