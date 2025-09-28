@@ -114,7 +114,7 @@ def write_gro(struct: GroStructure, path: Path):
         for a in struct.atoms:
             # Classic formatting widths, positions nm with 3 decimals
             f.write(
-                f"{a.resid:5d}{a.resname:>5s}{a.atomname:>5s}{a.atomnr:5d}"
+                f"{a.resid:5d}{a.resname:>5s}{a.atomname:>5s}{a.atomnr:5d}" \
                 f"{a.x:8.3f}{a.y:8.3f}{a.z:8.3f}\n"
             )
         f.write(f"{struct.box[0]:10.5f} {struct.box[1]:10.5f} {struct.box[2]:10.5f}\n")
@@ -129,36 +129,44 @@ def parse_ndx_groups(path: Path) -> Dict[str, List[int]]:
             if not ln:
                 continue
             if ln.startswith("[") and ln.endswith("]"):
-                name = ln.strip("[] ")
-                groups[name] = []
+                name = ln[1:-1].strip()
                 current = name
+                groups[current] = []
                 continue
-            if current is not None:
-                for tok in ln.split():
-                    try:
-                        groups[current].append(int(tok))
-                    except ValueError:
-                        pass
+            if current is None:
+                continue
+            # numbers separated by spaces
+            for tok in ln.split():
+                try:
+                    idx = int(tok)
+                except ValueError:
+                    continue
+                groups[current].append(idx)
     return groups
 
 
 # -------------------------
-# Random transform helpers
+# Geometry helpers
 # -------------------------
 
 
 def random_rotation_matrix(max_deg: float) -> List[List[float]]:
-    # Uniform random axis and angle within [-max_deg, max_deg]
-    angle = math.radians(random.uniform(-max_deg, max_deg))
-    ux, uy, uz = random.random(), random.random(), random.random()
-    norm = math.sqrt(ux * ux + uy * uy + uz * uz)
-    ux, uy, uz = ux / norm, uy / norm, uz / norm
-    c, s = math.cos(angle), math.sin(angle)
-    C = 1 - c
+    # Random axis, angle in [-max_deg, max_deg]
+    if max_deg <= 0:
+        return [[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]]
+    theta = math.radians(random.uniform(-max_deg, max_deg))
+    # random unit axis
+    while True:
+        x, y, z = random.uniform(-1, 1), random.uniform(-1, 1), random.uniform(-1, 1)
+        n = math.sqrt(x * x + y * y + z * z)
+        if n > 1e-6:
+            x, y, z = x / n, y / n, z / n
+            break
+    c, s, C = math.cos(theta), math.sin(theta), 1 - math.cos(theta)
     return [
-        [c + ux * ux * C, ux * uy * C - uz * s, ux * uz * C + uy * s],
-        [uy * ux * C + uz * s, c + uy * uy * C, uy * uz * C - ux * s],
-        [uz * ux * C - uy * s, uz * uy * C + ux * s, c + uz * uz * C],
+        [x * x * C + c, x * y * C - z * s, x * z * C + y * s],
+        [y * x * C + z * s, y * y * C + c, y * z * C - x * s],
+        [z * x * C - y * s, z * y * C + x * s, z * z * C + c],
     ]
 
 
@@ -290,83 +298,95 @@ def run_pose(
     cand_struct = apply_rigid_transform(base_struct, lig_indices, trans, rot)
     write_gro(cand_struct, cand_path)
     # Rerun
-    mdrun_rerun(gmx, tpr, cand_path, deffnm, cwd=pose_dir, nt=nt)
+    mdrun_rerun(gmx, tpr, cand_path, deffnm, pose_dir, nt=nt)
     edr = pose_dir / f"{deffnm}.edr"
-    score = extract_energy_sum(gmx, edr, cwd=pose_dir)
+    score = extract_energy_sum(gmx, edr, pose_dir)
     return i, score, cand_path
 
 
-def main(argv: List[str]) -> int:
-    p = argparse.ArgumentParser()
-    p.add_argument("--tpr", required=True)
-    p.add_argument("--structure", required=True)
-    p.add_argument("--ndx", required=True)
-    p.add_argument("--ligand-group", default="Ligand")
-    p.add_argument("--workdir", default="out")
-    p.add_argument("--gmx", default=os.environ.get("GMX_BIN", "gmx"))
-    p.add_argument("--n-poses", type=int, default=20)
-    p.add_argument("--trans", type=float, default=0.5)
-    p.add_argument("--rot", type=float, default=20)
-    p.add_argument("--nt", type=int, default=1)
-    p.add_argument("--jobs", type=int, default=1)
-    args = p.parse_args(argv)
+def main():
+    ap = argparse.ArgumentParser(description="Minimal docking-by-rerun prototype")
+    ap.add_argument("--gmx", default=os.environ.get("GMX", "gmx"), help="gmx executable")
+    ap.add_argument("--tpr", required=True, type=Path)
+    ap.add_argument("--structure", required=True, type=Path)
+    ap.add_argument("--ndx", required=True, type=Path)
+    ap.add_argument("--workdir", required=True, type=Path)
+    ap.add_argument("--n-poses", type=int, default=20)
+    ap.add_argument("--trans", type=float, default=0.5, help="max translation (nm)")
+    ap.add_argument("--rot", type=float, default=20.0, help="max rotation (deg)")
+    ap.add_argument("--jobs", type=int, default=1, help="parallel workers")
+    ap.add_argument("--nt", type=int, default=1, help="threads per mdrun")
+    ap.add_argument("--seed", type=int, default=None)
+    args = ap.parse_args()
 
-    workdir = Path(args.workdir)
-    workdir.mkdir(parents=True, exist_ok=True)
+    if args.seed is not None:
+        random.seed(args.seed)
 
-    gmx = args.gmx
-    if shutil.which(gmx) is None:
-        print(f"[ERR] gmx not found in PATH: {gmx}", file=sys.stderr)
-        return 2
+    args.workdir.mkdir(parents=True, exist_ok=True)
 
-    base_struct = read_gro(Path(args.structure))
-    groups = parse_ndx_groups(Path(args.ndx))
-    if args.ligand_group not in groups:
-        print(f"[ERR] group not found in index: {args.ligand_group}", file=sys.stderr)
-        return 3
-    lig_indices = groups[args.ligand_group]
+    # Basic checks
+    for p in [args.tpr, args.structure, args.ndx]:
+        if not p.exists():
+            sys.exit(f"Input not found: {p}")
+    if shutil.which(args.gmx) is None:
+        sys.exit(f"Cannot find gmx executable: {args.gmx}")
+
+    # Load structure & ligand indices
+    base_struct = read_gro(args.structure)
+    groups = parse_ndx_groups(args.ndx)
+    if "Ligand" not in groups:
+        sys.exit("index.ndx must contain a group named 'Ligand'")
+    lig_indices = groups["Ligand"]
     if not lig_indices:
-        print("[ERR] empty ligand group", file=sys.stderr)
-        return 4
+        sys.exit("'Ligand' group is empty in index.ndx")
 
-    rng = random.Random(42)
-    random.seed(42)
-
-    futures = []
+    # Run candidates
     results: List[Tuple[int, float, Path]] = []
-    with ThreadPoolExecutor(max_workers=args.jobs) as ex:
+    if args.jobs <= 1:
         for i in range(args.n_poses):
-            futures.append(
+            try:
+                results.append(
+                    run_pose(i, base_struct, lig_indices, args.gmx, args.tpr, args.workdir, args.trans, args.rot, args.nt)
+                )
+            except Exception as e:
+                print(f"[WARN] Pose {i} failed: {e}", file=sys.stderr)
+    else:
+        with ThreadPoolExecutor(max_workers=args.jobs) as ex:
+            futs = [
                 ex.submit(
                     run_pose,
                     i,
                     base_struct,
                     lig_indices,
-                    gmx,
-                    Path(args.tpr),
-                    workdir,
+                    args.gmx,
+                    args.tpr,
+                    args.workdir,
                     args.trans,
                     args.rot,
                     args.nt,
                 )
-            )
-        for fut in as_completed(futures):
-            try:
-                results.append(fut.result())
-            except Exception as e:
-                print(f"[ERR] pose failed: {e}", file=sys.stderr)
+                for i in range(args.n_poses)
+            ]
+            for fut in as_completed(futs):
+                try:
+                    results.append(fut.result())
+                except Exception as e:
+                    print(f"[WARN] Pose failed: {e}", file=sys.stderr)
 
-    # Sort by score ascending
-    results.sort(key=lambda t: t[1])
-    out_csv = workdir / "scores.csv"
+    # Sort and save summary
+    results.sort(key=lambda t: t[1])  # lower energy is better
+    out_csv = args.workdir / "scores.csv"
     with open(out_csv, "w", encoding="utf-8") as f:
-        f.write("pose_idx,score,candidate\n")
-        for i, score, cand in results:
-            f.write(f"{i},{score},{cand.name}\n")
-    print(f"[DONE] wrote {out_csv}")
-    return 0
+        f.write("pose,score_kJ_per_mol,candidate_gro\n")
+        for i, score, path in results:
+            f.write(f"{i},{score},{path.name}\n")
+
+    # Print top-10 summary
+    print("Top poses (lowest score):")
+    for i, (pid, score, path) in enumerate(results[:10]):
+        print(f"{i+1:2d}. pose={pid:04d}  score={score: .3f}  file={path.name}")
+    print(f"\nAll scores written to: {out_csv}")
 
 
 if __name__ == "__main__":
-    raise SystemExit(main(sys.argv[1:]))
-
+    main()
