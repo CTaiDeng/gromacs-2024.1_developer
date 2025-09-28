@@ -1,5 +1,7 @@
                Welcome to the official version of GROMACS!
 
+Note: 本仓库默认使用简体中文进行沟通与答复。
+
 If you are familiar with Unix, it should be fairly trivial to compile and
 install GROMACS. GROMACS uses only the CMake build system, and our
 installation guide can be found at
