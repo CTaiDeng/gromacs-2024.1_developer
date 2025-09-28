@@ -39,7 +39,7 @@ shopt -u nocasematch || true
 
 if [[ $IS_UPDATE -eq 1 ]]; then
   REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-  SCRIPT_PATH="$REPO_ROOT/scripts/gen_commit_msg.py"
+  SCRIPT_PATH="$REPO_ROOT/scripts/gen_commit_msg_googleai.py"
 
   if [[ -f "$SCRIPT_PATH" ]]; then
     # 选择 python 解释器：优先本地 .venv
@@ -58,8 +58,25 @@ if [[ $IS_UPDATE -eq 1 ]]; then
     fi
 
     if [[ -n "$PY" ]]; then
-      # 由脚本直接写入 MSG_FILE；失败不阻塞提交
-      "$PY" "$SCRIPT_PATH" "$MSG_FILE" "$COMMIT_SOURCE" || true
+      # 运行生成器并捕获输出；失败不阻塞提交
+      OUT=$("$PY" "$SCRIPT_PATH" 2>/dev/null || true)
+      OUT_TRIM=$(printf '%s' "$OUT" | sed 's/^\s\+//;s/\s\+$//')
+      if [[ -n "$OUT_TRIM" ]]; then
+        printf '%s\n' "$OUT_TRIM" > "$MSG_FILE"
+      fi
+    else
+      # Windows 兼容：尝试通过 cmd.exe 调用 py -3（将路径转换为 Windows 形式）
+      if command -v cmd.exe >/dev/null 2>&1; then
+        W_SCRIPT="$SCRIPT_PATH"
+        if command -v cygpath >/dev/null 2>&1; then
+          W_SCRIPT="$(cygpath -w "$SCRIPT_PATH" 2>/dev/null || echo "$SCRIPT_PATH")"
+        fi
+        OUT=$(cmd.exe /c py -3 "$W_SCRIPT" 2>/dev/null || true)
+        OUT_TRIM=$(printf '%s' "$OUT" | sed 's/^\s\+//;s/\s\+$//')
+        if [[ -n "$OUT_TRIM" ]]; then
+          printf '%s\n' "$OUT_TRIM" > "$MSG_FILE"
+        fi
+      fi
     fi
   fi
 

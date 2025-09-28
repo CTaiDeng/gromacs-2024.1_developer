@@ -8,7 +8,7 @@
 
 ## 提交信息自动生成
 
-- 推荐使用脚本 `scripts/gen_commit_msg.py` 自动生成提交信息。
+- 推荐使用脚本 `scripts/gen_commit_msg_googleai.py` 自动生成提交信息。
 - Git 钩子模板：已提供 `admin/hooks/prepare-commit-msg`，可按以下方式启用：
   - 方式 A（推荐，仓库级 hooks 目录）：
     - `git config core.hooksPath admin/hooks`
@@ -30,4 +30,3 @@
 
 - 如需临时跳过钩子，可使用 `git commit --no-verify`。
 - 代码风格、命名等遵循既有代码库风格，变更尽量聚焦、最小化。
-
