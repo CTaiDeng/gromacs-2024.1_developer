@@ -55,17 +55,21 @@ def collect_context() -> dict:
 
 
 def gen_with_google(context: dict, timeout_sec: int = 8):
+    # 优先读取 GEMINI_API_KEY，其次兼容其他变量
     api_key = (
-        os.getenv('GOOGLE_API_KEY')
-        or os.getenv('GEMINI_API_KEY')
+        os.getenv('GEMINI_API_KEY')
+        or os.getenv('GOOGLE_API_KEY')
         or os.getenv('GOOGLEAI_API_KEY')
     )
     if not api_key:
         return None, 'no_api_key'
 
+    # 模型从 GEMINI_MODEL 读取，缺省 gemini-1.5-flash-latest
+    model = os.getenv('GEMINI_MODEL') or 'gemini-1.5-flash-latest'
+
     url = (
         'https://generativelanguage.googleapis.com/v1beta/models/'
-        'gemini-1.5-flash-latest:generateContent?key=' + api_key
+        f'{model}:generateContent?key=' + api_key
     )
 
     prompt = (
@@ -154,4 +158,3 @@ if __name__ == '__main__':
     except Exception:
         # 兜底：任何异常不影响提交
         sys.exit(0)
-

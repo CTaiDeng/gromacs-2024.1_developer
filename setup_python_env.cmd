@@ -87,6 +87,10 @@ if errorlevel 1 (
   call :run "%VENVPY%" -c "import numpy as _; print('numpy ok')" || goto error
 )
 
+rem Optional: google-generativeai (用于提交信息生成)
+call :run "%VENVPY%" -m pip install --upgrade google-generativeai || echo [warn] google-generativeai install failed
+"%VENVPY%" -c "import importlib.metadata as im; print('google-generativeai:', im.version('google-generativeai'))" >NUL 2>&1 || echo [warn] google-generativeai import failed
+
 rem Project-required: PyTorch (CPU), unless disabled
 if "%INSTALL_TORCH%"=="1" (
   call :run "%VENVPY%" -m pip install --upgrade torch --index-url https://download.pytorch.org/whl/cpu
