@@ -1,0 +1,44 @@
+#!/usr/bin/env sh
+# Auto-generate commit message (one line) using scripts/gen_commit_msg.py
+# Usage (from git): prepare-commit-msg <msg_file> <source> <sha>
+
+set -eu
+
+MSG_FILE="$1"
+SOURCE="${2-}"
+
+# Respect merge/squash messages
+case "$SOURCE" in
+  merge|squash)
+    exit 0 ;;
+esac
+
+ROOT_DIR="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+SCRIPT="$ROOT_DIR/scripts/gen_commit_msg.py"
+
+if [ ! -f "$SCRIPT" ]; then
+  # Nothing to do
+  exit 0
+fi
+
+# Pick a python interpreter
+PY=""
+if command -v python3 >/dev/null 2>&1; then
+  PY=python3
+elif command -v python >/dev/null 2>&1; then
+  PY=python
+elif command -v py >/dev/null 2>&1; then
+  # Windows launcher
+  PY="py -3"
+fi
+
+if [ -z "$PY" ]; then
+  # No Python found; do nothing
+  exit 0
+fi
+
+# Run the generator; ignore failures to not block commits
+$PY "$SCRIPT" "$MSG_FILE" "$SOURCE" || true
+
+exit 0
+

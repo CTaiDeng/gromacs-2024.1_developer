@@ -6,6 +6,7 @@ import platform
 import subprocess
 import urllib.request
 import urllib.error
+import re
 try:
     import winreg  # type: ignore
 except Exception:  # 非 Windows 或不可用
@@ -164,6 +165,97 @@ def gen_with_google(context: dict, timeout_sec: int = 8):
     return text, None
 
 
+def _parse_stats(stats: str):
+    """Parse shortstat like '1 file changed, 10 insertions(+), 2 deletions(-)'.
+    Returns (changed_files, insertions, deletions)."""
+    if not stats:
+        return 0, 0, 0
+    changed = 0
+    ins = 0
+    dels = 0
+    m = re.search(r"(\d+)\s+file[s]?\s+changed", stats)
+    if m:
+        try:
+            changed = int(m.group(1))
+        except Exception:
+            changed = 0
+    m = re.search(r"(\d+)\s+insertion[s]?\(\+\)", stats)
+    if m:
+        try:
+            ins = int(m.group(1))
+        except Exception:
+            ins = 0
+    m = re.search(r"(\d+)\s+deletion[s]?\(-\)", stats)
+    if m:
+        try:
+            dels = int(m.group(1))
+        except Exception:
+            dels = 0
+    return changed, ins, dels
+
+
+def _summarize_files(files: str):
+    """Summarize name-status lines, counting A/M/D/R and pick first example.
+    Returns dict with counts and first example tuple (status, path)."""
+    counts = {"A": 0, "M": 0, "D": 0, "R": 0, "C": 0}
+    first = None
+    for line in (files or '').splitlines():
+        parts = line.split('\t')
+        if not parts:
+            continue
+        status = parts[0].strip()
+        code = status[:1] if status else ''
+        if code in counts:
+            counts[code] += 1
+        elif code:
+            counts[code] = counts.get(code, 0) + 1
+        if first is None:
+            path = parts[-1].strip() if len(parts) >= 2 else (parts[0].strip() if parts else '')
+            first = (code, path)
+    total = sum(counts.values())
+    return counts, first, total
+
+
+def _fallback_summary(context: dict) -> str:
+    """Generate a concise Chinese summary without LLM.
+    Prefers stats; falls back to action counts; keeps within ~50 chars."""
+    stats = context.get('stats') or ''
+    files = context.get('files') or ''
+    changed, ins, dels = _parse_stats(stats)
+    counts, first, total = _summarize_files(files)
+
+    if changed > 0:
+        extra = []
+        if ins > 0:
+            extra.append(f"+{ins}")
+        if dels > 0:
+            extra.append(f"−{dels}")
+        suffix = f"（{' '.join(extra)}）" if extra else ''
+        return f"更新 {changed} 个文件{suffix}"
+
+    if total == 1 and first:
+        code, path = first
+        action = {"A": "新增", "M": "修改", "D": "删除", "R": "重命名", "C": "复制"}.get(code, "更新")
+        base = os.path.basename(path)
+        return f"{action} {base}"
+
+    if total > 1:
+        a, m, d = counts.get('A', 0), counts.get('M', 0), counts.get('D', 0)
+        parts = []
+        if a:
+            parts.append(f"新增 {a}")
+        if m:
+            parts.append(f"修改 {m}")
+        if d:
+            parts.append(f"删除 {d}")
+        detail = '，'.join(parts)
+        if detail:
+            return f"更新 {total} 个文件：{detail}"
+        return f"更新 {total} 个文件"
+
+    return ''
+
+
 def main():
     msg_file = sys.argv[1]
     source_type = sys.argv[2] if len(sys.argv) >= 3 else ''
@@ -178,7 +270,10 @@ def main():
         return 0
 
     context = collect_context()
+    fallback = _fallback_summary(context)
     text, err = gen_with_google(context)
+    if (not text) and fallback:
+        text = fallback
     if text:
         write_message(msg_file, text)
     else:
