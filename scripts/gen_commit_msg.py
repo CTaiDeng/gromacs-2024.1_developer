@@ -2,9 +2,14 @@
 import os
 import sys
 import json
+import platform
 import subprocess
 import urllib.request
 import urllib.error
+try:
+    import winreg  # type: ignore
+except Exception:  # 非 Windows 或不可用
+    winreg = None  # type: ignore
 
 
 def read_meaningful_message(path: str) -> str:
@@ -54,18 +59,51 @@ def collect_context() -> dict:
     }
 
 
+def getenv_with_system_priority(names):
+    """从系统环境优先获取变量，其次用户环境，最后进程环境。
+    names: 单个变量名或变量名列表（按优先顺序）。
+    仅在 Windows 上尝试读取注册表，其余平台退化为 os.getenv 顺序。
+    """
+    if isinstance(names, str):
+        names = [names]
+
+    is_win = platform.system().lower().startswith('win') and winreg is not None
+
+    def get_win_env(root, path, key):
+        try:
+            with winreg.OpenKey(root, path) as h:  # type: ignore
+                val, _ = winreg.QueryValueEx(h, key)  # type: ignore
+                if isinstance(val, str) and val.strip():
+                    return val
+        except Exception:
+            return None
+        return None
+
+    for name in names:
+        if is_win:
+            # 机器级（系统变量）优先
+            v = get_win_env(winreg.HKEY_LOCAL_MACHINE, r"SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment", name)  # type: ignore
+            if v:
+                return v
+            # 用户级
+            v = get_win_env(winreg.HKEY_CURRENT_USER, r"Environment", name)  # type: ignore
+            if v:
+                return v
+        # 进程级（包括临时设置）
+        v = os.getenv(name)
+        if v:
+            return v
+    return None
+
+
 def gen_with_google(context: dict, timeout_sec: int = 8):
-    # 优先读取 GEMINI_API_KEY，其次兼容其他变量
-    api_key = (
-        os.getenv('GEMINI_API_KEY')
-        or os.getenv('GOOGLE_API_KEY')
-        or os.getenv('GOOGLEAI_API_KEY')
-    )
+    # 优先使用系统变量 GEMINI_API_KEY；兼容其他变量名
+    api_key = getenv_with_system_priority(['GEMINI_API_KEY', 'GOOGLE_API_KEY', 'GOOGLEAI_API_KEY'])
     if not api_key:
         return None, 'no_api_key'
 
-    # 模型从 GEMINI_MODEL 读取，缺省 gemini-1.5-flash-latest
-    model = os.getenv('GEMINI_MODEL') or 'gemini-1.5-flash-latest'
+    # 模型从 GEMINI_MODEL 读取（系统变量优先），缺省 gemini-1.5-flash-latest
+    model = getenv_with_system_priority('GEMINI_MODEL') or 'gemini-1.5-flash-latest'
 
     url = (
         'https://generativelanguage.googleapis.com/v1beta/models/'
