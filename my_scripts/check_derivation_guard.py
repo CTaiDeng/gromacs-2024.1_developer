@@ -29,7 +29,15 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def run(cmd: list[str]) -> str:
-    return subprocess.check_output(cmd, text=True, cwd=ROOT)
+    # Use bytes + robust decode to avoid locale decode errors on Windows (e.g., GBK).
+    out = subprocess.check_output(cmd, cwd=ROOT)
+    try:
+        return out.decode("utf-8", errors="ignore")
+    except Exception:
+        try:
+            return out.decode(errors="ignore")
+        except Exception:
+            return ""
 
 
 def staged_files() -> list[str]:
@@ -59,14 +67,23 @@ def check_readme_headers() -> list[str]:
         return ["README 不存在"]
     text = read_text(readme)
     head = "\n".join(text.splitlines()[:30])
-    chinese_ok = any(k in head for k in ("简体中文", "中文", "沟通", "交流"))
-    deriv_ok = any(k in head for k in ("非官方", "派生", "衍生"))
-    if not chinese_ok or not deriv_ok:
+    comm_ok = (
+        any(k in head for k in ("简体中文", "中文", "沟通", "交流"))
+        or re.search(r"Simplified\s+Chinese", head, re.I) is not None
+    )
+    deriv_ok = (
+        any(k in head for k in ("非官方", "派生", "衍生"))
+        or (
+            re.search(r"(non[-\s]*official|unofficial)", head, re.I) is not None
+            and re.search(r"(derivative|fork)", head, re.I) is not None
+        )
+    )
+    if not comm_ok or not deriv_ok:
         return [
-            "README 顶部缺少中文沟通或非官方派生声明",
-            "修复建议：在 README 顶部加入：",
-            " - 说明：本仓库默认使用简体中文进行沟通与答复。",
-            " - 声明：本仓库为 GROMACS 的非官方派生版本，与 GROMACS 官方无隶属或担保关系；上游许可见 COPYING（LGPL-2.1）。除另有声明外，新增/修改部分遵循 LGPL-2.1。",
+            "README 顶部缺少沟通语言或非官方派生声明（支持中文或等价英文表述）",
+            "修复建议：在 README 顶部加入（中文或英文）：",
+            " - Note: This repository communicates in Simplified Chinese by default.",
+            " - Disclaimer: This is a non-official derivative/fork of GROMACS; see COPYING (LGPL-2.1). Unless otherwise noted, added/modified parts follow LGPL-2.1.",
         ]
     return []
 
@@ -88,13 +105,36 @@ def check_staged_content() -> list[str]:
     msgs: list[str] = []
     # 1) discourage new binary blobs
     for f in files:
-        if BIN_PAT.search(f) and os.path.exists(f):
+        if BIN_PAT.search(f) and (ROOT / f).exists():
             msgs.append(f"暂存包含二进制/压缩制品：{f}（建议不要纳入仓库；若确因演示需要，请在 NOTICE 说明）")
     # 2) grep 'official' claims in changed text files
     try:
-        diff = run(["git", "diff", "--cached"])
-        if re.search(r"official\s+gromacs", diff, re.I):
-            msgs.append("检测到‘official gromacs’字样，请避免官方身份表述或在 README 顶部提供清晰非官方声明（已存在则可忽略）")
+        diff = run(["git", "diff", "--cached", "--unified=0"])
+        lines = diff.splitlines()
+        cur_file = ""
+        def should_check(path: str) -> bool:
+            # Ignore our guard and policy files to avoid self-matching.
+            if path.endswith("my_scripts/check_derivation_guard.py"):
+                return False
+            if Path(path).name.lower() in {"agents.md"}:
+                return False
+            return True
+
+        flagged = False
+        for ln in lines:
+            if ln.startswith("+++ b/"):
+                cur_file = ln[6:].strip()
+                continue
+            if not (ln.startswith("+") and not ln.startswith("+++")):
+                continue
+            if not should_check(cur_file):
+                continue
+            content = ln[1:]
+            if re.search(r"official\s+gromacs", content, re.I):
+                flagged = True
+                break
+        if flagged:
+            msgs.append("检测到新增文本包含 ‘official gromacs’ 字样，请避免官方身份表述或在 README 顶部提供清晰非官方声明（已存在则可忽略）")
     except subprocess.CalledProcessError:
         pass
     return msgs
@@ -144,4 +184,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
