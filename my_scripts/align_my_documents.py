@@ -2,24 +2,51 @@
 # -*- coding: utf-8 -*-
 
 """
-Align my_docs knowledge-base files:
-1) Rename files whose name starts with `<digits>_` so that the `<digits>` equals
-   the file's first Git add timestamp (Unix seconds).
-2) For Markdown files, insert a date line `日期：YYYY年MM月DD日` right after the
-   first H1 title, derived from the timestamp prefix.
+Align my_docs knowledge-base files and keep docs consistent:
+1) For files named as `<digits>_...`, rename so `<digits>` equals first Git add
+   timestamp (Unix seconds), preserving history via `git mv`.
+2) For Markdown files, insert/normalize the date line `日期：YYYY年MM月DD日`
+   right below the first H1 title, derived from the timestamp used in step 1.
+3) When the content contains any O3-related keywords, insert a canonical O3 note
+   line right below the date line (idempotent and de-duplicated).
 
-Safe to run repeatedly (idempotent). Uses `git mv` to preserve history.
+Special-case exemption:
+- For `my_docs/project_docs` with filename timestamp prefixes in
+  {1752417159..1752417168}, do NOT rename; use their filename timestamp directly
+  for the date line.
+
+Safe to run repeatedly (idempotent).
 """
 
 from __future__ import annotations
 
 import re
 import subprocess
-import sys
 import time
 from pathlib import Path
 
-ROOT = Path("my_docs")
+
+ROOTS = [Path("my_docs"), Path("my_project")]
+
+# Trigger keywords for adding O3-related reference note
+O3_KEYWORDS = [
+    "O3理论",
+    "O3元数学理论",
+    "主纤维丛版广义非交换李代数",
+    "PFB-GNLA",
+]
+
+O3_NOTE = (
+    "#### ***注：“O3理论/O3元数学理论/主纤维丛版广义非交换李代数(PFB-GNLA)”相关理论参见： "
+    "[作者（GaoZheng）网盘分享](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) "
+    "或 [作者（GaoZheng）主页](https://mymetamathematics.blogspot.com)***\n"
+)
+
+# Exempt these filename timestamp prefixes under my_docs/project_docs
+EXEMPT_PREFIXES = {
+    1752417159, 1752417160, 1752417161, 1752417162, 1752417163,
+    1752417164, 1752417165, 1752417166, 1752417167, 1752417168,
+}
 
 
 def run_git(args: list[str]) -> str:
@@ -27,7 +54,7 @@ def run_git(args: list[str]) -> str:
 
 
 def first_add_timestamp(path: Path) -> int | None:
-    # First, try first add commit
+    """Return first add (A) commit timestamp for path, falling back to first commit."""
     try:
         out = run_git([
             "log",
@@ -59,7 +86,7 @@ def ensure_date_in_markdown(md_path: Path, ts: int) -> bool:
         text = md_path.read_text(encoding="utf-8")
     except Exception:
         return False
-    lines = text.splitlines(True)
+    lines = list(text.splitlines(True))
     title_idx = None
     for i, ln in enumerate(lines):
         if ln.lstrip().startswith("# "):
@@ -68,24 +95,24 @@ def ensure_date_in_markdown(md_path: Path, ts: int) -> bool:
     date_line = f"日期：{fmt_date(ts)}\n"
     changed = False
     if title_idx is None:
-        # prepend a synthetic title from filename stem
+        # Prepend a synthetic title from filename stem
         title = md_path.stem
         new_text = f"# {title}\n{date_line}\n" + text
         if new_text != text:
             md_path.write_text(new_text, encoding="utf-8")
             return True
         return False
-    # search a small window for an existing date line and replace
+    # Search a small window for an existing date line and replace
     date_pat = re.compile(r"^\s*日期[:：]\s*\d{4}年\d{2}月\d{2}日\s*$")
     window_end = min(len(lines), title_idx + 5)
     for k in range(title_idx + 1, window_end):
-        if date_pat.match(lines[k]):
+        if date_pat.match(lines[k].strip()):
             if lines[k] != date_line:
                 lines[k] = date_line
                 changed = True
             break
     else:
-        # no date found; insert after title (keep an empty line spacing)
+        # No date found; insert after title (keep an empty line spacing)
         insert_pos = title_idx + 1
         if insert_pos < len(lines) and lines[insert_pos].strip() != "":
             lines.insert(insert_pos, date_line)
@@ -98,43 +125,156 @@ def ensure_date_in_markdown(md_path: Path, ts: int) -> bool:
     return changed
 
 
+def contains_o3_keyword(text: str) -> bool:
+    low = text.lower()
+    if "pfb-gnla" in low:
+        return True
+    return any(k in text for k in O3_KEYWORDS if k != "PFB-GNLA")
+
+
+def ensure_o3_note(md_path: Path) -> bool:
+    """Ensure the O3 reference note is placed directly below the date line when
+    any of the configured keywords appear. Idempotent.
+    """
+    try:
+        text = md_path.read_text(encoding="utf-8")
+    except Exception:
+        return False
+    if not contains_o3_keyword(text):
+        return False
+
+    lines = text.splitlines(True)
+    # Locate first H1 title
+    title_idx = None
+    for i, ln in enumerate(lines):
+        if ln.lstrip().startswith("# "):
+            title_idx = i
+            break
+    # Find date line near title
+    date_pat = re.compile(r"^\s*日期[:：]\s*\d{4}年\d{2}月\d{2}日\s*$")
+    date_idx = None
+    if title_idx is not None:
+        window_end = min(len(lines), title_idx + 6)
+        for k in range(title_idx + 1, window_end):
+            if date_pat.match(lines[k].strip()):
+                date_idx = k
+                break
+
+    changed = False
+    if title_idx is None or date_idx is None:
+        # Fallback: synthesize heading/date at top
+        name = md_path.name
+        ts_val = None
+        if "_" in name and name.split("_", 1)[0].isdigit():
+            try:
+                ts_val = int(name.split("_", 1)[0])
+            except Exception:
+                ts_val = None
+        date_line = f"日期：{fmt_date(ts_val or int(time.time()))}\n"
+        title = md_path.stem
+        new_lines = [f"# {title}\n", date_line, O3_NOTE, "\n"]
+        new_lines.extend(lines)
+        md_path.write_text("".join(new_lines), encoding="utf-8")
+        return True
+
+    # Remove existing O3 note instances (to keep single canonical copy)
+    sig_substr = "O3理论/O3元数学理论/主纤维丛版广义非交换李代数(PFB-GNLA)"
+    if any(sig_substr in ln for ln in lines):
+        lines = [ln for ln in lines if sig_substr not in ln]
+        changed = True
+        # Recompute indices after removal
+        title_idx = next((i for i, ln in enumerate(lines) if ln.lstrip().startswith("# ")), None)
+        date_idx = None
+        if title_idx is not None:
+            window_end = min(len(lines), title_idx + 6)
+            for k in range(title_idx + 1, window_end):
+                if date_pat.match(lines[k].strip()):
+                    date_idx = k
+                    break
+
+    insert_pos = (date_idx or 0) + 1
+    if insert_pos < len(lines) and lines[insert_pos].strip() == "":
+        lines.insert(insert_pos, O3_NOTE)
+    else:
+        lines.insert(insert_pos, O3_NOTE)
+        if insert_pos + 1 < len(lines) and lines[insert_pos + 1].strip() != "":
+            lines.insert(insert_pos + 1, "\n")
+    changed = True
+    if changed:
+        md_path.write_text("".join(lines), encoding="utf-8")
+    return changed
+
+
+def iter_target_files() -> list[Path]:
+    files: list[Path] = []
+    # my_docs/**
+    docs_root = ROOTS[0]
+    if docs_root.exists():
+        files.extend([p for p in docs_root.rglob("*") if p.is_file()])
+    # my_project/**/docs/**
+    proj_root = ROOTS[1]
+    if proj_root.exists():
+        for p in proj_root.rglob("*"):
+            if not p.is_file():
+                continue
+            if "docs" in p.parts:
+                files.append(p)
+    return files
+
+
 def main() -> int:
-    if not ROOT.exists():
-        print("my_docs not found; nothing to do.")
-        return 0
     renamed: list[str] = []
     dated: list[str] = []
-    for p in ROOT.rglob("*"):
-        if not p.is_file():
-            continue
+    noted: list[str] = []
+    targets = iter_target_files()
+    if not targets:
+        print("No target files found under my_docs/ or my_project/**/docs")
+        return 0
+    for p in targets:
         name = p.name
-        if "_" not in name:
-            continue
-        prefix, rest = name.split("_", 1)
-        if not prefix.isdigit():
-            continue
-        ts = first_add_timestamp(p)
-        if ts is None:
-            continue
-        # 1) rename if needed
-        new_name = f"{ts}_{rest}"
-        if new_name != name:
-            new_path = p.with_name(new_name)
-            subprocess.check_call(["git", "mv", "-f", "--", str(p), str(new_path)])
-            p = new_path
-            renamed.append(str(new_path))
+        ts_use: int | None = None
+        if "_" in name:
+            prefix, rest = name.split("_", 1)
+            if prefix.isdigit():
+                ts_filename = int(prefix)
+                exempt = (
+                    p.as_posix().startswith("my_docs/project_docs/")
+                    and ts_filename in EXEMPT_PREFIXES
+                )
+                if exempt:
+                    ts_use = ts_filename
+                else:
+                    ts_git = first_add_timestamp(p)
+                    if ts_git is not None:
+                        # 1) rename if needed
+                        new_name = f"{ts_git}_{rest}"
+                        if new_name != name:
+                            new_path = p.with_name(new_name)
+                            subprocess.check_call(["git", "mv", "-f", "--", str(p), str(new_path)])
+                            p = new_path
+                            name = p.name
+                            renamed.append(str(new_path))
+                        ts_use = ts_git
         # 2) ensure date line in markdown
-        if p.suffix.lower() == ".md":
-            if ensure_date_in_markdown(p, ts):
+        if p.suffix.lower() == ".md" and ts_use is not None:
+            if ensure_date_in_markdown(p, ts_use):
                 dated.append(str(p))
+        # 3) ensure O3 note when keywords present (markdown only)
+        if p.suffix.lower() == ".md":
+            if ensure_o3_note(p):
+                noted.append(str(p))
     print(f"Renamed {len(renamed)} file(s)")
     for f in renamed:
         print(" -", f)
     print(f"Updated date in {len(dated)} markdown file(s)")
     for f in dated:
         print(" -", f)
+    print(f"Inserted O3 note in {len(noted)} markdown file(s)")
+    for f in noted:
+        print(" -", f)
     return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
