@@ -11,8 +11,18 @@ NOTICE — 项目派生与许可说明
 - 新增自动化与示例脚本目录：`my_scripts/**`
   - 文档对齐脚本：`my_scripts/align_my_documents.py`、`my_scripts/align_my_documents.ps1`
   - 文档索引生成：`my_scripts/gen_my_docs_index.py`
-  - 其他安装与示例脚本：`my_scripts/install_*_wsl.sh`、`my_scripts/example/**` 等
-- README 增加中文沟通说明与派生/许可声明。
+  - 提交合规检查：`my_scripts/check_derivation_guard.py`
+  - 其余：`my_scripts/install_*_wsl.sh`、`my_scripts/example/**`、`my_scripts/dock_minimal.py` 等
+  - Force field 模板：`my_scripts/data/charmm36-jul2021.ff/**`（含大量 .itp/.tdb/.rtp；另 `charmm36-jul2021.ff.tgz`）
+- 新增项目案例目录：`my_project/**`
+  - 样例：`my_project/gmx_split_20250924_011827/**`（含 docs/** 与 LIG.acpype/** 生成物，如 .gro/.itp/.top/.mol2/.pkl 等）
+- 新增文档与知识库：`my_docs/**`
+  - 包含 `dev_docs/**` 与 `project_docs/**`
+- 新增提交信息生成脚本：`scripts/gen_commit_msg_googleai.py`
+- 新增最高规范：`AGENTS.md`
+- 新增派生许可说明：`NOTICE`
+
+
 
 引用与致谢
 - 请按 `CITATION.cff` 中的元数据引用 GROMACS 相关论文与版本信息。
