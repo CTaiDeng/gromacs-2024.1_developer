@@ -1,6 +1,6 @@
 # 开发协议（Codex 协作）
 
-本仓库与智能助手（Codex CLI 等）协作时的约定与提示。
+本仓库与智能助手（如 Codex CLI）协作时的约定与提示。
 
 ## 交流语言
 
@@ -83,3 +83,17 @@
 - 自定义/自动化脚本统一放在 `my_scripts/` 目录（支持 bash/ps1/py 等）。
 - 新增脚本请放入 `my_scripts/`，避免存放到 `scripts/` 目录。
 - 示例：`my_scripts/install_cmake_wsl.sh`。
+
+## my_docs 职责分工（索引与规范）
+
+- 规范与约束：`my_docs/AGENTS.md`
+  - 定义 `my_docs/**` 子树的文档创建约束与维护协议（目录与命名规范、内容规范、时间戳规则与豁免、O3 注释自动插入、自动化脚本）。
+  - 作为 my_docs 子树的权威规范入口。
+- 索引与摘要：`my_docs/README.md`
+  - 仅负责“文档路径枚举 + 摘要介绍”的索引页，不承载规范。
+  - 可通过 `python3 my_scripts/gen_my_docs_index.py` 自动生成/更新；不会改动原文档内容。
+  - 追加说明：`my_docs/README.md` 索引中的摘要为完整呈现（不截断）。
+- 对齐脚本：
+  - `python3 my_scripts/align_my_documents.py` 或 `pwsh -File my_scripts/align_my_documents.ps1`
+  - 功能：按 Git 首次入库时间戳重命名 `<数字>_*.md`、在标题下补齐/规范 `日期：YYYY年MM月DD日`；当正文命中 “O3理论/O3元数学理论/主纤维丛版广义非交换李代数/PFB-GNLA” 任一关键词时，在日期下方自动插入统一注释（幂等去重）。
+

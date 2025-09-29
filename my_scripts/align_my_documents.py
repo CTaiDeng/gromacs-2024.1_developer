@@ -44,8 +44,8 @@ O3_NOTE = (
 
 # Exempt these filename timestamp prefixes under my_docs/project_docs
 EXEMPT_PREFIXES = {
-    1752417159, 1752417160, 1752417161, 1752417162, 1752417163,
-    1752417164, 1752417165, 1752417166, 1752417167, 1752417168,
+    1759156359, 1759156360, 1759156361, 1759156362, 1759156363,
+    1759156364, 1759156365, 1759156366, 1759156367, 1759156368,
 }
 
 
@@ -95,8 +95,12 @@ def ensure_date_in_markdown(md_path: Path, ts: int) -> bool:
     date_line = f"日期：{fmt_date(ts)}\n"
     changed = False
     if title_idx is None:
-        # Prepend a synthetic title from filename stem
-        title = md_path.stem
+        # Prepend a synthetic title derived from filename (drop numeric prefix)
+        stem = md_path.stem
+        if "_" in stem and stem.split("_", 1)[0].isdigit():
+            title = stem.split("_", 1)[1]
+        else:
+            title = stem
         new_text = f"# {title}\n{date_line}\n" + text
         if new_text != text:
             md_path.write_text(new_text, encoding="utf-8")
@@ -205,6 +209,26 @@ def ensure_o3_note(md_path: Path) -> bool:
     return changed
 
 
+def normalize_h1_prefix(md_path: Path) -> bool:
+    """If the first H1 line looks like "# <digits>_<title>", drop the numeric prefix.
+    Returns True if the file was modified.
+    """
+    try:
+        text = md_path.read_text(encoding="utf-8")
+    except Exception:
+        return False
+    lines = text.splitlines(True)
+    for i, ln in enumerate(lines):
+        if ln.startswith("# "):
+            m = re.match(r"^#\s+(\d{10})_(.+)$", ln.rstrip("\n"))
+            if m:
+                title_rest = m.group(2)
+                lines[i] = f"# {title_rest}\n"
+                md_path.write_text("".join(lines), encoding="utf-8")
+                return True
+            break
+    return False
+
 def iter_target_files() -> list[Path]:
     files: list[Path] = []
     # my_docs/**
@@ -259,6 +283,10 @@ def main() -> int:
         if p.suffix.lower() == ".md" and ts_use is not None:
             if ensure_date_in_markdown(p, ts_use):
                 dated.append(str(p))
+            if normalize_h1_prefix(p):
+                # treat as date-updated category for reporting simplicity
+                if str(p) not in dated:
+                    dated.append(str(p))
         # 3) ensure O3 note when keywords present (markdown only)
         if p.suffix.lower() == ".md":
             if ensure_o3_note(p):
@@ -277,4 +305,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
