@@ -1,15 +1,16 @@
 @echo off
-setlocal ENABLEDELAYEDEXPANSION
+setlocal EnableExtensions EnableDelayedExpansion
 
 rem -------------------------------------------------
 rem Setup Python virtualenv and install project deps
-rem Default: envdir=.venv, install numpy + torch (CPU)
+rem Default: envdir=.venv, install numpy; torch (CPU) optional
 rem Flags:
 rem   --envdir <dir>           Target virtualenv directory (default .venv)
 rem   --requirements <path>    Install from requirements.txt first (optional)
 rem   --no-torch               Do not install PyTorch (CPU)
 rem   --tests                  Also install pytest (optional)
 rem   --trace                  Print commands before running
+rem   --install-hooks          Install repo git hooks (pre-commit, commit-msg)
 rem -------------------------------------------------
 
 set "ENVDIR=.venv"
@@ -17,6 +18,13 @@ set "REQUIREMENTS="
 set "INSTALL_TORCH=1"
 set "INSTALL_TESTS=0"
 set "TRACE=0"
+set "INSTALL_HOOKS=0"
+
+:prepare_env
+rem Avoid permission issues with global pip cache
+set "PIP_CACHE_DIR=%CD%\.pip-cache"
+if not exist "%PIP_CACHE_DIR%" mkdir "%PIP_CACHE_DIR%" >NUL 2>&1
+set "PIP_DISABLE_PIP_VERSION_CHECK=1"
 
 :parse_args
 if "%~1"=="" goto args_done
@@ -40,6 +48,10 @@ if /I "%~1"=="--trace" (
   set "TRACE=1"
   shift & goto parse_args
 )
+if /I "%~1"=="--install-hooks" (
+  set "INSTALL_HOOKS=1"
+  shift & goto parse_args
+)
 echo Unknown argument: %~1
 exit /b 1
 
@@ -47,17 +59,12 @@ exit /b 1
 
 if "%TRACE%"=="1" echo [debug] trace enabled
 
-rem Resolve Python (prefer py -3.10+, then py -3, then python)
+rem Resolve Python (prefer py -3, then python)
 set "PY_CMD="
-for %%V in (3.12 3.11 3.10) do (
-  if not defined PY_CMD (
-    py -%%V -c "import sys" >NUL 2>&1 && set "PY_CMD=py -%%V"
-  )
-)
-if not defined PY_CMD py -3 -c "import sys" >NUL 2>&1 && set "PY_CMD=py -3"
+py -3 -c "import sys" >NUL 2>&1 && set "PY_CMD=py -3"
 if not defined PY_CMD python -c "import sys" >NUL 2>&1 && set "PY_CMD=python"
 if not defined PY_CMD (
-  echo [error] Python 3.10+ not found. Please install Python or the Windows Python Launcher.
+  echo [error] Python 3.8+ not found. Please install Python or the Windows Python Launcher.
   exit /b 1
 )
 
@@ -71,29 +78,25 @@ if not exist "%VENVPY%" (
   goto error
 )
 
-call :run "%VENVPY%" -m pip install --upgrade pip setuptools wheel || goto error
+call :run "%VENVPY%" -m pip install --no-cache-dir --upgrade pip setuptools wheel || goto error
 
 if defined REQUIREMENTS (
   if "%TRACE%"=="1" echo [info] installing from requirements: "%REQUIREMENTS%"
-  call :run "%VENVPY%" -m pip install --upgrade -r "%REQUIREMENTS%" || goto error
+  call :run "%VENVPY%" -m pip install --no-cache-dir --upgrade -r "%REQUIREMENTS%" || goto error
 )
 
 rem Project-required: numpy
-call :run "%VENVPY%" -m pip install --upgrade numpy || goto error
+call :run "%VENVPY%" -m pip install --no-cache-dir --upgrade numpy || goto error
 "%VENVPY%" -c "import numpy as _; print('numpy ok')" >NUL 2>&1
 if errorlevel 1 (
   echo [warn] numpy import failed, retrying with binary wheels...
-  call :run "%VENVPY%" -m pip install --upgrade --only-binary=:all: numpy || goto error
+  call :run "%VENVPY%" -m pip install --no-cache-dir --upgrade --only-binary=:all: numpy || goto error
   call :run "%VENVPY%" -c "import numpy as _; print('numpy ok')" || goto error
 )
 
-rem Optional: google-generativeai (用于提交信息生成)
-call :run "%VENVPY%" -m pip install --upgrade google-generativeai || echo [warn] google-generativeai install failed
-"%VENVPY%" -c "import importlib.metadata as im; print('google-generativeai:', im.version('google-generativeai'))" >NUL 2>&1 || echo [warn] google-generativeai import failed
-
-rem Project-required: PyTorch (CPU), unless disabled
+rem Optional: PyTorch (CPU)
 if "%INSTALL_TORCH%"=="1" (
-  call :run "%VENVPY%" -m pip install --upgrade torch --index-url https://download.pytorch.org/whl/cpu
+  call :run "%VENVPY%" -m pip install --no-cache-dir --upgrade torch --index-url https://download.pytorch.org/whl/cpu
   set "TORCH_STATUS=%ERRORLEVEL%"
 ) else (
   set "TORCH_STATUS=999"
@@ -101,12 +104,18 @@ if "%INSTALL_TORCH%"=="1" (
 
 rem Optional: tests
 if "%INSTALL_TESTS%"=="1" (
-  call :run "%VENVPY%" -m pip install --upgrade pytest pytest-cov || goto error
+  call :run "%VENVPY%" -m pip install --no-cache-dir --upgrade pytest pytest-cov || goto error
+)
+
+rem Optional: Google Generative AI SDK (for AI commit message helper)
+call :run "%VENVPY%" -m pip install --no-cache-dir --upgrade google-generativeai
+"%VENVPY%" -c "import google.generativeai as _; print('google-generativeai ok')" >NUL 2>&1
+if errorlevel 1 (
+  echo [warn] google-generativeai not available; skipping verification
 )
 
 echo [ok] versions:
 call :run "%VENVPY%" -c "import sys,platform; print('Python:', sys.version); import numpy as np; print('numpy:', np.__version__)" || goto error
-
 if "%TORCH_STATUS%"=="0" (
   call :run "%VENVPY%" -c "import torch; print('torch:', torch.__version__, 'cuda:', torch.cuda.is_available())" || echo [warn] torch import failed unexpectedly
 ) else (
@@ -115,7 +124,21 @@ if "%TORCH_STATUS%"=="0" (
 
 echo.
 echo [done] Activate your environment:
-echo    %ENVDIR%\Scripts\activate
+echo    "%ENVDIR%\Scripts\activate"
+echo.
+if "%INSTALL_HOOKS%"=="1" (
+  echo [info] Installing git hooks ^(pre-commit, commit-msg^)
+  if exist "%CD%\script\install-git-hooks.py" (
+    "%VENVPY%" "%CD%\script\install-git-hooks.py" --force || goto error
+  ) else (
+    echo [warn] Hook installer not found under script/
+  )
+  rem Configure default commit message via commit.template
+  if exist "%CD%\script\commit_template.txt" (
+    git -C "%CD%" config commit.template script/commit_template.txt >NUL 2>&1
+    echo [info] commit.template -> script/commit_template.txt
+  )
+)
 exit /b 0
 
 :run
@@ -126,4 +149,3 @@ exit /b %ERRORLEVEL%
 :error
 echo [fail] setup failed (errorlevel=%ERRORLEVEL%)
 exit /b 1
-
