@@ -1,9 +1,7 @@
-               Welcome to the official version of GROMACS!
-
-Note: 本仓库默认使用简体中文进行沟通与答复。
-
 说明：本仓库默认使用简体中文进行沟通与答复。
+声明：本仓库为 GROMACS 的非官方派生版本，与 GROMACS 官方无隶属或担保关系；上游许可见 `COPYING`（LGPL-2.1）。除另有声明外，新增/修改部分遵循 LGPL-2.1。
 
+               Welcome to the official version of GROMACS!
 If you are familiar with Unix, it should be fairly trivial to compile and
 install GROMACS. GROMACS uses only the CMake build system, and our
 installation guide can be found at

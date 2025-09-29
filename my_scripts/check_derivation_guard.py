@@ -1,0 +1,147 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+Derivation guard: enforce fork/derivation compliance before commit.
+
+Checks (fail -> block commit):
+1) Required files exist: COPYING, CITATION.cff, README, NOTICE.
+2) README top contains Chinese-communication note and non-official derivation disclaimer.
+3) NOTICE mentions non-official derivation and LGPL.
+4) Heuristics on staged changes: discourage new binary blobs; flag 'official' claims.
+
+Optional LLM assist: if GEMINI/GOOGLEAI key set and DERIVATION_GUARD_USE_LLM=1,
+summarize staged diff and ask model for PASS/FAIL with reasoning. Lack of key
+does not fail the check.
+
+Exit codes: 0 pass; non-zero fail.
+"""
+
+from __future__ import annotations
+
+import os
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def run(cmd: list[str]) -> str:
+    return subprocess.check_output(cmd, text=True, cwd=ROOT)
+
+
+def staged_files() -> list[str]:
+    out = run(["git", "diff", "--cached", "--name-only"])
+    return [x for x in out.splitlines() if x.strip()]
+
+
+def read_text(path: Path) -> str:
+    try:
+        return path.read_text(encoding="utf-8")
+    except Exception:
+        try:
+            return path.read_text(errors="ignore")
+        except Exception:
+            return ""
+
+
+def check_required_files() -> list[str]:
+    req = ["COPYING", "CITATION.cff", "README", "NOTICE"]
+    missing = [p for p in req if not (ROOT / p).exists()]
+    return [f"缺失关键文件：{','.join(missing)}"] if missing else []
+
+
+def check_readme_headers() -> list[str]:
+    readme = ROOT / "README"
+    if not readme.exists():
+        return ["README 不存在"]
+    text = read_text(readme)
+    head = "\n".join(text.splitlines()[:30])
+    chinese_ok = any(k in head for k in ("简体中文", "中文", "沟通", "交流"))
+    deriv_ok = any(k in head for k in ("非官方", "派生", "衍生"))
+    if not chinese_ok or not deriv_ok:
+        return [
+            "README 顶部缺少中文沟通或非官方派生声明",
+            "修复建议：在 README 顶部加入：",
+            " - 说明：本仓库默认使用简体中文进行沟通与答复。",
+            " - 声明：本仓库为 GROMACS 的非官方派生版本，与 GROMACS 官方无隶属或担保关系；上游许可见 COPYING（LGPL-2.1）。除另有声明外，新增/修改部分遵循 LGPL-2.1。",
+        ]
+    return []
+
+
+def check_notice() -> list[str]:
+    path = ROOT / "NOTICE"
+    if not path.exists():
+        return ["NOTICE 不存在"]
+    text = read_text(path)
+    ok = ("非官方" in text or "派生" in text or "衍生" in text) and ("LGPL" in text or "LGPL-2.1" in text)
+    return [] if ok else ["NOTICE 中缺少派生/许可说明（应包含‘非官方/派生/衍生’与‘LGPL’ 关键词）"]
+
+
+BIN_PAT = re.compile(r"\.(?:exe|dll|so|a|lib|pyd|o|obj|jar|zip|7z|tgz|gz|xz)$", re.I)
+
+
+def check_staged_content() -> list[str]:
+    files = staged_files()
+    msgs: list[str] = []
+    # 1) discourage new binary blobs
+    for f in files:
+        if BIN_PAT.search(f) and os.path.exists(f):
+            msgs.append(f"暂存包含二进制/压缩制品：{f}（建议不要纳入仓库；若确因演示需要，请在 NOTICE 说明）")
+    # 2) grep 'official' claims in changed text files
+    try:
+        diff = run(["git", "diff", "--cached"])
+        if re.search(r"official\s+gromacs", diff, re.I):
+            msgs.append("检测到‘official gromacs’字样，请避免官方身份表述或在 README 顶部提供清晰非官方声明（已存在则可忽略）")
+    except subprocess.CalledProcessError:
+        pass
+    return msgs
+
+
+def llm_assist_if_enabled(summary: str) -> list[str]:
+    if os.environ.get("DERIVATION_GUARD_USE_LLM", "0") != "1":
+        return []
+    # Soft dependency on API key
+    api_key = (
+        os.environ.get("GEMINI_API_KEY")
+        or os.environ.get("GOOGLE_API_KEY")
+        or os.environ.get("GOOGLEAI_API_KEY")
+    )
+    if not api_key:
+        return ["LLM 辅助检查：未检测到 API Key，已跳过（设置 DERIVATION_GUARD_USE_LLM=1 且配置 GEMINI_API_KEY 可启用）"]
+    # Minimal stub: we do not hard-depend on external libs; provide informative note.
+    # 可按需扩展为真实 HTTP 调用。
+    return ["LLM 辅助检查：已启用占位（未集成外部依赖）；请后续根据需要扩展为实际远程校验。"]
+
+
+def main() -> int:
+    problems: list[str] = []
+    problems += check_required_files()
+    problems += check_readme_headers()
+    problems += check_notice()
+    problems += check_staged_content()
+
+    # Short summary for optional LLM
+    try:
+        names = staged_files()
+        stat = run(["git", "diff", "--cached", "--shortstat"]).strip()
+        summary = f"FILES: {names}\nSTAT: {stat}"
+    except Exception:
+        summary = ""
+    problems += llm_assist_if_enabled(summary)
+
+    if problems:
+        sys.stderr.write("[Derivation Guard] 提交被阻止：\n")
+        for m in problems:
+            sys.stderr.write(f" - {m}\n")
+        sys.stderr.write("\n可临时跳过：git commit --no-verify（不推荐）。\n")
+        return 1
+    print("[Derivation Guard] OK — 合规检查通过。")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+

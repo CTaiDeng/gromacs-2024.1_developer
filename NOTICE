@@ -1,0 +1,20 @@
+NOTICE — 项目派生与许可说明
+
+本仓库为 GROMACS 2024.1 的非官方派生版本（fork）。与 GROMACS 官方无隶属或担保关系。
+
+许可与获取方式
+- 上游许可：LGPL-2.1，见根目录文件 `COPYING`。
+- 除另有声明外，本仓库新增/修改部分依照 LGPL-2.1 分发。
+- 如以二进制形式分发并链接本库，请确保满足 LGPL 的“可重新链接”要求：优先动态链接，或提供可与库重新链接的目标文件（.o 等）；不得禁止为调试对库进行的必要反向工程。
+
+主要差异（非穷尽）
+- 新增自动化与示例脚本目录：`my_scripts/**`
+  - 文档对齐脚本：`my_scripts/align_my_documents.py`、`my_scripts/align_my_documents.ps1`
+  - 文档索引生成：`my_scripts/gen_my_docs_index.py`
+  - 其他安装与示例脚本：`my_scripts/install_*_wsl.sh`、`my_scripts/example/**` 等
+- README 增加中文沟通说明与派生/许可声明。
+
+引用与致谢
+- 请按 `CITATION.cff` 中的元数据引用 GROMACS 相关论文与版本信息。
+- 感谢 GROMACS 开发者社区的工作与贡献。
+

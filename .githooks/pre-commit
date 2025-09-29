@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+# Derivation compliance pre-commit hook
+
+set -eu
+
+repo_root="$(git rev-parse --show-toplevel)"
+py="python3"
+if command -v python >/dev/null 2>&1; then py=python; fi
+
+"$py" "$repo_root/my_scripts/check_derivation_guard.py"
+
