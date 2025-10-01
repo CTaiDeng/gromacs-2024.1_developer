@@ -37,6 +37,8 @@
   - 提交信息生成脚本 `my_scripts/gen_commit_msg_googleai.py` 在生成摘要时忽略该路径的改动；
   - 统一由 `my_scripts/docs_whitelist.json` 管理白名单/排除项，默认已包含该排除路径。
 
+- AI 助手知识库引用范围：当未明确指定路径而笼统提及“知识库”时，默认包含 `my_docs/project_docs` 及其全部递归子目录（包含只读子目录 `kernel_reference`）；但仍须遵守其只读属性与上述索引/写入排除规则。如需临时排除此子目录，请在指令或脚本中显式注明。
+
 ## 例外与裁量
 - 若确有合理理由（例如上游文档保留），可在 README 顶部保持非官方声明以对冲相关表述。
 - 对合规检查有误报时，优先提交修正 PR 至 `my_scripts/check_derivation_guard.py`；紧急情况下可临时 `--no-verify`，并在后续补齐整改。
