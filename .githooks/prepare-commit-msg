@@ -40,7 +40,7 @@ shopt -u nocasematch || true
 
 if [[ $IS_UPDATE -eq 1 ]]; then
   REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-  SCRIPT_PATH="$REPO_ROOT/scripts/gen_commit_msg_googleai.py"
+  SCRIPT_PATH="$REPO_ROOT/my_scripts/gen_commit_msg_googleai.py"
 
   if [[ -f "$SCRIPT_PATH" ]]; then
     # 选择 python 解释器：优先本地 .venv
@@ -89,4 +89,3 @@ if [[ $IS_UPDATE -eq 1 ]]; then
 fi
 
 exit 0
-

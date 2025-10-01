@@ -56,4 +56,12 @@
 - 自动生成：
   - Python：`python3 my_scripts/ensure_summaries.py`
   - 行为：为缺少“摘要”段的文档自动插入“## 摘要”与生成的摘要文本；幂等，重复执行不会重复插入。
-
+## 目录与权限约定（project_docs 子树）
+- 目录角色：
+  - `my_docs/project_docs`：项目知识库（本仓库维护，允许写入）。
+  - `my_docs/project_docs/kernel_reference`：外部知识参考（只读）。
+- 管控与自动化：
+  - 写入型脚本需遵守只读目录：`my_scripts/align_my_documents.py`、`my_scripts/ensure_summaries.py` 按 `my_scripts/docs_whitelist.json` 的 `doc_write_exclude` 进行排除（默认包含 `my_docs/project_docs/kernel_reference`）。
+  - 索引生成：`my_scripts/gen_my_docs_index.py` 不索引 `my_docs/project_docs/kernel_reference`。
+  - 提交信息：`my_scripts/gen_commit_msg_googleai.py` 生成提交信息时忽略 `my_docs/project_docs/kernel_reference` 的变更。
+- 例外说明：以上约束为本子树的强约束。如需临时例外，请在 PR 中说明理由，并同步更新 `docs_whitelist.json` 与本文件说明。

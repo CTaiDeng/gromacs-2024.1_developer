@@ -7,9 +7,36 @@ import re
 import sys
 import time
 from pathlib import Path
+import json
 
 
 ROOT = Path("my_docs")
+REPO_ROOT = Path(__file__).resolve().parents[1]
+CFG_PATH = REPO_ROOT / "my_scripts" / "docs_whitelist.json"
+
+
+def _load_excludes() -> list[str]:
+    try:
+        if CFG_PATH.exists():
+            data = json.loads(CFG_PATH.read_text(encoding="utf-8"))
+            return [str(x).replace("\\", "/").rstrip("/") for x in data.get("doc_write_exclude", [])]
+    except Exception:
+        pass
+    return []
+
+
+EX = _load_excludes()
+
+
+def _is_excluded(p: Path) -> bool:
+    try:
+        rp = p.resolve().relative_to(REPO_ROOT.resolve()).as_posix()
+    except Exception:
+        rp = p.as_posix().replace("\\", "/")
+    for e in EX:
+        if rp == e or rp.startswith(e + "/"):
+            return True
+    return False
 
 
 def fmt_date(ts: int | None = None) -> str:
@@ -86,11 +113,18 @@ def build_index() -> str:
     out.append("说明：本索引枚举 `my_docs/dev_docs` 与 `my_docs/project_docs` 下文档的路径与简要摘要，便于浏览与检索。")
     out.append("")
 
+    # Excludes note for external references
+    ex_proj = [e for e in EX if e.startswith("my_docs/project_docs/")]
+    if ex_proj:
+        out.append("注：以下路径属于外部知识参考（只读），不参与索引")
+        for e in ex_proj:
+            out.append(f"- `{e}`")
+
     # dev_docs
     dev_dir = ROOT / "dev_docs"
     out.append("## dev_docs")
     if dev_dir.exists():
-        files = sorted([p for p in dev_dir.glob("*.md") if p.is_file()])
+        files = sorted([p for p in dev_dir.glob("*.md") if p.is_file() and not _is_excluded(p)])
     else:
         files = []
     if not files:
@@ -105,7 +139,7 @@ def build_index() -> str:
     proj_dir = ROOT / "project_docs"
     out.append("## project_docs")
     if proj_dir.exists():
-        files = sorted([p for p in proj_dir.glob("*.md") if p.is_file()])
+        files = sorted([p for p in proj_dir.glob("*.md") if p.is_file() and not _is_excluded(p)])
     else:
         files = []
     if not files:

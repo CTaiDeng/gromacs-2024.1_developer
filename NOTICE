@@ -18,7 +18,7 @@ NOTICE — 项目派生与许可说明
   - 样例：`my_project/gmx_split_20250924_011827/**`（含 docs/** 与 LIG.acpype/** 生成物，如 .gro/.itp/.top/.mol2/.pkl 等）
 - 新增文档与知识库：`my_docs/**`
   - 包含 `dev_docs/**` 与 `project_docs/**`
-- 新增提交信息生成脚本：`scripts/gen_commit_msg_googleai.py`
+- 新增提交信息生成脚本：`my_scripts/gen_commit_msg_googleai.py`
 - 新增最高规范：`AGENTS.md`
 - 新增派生许可说明：`NOTICE`
 

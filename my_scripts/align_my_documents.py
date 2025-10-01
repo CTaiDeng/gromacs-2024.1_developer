@@ -24,9 +24,53 @@ import re
 import subprocess
 import time
 from pathlib import Path
+import json
+import os
 
 
 ROOTS = [Path("my_docs"), Path("my_project")]
+
+# Config: doc write whitelist/exclude
+REPO_ROOT = Path(__file__).resolve().parents[1]
+CFG_PATH = REPO_ROOT / "my_scripts" / "docs_whitelist.json"
+
+
+def _load_whitelist_config() -> tuple[list[str], list[str]]:
+    wl: list[str] = []
+    ex: list[str] = []
+    try:
+        if CFG_PATH.exists():
+            data = json.loads(CFG_PATH.read_text(encoding="utf-8"))
+            wl = [str(x).replace("\\", "/").rstrip("/") for x in data.get("doc_write_whitelist", [])]
+            ex = [str(x).replace("\\", "/").rstrip("/") for x in data.get("doc_write_exclude", [])]
+    except Exception:
+        pass
+    return wl, ex
+
+
+WL, EX = _load_whitelist_config()
+
+
+def _rel_posix(p: Path) -> str:
+    try:
+        return p.resolve().relative_to(REPO_ROOT.resolve()).as_posix()
+    except Exception:
+        return p.as_posix().replace("\\", "/")
+
+
+def _is_allowed(p: Path) -> bool:
+    rp = _rel_posix(p)
+    # Exclude takes precedence
+    for e in EX:
+        if rp == e or rp.startswith(e + "/"):
+            return False
+    # If whitelist provided, require match; else allow
+    if WL:
+        for w in WL:
+            if rp == w or rp.startswith(w + "/"):
+                return True
+        return False
+    return True
 
 # Trigger keywords for adding O3-related reference note
 O3_KEYWORDS = [
@@ -234,7 +278,7 @@ def iter_target_files() -> list[Path]:
     # my_docs/**
     docs_root = ROOTS[0]
     if docs_root.exists():
-        files.extend([p for p in docs_root.rglob("*") if p.is_file()])
+        files.extend([p for p in docs_root.rglob("*") if p.is_file() and _is_allowed(p)])
     # my_project/**/docs/**
     proj_root = ROOTS[1]
     if proj_root.exists():
@@ -242,7 +286,8 @@ def iter_target_files() -> list[Path]:
             if not p.is_file():
                 continue
             if "docs" in p.parts:
-                files.append(p)
+                if _is_allowed(p):
+                    files.append(p)
     return files
 
 

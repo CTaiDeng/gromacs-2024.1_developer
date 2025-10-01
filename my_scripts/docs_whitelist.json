@@ -1,0 +1,10 @@
+{
+  "doc_write_whitelist": [
+    "my_docs",
+    "my_project"
+  ],
+  "doc_write_exclude": [
+    "my_docs/project_docs/kernel_reference"
+  ]
+}
+

@@ -27,7 +27,15 @@
 - 启用钩子与模板：
   - `git config core.hooksPath .githooks`
   - `git config commit.template .githooks/.git-commit-template.txt`
-- 提交信息建议使用 `scripts/gen_commit_msg_googleai.py` 自动生成（无 Key 也可离线摘要）。
+- 提交信息建议使用 `my_scripts/gen_commit_msg_googleai.py` 自动生成（无 Key 也可离线摘要）。
+
+## 文档与目录约定（知识库/外部参考）
+- `my_docs/project_docs`：项目知识库（受仓库脚本维护，允许写入）。
+- `my_docs/project_docs/kernel_reference`：外部知识参考（只读）。约束如下：
+  - 不纳入 `my_scripts/gen_my_docs_index.py` 的索引输出；
+  - 不参与写入型自动化脚本（如 `align_my_documents.py`、`ensure_summaries.py`）的遍历与改写；
+  - 提交信息生成脚本 `my_scripts/gen_commit_msg_googleai.py` 在生成摘要时忽略该路径的改动；
+  - 统一由 `my_scripts/docs_whitelist.json` 管理白名单/排除项，默认已包含该排除路径。
 
 ## 例外与裁量
 - 若确有合理理由（例如上游文档保留），可在 README 顶部保持非官方声明以对冲相关表述。

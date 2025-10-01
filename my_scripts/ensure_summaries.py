@@ -6,9 +6,48 @@ from __future__ import annotations
 import re
 import sys
 from pathlib import Path
+import json
+from pathlib import Path
 
 
 ROOT = Path("my_docs")
+REPO_ROOT = Path(__file__).resolve().parents[1]
+CFG_PATH = REPO_ROOT / "my_scripts" / "docs_whitelist.json"
+
+
+def _load_whitelist_config() -> tuple[list[str], list[str]]:
+    try:
+        if CFG_PATH.exists():
+            data = json.loads(CFG_PATH.read_text(encoding="utf-8"))
+            wl = [str(x).replace("\\", "/").rstrip("/") for x in data.get("doc_write_whitelist", [])]
+            ex = [str(x).replace("\\", "/").rstrip("/") for x in data.get("doc_write_exclude", [])]
+            return wl, ex
+    except Exception:
+        pass
+    return [], []
+
+
+WL, EX = _load_whitelist_config()
+
+
+def _rel_posix(p: Path) -> str:
+    try:
+        return p.resolve().relative_to(REPO_ROOT.resolve()).as_posix()
+    except Exception:
+        return p.as_posix().replace("\\", "/")
+
+
+def _is_allowed(p: Path) -> bool:
+    rp = _rel_posix(p)
+    for e in EX:
+        if rp == e or rp.startswith(e + "/"):
+            return False
+    if WL:
+        for w in WL:
+            if rp == w or rp.startswith(w + "/"):
+                return True
+        return False
+    return True
 
 
 def summarize_text(text: str, max_len: int = 220) -> str:
@@ -121,6 +160,8 @@ def main() -> int:
         if not d.exists():
             continue
         for p in sorted(d.rglob("*.md")):
+            if not _is_allowed(p):
+                continue
             if insert_summary(p):
                 changed.append(str(p))
     print(f"Inserted summary in {len(changed)} file(s)")
@@ -131,4 +172,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
