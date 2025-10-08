@@ -1,5 +1,6 @@
 # my_docs 文档索引
 日期：2025年09月29日
+#### ***注：“O3理论/O3元数学理论/主纤维丛版广义非交换李代数(PFB-GNLA)”相关理论参见： [作者（GaoZheng）网盘分享](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) 或 [作者（GaoZheng）主页](https://mymetamathematics.blogspot.com)***
 
 说明：本索引枚举 `my_docs/dev_docs` 与 `my_docs/project_docs` 下文档的路径与简要摘要，便于浏览与检索。
 

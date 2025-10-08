@@ -10,7 +10,7 @@ my_scripts 脚本清单（WSL 专用）
 - install_amber_deps_wsl.sh：用 conda 安装 AmberTools(antechamber) 与 Open Babel。
 - generate_hiv_mol2_wsl.sh：从 SMILES/结构文件生成标准 hiv.mol2（含 SUBSTRUCTURE）。
 - cgenff_charmm2gmx.py：CGenFF 输出与 GROMACS 格式转换辅助。
-- align_my_documents.py：对 my_docs/** 文档进行命名与日期规范化。
+- align_my_documents.py：对 my_docs/** 文档进行命名与日期规范化；并在 `my_docs/project_docs` 下强制 10 位数字前缀唯一（视为文档 ID）。若出现同时入库导致的同秒冲突，将对后续文件按秒级向后回退（-1s，直至唯一），同时同步 Markdown 中的“日期：YYYY年MM月DD日”。
 
 使用示例
 - 安装 CMake：`bash my_scripts/install_cmake_wsl.sh`

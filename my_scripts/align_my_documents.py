@@ -4,7 +4,10 @@
 """
 Align my_docs knowledge-base files and keep docs consistent:
 1) For files named as `<digits>_...`, rename so `<digits>` equals first Git add
-   timestamp (Unix seconds), preserving history via `git mv`.
+   timestamp (Unix seconds), preserving history via `git mv`. For `my_docs/project_docs`,
+   additionally enforce the `<digits>` prefix to be unique across the directory (treat it
+   as a document ID): when collisions occur (e.g. same-second adds), step back by 1 second
+   repeatedly until a unique prefix is obtained.
 2) For Markdown files, insert/normalize the date line `日期：YYYY年MM月DD日`
    right below the first H1 title, derived from the timestamp used in step 1.
 3) When the content contains any O3-related keywords, insert a canonical O3 note
@@ -91,6 +94,57 @@ EXEMPT_PREFIXES = {
     1759156359, 1759156360, 1759156361, 1759156362, 1759156363,
     1759156364, 1759156365, 1759156366, 1759156367, 1759156368,
 }
+
+# --- New: enforce unique prefix (as document ID) within my_docs/project_docs ---
+PROJ_DOCS_DIR = Path("my_docs/project_docs")
+
+def _scan_project_docs_prefixes() -> dict[int, set[Path]]:
+    """Return mapping: ts_prefix -> set(paths) for my_docs/project_docs (excludes kernel_reference
+    via whitelist/exclude rules in callers).
+    """
+    mapping: dict[int, set[Path]] = {}
+    if not PROJ_DOCS_DIR.exists():
+        return mapping
+    for p in PROJ_DOCS_DIR.glob("*"):
+        if not p.is_file():
+            continue
+        name = p.name
+        if "_" not in name:
+            continue
+        pref = name.split("_", 1)[0]
+        if len(pref) == 10 and pref.isdigit():
+            ts = int(pref)
+            mapping.setdefault(ts, set()).add(p)
+    return mapping
+
+def _ensure_unique_projdocs_ts(ts: int, cur_path: Path, used: dict[int, set[Path]]) -> int:
+    """Given desired timestamp prefix for a file under project_docs, decrement by 1 second
+    repeatedly until it becomes unique among existing files (excluding the current file’s own
+    occurrence). Returns the adjusted timestamp.
+    """
+    if cur_path.parent.resolve() != PROJ_DOCS_DIR.resolve():
+        return ts
+    cur_ts = ts
+    while True:
+        users = used.get(cur_ts, set())
+        # Unique if set empty or only contains this file
+        if not users or users == {cur_path}:
+            break
+        cur_ts -= 1
+    # Reserve this ts for cur_path in mapping for subsequent files in this run
+    used.setdefault(cur_ts, set()).add(cur_path)
+    # If the file previously occupied another ts in 'used', clean it up to avoid false conflicts
+    prev_pref = None
+    name = cur_path.name
+    if "_" in name and name.split("_", 1)[0].isdigit():
+        prev_pref = int(name.split("_", 1)[0])
+    if prev_pref is not None and prev_pref != cur_ts:
+        s = used.get(prev_pref)
+        if s and cur_path in s:
+            s.discard(cur_path)
+            if not s:
+                used.pop(prev_pref, None)
+    return cur_ts
 
 
 def run_git(args: list[str]) -> str:
@@ -296,6 +350,8 @@ def main() -> int:
     dated: list[str] = []
     noted: list[str] = []
     targets = iter_target_files()
+    # Track used prefixes within my_docs/project_docs to guarantee uniqueness
+    used_proj_prefixes = _scan_project_docs_prefixes()
     if not targets:
         print("No target files found under my_docs/ or my_project/**/docs")
         return 0
@@ -311,19 +367,23 @@ def main() -> int:
                     and ts_filename in EXEMPT_PREFIXES
                 )
                 if exempt:
+                    # Reserve current prefix to prevent others from taking it; do not change it
+                    used_proj_prefixes.setdefault(ts_filename, set()).add(p)
                     ts_use = ts_filename
                 else:
                     ts_git = first_add_timestamp(p)
                     if ts_git is not None:
+                        # Enforce unique prefix under project_docs by stepping back seconds if needed
+                        ts_final = _ensure_unique_projdocs_ts(ts_git, p, used_proj_prefixes)
                         # 1) rename if needed
-                        new_name = f"{ts_git}_{rest}"
+                        new_name = f"{ts_final}_{rest}"
                         if new_name != name:
                             new_path = p.with_name(new_name)
                             subprocess.check_call(["git", "mv", "-f", "--", str(p), str(new_path)])
                             p = new_path
                             name = p.name
                             renamed.append(str(new_path))
-                        ts_use = ts_git
+                        ts_use = ts_final
         # 2) ensure date line in markdown
         if p.suffix.lower() == ".md" and ts_use is not None:
             if ensure_date_in_markdown(p, ts_use):

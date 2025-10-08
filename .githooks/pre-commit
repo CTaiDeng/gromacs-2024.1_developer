@@ -7,5 +7,8 @@ repo_root="$(git rev-parse --show-toplevel)"
 py="python3"
 if command -v python >/dev/null 2>&1; then py=python; fi
 
-"$py" "$repo_root/my_scripts/check_derivation_guard.py"
+"$py" "$repo_root/my_scripts/align_my_documents.py" || true
+# Stage any renames/content fixes performed by the aligner
+git add -A || true
 
+"$py" "$repo_root/my_scripts/check_derivation_guard.py"

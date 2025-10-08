@@ -9,6 +9,7 @@ Checks (fail -> block commit):
 2) README top contains Chinese-communication note and non-official derivation disclaimer.
 3) NOTICE mentions non-official derivation and LGPL.
 4) Heuristics on staged changes: discourage new binary blobs; flag 'official' claims.
+5) my_docs/project_docs 前缀唯一性：10位数字前缀视为文档ID，必须唯一（排除 kernel_reference）。
 
 Optional LLM assist: if GEMINI/GOOGLEAI key set and DERIVATION_GUARD_USE_LLM=1,
 summarize staged diff and ask model for PASS/FAIL with reasoning. Lack of key
@@ -140,6 +141,44 @@ def check_staged_content() -> list[str]:
     return msgs
 
 
+def check_project_docs_unique_prefix() -> list[str]:
+    """Ensure timestamp prefixes under my_docs/project_docs are unique (excluding kernel_reference)."""
+    proj = ROOT / "my_docs" / "project_docs"
+    if not proj.exists():
+        return []
+    duplicates: dict[str, list[str]] = {}
+    seen: dict[str, str] = {}
+    for p in sorted(proj.glob("*")):
+        if not p.is_file():
+            continue
+        # Exclude kernel_reference subtree if any files appear (symlinked dir typically)
+        try:
+            rel = p.resolve().relative_to(ROOT.resolve()).as_posix()
+        except Exception:
+            rel = p.as_posix().replace("\\", "/")
+        if rel.startswith("my_docs/project_docs/kernel_reference/"):
+            continue
+        name = p.name
+        if "_" not in name:
+            continue
+        pref = name.split("_", 1)[0]
+        if not (len(pref) == 10 and pref.isdigit()):
+            continue
+        if pref in seen and seen[pref] != name:
+            duplicates.setdefault(pref, [seen[pref]]).append(name)
+        else:
+            seen[pref] = name
+    if not duplicates:
+        return []
+    msgs = ["my_docs/project_docs 存在重复的10位前缀（文档ID冲突）："]
+    for k, lst in duplicates.items():
+        files = ", ".join(lst)
+        first = seen.get(k, "?")
+        msgs.append(f" - {k} -> {first}, {files}")
+    msgs.append("修复建议：运行 my_scripts/align_my_documents.py（将自动对冲突项回退1秒直至唯一），或手工重命名并同步‘日期：’行。")
+    return msgs
+
+
 def llm_assist_if_enabled(summary: str) -> list[str]:
     if os.environ.get("DERIVATION_GUARD_USE_LLM", "0") != "1":
         return []
@@ -162,6 +201,7 @@ def main() -> int:
     problems += check_readme_headers()
     problems += check_notice()
     problems += check_staged_content()
+    problems += check_project_docs_unique_prefix()
 
     # Short summary for optional LLM
     try:
