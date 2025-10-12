@@ -6,3 +6,4 @@
 /out/
 /.venv/
 my_docs/project_docs/kernel_reference/
+.pip-cache

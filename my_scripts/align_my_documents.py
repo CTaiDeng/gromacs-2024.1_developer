@@ -174,12 +174,22 @@ def first_add_timestamp(path: Path) -> int | None:
     return int(ts) if ts.isdigit() else None
 
 
-def fmt_date(ts: int) -> str:
+def fmt_date_chs(ts: int) -> str:
     return time.strftime("%Y年%m月%d日", time.localtime(ts))
 
 
+def fmt_date_iso(ts: int) -> str:
+    return time.strftime("%Y-%m-%d", time.localtime(ts))
+
+
 def ensure_date_in_markdown(md_path: Path, ts: int) -> bool:
-    """Insert or normalize the date line under the first H1. Returns True if changed."""
+    """Ensure the updated header block below the first H1:
+    - 作者：GaoZheng
+    - 日期：YYYY-MM-DD
+
+    Also migrates legacy single-line date `日期：YYYY年MM月DD日` to the new two-line list.
+    Returns True if file content changed.
+    """
     try:
         text = md_path.read_text(encoding="utf-8")
     except Exception:
@@ -190,7 +200,9 @@ def ensure_date_in_markdown(md_path: Path, ts: int) -> bool:
         if ln.lstrip().startswith("# "):
             title_idx = i
             break
-    date_line = f"日期：{fmt_date(ts)}\n"
+    author_line = "- 作者：GaoZheng\n"
+    date_line_new = f"- 日期：{fmt_date_iso(ts)}\n"
+    date_line_old = f"日期：{fmt_date_chs(ts)}\n"
     changed = False
     if title_idx is None:
         # Prepend a synthetic title derived from filename (drop numeric prefix)
@@ -199,29 +211,89 @@ def ensure_date_in_markdown(md_path: Path, ts: int) -> bool:
             title = stem.split("_", 1)[1]
         else:
             title = stem
-        new_text = f"# {title}\n{date_line}\n" + text
+        new_text = f"# {title}\n{author_line}{date_line_new}\n" + text
         if new_text != text:
             md_path.write_text(new_text, encoding="utf-8")
             return True
         return False
-    # Search a small window for an existing date line and replace
-    date_pat = re.compile(r"^\s*日期[:：]\s*\d{4}年\d{2}月\d{2}日\s*$")
-    window_end = min(len(lines), title_idx + 5)
-    for k in range(title_idx + 1, window_end):
-        if date_pat.match(lines[k].strip()):
-            if lines[k] != date_line:
-                lines[k] = date_line
-                changed = True
-            break
-    else:
-        # No date found; insert after title (keep an empty line spacing)
+    # Search a small window for an existing new-style author/date lines or legacy date
+    win_start = title_idx + 1
+    window_end = min(len(lines), title_idx + 6)
+    patt_author = re.compile(r"^\s*-\s*作者[:：]")
+    patt_date_new = re.compile(r"^\s*-\s*日期[:：]\s*\d{4}-\d{2}-\d{2}\s*$")
+    patt_date_old = re.compile(r"^\s*日期[:：]\s*\d{4}年\d{2}月\d{2}日\s*$")
+
+    idx_author = None
+    idx_date_new = None
+    idx_date_old = None
+    for k in range(win_start, window_end):
+        s = lines[k].strip()
+        if idx_author is None and patt_author.match(s):
+            idx_author = k
+        if idx_date_new is None and patt_date_new.match(s):
+            idx_date_new = k
+        if idx_date_old is None and patt_date_old.match(s):
+            idx_date_old = k
+    # Migrate legacy date line to new two-line block
+    if idx_date_old is not None and idx_date_new is None:
+        # Replace old date with new lines, also ensure author exists before date
+        # Remove old date line
+        del lines[idx_date_old]
+        # Recompute insertion pos just after title
         insert_pos = title_idx + 1
-        if insert_pos < len(lines) and lines[insert_pos].strip() != "":
-            lines.insert(insert_pos, date_line)
-            lines.insert(insert_pos + 1, "\n")
-        else:
-            lines.insert(insert_pos + 1, date_line)
+        # Insert author/date new (author first)
+        lines.insert(insert_pos + 0, author_line)
+        lines.insert(insert_pos + 1, date_line_new)
         changed = True
+        # Clean potential duplicate author nearby
+        # Re-scan a small range and collapse duplicates of author/date
+    else:
+        # Ensure author/date new lines exist and are correct
+        # Author line
+        if idx_author is None:
+            lines.insert(win_start, author_line)
+            changed = True
+            # Shift known indices if needed
+            if idx_date_new is not None:
+                idx_date_new += 1
+            if idx_date_old is not None:
+                idx_date_old += 1
+        # Date new line
+        if idx_date_new is None:
+            # If an old date exists, replace it with new-style
+            if idx_date_old is not None:
+                lines[idx_date_old] = date_line_new
+                changed = True
+                idx_date_new = idx_date_old
+            else:
+                # Insert right after author (or title if no author)
+                insert_after = (idx_author if idx_author is not None else title_idx) + 1
+                lines.insert(insert_after, date_line_new)
+                changed = True
+                idx_date_new = insert_after
+        else:
+            # Normalize the date value if mismatched
+            if lines[idx_date_new] != date_line_new:
+                lines[idx_date_new] = date_line_new
+                changed = True
+        # Normalize author text (ensure exact form)
+        if idx_author is not None and lines[idx_author] != author_line:
+            lines[idx_author] = author_line
+            changed = True
+
+    # Ensure there is a blank line after the date block
+    # Determine end of header block (author + date)
+    # Find indices again within small window
+    idxs = []
+    for k in range(title_idx + 1, min(len(lines), title_idx + 6)):
+        s = lines[k].strip()
+        if patt_author.match(s) or patt_date_new.match(s) or patt_date_old.match(s):
+            idxs.append(k)
+    if idxs:
+        end_idx = max(idxs)
+        if end_idx + 1 < len(lines) and lines[end_idx + 1].strip() != "":
+            lines.insert(end_idx + 1, "\n")
+            changed = True
     if changed:
         md_path.write_text("".join(lines), encoding="utf-8")
     return changed
@@ -235,8 +307,12 @@ def contains_o3_keyword(text: str) -> bool:
 
 
 def ensure_o3_note(md_path: Path) -> bool:
-    """Ensure the O3 reference note is placed directly below the date line when
-    any of the configured keywords appear. Idempotent.
+    """Ensure the O3 reference note is placed directly below the date block.
+    Priority:
+      1) after new-style `- 日期：YYYY-MM-DD`
+      2) else after legacy `日期：YYYY年MM月DD日`
+      3) else after H1 title (synthesizes title/date if missing)
+    Idempotent.
     """
     try:
         text = md_path.read_text(encoding="utf-8")
@@ -253,14 +329,24 @@ def ensure_o3_note(md_path: Path) -> bool:
             title_idx = i
             break
     # Find date line near title
-    date_pat = re.compile(r"^\s*日期[:：]\s*\d{4}年\d{2}月\d{2}日\s*$")
+    date_pat_new = re.compile(r"^\s*-\s*日期[:：]\s*\d{4}-\d{2}-\d{2}\s*$")
+    date_pat_old = re.compile(r"^\s*日期[:：]\s*\d{4}年\d{2}月\d{2}日\s*$")
     date_idx = None
+    use_new = False
     if title_idx is not None:
         window_end = min(len(lines), title_idx + 6)
         for k in range(title_idx + 1, window_end):
-            if date_pat.match(lines[k].strip()):
+            s = lines[k].strip()
+            if date_pat_new.match(s):
                 date_idx = k
+                use_new = True
                 break
+        if date_idx is None:
+            for k in range(title_idx + 1, window_end):
+                s = lines[k].strip()
+                if date_pat_old.match(s):
+                    date_idx = k
+                    break
 
     changed = False
     if title_idx is None or date_idx is None:
@@ -272,9 +358,11 @@ def ensure_o3_note(md_path: Path) -> bool:
                 ts_val = int(name.split("_", 1)[0])
             except Exception:
                 ts_val = None
-        date_line = f"日期：{fmt_date(ts_val or int(time.time()))}\n"
+        # Synthesize new-style header block
+        date_line = f"- 日期：{fmt_date_iso(ts_val or int(time.time()))}\n"
+        author_line = "- 作者：GaoZheng\n"
         title = md_path.stem
-        new_lines = [f"# {title}\n", date_line, O3_NOTE, "\n"]
+        new_lines = [f"# {title}\n", author_line, date_line, O3_NOTE, "\n"]
         new_lines.extend(lines)
         md_path.write_text("".join(new_lines), encoding="utf-8")
         return True
@@ -290,7 +378,8 @@ def ensure_o3_note(md_path: Path) -> bool:
         if title_idx is not None:
             window_end = min(len(lines), title_idx + 6)
             for k in range(title_idx + 1, window_end):
-                if date_pat.match(lines[k].strip()):
+                s = lines[k].strip()
+                if date_pat_new.match(s) or date_pat_old.match(s):
                     date_idx = k
                     break
 
@@ -327,6 +416,124 @@ def normalize_h1_prefix(md_path: Path) -> bool:
             break
     return False
 
+
+def cleanup_redundant_sections(md_path: Path) -> bool:
+    """Remove redundant in-body sections like `### 标题` and `#### 摘要` that duplicate
+    the normalized top matter. If a `#### 摘要` block exists and a top `## 摘要` block
+    exists too, replace the top摘要内容 with the in-body one, then remove the in-body
+    block. If top摘要不存在，则在头部后创建 `## 摘要` 并填入 in-body 摘要，再删除in-body块。
+
+    Idempotent: re-running after cleanup makes no change.
+    """
+    try:
+        text = md_path.read_text(encoding="utf-8")
+    except Exception:
+        return False
+    lines = text.splitlines(True)
+
+    changed = False
+
+    # Locate H1 and top 摘要 block
+    h1_idx = next((i for i, ln in enumerate(lines) if ln.lstrip().startswith("# ")), None)
+    top_summary_idx = None
+    if h1_idx is not None:
+        # search for '## 摘要' within next ~10 lines
+        for k in range(h1_idx + 1, min(len(lines), h1_idx + 12)):
+            if lines[k].lstrip().startswith("## ") and ("摘要" in lines[k]):
+                top_summary_idx = k
+                break
+
+    # Helper: find block end index starting from a given start (exclusive),
+    # stopping at next heading (#), or horizontal rule, or end of file.
+    def _find_block_end(start_idx: int) -> int:
+        i = start_idx + 1
+        while i < len(lines):
+            s = lines[i].strip()
+            if s.startswith("#"):
+                break
+            if s == "---" or s == "***":
+                break
+            i += 1
+        return i
+
+    # 1) Remove any '### 标题' section headings (and optionally its immediate blank line)
+    i = 0
+    to_delete_ranges: list[tuple[int, int]] = []
+    while i < len(lines):
+        s = lines[i].lstrip()
+        if s.startswith("###") and ("标题" in s):
+            # Delete only the heading line; if next is empty, delete it too
+            j = i + 1
+            if j < len(lines) and lines[j].strip() == "":
+                to_delete_ranges.append((i, j + 1))
+                i = j + 1
+            else:
+                to_delete_ranges.append((i, i + 1))
+                i = i + 1
+            changed = True
+            continue
+        i += 1
+
+    # 2) Capture and remove an in-body '#### 摘要' block
+    abstract_block: list[str] | None = None
+    abs_start = abs_end = None
+    for i in range(0, len(lines)):
+        s = lines[i].lstrip()
+        if s.startswith("####") and ("摘要" in s):
+            abs_start = i
+            abs_end = _find_block_end(i)
+            abstract_block = [ln for ln in lines[i + 1:abs_end]]
+            to_delete_ranges.append((abs_start, abs_end))
+            changed = True
+            break
+
+    # Apply deletions (from bottom to top to preserve indices)
+    if to_delete_ranges:
+        for (a, b) in sorted(to_delete_ranges, key=lambda x: x[0], reverse=True):
+            del lines[a:b]
+
+    # If we captured an abstract and have a top 摘要 block, replace its content
+    if abstract_block is not None:
+        # Normalize: ensure abstract text block ends with a newline and one blank line
+        while abstract_block and abstract_block[0].strip() == "":
+            abstract_block.pop(0)
+        while abstract_block and abstract_block[-1].strip() == "":
+            abstract_block.pop()
+        insert_payload = ["\n"] + abstract_block + ["\n", "\n"] if abstract_block else ["\n", "(自动合并的摘要占位)\n", "\n"]
+
+        # Recompute h1/top summary indices after deletions
+        h1_idx = next((i for i, ln in enumerate(lines) if ln.lstrip().startswith("# ")), None)
+        top_summary_idx = None
+        if h1_idx is not None:
+            for k in range(h1_idx + 1, min(len(lines), h1_idx + 12)):
+                if lines[k].lstrip().startswith("## ") and ("摘要" in lines[k]):
+                    top_summary_idx = k
+                    break
+
+        if top_summary_idx is None and h1_idx is not None:
+            # Create a new top 摘要 block after the header block (author/date/O3 note, skipping blanks)
+            ins = h1_idx + 1
+            # Skip author/date bullets and O3 note + trailing blank lines
+            for _ in range(8):
+                if ins < len(lines) and (lines[ins].lstrip().startswith("- 作者：") or lines[ins].lstrip().startswith("- 日期：") or lines[ins].lstrip().startswith("#### ***") or lines[ins].strip() == ""):
+                    ins += 1
+                else:
+                    break
+            block = ["## 摘要\n"] + insert_payload[1:]  # ensure exactly one leading blank after header line
+            lines[ins:ins] = block
+            changed = True
+        elif top_summary_idx is not None:
+            # Replace content under existing '## 摘要' until next heading
+            start = top_summary_idx + 1
+            end = _find_block_end(top_summary_idx)
+            # Ensure there is exactly one blank line after header line '## 摘要'
+            lines[start:end] = insert_payload
+            changed = True
+
+    if changed:
+        md_path.write_text("".join(lines), encoding="utf-8")
+    return changed
+
 def iter_target_files() -> list[Path]:
     files: list[Path] = []
     # my_docs/**
@@ -352,6 +559,20 @@ def main() -> int:
     targets = iter_target_files()
     # Track used prefixes within my_docs/project_docs to guarantee uniqueness
     used_proj_prefixes = _scan_project_docs_prefixes()
+    # Pre-reserve original timestamp for lexicographically smallest title when
+    # multiple files share the same 10-digit prefix under project_docs.
+    for ts, paths in list(used_proj_prefixes.items()):
+        if len(paths) > 1:
+            try:
+                def _title_key(p: Path) -> str:
+                    name = p.name
+                    rest = name.split("_", 1)[1] if "_" in name else name
+                    return rest
+                first = sorted(paths, key=_title_key)[0]
+                used_proj_prefixes[ts] = {first}
+            except Exception:
+                # If sorting fails for any reason, keep original set; unique enforcement will still work
+                pass
     if not targets:
         print("No target files found under my_docs/ or my_project/**/docs")
         return 0
