@@ -598,10 +598,51 @@ def cleanup_redundant_sections(md_path: Path) -> bool:
             del lines[after + 1]
             changed = True
 
+
+    # Ensure no blank between author and date bullets
+    try:
+        au_idx = next((i for i, ln in enumerate(lines) if ln.lstrip().startswith("- 作者：")), None)
+        dt_idx = next((i for i, ln in enumerate(lines) if re.match(r"^\s*-\s*日期[:：]\\s*\\d{4}-\\d{2}-\\d{2}\\s*$", ln.strip())), None)
+    except Exception:
+        au_idx = None; dt_idx = None
+    if au_idx is not None and dt_idx is not None and dt_idx > au_idx:
+        # if a single blank line exists between them, remove it
+        if au_idx + 1 < len(lines) and lines[au_idx + 1].strip() == "" and au_idx + 2 == dt_idx:
+            del lines[au_idx + 1]
+            changed = True
     if changed:
         md_path.write_text("".join(lines), encoding="utf-8")
     return changed
 
+
+def ensure_author_bullet(md_path: Path, author: str = "GaoZheng") -> bool:
+    try:
+        text = md_path.read_text(encoding="utf-8")
+    except Exception:
+        return False
+    lines = text.splitlines(True)
+    changed = False
+    # find H1
+    h1_idx = next((i for i, ln in enumerate(lines) if ln.lstrip().startswith("# ")), None)
+    if h1_idx is None:
+        return False
+    # find author bullet within next few lines
+    patt_author = re.compile(r"^\s*-\s*作者[:：]")
+    has_author = any(patt_author.match(lines[i].strip()) for i in range(h1_idx + 1, min(len(lines), h1_idx + 6)))
+    if not has_author:
+        # ensure one blank after title
+        ins = h1_idx + 1
+        if ins < len(lines) and lines[ins].strip() != "":
+            lines.insert(ins, "\n")
+            ins += 1
+            changed = True
+        # insert author bullet
+        lines.insert(ins, f"- 作者：{author}\n")
+        changed = True
+        # ensure there is at least one line after author; date bullet fixer may run later
+    if changed:
+        md_path.write_text("".join(lines), encoding="utf-8")
+    return changed
 def iter_target_files() -> list[Path]:
     files: list[Path] = []
     # my_docs/**
@@ -689,6 +730,8 @@ def main() -> int:
             normalize_h1_prefix(p)
             # 5) Cleanup redundant sections and enforce header spacing even if date step skipped
             cleanup_redundant_sections(p)
+            # 6) Ensure author bullet exists (default GaoZheng)
+            ensure_author_bullet(p)
     print(f"Renamed {len(renamed)} file(s)")
     for f in renamed:
         print(" -", f)
@@ -703,3 +746,5 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
