@@ -1,4 +1,5 @@
 # 开发协议（my_docs 子树）
+
 日期：2025年09月29日
 
 #### ***注：“O3理论/O3元数学理论/主纤维丛版广义非交换李代数(PFB-GNLA)”相关理论参见： [作者（GaoZheng）网盘分享](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) 或 [作者（GaoZheng）主页](https://mymetamathematics.blogspot.com)***
@@ -131,3 +132,8 @@
 - [必须/MUST] 同步头部：重命名后必须同步更新 Markdown 头部为 `- 作者：…`、`- 日期：YYYY-MM-DD`。
 - [应当/SHOULD] 执行方式：应当通过 `my_scripts/align_my_documents.py` 自动执行，保持幂等。
 - [应当/SHOULD] 兼容性：应当兼容旧格式 `日期：YYYY年MM月DD日` 并按脚本 `EXEMPT_PREFIXES` 保留历史前缀不改名。
+
+## 文件名与标题一致性（MUST）
+- [必须/MUST] 标题行不得包含时间戳前缀；标题应为纯“文章标题”。
+- [必须/MUST] 文件名采用 `{10位时间戳}_{文章标题}.md`；若检测到标题行为 `# {10位时间戳}_{标题}`，必须移除时间戳与下划线。
+- [应当/SHOULD] `my_scripts/align_my_documents.py` 会自动移除 H1 中的时间戳前缀（正则：`^#\s+\d{10}_(.+)$`）。

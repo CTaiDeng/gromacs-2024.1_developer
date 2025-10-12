@@ -283,11 +283,19 @@ def ensure_date_in_markdown(md_path: Path, ts: int) -> bool:
 
     # Ensure there is exactly one blank line after the title before author/date
     if title_idx is not None:
-        # find first non-empty after title
+        # Insert one blank if the next line is not blank
         nxt = title_idx + 1
         if nxt < len(lines) and lines[nxt].strip() != "":
             lines.insert(nxt, "\n")
             changed = True
+        # Collapse multiple blanks to a single one between title and the first non-blank line
+        j = title_idx + 1
+        # Ensure at least one line exists after title
+        if j < len(lines):
+            # Move forward while there are consecutive blanks beyond one
+            while j + 1 < len(lines) and lines[j].strip() == "" and lines[j + 1].strip() == "":
+                del lines[j + 1]
+                changed = True
     # Ensure there is a blank line after the date block
     # Determine end of header block (author + date)
     # Find indices again within small window
@@ -457,6 +465,18 @@ def cleanup_redundant_sections(md_path: Path) -> bool:
 
     # Locate H1 and top 摘要 block
     h1_idx = next((i for i, ln in enumerate(lines) if ln.lstrip().startswith("# ")), None)
+    # Ensure exactly one blank line after H1 even if date normalization was skipped
+    if h1_idx is not None:
+        # Insert one blank if immediate next line is not blank
+        nxt = h1_idx + 1
+        if nxt < len(lines) and lines[nxt].strip() != "":
+            lines.insert(nxt, "\n")
+            changed = True
+        # Collapse multiple blanks after title to a single one
+        j = h1_idx + 1
+        while j + 1 < len(lines) and lines[j].strip() == "" and lines[j + 1].strip() == "":
+            del lines[j + 1]
+            changed = True
     top_summary_idx = None
     if h1_idx is not None:
         # search for '## 摘要' within next ~10 lines
@@ -552,6 +572,32 @@ def cleanup_redundant_sections(md_path: Path) -> bool:
             lines[start:end] = insert_payload
             changed = True
 
+    # Enforce exactly one blank line between date bullet and O3 note (#### ***)
+    # This is independent of localized labels and relies on ISO date pattern
+    try:
+        date_bullet_idx = next(
+            (i for i, ln in enumerate(lines)
+             if ln.lstrip().startswith("- ") and re.search(r"\d{4}-\d{2}-\d{2}\s*$", ln)),
+            None,
+        )
+    except Exception:
+        date_bullet_idx = None
+    try:
+        o3_note_idx = next((i for i, ln in enumerate(lines) if ln.lstrip().startswith("#### ***")), None)
+    except Exception:
+        o3_note_idx = None
+    if date_bullet_idx is not None and o3_note_idx is not None and o3_note_idx > date_bullet_idx:
+        # Ensure single blank line exists at date_bullet_idx + 1
+        after = date_bullet_idx + 1
+        if after >= len(lines) or lines[after].strip() != "":
+            lines.insert(after, "\n")
+            changed = True
+            o3_note_idx += 1
+        # Collapse extra blanks between date and note
+        while o3_note_idx - date_bullet_idx > 2 and lines[after + 1].strip() == "":
+            del lines[after + 1]
+            changed = True
+
     if changed:
         md_path.write_text("".join(lines), encoding="utf-8")
     return changed
@@ -639,6 +685,10 @@ def main() -> int:
         if p.suffix.lower() == ".md":
             if ensure_o3_note(p):
                 noted.append(str(p))
+            # 4) Always normalize H1 to drop timestamp prefix if present
+            normalize_h1_prefix(p)
+            # 5) Cleanup redundant sections and enforce header spacing even if date step skipped
+            cleanup_redundant_sections(p)
     print(f"Renamed {len(renamed)} file(s)")
     for f in renamed:
         print(" -", f)
