@@ -1,7 +1,25 @@
 # 开发协议（my_docs 子树）
 日期：2025年09月29日
+
 #### ***注：“O3理论/O3元数学理论/主纤维丛版广义非交换李代数(PFB-GNLA)”相关理论参见： [作者（GaoZheng）网盘分享](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) 或 [作者（GaoZheng）主页](https://mymetamathematics.blogspot.com)***
 
+## 头部间距规范（MUST）
+- 顶部结构顺序：`# {标题}`、`- 作者：…`、`- 日期：YYYY-MM-DD`、`#### ***注：…***`（如触发）、`## 摘要`。
+- 间距要求（均为 1 个空行）：
+  - 标题 与 作者/日期 之间；
+  - 作者/日期 与 注释行 之间；
+  - 注释行 与 `## 摘要` 之间。
+- `align_my_documents.py` 已自动落实上述间距（幂等）。
+
+## 索引生成规范（MUST/SHOULD）
+- [必须/MUST] `my_docs/README.md` 中 `## project_docs` 列表，按 `my_docs/project_docs`（不含 `kernel_reference`）目录下文件名的 10 位时间戳前缀进行升序排序。
+- [应当/SHOULD] 同秒时间戳的项按“标题名”（时间戳后的文件名部分）字典序升序排列。
+- [应当/SHOULD] 摘要较长（>120 字符）时，应在冒号后换行，并以两个空格缩进摘要内容；较短摘要可与路径同一行展示。
+- [应当/SHOULD] 由 `my_scripts/gen_my_docs_index.py` 自动生成与更新。
+## 摘要使用优先级（MUST/SHOULD）
+- [必须/MUST] 若原文包含“摘要”，应直接采用原文摘要作为 `## 摘要` 内容，不得改写。
+- [应当/SHOULD] 若原文摘要以非标准形式出现（如“#### 摘要”分节或行内“摘要：”），应由脚本自动合并并规范为顶部标准 `## 摘要` 段。
+- [应当/SHOULD] 仅当原文缺失“摘要”时，才自动生成 180–240 字的简要摘要。
 ## 职责分工
 - `my_docs/AGENTS.md`：知识库文档的“创建约束与维护协议”（权威规范）。
 - `my_docs/README.md`：仅负责“文档路径枚举 + 摘要介绍”的索引页；通过 `my_scripts/gen_my_docs_index.py` 自动生成/更新；索引中的“摘要”为文档内“## 摘要”段的完整呈现（不截断）。

@@ -1,8 +1,9 @@
 # 从物理实在到代数干预：论PFB-GNLA向PGOM的平庸化退化
+
 - 作者：GaoZheng
 - 日期：2025-09-29
-#### ***注：“O3理论/O3元数学理论/主纤维丛版广义非交换李代数(PFB-GNLA)”相关理论参见： [作者（GaoZheng）网盘分享](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) 或 [作者（GaoZheng）主页](https://mymetamathematics.blogspot.com)***
 
+#### ***注：“O3理论/O3元数学理论/主纤维丛版广义非交换李代数(PFB-GNLA)”相关理论参见： [作者（GaoZheng）网盘分享](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) 或 [作者（GaoZheng）主页](https://mymetamathematics.blogspot.com)***
 
 ## 摘要
 本文旨在阐明药理基因组算子幺半群（PGOM）与主纤维丛版广义非交换李代数（PFB-GNLA）之间的层级关系。我们将证明，PGOM并非一个独立的代数系统，而是作为统一物理理论框架的PFB-GNLA在一个特定极限下的**平庸化退化（Trivial Degeneration）**。通过系统性地将PFB-GNLA的几何与动力学结构——包括其四维时空底空间、内部对称性纤维和规范联络——进行“降维”和“扁平化”处理，我们展示了PGOM如何作为一个有效的、面向离散干预的算子代数而自然涌现。此论证不仅统一了两个理论，更揭示了宏观的药理学干预，本质上是宇宙底层物理规律在生物信息尺度上的一个代数投影。

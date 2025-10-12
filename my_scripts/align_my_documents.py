@@ -281,6 +281,13 @@ def ensure_date_in_markdown(md_path: Path, ts: int) -> bool:
             lines[idx_author] = author_line
             changed = True
 
+    # Ensure there is exactly one blank line after the title before author/date
+    if title_idx is not None:
+        # find first non-empty after title
+        nxt = title_idx + 1
+        if nxt < len(lines) and lines[nxt].strip() != "":
+            lines.insert(nxt, "\n")
+            changed = True
     # Ensure there is a blank line after the date block
     # Determine end of header block (author + date)
     # Find indices again within small window
@@ -291,8 +298,14 @@ def ensure_date_in_markdown(md_path: Path, ts: int) -> bool:
             idxs.append(k)
     if idxs:
         end_idx = max(idxs)
+        # normalize to exactly one blank after date line
+        # insert one blank if next is non-blank
         if end_idx + 1 < len(lines) and lines[end_idx + 1].strip() != "":
             lines.insert(end_idx + 1, "\n")
+            changed = True
+        # collapse multiple blanks to a single one
+        while end_idx + 2 < len(lines) and lines[end_idx + 1].strip() == "" and lines[end_idx + 2].strip() == "":
+            del lines[end_idx + 2]
             changed = True
     if changed:
         md_path.write_text("".join(lines), encoding="utf-8")
@@ -383,13 +396,22 @@ def ensure_o3_note(md_path: Path) -> bool:
                     date_idx = k
                     break
 
-    insert_pos = (date_idx or 0) + 1
-    if insert_pos < len(lines) and lines[insert_pos].strip() == "":
-        lines.insert(insert_pos, O3_NOTE)
-    else:
-        lines.insert(insert_pos, O3_NOTE)
-        if insert_pos + 1 < len(lines) and lines[insert_pos + 1].strip() != "":
-            lines.insert(insert_pos + 1, "\n")
+    # Ensure exactly one blank line between date and O3 note
+    base = (date_idx or 0)
+    after = base + 1
+    # if next is not blank, add one
+    if after >= len(lines) or lines[after].strip() != "":
+        lines.insert(after, "\n")
+        changed = True
+    # move insert position to just after the single blank
+    insert_pos = base + 2
+    lines.insert(insert_pos, O3_NOTE)
+    # ensure exactly one blank after the note
+    if insert_pos + 1 < len(lines) and lines[insert_pos + 1].strip() != "":
+        lines.insert(insert_pos + 1, "\n")
+    # collapse any extra blanks after note
+    while insert_pos + 2 < len(lines) and lines[insert_pos + 1].strip() == "" and lines[insert_pos + 2].strip() == "":
+        del lines[insert_pos + 2]
     changed = True
     if changed:
         md_path.write_text("".join(lines), encoding="utf-8")
