@@ -18,7 +18,7 @@
 - Hooks 不进行任何对文档或代码的自动修改/提醒（pre-commit 为 no-op）。
 - 合规与格式化通过“手动指令”执行：
   - 文档尾注：`python3 my_scripts/ensure_timestamp_doc_license_footer.py`
-  - 文档对齐：`python3 my_scripts/align_docs_by_creation_time.py`
+  - 文档对齐：`python3 my_scripts/align_prefix_to_doc_date_v2.py`
   - 头注整合：`python3 my_scripts/add_gpl3_headers.py <files/dirs>`
   - 其他审查脚本按需手动运行。
 
@@ -64,3 +64,7 @@
 ## 例外与裁量
 - 若确有合理理由（例如上游文档保留），可在 README 顶部保持非官方声明以对冲相关表述。
 - 对合规检查有误报时，优先提交修正 PR 至 `my_scripts/check_derivation_guard.py`；紧急情况下可临时 `--no-verify`，并在后续补齐整改。
+- 操作授权原则（最高）
+  - 对 `my_docs/project_docs` 的任何“写入型”改动（含重命名、内容更新、批量脚本处理），必须在指令中显式给出目标文档的仓库相对路径（例如：`my_docs/project_docs/1760284819_论纤维丛的静态统一性：作为点集拓扑与离散拓扑之桥梁的传统微分几何.md`）。
+  - 未显式指明相对路径的泛化指令（如“修改知识库/同步知识库”）无权更改 `my_docs/project_docs` 下的文档。
+  - 本原则优先级最高；`kernel_reference` 目录仍为只读并排除一切写入型脚本。

@@ -1,67 +1,28 @@
 #!/usr/bin/env python3
-# Copyright (C) 2025- GaoZheng
 # SPDX-License-Identifier: GPL-3.0-only
-# This file is part of this project.
-# Licensed under the GNU General Public License version 3.
-# See https://www.gnu.org/licenses/gpl-3.0.html for details.
 #
-# This file is part of the GROMACS molecular simulation package.
+# Copyright (C) 2013- The GROMACS Authors
+# Copyright (C) 2025- GaoZheng
 #
-# Copyright 2013- The GROMACS Authors
-# and the project initiators Erik Lindahl, Berk Hess and David van der Spoel.
-# Consult the AUTHORS/COPYING files and https://www.gromacs.org for details.
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 3.
 #
-# GROMACS is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public License
-# as published by the Free Software Foundation; either version 2.1
-# of the License, or (at your option) any later version.
-#
-# GROMACS is distributed in the hope that it will be useful,
+# This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-# Lesser General Public License for more details.
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
 #
-# You should have received a copy of the GNU Lesser General Public
-# License along with GROMACS; if not, see
-# https://www.gnu.org/licenses, or write to the Free Software Foundation,
-# Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA.
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
-# If you want to redistribute modifications to GROMACS, please
-# consider that scientific software is very special. Version
-# control is crucial - bugs must be traceable. We will be happy to
-# consider code for inclusion in the official distribution, but
-# derived work must not be called official GROMACS. Details are found
-# in the README & COPYING files - if they are missing, get the
-# official version at https://www.gromacs.org.
+# ---
 #
-# To help us fund GROMACS development, we humbly ask that you cite
+# This file is part of a modified version of the GROMACS molecular simulation package.
+# For details on the original project, consult https://www.gromacs.org.
+#
+# To help fund GROMACS development, we humbly ask that you cite
 # the research papers on the package. Check out https://www.gromacs.org.
-
-# This script is used by the GROMACS developers to generate the .cpp
-# files that instiantiate all the template specializations of the kernel.
-# This script also generates .h files with a list of external template
-# declarations and a table of function points. This script is not called
-# at CMake time, and users should never need to use it. The generated
-# files are versions of the *.pre files in this directory, customized
-# for the kernel structure type and/or the detailed kernel type. These
-# are:
-#
-#   A single header file that declares all the kernel function template
-#   specializations for this NBNxM kernel layout and a function pointer table.
-#
-#   Many C++ kernel files, each defining a single kernel function template
-#   specialization. These functions can take a noticeable time to compile,
-#   and should be in separate files to take advantage of make-time parallelism.
-#
-# These files are written to two separate directories for the two kernel
-# layouts 2xMM and 4xM.
-#
-# Note that while functions for both NBNxM kernel layouts are compiled
-# and built into an mdrun executable, because that executable
-# is not portable, only the functions for the useful NBNxM kernel
-# structure for the hardware selected at CMake time contain real
-# kernel logic. A run-time error occurs if an inappropriate kernel
-# dispatcher function is called (but that is normally impossible).
 
 import re
 import sys

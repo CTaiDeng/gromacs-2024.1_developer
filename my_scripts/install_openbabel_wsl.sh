@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# Copyright (C) 2025- GaoZheng
+# SPDX-License-Identifier: GPL-3.0-only
+# This file is part of this project.
+# Licensed under the GNU General Public License version 3.
+# See https://www.gnu.org/licenses/gpl-3.0.html for details.
 set -Eeuo pipefail
 
 # 在 WSL(Ubuntu/Debian) 安装 Open Babel（提供 obabel 命令）
@@ -50,4 +55,3 @@ fi
 
 obabel -V
 log_info "Open Babel 安装完成"
-

@@ -1,4 +1,9 @@
 #!/usr/bin/env pwsh
+# Copyright (C) 2025- GaoZheng
+# SPDX-License-Identifier: GPL-3.0-only
+# This file is part of this project.
+# Licensed under the GNU General Public License version 3.
+# See https://www.gnu.org/licenses/gpl-3.0.html for details.
 # Add GPL-3.0 header to source files in this repo
 # Usage examples:
 #   pwsh my_scripts/add_gpl3_headers.ps1
@@ -6,7 +11,7 @@
 
 [CmdletBinding(SupportsShouldProcess=$true)]
 param(
-  [string[]]$Paths = @('src','api','include','admin','scripts','tests','python_packaging'),
+  [string[]]$Paths = @('src','api','include','admin','scripts','tests','python_packaging','my_scripts'),
   [string[]]$Extensions = @(
     '.c','.cc','.cpp','.cxx','.h','.hh','.hpp','.hxx','.cu','.cuh',
     '.py','.sh','.ps1','.psm1','.cmake','.bat','.cmd','.js','.ts',

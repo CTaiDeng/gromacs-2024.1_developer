@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# Copyright (C) 2025- GaoZheng
+# SPDX-License-Identifier: GPL-3.0-only
+# This file is part of this project.
+# Licensed under the GNU General Public License version 3.
+# See https://www.gnu.org/licenses/gpl-3.0.html for details.
 # WSL(Ubuntu) one-shot installer for AmberTools + ACPYPE (conda-forge)
 # - Prefers micromamba (no admin), falls back to conda/mamba if present
 # - Creates an isolated env and verifies CLI tools
@@ -135,4 +140,3 @@ Example ACPYPE usage:
   conda run -n $ENV_NAME acpype -i ligand.mol2 -b LIG -o gmx
 
 EOT
-

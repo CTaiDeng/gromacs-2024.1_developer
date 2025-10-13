@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# Copyright (C) 2025- GaoZheng
+# SPDX-License-Identifier: GPL-3.0-only
+# This file is part of this project.
+# Licensed under the GNU General Public License version 3.
+# See https://www.gnu.org/licenses/gpl-3.0.html for details.
 set -euo pipefail
 
 # 将对接复合物按配体/受体分离：生成 ligand.pdb 和 receptor.pdb
@@ -82,4 +87,3 @@ printf "0\n" | "$gmx_bin" trjconv -f "$complex_gro" -s "$complex_gro" -o "$recep
 echo "已复制原始结构到：$complex_copy"
 echo "配体坐标：$ligand_pdb"
 echo "受体坐标：$receptor_pdb"
-

@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# Copyright (C) 2025- GaoZheng
+# SPDX-License-Identifier: GPL-3.0-only
+# This file is part of this project.
+# Licensed under the GNU General Public License version 3.
+# See https://www.gnu.org/licenses/gpl-3.0.html for details.
 
 """
 Add GPL-3.0 headers to source files, mirroring add_gpl3_headers.ps1 behavior.
@@ -25,6 +30,7 @@ DEFAULT_PATHS = [
     REPO_ROOT / "scripts",
     REPO_ROOT / "tests",
     REPO_ROOT / "python_packaging",
+    REPO_ROOT / "my_scripts",
 ]
 
 EXTENSIONS = {

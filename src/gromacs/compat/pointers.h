@@ -1,80 +1,30 @@
 /*
- * Copyright (C) 2025- GaoZheng
  * SPDX-License-Identifier: GPL-3.0-only
- * This file is part of this project.
- * Licensed under the GNU General Public License version 3.
- * See https://www.gnu.org/licenses/gpl-3.0.html for details.
- */
-/*
- * This file is part of the GROMACS molecular simulation package.
  *
- * Copyright 2018- The GROMACS Authors
- * and the project initiators Erik Lindahl, Berk Hess and David van der Spoel.
- * Consult the AUTHORS/COPYING files and https://www.gromacs.org for details.
+ * Copyright (C) 2010- The GROMACS Authors
+ * Copyright (C) 2025- GaoZheng
  *
- * GROMACS is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public License
- * as published by the Free Software Foundation; either version 2.1
- * of the License, or (at your option) any later version.
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, version 3.
  *
- * GROMACS is distributed in the hope that it will be useful,
+ * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with GROMACS; if not, see
- * https://www.gnu.org/licenses, or write to the Free Software Foundation,
- * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
  *
- * If you want to redistribute modifications to GROMACS, please
- * consider that scientific software is very special. Version
- * control is crucial - bugs must be traceable. We will be happy to
- * consider code for inclusion in the official distribution, but
- * derived work must not be called official GROMACS. Details are found
- * in the README & COPYING files - if they are missing, get the
- * official version at https://www.gromacs.org.
+ * ---
  *
- * To help us fund GROMACS development, we humbly ask that you cite
+ * This file is part of a modified version of the GROMACS molecular simulation package.
+ * For details on the original project, consult https://www.gromacs.org.
+ *
+ * To help fund GROMACS development, we humbly ask that you cite
  * the research papers on the package. Check out https://www.gromacs.org.
  */
 
-/*! \libinternal \file
- * \brief Provides ported functions/classes from gsl/pointers
- *
- * Adapted from the Guidelines Support Library v2.0.0. at
- * https://github.com/Microsoft/GSL
- *
- * In the community spirit, you can opt to distribute this file, including
- * our modifications, under the original MIT license instead of LGPL v2.1
- * (that GROMACS is licensed under):
- *
- * Copyright (c) 2015 Microsoft Corporation. All rights reserved.
- *
- * This code is licensed under the MIT License (MIT).
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
- * of the Software, and to permit persons to whom the Software is furnished to do
- * so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * \author Mark Abraham <mark.j.abraham@gmail.com>
- * \ingroup module_compat
- * \inlibraryapi
- */
 #ifndef GMX_COMPAT_POINTERS_H
 #define GMX_COMPAT_POINTERS_H
 

@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# Copyright (C) 2025- GaoZheng
+# SPDX-License-Identifier: GPL-3.0-only
+# This file is part of this project.
+# Licensed under the GNU General Public License version 3.
+# See https://www.gnu.org/licenses/gpl-3.0.html for details.
 set -euo pipefail
 
 # 在 WSL(Ubuntu/Debian) 下为当前机器安装 acpype 依赖：AmberTools(antechamber) 与 Open Babel。
@@ -77,4 +82,3 @@ cat <<EOT
 若不想每次激活，可用 conda run：
   conda run -n $ENV_NAME bash my_scripts/generate_hiv_mol2_wsl.sh --input lig.pdb --charge 0 --resname LIG --out hiv.mol2
 EOT
-
