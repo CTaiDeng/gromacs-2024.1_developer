@@ -15,6 +15,10 @@ rem 1) Align documents (non-blocking)
 "%PY%" "%REPO_ROOT%\my_scripts\align_my_documents.py"
 if errorlevel 1 echo [pre-commit] align_my_documents.py returned non-zero, continuing...
 
+rem Add canonical license footer to timestamped docs (non-blocking)
+"%PY%" "%REPO_ROOT%\my_scripts\ensure_timestamp_doc_license_footer.py"
+if errorlevel 1 echo [pre-commit] ensure_timestamp_doc_license_footer.py returned non-zero, continuing...
+
 rem Stage any changes to docs (renames/content fixes)
 git add -A
 
@@ -23,4 +27,3 @@ rem 2) Compliance guard (blocking)
 set EXITCODE=%ERRORLEVEL%
 
 endlocal & exit /b %EXITCODE%
-

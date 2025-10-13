@@ -8,7 +8,9 @@ py="python3"
 if command -v python >/dev/null 2>&1; then py=python; fi
 
 "$py" "$repo_root/my_scripts/align_my_documents.py" || true
-# Stage any renames/content fixes performed by the aligner
+# Add canonical license footer to timestamped docs (non-blocking)
+"$py" "$repo_root/my_scripts/ensure_timestamp_doc_license_footer.py" || true
+# Stage any renames/content fixes performed by the aligner and footer tool
 git add -A || true
 
 "$py" "$repo_root/my_scripts/check_derivation_guard.py"

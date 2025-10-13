@@ -6,6 +6,8 @@
     * **License Change**: Unlike the original project's LGPL-2.1, this entire project is licensed under the **GNU General Public License v3.0 (GPL-3.0)**.
 * **交流语言**: 本仓库默认使用**简体中文**进行交流与文档编写。
     * **Primary Language**: This repository uses **Simplified Chinese** by default for communication and documentation.
+* **文档与知识库 (Documentation & Knowledge Base)**
+    * `my_docs` 目录下的所有文档和理论著作，均在 **知识共享-署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)** 下发布。这意味着您可以自由分享这些内容，但必须注明原作者（GaoZheng），且不得用于商业目的或进行任何修改。
 
 ---
 
