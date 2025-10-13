@@ -135,7 +135,9 @@ def build_index() -> str:
     else:
         for p in files:
             summary = summarize_markdown(p)
-            out.append(f"- `{p.as_posix()}`：{summary}")
+            out.append(f"- `{p.as_posix()}`：")
+            if summary:
+                out.append(f"  {summary}")
     out.append("")
 
     # project_docs：按时间戳前缀 + 标题排序
@@ -163,15 +165,12 @@ def build_index() -> str:
     if not files:
         out.append("- 暂无文档")
     else:
-        WRAP_LEN = 120
         for p in files:
             summary = summarize_markdown(p)
             bullet = f"- `{p.as_posix()}`："
-            if len(summary) > WRAP_LEN:
-                out.append(bullet)
+            out.append(bullet)
+            if summary:
                 out.append(f"  {summary}")
-            else:
-                out.append(bullet + summary)
     out.append("")
 
     body = "\n".join(out) + "\n"
@@ -192,4 +191,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

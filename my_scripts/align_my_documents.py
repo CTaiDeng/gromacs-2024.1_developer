@@ -447,6 +447,27 @@ def normalize_h1_prefix(md_path: Path) -> bool:
     return False
 
 
+def normalize_h1_remove_title_label(md_path: Path) -> bool:
+    """Remove a leading '标题：' or '标题:' label from the first H1 text.
+    Returns True if changed.
+    """
+    try:
+        text = md_path.read_text(encoding="utf-8")
+    except Exception:
+        return False
+    lines = text.splitlines(True)
+    for i, ln in enumerate(lines):
+        if ln.startswith("# "):
+            title = ln[2:].strip()
+            for lab in ("标题：", "标题:", "標題：", "標題:"):
+                if title.startswith(lab):
+                    new_title = title[len(lab):].lstrip()
+                    lines[i] = f"# {new_title}\n"
+                    md_path.write_text("".join(lines), encoding="utf-8")
+                    return True
+            break
+    return False
+
 def cleanup_redundant_sections(md_path: Path) -> bool:
     """Remove redundant in-body sections like `### 标题` and `#### 摘要` that duplicate
     the normalized top matter. If a `#### 摘要` block exists and a top `## 摘要` block
@@ -796,10 +817,16 @@ def main() -> int:
                 else:
                     ts_git = first_add_timestamp(p)
                     if ts_git is not None:
+                        # Strip unwanted '标题：'/'标题:' prefix from the title part of filename
+                        rest_stripped = rest
+                        for lab in ("标题：", "标题:", "標題：", "標題:"):
+                            if rest_stripped.startswith(lab):
+                                rest_stripped = rest_stripped[len(lab):].lstrip()
+                                break
                         # Enforce unique prefix under project_docs by stepping back seconds if needed
                         ts_final = _ensure_unique_projdocs_ts(ts_git, p, used_proj_prefixes)
                         # 1) rename if needed
-                        new_name = f"{ts_final}_{rest}"
+                        new_name = f"{ts_final}_{rest_stripped}"
                         if new_name != name:
                             new_path = p.with_name(new_name)
                             subprocess.check_call(["git", "mv", "-f", "--", str(p), str(new_path)])
@@ -821,6 +848,8 @@ def main() -> int:
                 noted.append(str(p))
             # 4) Always normalize H1 to drop timestamp prefix if present
             normalize_h1_prefix(p)
+            # 4.1) Remove leading '标题：'/'标题:' label from H1
+            normalize_h1_remove_title_label(p)
             # 5) Cleanup redundant sections and enforce header spacing even if date step skipped
             cleanup_redundant_sections(p)
             # 6) Ensure author bullet exists (default GaoZheng)
