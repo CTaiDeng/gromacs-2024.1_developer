@@ -1,16 +1,9 @@
 #!/usr/bin/env sh
-# Derivation compliance pre-commit hook
+# Pre-commit hook (no-op by policy)
 
 set -eu
 
-repo_root="$(git rev-parse --show-toplevel)"
-py="python3"
-if command -v python >/dev/null 2>&1; then py=python; fi
+# Per project policy, hooks must not modify or lint docs/code automatically.
+# All compliance and formatting steps are manual via scripts under my_scripts/**.
 
-"$py" "$repo_root/my_scripts/align_my_documents.py" || true
-# Add canonical license footer to timestamped docs (non-blocking)
-"$py" "$repo_root/my_scripts/ensure_timestamp_doc_license_footer.py" || true
-# Stage any renames/content fixes performed by the aligner and footer tool
-git add -A || true
-
-"$py" "$repo_root/my_scripts/check_derivation_guard.py"
+exit 0

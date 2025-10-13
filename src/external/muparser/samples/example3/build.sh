@@ -1,4 +1,9 @@
 #!/bin/bash -x
+# Copyright (C) 2025- GaoZheng
+# SPDX-License-Identifier: GPL-3.0-only
+# This file is part of this project.
+# Licensed under the GNU General Public License version 3.
+# See https://www.gnu.org/licenses/gpl-3.0.html for details.
 
 CWD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 MP_SOURCES=${CWD}/../../

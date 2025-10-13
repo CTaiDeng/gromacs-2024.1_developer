@@ -1,3 +1,10 @@
+/*
+ * Copyright (C) 2025- GaoZheng
+ * SPDX-License-Identifier: GPL-3.0-only
+ * This file is part of this project.
+ * Licensed under the GNU General Public License version 3.
+ * See https://www.gnu.org/licenses/gpl-3.0.html for details.
+ */
 /* ************************************************************************
  * Copyright 2013 Advanced Micro Devices, Inc.
  *
@@ -31,9 +38,9 @@
 
 using std::vector;
 
-const std::string beginning_of_binary( "<[£_beginning_of_binary_£]>" );
-const std::string end_of_binary( "<[£_I_may_be_a_sorry_case,_but_I_don't_write_jokes_in_base_13_£]>" );
-const std::string end_of_file( "<[£_You're_off_the_edge_of_the_map,_mate._Here_there_be_monsters_£]>" );
+const std::string beginning_of_binary( "<[_beginning_of_binary_]>" );
+const std::string end_of_binary( "<[_I_may_be_a_sorry_case,_but_I_don't_write_jokes_in_base_13_]>" );
+const std::string end_of_file( "<[_You're_off_the_edge_of_the_map,_mate._Here_there_be_monsters_]>" );
 
 static bool pow235(size_t num, size_t &pow2, size_t &pow3, size_t &pow5)
 {

@@ -1,3 +1,8 @@
+# Copyright (C) 2025- GaoZheng
+# SPDX-License-Identifier: GPL-3.0-only
+# This file is part of this project.
+# Licensed under the GNU General Public License version 3.
+# See https://www.gnu.org/licenses/gpl-3.0.html for details.
 # The first argument sets the name of the target for CMake bookkeeping purposes. It is the default name of the
 # shared object library that is produced, but we can override that. There is no particular reason to
 # change "gmxapi_extension" here unless you need different CMake target names to build several modules in

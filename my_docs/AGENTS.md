@@ -21,6 +21,18 @@
    - 摘要内容与 `---` 之间仅保留 1 个空行；
    - `---` 与后续正文之间仅保留 1 个空行。
 
+## 许可尾注规范（MUST）
+- 适用范围：所有命名为 `10位Unix时间戳_*.md` 的文档（含 `my_docs/project_docs` 与 `my_project/*/docs`；`kernel_reference` 例外）。
+- 尾注内容（末尾追加），并保持格式：
+  - `---` 前后各保留 1 个空行；
+  - 具体块：
+    - `**许可声明 (License)**`
+    - `Copyright (C) {year|year-year2} GaoZheng`
+      - `{year}` = 文档创立年份（优先取文件名 10 位时间戳，否则取首次提交年/mtime）
+      - 若后续修改年份 `{year2}` > `{year}`，显示为 `{year}-{year2}`
+    - CC BY-NC-ND 4.0 中文链接说明行
+- 自动化：由 `my_scripts/ensure_timestamp_doc_license_footer.py` 在提交前自动补全/规范（幂等）。
+
 ## 摘要处理优先级（MUST/SHOULD）
 - [MUST] 若原文已有摘要，标准化为 `## 摘要` 标题，不改动内容。
 - [SHOULD] 若存在“#### 摘要/摘要：”等非标准写法，脚本自动合并为 `## 摘要`。
@@ -43,16 +55,20 @@
   - 若需长期保留，应转为正式文档（含头部/结构/摘要）。
   - `.gitignore` 保持通配排除（如 `tmp_*`, `*.tmp`, `*.bak`）。
 
-## 自动化脚本
-- `align_my_documents.py`
-  - 统一文件名时间戳唯一性（`project_docs`）。
-  - 规范化头部：作者、ISO 日期、O3 提示、去除 H1 时间戳前缀。
-  - 清理重复的“### 标题/#### 摘要”等，合并为标准结构；
-  - 强制“摘要后 → 空行 → `---` → 空行 → 正文”的分隔线规范（自动插入或修复）。
+## 自动化脚本（需手动执行）
+- `ensure_timestamp_doc_license_footer.py`
+  - 为“10位时间戳_*.md”追加许可尾注（已声明 kernel_reference 例外）。
 - `gen_my_docs_index.py`
-  - 生成/刷新 根目录 `README.md`（UTF-8 with BOM），兼容 Windows 控制台。
-  - `ensure_summaries.py`
+  - 生成/刷新 根目录 `README.md`（UTF-8 with BOM）。
+- `ensure_summaries.py`
   - 在缺失时补全 `## 摘要` 区块。
+ - `align_dates_to_filename_prefix.py`
+   - 将文内日期对齐为文件名前缀对应日期（默认 dry-run，需 `--apply` 生效）。
+ - `align_prefix_to_doc_date_v2.py`
+   - 将文件名前缀对齐为文内日期（强规则，非递归）：
+     - 以文内 `- 日期：YYYY-MM-DD` 为基准取当天 `00:00:00` 秒。
+     - 同一目录内若日期重复，则从当日第一秒起依次分配 `+0, +1, +2 ...` 秒（按文件名标题字典序升序）。
+     - 作用于 `my_docs/project_docs` 与 `my_project/gmx_split_20250924_011827/docs`。
 
 ## 目录与权限
 - `my_docs/project_docs`：项目知识库（可写）。

@@ -1,4 +1,11 @@
 /*
+ * Copyright (C) 2025- GaoZheng
+ * SPDX-License-Identifier: GPL-3.0-only
+ * This file is part of this project.
+ * Licensed under the GNU General Public License version 3.
+ * See https://www.gnu.org/licenses/gpl-3.0.html for details.
+ */
+/*
 
 	 _____  __ _____________ _______  ______ ___________
 	/     \|  |  \____ \__  \\_  __ \/  ___// __ \_  __ \
@@ -270,7 +277,7 @@ namespace mu
 		// Ignore all non printable characters when reading the expression
 		while (szExpr[m_iPos] > 0 && szExpr[m_iPos] <= 0x20)
 		{
-			// 14-31 are control characters. I donÄt want to have to deal with such strings at all!
+			// 14-31 are control characters. I dont want to have to deal with such strings at all!
 			// (see https://en.cppreference.com/w/cpp/string/byte/isprint)
 			if (szExpr[m_iPos] >= 14 && szExpr[m_iPos] <= 31)
 				Error(ecINVALID_CHARACTERS_FOUND, m_iPos);

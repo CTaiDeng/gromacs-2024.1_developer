@@ -75,7 +75,7 @@ try {
   }
 
   function Make-HeaderLines($style) {
-    $year = '2025'
+    $year = '2025-'
     $copyLine = "Copyright (C) $year GaoZheng"
     $spdxLine = "SPDX-License-Identifier: $Spdx"
     $gpl = @(
@@ -101,20 +101,91 @@ try {
     }
   }
 
-  function Already-HasHeader($text) {
-    $head = -join ($text | Select-Object -First 60)
-    if ($head -match 'SPDX-License-Identifier:\s*GPL-3\.0') { return $true }
-    if ($head -match 'GNU\s+General\s+Public\s+License' -and $head -match 'version\s*3') { return $true }
-    if ($head -match 'GPL-3\.0') { return $true }
-    return $false
-  }
+function Already-HasHeader($text) {
+    $head = -join ($text | Select-Object -First 120)
+    return ($head -match 'SPDX-License-Identifier:\s*GPL-3\.0' -and $head -match 'GNU\s+General\s+Public\s+License')
+}
 
-  function Insert-Header($path) {
+function Insert-Header($path) {
     $style = Detect-Style $path
     $lines = Get-Content -LiteralPath $path -Raw -ErrorAction Stop
     $crlf = ($lines -match "`r`n")
     $eol = if ($crlf) { "`r`n" } else { "`n" }
     $arr = $lines -split "`r?`n"
+    # Consolidation path: detect our SPDX header and legacy GROMACS LGPL header near the top
+    $head = -join ($arr | Select-Object -First 200)
+    $hasSpdx = ($head -match 'SPDX-License-Identifier:\s*GPL-3\.0')
+    $hasGmx = ($head -match 'GROMACS molecular simulation package' -and ($head -match 'Lesser\s+General\s+Public\s+License' -or $head -match 'LGPL'))
+    if ($hasSpdx -and $hasGmx) {
+      # Parse GROMACS year if present
+      $gmxYear = '2010-'
+      $m = [regex]::Match($head, 'Copyright\s+(\d{4}-?)\s*The\s+GROMACS\s+Authors')
+      if ($m.Success) { $gmxYear = $m.Groups[1].Value }
+
+      # Build consolidated header
+      $core = @(
+        "SPDX-License-Identifier: $Spdx",
+        "",
+        "Copyright (C) $gmxYear The GROMACS Authors",
+        "Copyright (C) 2025- GaoZheng",
+        "",
+        "This program is free software: you can redistribute it and/or modify",
+        "it under the terms of the GNU General Public License as published by",
+        "the Free Software Foundation, version 3.",
+        "",
+        "This program is distributed in the hope that it will be useful,",
+        "but WITHOUT ANY WARRANTY; without even the implied warranty of",
+        "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
+        "GNU General Public License for more details.",
+        "",
+        "You should have received a copy of the GNU General Public License",
+        "along with this program. If not, see <https://www.gnu.org/licenses/>.",
+        "",
+        "---",
+        "",
+        "This file is part of a modified version of the GROMACS molecular simulation package.",
+        "For details on the original project, consult https://www.gromacs.org.",
+        "",
+        "To help fund GROMACS development, we humbly ask that you cite",
+        "the research papers on the package. Check out https://www.gromacs.org."
+      )
+      switch ($style) {
+        'block' { $cons = @('/*'); foreach ($l in $core) { $cons += ($(if ($l -ne '') {" * $l"} else {' *'})) }; $cons += ' */' }
+        'bat'   { $cons = $core | ForEach-Object { if ($_ -ne '') { 'REM ' + $_ } else { 'REM' } } }
+        default { $cons = $core | ForEach-Object { if ($_ -ne '') { '# ' + $_ } else { '#' } } }
+      }
+
+      # Determine insertion point preserving shebang/encoding
+      $insertAt = 0
+      if ($arr.Count -gt 0 -and $arr[0].StartsWith('#!')) { $insertAt = 1 }
+      if ($arr.Count -gt $insertAt -and $arr[$insertAt] -match 'coding\s*[:=]\s*utf-?8') { $insertAt += 1 }
+
+      # Remove up to two leading comment blocks/lines after insertAt
+      $i = $insertAt
+      if ($style -eq 'block') {
+        $removed = 0
+        while ($i -lt $arr.Count -and $removed -lt 2) {
+          if ($arr[$i].TrimStart().StartsWith('/*')) {
+            $j = $i
+            while ($j -lt $arr.Count -and -not $arr[$j].TrimEnd().EndsWith('*/')) { $j++ }
+            $i = $j + 1; $removed++
+          } elseif (-not $arr[$i].Trim()) { $i++ } else { break }
+        }
+      } else {
+        while ($i -lt $arr.Count -and (-not $arr[$i].Trim() -or $arr[$i].TrimStart().StartsWith('#') -or $arr[$i].TrimStart().StartsWith('REM'))) { $i++ }
+      }
+
+      $new = @()
+      if ($insertAt -gt 0) { $new += $arr[0..($insertAt-1)] }
+      $new += $cons
+      if ($i -lt $arr.Count -and $arr[$i].Trim()) { $new += '' }
+      $new += $arr[$i..($arr.Count-1)]
+      $content = ($new -join $eol)
+      if (-not $content.EndsWith($eol)) { $content += $eol }
+      Set-Content -LiteralPath $path -Value $content -Encoding utf8
+      return $true
+    }
+
     if (Already-HasHeader $arr) { return $false }
 
     $header = Make-HeaderLines $style
@@ -164,4 +235,3 @@ try {
 } finally {
   Pop-Location
 }
-

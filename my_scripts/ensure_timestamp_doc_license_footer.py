@@ -16,6 +16,8 @@ from __future__ import annotations
 
 import re
 import shutil
+import subprocess
+import time
 from pathlib import Path
 import json
 
@@ -23,18 +25,18 @@ ROOT = Path(__file__).resolve().parents[1]
 CFG_PATH = ROOT / "my_scripts" / "docs_whitelist.json"
 
 PATTERN = re.compile(r"^\d{10}_.+\.md$")
-FOOTER = (
-    "\n---\n"
-    "**许可声明 (License)**\n\n"
-    "Copyright (C) 2025 GaoZheng\n\n"
-    "本文档采用[知识共享-署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-Hans)进行许可。\n"
-)
 MARKER = "许可声明 (License)"
 LINK_SNIPPET = "creativecommons.org/licenses/by-nc-nd/4.0"
 
 
 def iter_target_files() -> list[Path]:
     targets: list[Path] = []
+    # 0) repo-root docs (non-recursive)
+    root_docs = ROOT / "docs"
+    if root_docs.exists():
+        for p in root_docs.glob("*.md"):
+            if p.is_file() and PATTERN.match(p.name):
+                targets.append(p)
     # 1) my_docs/project_docs (exclude kernel_reference)
     proj = ROOT / "my_docs" / "project_docs"
     if proj.exists():
@@ -71,16 +73,108 @@ def write_text(path: Path, content: str) -> None:
     path.write_text(content, encoding="utf-8")
 
 
+def _run_git(args: list[str]) -> str:
+    try:
+        out = subprocess.check_output(["git", *args], cwd=ROOT)
+        try:
+            return out.decode("utf-8", errors="ignore")
+        except Exception:
+            return out.decode(errors="ignore")
+    except Exception:
+        return ""
+
+
+def _creation_year(path: Path) -> int:
+    # Prefer 10-digit prefix in filename
+    name = path.name
+    try:
+        pref = name.split("_", 1)[0]
+        if len(pref) == 10 and pref.isdigit():
+            ts = int(pref)
+            return time.localtime(ts).tm_year
+    except Exception:
+        pass
+    # Fallback to first add commit year
+    out = _run_git(["log", "--follow", "--diff-filter=A", "--format=%at", "--", str(path)])
+    ts = out.strip().splitlines()[-1] if out.strip() else ""
+    if ts.isdigit():
+        return time.localtime(int(ts)).tm_year
+    # Fallback to file mtime
+    try:
+        return time.localtime(path.stat().st_mtime).tm_year
+    except Exception:
+        return time.localtime().tm_year
+
+
+def _last_mod_year(path: Path) -> int:
+    # Prefer last commit year
+    out = _run_git(["log", "-1", "--format=%at", "--", str(path)])
+    ts = out.strip().splitlines()[-1] if out.strip() else ""
+    if ts.isdigit():
+        return time.localtime(int(ts)).tm_year
+    try:
+        return time.localtime(path.stat().st_mtime).tm_year
+    except Exception:
+        return time.localtime().tm_year
+
+
+def _year_label(path: Path) -> str:
+    c = _creation_year(path)
+    m = _last_mod_year(path)
+    if m > c:
+        return f"{c}-{m}"
+    return str(c)
+
+
 def ensure_footer(path: Path) -> bool:
-    """Append footer if not present. Returns True if file modified."""
+    """Ensure footer exists with exact spacing and dynamic year label.
+    Returns True if file modified.
+    """
     text = read_text(path)
-    hay = text[-2000:] if len(text) > 2000 else text
-    if (MARKER in hay) and (LINK_SNIPPET in hay):
+    year_label = _year_label(path)
+    canonical = (
+        "\n\n---\n\n"
+        "**许可声明 (License)**\n\n"
+        f"Copyright (C) {year_label} GaoZheng\n\n"
+        "本文档采用[知识共享-署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-Hans)进行许可。\n"
+    )
+
+    # If marker exists, normalize by replacing from the marker to end
+    idx = text.rfind(MARKER)
+    if idx != -1:
+        # Start from the beginning of the line containing the marker
+        line_start = text.rfind("\n", 0, idx)
+        line_start = 0 if line_start == -1 else line_start + 1
+        pre = text[:line_start]
+        # Trim trailing whitespace and an optional preceding '---' separator with surrounding blank lines
+        pre_lines = pre.splitlines()
+        # Clean any trailing blank lines / stray '**' / '---' in order, repeatedly
+        changed = True
+        while changed and pre_lines:
+            changed = False
+            while pre_lines and pre_lines[-1].strip() == "":
+                pre_lines.pop(); changed = True
+            if pre_lines and pre_lines[-1].strip() == "**":
+                pre_lines.pop(); changed = True
+            while pre_lines and pre_lines[-1].strip() == "":
+                pre_lines.pop(); changed = True
+            if pre_lines and pre_lines[-1].strip() == "---":
+                pre_lines.pop(); changed = True
+            while pre_lines and pre_lines[-1].strip() == "":
+                pre_lines.pop(); changed = True
+        head = ("\n".join(pre_lines)).rstrip("\r\n")
+        new_text = head + canonical
+        if new_text != text:
+            write_text(path, new_text)
+            return True
         return False
-    # Normalize line endings and trailing whitespace
-    body = text.rstrip("\r\n") + "\n" + FOOTER
-    write_text(path, body)
-    return True
+    # Else append canonical footer
+    base = text.rstrip("\r\n")
+    new_text = base + canonical
+    if new_text != text:
+        write_text(path, new_text)
+        return True
+    return False
 
 
 def copy_license_into_project() -> bool:

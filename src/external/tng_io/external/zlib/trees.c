@@ -1,3 +1,10 @@
+/*
+ * Copyright (C) 2025- GaoZheng
+ * SPDX-License-Identifier: GPL-3.0-only
+ * This file is part of this project.
+ * Licensed under the GNU General Public License version 3.
+ * See https://www.gnu.org/licenses/gpl-3.0.html for details.
+ */
 /* trees.c -- output deflated data using Huffman coding
  * Copyright (C) 1995-2012 Jean-loup Gailly
  * detect_data_type() function provided freely by Cosmin Truta, 2006

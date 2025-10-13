@@ -1,3 +1,8 @@
+# Copyright (C) 2025- GaoZheng
+# SPDX-License-Identifier: GPL-3.0-only
+# This file is part of this project.
+# Licensed under the GNU General Public License version 3.
+# See https://www.gnu.org/licenses/gpl-3.0.html for details.
 set(TNG_ROOT_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR})
 file(RELATIVE_PATH TNG_ROOT_BINARY_DIR ${CMAKE_SOURCE_DIR} ${TNG_ROOT_SOURCE_DIR})
 if ("${TNG_ROOT_BINARY_DIR}" MATCHES "^\.\.")
