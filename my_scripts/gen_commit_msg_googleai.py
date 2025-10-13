@@ -86,15 +86,13 @@ PROMPT_TMPL = (
 
 def build_prompt(stat: str, patch: str, lang: str) -> str:
     lang = (lang or "zh").lower()
-    if lang == "en":
-        return (
-            "Please read the staged Git changes and produce a concise commit message.\n"
-            "- First line <= 60 chars in `type: subject`, type in {feat, fix, docs, chore, refactor, test, perf, build, ci}.\n"
-            "- Then list 1-3 bullet points, each one line starting with `- `.\n\n"
-            "Name-status list:\n{stat}\n\n"
-            "Diff patch (may be truncated):\n{patch}\n"
-        ).format(stat=stat, patch=patch)
-    return PROMPT_TMPL.format(stat=stat, patch=patch)
+    # 始终要求以简体中文回答，并在提示前加入中文说明
+    chs_instr = (
+        "请使用简体中文输出提交信息，不要使用繁体字或英文。\n"
+        "首行≤60个字符，格式 `type: subject`，type ∈ {feat, fix, docs, chore, refactor, test, perf, build, ci}；"
+        "随后列出 1-3 条要点，每条以 `- ` 开头。\n\n"
+    )
+    return chs_instr + PROMPT_TMPL.format(stat=stat, patch=patch)
 
 
 def generate_with_gemini(prompt: str) -> Optional[str]:

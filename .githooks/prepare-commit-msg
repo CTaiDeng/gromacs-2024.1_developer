@@ -19,6 +19,7 @@ export PYTHONUTF8=1
 export PYTHONIOENCODING=UTF-8
 export LC_ALL="${LC_ALL:-C.UTF-8}"
 export LANG="${LANG:-C.UTF-8}"
+export COMMIT_MSG_LANG=zh
 
 # 将可能已存在于外部环境的 API Key 透传给子进程（若不存在则为空）
 export GEMINI_API_KEY="${GEMINI_API_KEY-}"

@@ -5,6 +5,7 @@ rem Usage: prepare-commit-msg <msgfile> [commit_source] [sha]
 
 set MSG_FILE=%~1
 set COMMIT_SOURCE=%~2
+set COMMIT_MSG_LANG=zh
 
 rem Skip for merge/squash
 if /I "%COMMIT_SOURCE%"=="merge" exit /b 0
@@ -49,4 +50,3 @@ if %NEED_GEN%==1 (
 
 :done
 endlocal & exit /b 0
-
