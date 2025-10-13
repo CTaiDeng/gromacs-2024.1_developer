@@ -109,6 +109,16 @@ def build_index() -> str:
         "#### ***注：O3 理论/O3 元理论/多维宇宙生成论（PFB-GNLA）相关参考请见 [作者 GaoZheng 的资料库](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) 与 [作者 GaoZheng 主页](https://mymetamathematics.blogspot.com)***\n\n"
     )
 
+    # 开发协议 / 捐赠说明（本项目专用地址，不可变更）
+    donation_block = (
+        "# ***激励创新，共筑未来***\n\n"
+        "### ***您的支持将直接用于激励我们的核心研发团队，帮助我们攻克技术难关，持续推动项目创新。***\n\n"
+        "### ***捐赠地址 (ETH/EVM):***\n"
+        "### `0x3eA6FC8B18820Bfb4bBd0BDe69B4769AE8A86E99`\n\n"
+        "### ***说明：为确保专款专用，我们启用此全新地址接收所有捐赠。所有资金往来公开透明，接受社区共同监督。***\n\n"
+        "### ***感谢您的慷慨支持！***\n\n"
+    )
+
     out: list[str] = []
     out.append("# my_docs 文档索引")
     out.append(f"日期：{fmt_date()}")
@@ -174,14 +184,7 @@ def build_index() -> str:
     out.append("")
 
     body = "\n".join(out) + "\n"
-    donation_block = (
-        "\n# **激励创新，共筑未来**\n\n"
-        "您的支持将直接用于激励我们的核心研发团队，帮助我们攻克技术难关，持续推动项目创新。\n\n"
-        "**捐赠地址 (ETH/EVM):**\n"
-        "`0x3eA6FC8B18820Bfb4bBd0BDe69B4769AE8A86E99`\n\n"
-        "**说明:** 为确保专款专用，我们启用此全新地址接收所有捐赠。所有资金往来公开透明，接受社区共同监督。\n\n"
-        "感谢您的慷慨支持！\n"
-    )
+    # 捐赠段落需位于索引上方
     return header_block + donation_block + body
 
 
@@ -199,3 +202,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
