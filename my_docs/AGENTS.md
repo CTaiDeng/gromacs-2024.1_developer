@@ -50,7 +50,7 @@
   - 清理重复的“### 标题/#### 摘要”等，合并为标准结构；
   - 强制“摘要后 → 空行 → `---` → 空行 → 正文”的分隔线规范（自动插入或修复）。
 - `gen_my_docs_index.py`
- - 生成/刷新 `my_docs/README.md`（UTF-8 with BOM），兼容 Windows 控制台。
+  - 生成/刷新 根目录 `README.md`（UTF-8 with BOM），兼容 Windows 控制台。
   - `ensure_summaries.py`
   - 在缺失时补全 `## 摘要` 区块。
 
@@ -59,7 +59,7 @@
 - `my_docs/project_docs/kernel_reference`：外部参考（只读，排除写入型脚本遍历）。
 
 ## 编码规范（重点）
-- 为兼容 Windows 传统控制台编码，`my_docs/AGENTS.md` 与 `my_docs/README.md` 使用 UTF-8 with BOM 保存。
+- 为兼容 Windows 传统控制台编码，`my_docs/AGENTS.md` 与 根目录 `README.md` 使用 UTF-8 with BOM 保存。
 - 其他 Markdown 文件建议使用 UTF-8；如需在控制台直接阅读，也可手动转换为 UTF-8 with BOM。
 
 ## 写入协议（重要）

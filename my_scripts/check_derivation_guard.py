@@ -5,11 +5,10 @@
 Derivation guard: enforce fork/derivation compliance before commit.
 
 Checks (fail -> block commit):
-1) Required files exist: COPYING, CITATION.cff, README, NOTICE.
-2) README top contains Chinese-communication note and non-official derivation disclaimer.
-3) NOTICE mentions non-official derivation and LGPL.
-4) Heuristics on staged changes: discourage new binary blobs; flag 'official' claims.
-5) my_docs/project_docs 前缀唯一性：10位数字前缀视为文档ID，必须唯一（排除 kernel_reference）。
+1) Required files exist: LICENSE, CITATION.cff, README.
+2) README top contains: Simplified-Chinese communication note; non-official derivation disclaimer; GPL-3.0 license change.
+3) Heuristics on staged changes: discourage new binary blobs; flag 'official' claims.
+4) my_docs/project_docs 前缀唯一性：10位数字前缀视为文档ID，必须唯一（排除 kernel_reference）。
 
 Optional LLM assist: if GEMINI/GOOGLEAI key set and DERIVATION_GUARD_USE_LLM=1,
 summarize staged diff and ask model for PASS/FAIL with reasoning. Lack of key
@@ -25,11 +24,12 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+from typing import List, Dict
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def run(cmd: list[str]) -> str:
+def run(cmd: List[str]) -> str:
     # Use bytes + robust decode to avoid locale decode errors on Windows (e.g., GBK).
     out = subprocess.check_output(cmd, cwd=ROOT)
     try:
@@ -41,7 +41,7 @@ def run(cmd: list[str]) -> str:
             return ""
 
 
-def staged_files() -> list[str]:
+def staged_files() -> List[str]:
     out = run(["git", "diff", "--cached", "--name-only"])
     return [x for x in out.splitlines() if x.strip()]
 
@@ -56,20 +56,29 @@ def read_text(path: Path) -> str:
             return ""
 
 
-def check_required_files() -> list[str]:
-    req = ["COPYING", "CITATION.cff", "README", "NOTICE"]
-    missing = [p for p in req if not (ROOT / p).exists()]
-    return [f"缺失关键文件：{','.join(missing)}"] if missing else []
+def check_required_files() -> List[str]:
+    missing: List[str] = []
+    # Core required files
+    for p in ("LICENSE", "CITATION.cff"):
+        if not (ROOT / p).exists():
+            missing.append(p)
+    # README allow .md
+    if not ((ROOT / "README.md").exists() or (ROOT / "README").exists()):
+        missing.append("README.md")
+    return ["缺失关键文件:" + ",".join(missing)] if missing else []
 
-
-def check_readme_headers() -> list[str]:
-    readme = ROOT / "README"
+def check_readme_headers() -> List[str]:
+    # Prefer README.md, fallback to README
+    readme = ROOT / "README.md"
     if not readme.exists():
-        return ["README 不存在"]
+        readme = ROOT / "README"
+    if not readme.exists():
+        return ["README.md 不存在"]
     text = read_text(readme)
     head = "\n".join(text.splitlines()[:30])
+    # Chinese keywords fallback; also accept English marker
     comm_ok = (
-        any(k in head for k in ("简体中文", "中文", "沟通", "交流"))
+        any(k in head for k in ("中文", "简体", "沟通", "交流"))
         or re.search(r"Simplified\s+Chinese", head, re.I) is not None
     )
     deriv_ok = (
@@ -79,35 +88,29 @@ def check_readme_headers() -> list[str]:
             and re.search(r"(derivative|fork)", head, re.I) is not None
         )
     )
-    if not comm_ok or not deriv_ok:
+    license_ok = (
+        re.search(r"GPL[-\s]*3\.0", head, re.I) is not None
+        or re.search(r"GNU\s+General\s+Public\s+License\s+v?3", head, re.I) is not None
+    )
+    if not comm_ok or not deriv_ok or not license_ok:
         return [
-            "README 顶部缺少沟通语言或非官方派生声明（支持中文或等价英文表述）",
-            "修复建议：在 README 顶部加入（中文或英文）：",
-            " - Note: This repository communicates in Simplified Chinese by default.",
-            " - Disclaimer: This is a non-official derivative/fork of GROMACS; see COPYING (LGPL-2.1). Unless otherwise noted, added/modified parts follow LGPL-2.1.",
+            "README 顶部缺少下列任一项：中文沟通提示/非官方派生声明/GPL-3.0 许可变更说明",
+            "修改示例（英文要点）:",
+            " - Primary Language: Simplified Chinese",
+            " - Attribution: non-official derivative/fork of GROMACS",
+            " - License Change: entire project is licensed under GPL-3.0",
         ]
     return []
-
-
-def check_notice() -> list[str]:
-    path = ROOT / "NOTICE"
-    if not path.exists():
-        return ["NOTICE 不存在"]
-    text = read_text(path)
-    ok = ("非官方" in text or "派生" in text or "衍生" in text) and ("LGPL" in text or "LGPL-2.1" in text)
-    return [] if ok else ["NOTICE 中缺少派生/许可说明（应包含‘非官方/派生/衍生’与‘LGPL’ 关键词）"]
-
-
 BIN_PAT = re.compile(r"\.(?:exe|dll|so|a|lib|pyd|o|obj|jar|zip|7z|tgz|gz|xz)$", re.I)
 
 
-def check_staged_content() -> list[str]:
+def check_staged_content() -> List[str]:
     files = staged_files()
-    msgs: list[str] = []
+    msgs: List[str] = []
     # 1) discourage new binary blobs
     for f in files:
         if BIN_PAT.search(f) and (ROOT / f).exists():
-            msgs.append(f"暂存包含二进制/压缩制品：{f}（建议不要纳入仓库；若确因演示需要，请在 NOTICE 说明）")
+            msgs.append(f"暂存包含二进制/压缩制品：{f}（建议不要纳入仓库；若确因演示需要，请在 README 说明用途与来源）")
     # 2) grep 'official' claims in changed text files
     try:
         diff = run(["git", "diff", "--cached", "--unified=0"])
@@ -118,6 +121,10 @@ def check_staged_content() -> list[str]:
             if path.endswith("my_scripts/check_derivation_guard.py"):
                 return False
             if Path(path).name.lower() in {"agents.md"}:
+                return False
+            # Allow README to contain the non-official disclaimer mentioning 'official GROMACS'
+            base = Path(path).name.lower()
+            if base in {"readme", "readme.md"}:
                 return False
             return True
 
@@ -141,13 +148,13 @@ def check_staged_content() -> list[str]:
     return msgs
 
 
-def check_project_docs_unique_prefix() -> list[str]:
+def check_project_docs_unique_prefix() -> List[str]:
     """Ensure timestamp prefixes under my_docs/project_docs are unique (excluding kernel_reference)."""
     proj = ROOT / "my_docs" / "project_docs"
     if not proj.exists():
         return []
-    duplicates: dict[str, list[str]] = {}
-    seen: dict[str, str] = {}
+    duplicates: Dict[str, List[str]] = {}
+    seen: Dict[str, str] = {}
     for p in sorted(proj.glob("*")):
         if not p.is_file():
             continue
@@ -174,12 +181,12 @@ def check_project_docs_unique_prefix() -> list[str]:
     for k, lst in duplicates.items():
         files = ", ".join(lst)
         first = seen.get(k, "?")
-        msgs.append(f" - {k} -> {first}, {files}")
+        msgs.append(" - {} -> {}, {}".format(k, first, files))
     msgs.append("修复建议：运行 my_scripts/align_my_documents.py（将自动对冲突项回退1秒直至唯一），或手工重命名并同步‘日期：’行。")
     return msgs
 
 
-def llm_assist_if_enabled(summary: str) -> list[str]:
+def llm_assist_if_enabled(summary: str) -> List[str]:
     if os.environ.get("DERIVATION_GUARD_USE_LLM", "0") != "1":
         return []
     # Soft dependency on API key
@@ -196,10 +203,9 @@ def llm_assist_if_enabled(summary: str) -> list[str]:
 
 
 def main() -> int:
-    problems: list[str] = []
+    problems: List[str] = []
     problems += check_required_files()
     problems += check_readme_headers()
-    problems += check_notice()
     problems += check_staged_content()
     problems += check_project_docs_unique_prefix()
 
@@ -224,3 +230,6 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+

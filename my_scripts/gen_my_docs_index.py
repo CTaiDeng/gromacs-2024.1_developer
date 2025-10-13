@@ -194,7 +194,7 @@ def main() -> int:
         return 0
     content = build_index()
     # 写为 UTF-8 with BOM，兼容 Windows 控制台
-    with open(ROOT / "README.md", "w", encoding="utf-8-sig") as f:
+    with open(REPO_ROOT / "README.md", "w", encoding="utf-8-sig") as f:
         f.write(content)
     print("Wrote my_docs/README.md")
     return 0
@@ -202,4 +202,6 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
 
