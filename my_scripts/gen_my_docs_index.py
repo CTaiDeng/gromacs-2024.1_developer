@@ -48,10 +48,10 @@ def summarize_markdown(p: Path, max_len: int | None = None) -> str:
     try:
         text = p.read_text(encoding="utf-8")
     except Exception:
-        return "(无法获取摘要)"
+        return "(无法提取摘要)"
     lines = text.splitlines()
 
-    # Skip front-matter: 标题、作者/日期要素、遗留日期、O3 注释
+    # Skip front-matter: 标题、作者/日期、O3 注释
     i = 0
     while i < len(lines):
         ln = lines[i].strip()
@@ -102,17 +102,24 @@ def summarize_markdown(p: Path, max_len: int | None = None) -> str:
 
 
 def build_index() -> str:
+    header_block = (
+        "# README\n\n"
+        "- 作者：GaoZheng\n"
+        "- 日期：2025-10-13\n\n"
+        "#### ***注：O3 理论/O3 元理论/多维宇宙生成论（PFB-GNLA）相关参考请见 [作者 GaoZheng 的资料库](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) 与 [作者 GaoZheng 主页](https://mymetamathematics.blogspot.com)***\n\n"
+    )
+
     out: list[str] = []
     out.append("# my_docs 文档索引")
     out.append(f"日期：{fmt_date()}")
     out.append("")
-    out.append("说明：本页枚举 `my_docs/dev_docs` 与 `my_docs/project_docs` 下文档路径与要点摘要。")
+    out.append("说明：本页罗列 `my_docs/dev_docs` 与 `my_docs/project_docs` 的文档路径与要点摘要。")
     out.append("")
 
     # Excludes note for external references
     ex_proj = [e for e in EX if e.startswith("my_docs/project_docs/")]
     if ex_proj:
-        out.append("注：以下路径被视为外部知识参考（只读）：")
+        out.append("注意：以下路径为外部知识参考（只读）")
         for e in ex_proj:
             out.append(f"- `{e}`")
 
@@ -124,18 +131,19 @@ def build_index() -> str:
     else:
         files = []
     if not files:
-        out.append("- （暂无文档）")
+        out.append("- 暂无文档")
     else:
         for p in files:
             summary = summarize_markdown(p)
             out.append(f"- `{p.as_posix()}`：{summary}")
     out.append("")
 
-    # project_docs（按时间戳前缀升序 + 标题名作为二级排序）
+    # project_docs：按时间戳前缀 + 标题排序
     proj_dir = ROOT / "project_docs"
     out.append("## project_docs")
     if proj_dir.exists():
         files = [p for p in proj_dir.glob("*.md") if p.is_file() and not _is_excluded(p)]
+
         def _ts_key(p: Path) -> tuple[int, str]:
             name = p.name
             ts = 10**18
@@ -148,11 +156,12 @@ def build_index() -> str:
                     except Exception:
                         ts = 10**18
             return (ts, rest)
+
         files = sorted(files, key=_ts_key)
     else:
         files = []
     if not files:
-        out.append("- （暂无文档）")
+        out.append("- 暂无文档")
     else:
         WRAP_LEN = 120
         for p in files:
@@ -165,7 +174,8 @@ def build_index() -> str:
                 out.append(bullet + summary)
     out.append("")
 
-    return "\n".join(out) + "\n"
+    body = "\n".join(out) + "\n"
+    return header_block + body
 
 
 def main() -> int:
@@ -173,7 +183,7 @@ def main() -> int:
         print("my_docs not found")
         return 0
     content = build_index()
-    # 写入为 UTF-8 with BOM，避免在部分 Windows 工具中出现中文乱码
+    # 写为 UTF-8 with BOM，兼容 Windows 控制台
     with open(ROOT / "README.md", "w", encoding="utf-8-sig") as f:
         f.write(content)
     print("Wrote my_docs/README.md")

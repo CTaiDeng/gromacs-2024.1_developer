@@ -1,16 +1,16 @@
-# README
+﻿# README
 
 - 作者：GaoZheng
 - 日期：2025-10-13
 
-#### ***注：“O3理论/O3元数学理论/主纤维丛版广义非交换李代数(PFB-GNLA)”相关理论参见： [作者（GaoZheng）网盘分享](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) 或 [作者（GaoZheng）主页](https://mymetamathematics.blogspot.com)***
+#### ***注：O3 理论/O3 元理论/多维宇宙生成论（PFB-GNLA）相关参考请见 [作者 GaoZheng 的资料库](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) 与 [作者 GaoZheng 主页](https://mymetamathematics.blogspot.com)***
 
-﻿# my_docs 文档索引
+# my_docs 文档索引
 日期：2025年10月13日
 
-说明：本页枚举 `my_docs/dev_docs` 与 `my_docs/project_docs` 下文档路径与要点摘要。
+说明：本页罗列 `my_docs/dev_docs` 与 `my_docs/project_docs` 的文档路径与要点摘要。
 
-注：以下路径被视为外部知识参考（只读）：
+注意：以下路径为外部知识参考（只读）
 - `my_docs/project_docs/kernel_reference`
 ## dev_docs
 - `my_docs/dev_docs/PY_ENV.md`：```{bash} conda create -n win_py312_gromacs python=3.12 conda activate win_py312_gromacs E:\PythonSDK\Anaconda3\envs\win_py312_gromacs\python.exe ```
