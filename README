@@ -1,6 +1,8 @@
 Note: This repository communicates in Simplified Chinese by default.
 Disclaimer: This is a non-official derivative/fork of GROMACS; see  `COPYING` (LGPL-2.1). Unless otherwise noted, added/modified parts follow LGPL-2.1. 
 
+Further documentation index (Simplified Chinese): see [my_docs/README.md](my_docs/README.md).
+
                Welcome to the official version of GROMACS!
 If you are familiar with Unix, it should be fairly trivial to compile and
 install GROMACS. GROMACS uses only the CMake build system, and our

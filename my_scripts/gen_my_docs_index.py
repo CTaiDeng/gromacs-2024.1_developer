@@ -174,7 +174,15 @@ def build_index() -> str:
     out.append("")
 
     body = "\n".join(out) + "\n"
-    return header_block + body
+    donation_block = (
+        "\n# **激励创新，共筑未来**\n\n"
+        "您的支持将直接用于激励我们的核心研发团队，帮助我们攻克技术难关，持续推动项目创新。\n\n"
+        "**捐赠地址 (ETH/EVM):**\n"
+        "`0x3eA6FC8B18820Bfb4bBd0BDe69B4769AE8A86E99`\n\n"
+        "**说明:** 为确保专款专用，我们启用此全新地址接收所有捐赠。所有资金往来公开透明，接受社区共同监督。\n\n"
+        "感谢您的慷慨支持！\n"
+    )
+    return header_block + donation_block + body
 
 
 def main() -> int:
