@@ -17,8 +17,10 @@ from __future__ import annotations
 import re
 import shutil
 from pathlib import Path
+import json
 
 ROOT = Path(__file__).resolve().parents[1]
+CFG_PATH = ROOT / "my_scripts" / "docs_whitelist.json"
 
 PATTERN = re.compile(r"^\d{10}_.+\.md$")
 FOOTER = (
@@ -86,6 +88,22 @@ def copy_license_into_project() -> bool:
     dst_dir = ROOT / "my_project" / "gmx_split_20250924_011827" / "docs"
     dst = dst_dir / "LICENSE.md"
     if not src.exists() or not dst_dir.exists():
+        return False
+    # Respect doc_write_exclude
+    excluded = set()
+    try:
+        if CFG_PATH.exists():
+            data = json.loads(CFG_PATH.read_text(encoding="utf-8"))
+            for e in data.get("doc_write_exclude", []):
+                excluded.add(str(e).replace("\\", "/").rstrip("/"))
+    except Exception:
+        pass
+    try:
+        rel_dst = dst.resolve().relative_to(ROOT.resolve()).as_posix()
+    except Exception:
+        rel_dst = dst.as_posix().replace("\\", "/")
+    if rel_dst in excluded or any(rel_dst.startswith(e + "/") for e in excluded):
+        # Do not modify excluded paths
         return False
     try:
         s = read_text(src)

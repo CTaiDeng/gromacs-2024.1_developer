@@ -1,6 +1,6 @@
 # Licensing for this Directory
 
-All documents, theories, and knowledge base articles within this `/my_docs/` directory are licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0)**.
+All documents, theories, and knowledge base articles within this directory (excluding subdirectories) are licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0)**.
 
 You are free to share (copy and redistribute the material in any medium or format) under the following terms:
 - **Attribution** — You must give appropriate credit to the author (GaoZheng).
@@ -21,4 +21,3 @@ For the full license text, please visit: https://creativecommons.org/licenses/by
 - **禁止演绎 (NoDerivatives)** — 如果您将本材料进行混合、转换或基于本材料进行创作，您不得分发修改后的材料。
 
 许可证全文请访问：https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-Hans
-
