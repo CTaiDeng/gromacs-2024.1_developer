@@ -4,7 +4,7 @@
     "my_project"
   ],
   "doc_write_exclude": [
-    "my_docs/project_docs/kernel_reference"
+    "my_docs/project_docs/kernel_reference",
+    "my_docs/AGENTS.md"
   ]
 }
-

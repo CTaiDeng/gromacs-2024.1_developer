@@ -610,6 +610,99 @@ def cleanup_redundant_sections(md_path: Path) -> bool:
         if au_idx + 1 < len(lines) and lines[au_idx + 1].strip() == "" and au_idx + 2 == dt_idx:
             del lines[au_idx + 1]
             changed = True
+
+    # Ensure '## 摘要' is immediately followed by content (no blank line)
+    try:
+        top_summary_idx = next((i for i, ln in enumerate(lines) if ln.lstrip().startswith("## ") and ("摘要" in ln or "ժҪ" in ln)), None)
+    except Exception:
+        top_summary_idx = None
+    if top_summary_idx is not None:
+        if top_summary_idx + 1 < len(lines) and lines[top_summary_idx + 1].strip() == "":
+            del lines[top_summary_idx + 1]
+            changed = True
+
+    # Remove in-body H3 title that duplicates the H1 title
+    try:
+        h1_idx = next((i for i, ln in enumerate(lines) if ln.lstrip().startswith("# ")), None)
+    except Exception:
+        h1_idx = None
+    if h1_idx is not None:
+        h1_title = lines[h1_idx].lstrip()[2:].strip()
+        dup_variants = {f"### {h1_title}", f"### **{h1_title}**"}
+        start_scan = h1_idx + 1
+        end_scan = min(len(lines), start_scan + 200)
+        for i in range(start_scan, end_scan):
+            s = lines[i].strip()
+            if any(s.startswith(v) for v in dup_variants):
+                del lines[i]
+                # collapse extra consecutive blanks
+                while i < len(lines) - 1 and lines[i].strip() == "" and lines[i + 1].strip() == "":
+                    del lines[i + 1]
+                changed = True
+                break
+    # Ensure a horizontal rule '---' after the 摘要 block, with single blanks around
+    try:
+        top_summary_idx = next((i for i, ln in enumerate(lines) if ln.lstrip().startswith("## ") and ("摘要" in ln or "ժҪ" in ln or "??" in ln)), None)
+    except Exception:
+        top_summary_idx = None
+    if top_summary_idx is not None:
+        # Determine end boundary of the summary block
+        start = top_summary_idx + 1
+        # Skip a potential accidental blank just in case
+        while start < len(lines) and lines[start].strip() == "":
+            start += 1
+        end = start
+        while end < len(lines):
+            s = lines[end].strip()
+            if s.startswith("#") or s == "---" or s == "***":
+                break
+            end += 1
+        # Find last non-empty line in the summary content
+        last = end - 1
+        while last >= start and lines[last].strip() == "":
+            last -= 1
+        if last >= start:
+            # Check for existing HR at 'end'
+            has_hr = (end < len(lines) and lines[end].strip() in ("---", "***"))
+            if has_hr:
+                # Standardize to '---' and spacing: one blank before and after
+                if lines[end].strip() != "---":
+                    lines[end] = "---\n"
+                    changed = True
+                # Ensure exactly one blank between summary content and HR
+                if not (end - (last + 1) == 1 and lines[last + 1].strip() == ""):
+                    # Replace region with a single blank
+                    del lines[last + 1:end]
+                    lines.insert(last + 1, "\n")
+                    changed = True
+                # Re-find HR index (may shift after edits)
+                hr_idx = None
+                for ii in range(last + 1, min(len(lines), last + 8)):
+                    if lines[ii].strip() == "---":
+                        hr_idx = ii
+                        break
+                if hr_idx is None:
+                    for ii in range(top_summary_idx + 1, len(lines)):
+                        if lines[ii].strip() == "---":
+                            hr_idx = ii
+                            break
+                if hr_idx is not None:
+                    # Ensure exactly one blank after HR
+                    if hr_idx + 1 >= len(lines) or lines[hr_idx + 1].strip() != "":
+                        lines.insert(hr_idx + 1, "\n")
+                        changed = True
+                    # Collapse extra blanks after HR to a single one
+                    while hr_idx + 2 < len(lines) and lines[hr_idx + 1].strip() == "" and lines[hr_idx + 2].strip() == "":
+                        del lines[hr_idx + 2]
+                        changed = True
+            else:
+                # Insert HR with single-blank padding
+                insert_at = last + 1
+                lines.insert(insert_at, "\n")
+                lines.insert(insert_at + 1, "---\n")
+                lines.insert(insert_at + 2, "\n")
+                changed = True
+            changed = True
     if changed:
         md_path.write_text("".join(lines), encoding="utf-8")
     return changed

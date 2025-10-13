@@ -13,3 +13,6 @@ CMake configuration tips
 If ImageMagick is installed, point CMake to it when configuring GROMACS:
 
 cmake -DGMX_IMAGE_CONVERT="C:/Program Files/ImageMagick-7.1.2-Q16-HDRI/magick.exe" ...
+
+---
+
