@@ -37,9 +37,16 @@ if %NEED_GEN%==1 (
   if not defined PY ( where python >NUL 2>&1 && set PY=python )
 
   if defined PY (
-    for /f "usebackq delims=" %%O in (`"%PY%" "%REPO_ROOT%\my_scripts\gen_commit_msg_googleai.py" 2^>NUL`) do (
-      >"%MSG_FILE%" echo %%O
-      goto :done
+    if /I "%COMMIT_MSG_DEBUG%"=="1" (
+      for /f "usebackq delims=" %%O in (`"%PY%" "%REPO_ROOT%\my_scripts\gen_commit_msg_googleai.py"`) do (
+        >"%MSG_FILE%" echo %%O
+        goto :done
+      )
+    ) else (
+      for /f "usebackq delims=" %%O in (`"%PY%" "%REPO_ROOT%\my_scripts\gen_commit_msg_googleai.py" 2^>NUL`) do (
+        >"%MSG_FILE%" echo %%O
+        goto :done
+      )
     )
     rem Fallback placeholder
     >"%MSG_FILE%" echo update

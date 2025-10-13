@@ -24,6 +24,9 @@ import sys
 import json
 from pathlib import Path
 from typing import Optional, List
+import urllib.request
+import urllib.error
+import ssl
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -100,14 +103,77 @@ def build_prompt(stat: str, patch: str, lang: str) -> str:
     return chs_instr + PROMPT_TMPL.format(stat=stat, patch=patch)
 
 
-def generate_with_gemini(prompt: str) -> Optional[str]:
-    api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+def _debug(msg: str) -> None:
+    if os.environ.get("COMMIT_MSG_DEBUG", "0") == "1":
+        try:
+            sys.stderr.write(f"[commit-msg] {msg}\n")
+        except Exception:
+            pass
+
+
+def _generate_with_gemini_rest(prompt: str) -> Optional[str]:
+    api_key = (
+        os.environ.get("GEMINI_API_KEY")
+        or os.environ.get("GOOGLE_API_KEY")
+        or os.environ.get("GOOGLEAI_API_KEY")
+    )
     if not api_key:
+        _debug("REST fallback: no API key")
+        return None
+    # REST endpoint
+    model = os.environ.get("GEMINI_MODEL", "gemini-1.5-flash")
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+    payload = {
+        "contents": [
+            {"parts": [{"text": prompt}]}
+        ]
+    }
+    data = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
+    try:
+        # Allow default SSL context
+        ctx = ssl.create_default_context()
+        with urllib.request.urlopen(req, context=ctx, timeout=20) as resp:
+            raw = resp.read().decode("utf-8", errors="replace")
+            obj = json.loads(raw)
+    except urllib.error.HTTPError as e:
+        _debug(f"REST HTTPError: {e.code}")
+        return None
+    except Exception as e:
+        _debug(f"REST exception: {e}")
+        return None
+    # Parse candidates
+    try:
+        cands = obj.get("candidates") or []
+        texts: List[str] = []
+        for c in cands:
+            content = c.get("content") or {}
+            parts = content.get("parts") or []
+            for part in parts:
+                t = part.get("text")
+                if t:
+                    texts.append(t)
+        text = "\n".join([t for t in texts if t]).strip()
+        return text or None
+    except Exception as e:
+        _debug(f"REST parse exception: {e}")
+        return None
+
+
+def generate_with_gemini(prompt: str) -> Optional[str]:
+    api_key = (
+        os.environ.get("GEMINI_API_KEY")
+        or os.environ.get("GOOGLE_API_KEY")
+        or os.environ.get("GOOGLEAI_API_KEY")
+    )
+    if not api_key:
+        _debug("no API key in GEMINI_API_KEY/GOOGLE_API_KEY/GOOGLEAI_API_KEY; fallback to 'update'")
         return None
     try:
         import google.generativeai as genai  # type: ignore
     except Exception:
-        return None
+        _debug("google-generativeai package not installed; trying REST fallback")
+        return _generate_with_gemini_rest(prompt)
     try:
         genai.configure(api_key=api_key)
         model_name = os.environ.get("GEMINI_MODEL", "gemini-1.5-flash")
@@ -124,9 +190,11 @@ def generate_with_gemini(prompt: str) -> Optional[str]:
             text = "\n".join([p for p in parts if p])
         if text:
             return text.strip()
-        return None
-    except Exception:
-        return None
+        _debug("empty response text from SDK; trying REST fallback")
+        return _generate_with_gemini_rest(prompt)
+    except Exception as e:
+        _debug(f"SDK exception: {e}; trying REST fallback")
+        return _generate_with_gemini_rest(prompt)
 
 
 def is_comment_only_patch(patch: str) -> bool:
@@ -157,9 +225,7 @@ def is_comment_only_patch(patch: str) -> bool:
 
 def main() -> int:
     stat, patch = collect_diff_filtered()
-    if is_comment_only_patch(patch):
-        print('update')
-        return 0
+    # Always try to generate, even for comment-only patches
     if not stat and not patch:
         print('update')
         return 0

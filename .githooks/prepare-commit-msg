@@ -61,7 +61,11 @@ if [[ $IS_UPDATE -eq 1 ]]; then
 
     if [[ -n "$PY" ]]; then
       # 运行生成器并捕获输出；失败不阻塞提交
-      OUT=$("$PY" "$SCRIPT_PATH" 2>/dev/null || true)
+      if [[ "${COMMIT_MSG_DEBUG:-0}" == "1" ]]; then
+        OUT=$("$PY" "$SCRIPT_PATH" || true)
+      else
+        OUT=$("$PY" "$SCRIPT_PATH" 2>/dev/null || true)
+      fi
       OUT_TRIM=$(printf '%s' "$OUT" | sed 's/^\s\+//;s/\s\+$//')
       if [[ -n "$OUT_TRIM" ]]; then
         printf '%s\n' "$OUT_TRIM" > "$MSG_FILE"
@@ -73,7 +77,11 @@ if [[ $IS_UPDATE -eq 1 ]]; then
         if command -v cygpath >/dev/null 2>&1; then
           W_SCRIPT="$(cygpath -w "$SCRIPT_PATH" 2>/dev/null || echo "$SCRIPT_PATH")"
         fi
-        OUT=$(cmd.exe /c py -3 "$W_SCRIPT" 2>/dev/null || true)
+        if [[ "${COMMIT_MSG_DEBUG:-0}" == "1" ]]; then
+          OUT=$(cmd.exe /c py -3 "$W_SCRIPT" || true)
+        else
+          OUT=$(cmd.exe /c py -3 "$W_SCRIPT" 2>/dev/null || true)
+        fi
         OUT_TRIM=$(printf '%s' "$OUT" | sed 's/^\s\+//;s/\s\+$//')
         if [[ -n "$OUT_TRIM" ]]; then
           printf '%s\n' "$OUT_TRIM" > "$MSG_FILE"
