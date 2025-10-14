@@ -21,14 +21,14 @@ function Get-RepoRoot {
     $top = (git rev-parse --show-toplevel) 2>$null
     if ($LASTEXITCODE -eq 0 -and $top) { return (Resolve-Path $top).Path }
   } catch {}
-  # Fallback for scripts/compliance location
+  # Fallback for my_scripts/compliance location
   return (Resolve-Path "$PSScriptRoot/../.." ).Path
 }
 
 $RepoRoot = Get-RepoRoot
 Push-Location $RepoRoot
 try {
-  # Default output path under scripts/
+  # Default output path under my_scripts/compliance
   if (-not $PSBoundParameters.ContainsKey('Output') -or [string]::IsNullOrWhiteSpace($Output)) {
     $Output = Join-Path $PSScriptRoot 'lgpl_traces_list.txt'
   }
@@ -73,8 +73,8 @@ try {
   $hits = New-Object System.Collections.Generic.List[string]
   $total = 0; $eligible = 0
   foreach($rel in $all){
-    # Skip this script itself and the scripts/ tree to avoid false positives on pattern literals
-    if ($rel -like 'scripts/*') { continue }
+    # Skip this script itself and tool trees to avoid false positives on pattern literals
+    if ($rel -like 'scripts/*' -or $rel -like 'my_scripts/*') { continue }
     $full = Join-Path $RepoRoot $rel
     if(-not (Test-Path -LiteralPath $full)){ continue }
     $it = Get-Item -LiteralPath $full -ErrorAction SilentlyContinue

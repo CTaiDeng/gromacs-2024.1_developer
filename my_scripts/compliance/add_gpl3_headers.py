@@ -35,7 +35,7 @@ def get_repo_root() -> Path:
             return Path(p)
     except Exception:
         pass
-    # Fallback: this script is in scripts/compliance now
+    # Fallback: this script resides under my_scripts/compliance
     return Path(__file__).resolve().parents[2]
 
 REPO_ROOT = get_repo_root()

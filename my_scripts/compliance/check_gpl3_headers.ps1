@@ -22,7 +22,7 @@ function Get-RepoRoot {
     $top = (git rev-parse --show-toplevel) 2>$null
     if ($LASTEXITCODE -eq 0 -and $top) { return (Resolve-Path $top).Path }
   } catch {}
-  # Fallback for scripts/compliance location
+  # Fallback for my_scripts/compliance location
   return (Resolve-Path "$PSScriptRoot/../.." ).Path
 }
 

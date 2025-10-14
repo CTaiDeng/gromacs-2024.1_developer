@@ -19,7 +19,7 @@
 - 合规与格式化通过“手动指令”执行：
   - 文档尾注：`python3 my_scripts/ensure_timestamp_doc_license_footer.py`
   - 文档对齐：`python3 my_scripts/align_prefix_to_doc_date_v2.py`
-  - 头注整合：`python3 scripts/compliance/add_gpl3_headers.py <files/dirs>`
+  - 头注整合：`python3 my_scripts/compliance/add_gpl3_headers.py <files/dirs>`
   - 其他审查脚本按需手动运行。
 
 ## 开发者操作建议
@@ -36,8 +36,8 @@
     - `Copyright (C) 2025 GaoZheng`
   - GPL-3.0 许可说明（自由软件/无担保/许可证链接）。
 - 自动化工具：
-  - PowerShell：`scripts/compliance/add_gpl3_headers.ps1`
-  - Python：`scripts/compliance/add_gpl3_headers.py`
+  - PowerShell：`my_scripts/compliance/add_gpl3_headers.ps1`
+  - Python：`my_scripts/compliance/add_gpl3_headers.py`
   - 二者仅作用于源码文件（不会处理 Markdown），保留 shebang 与编码行，支持整合已有 GROMACS LGPL 头注为统一格式。
 
 ## 文档与目录约定（知识库/外部参考）

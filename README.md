@@ -1,9 +1,14 @@
-﻿# README
+﻿# 项目说明
 
-- 作者：GaoZheng
-- 日期：2025-10-13
+---
 
-#### ***注：“O3理论/O3元数学理论/主纤维丛版广义非交换李代数(PFB-GNLA)”相关理论参见： [作者（GaoZheng）网盘分享](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) 或 [作者（GaoZheng）主页](https://mymetamathematics.blogspot.com)***
+#### ***注：“O3理论/O3元数学理论/主纤维丛版广义非交换李代数(PFB-GNLA)”相关理论参见： [作者（GaoZheng）网盘分享](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) 或 [作者（GaoZheng）开源项目](https://github.com/CTaiDeng/open_meta_mathematical_theory) 或 [作者（GaoZheng）主页](https://mymetamathematics.blogspot.com)，欢迎访问！***
+
+---
+
+**本项目**兼具创新的计算实践与宏大的理论构建。实践层面，它首创性地将 **分子对接** 问题重构为 **分子动力学（MD）** 的“ **静态切面** ”，利用 **GROMACS** 引擎实现高物理一致性的蛋白-配体快速打分，解决了传统对接与MD力场不一的痛点。理论层面，这一工作流是宏大的 **O3理论（主纤维丛版广义非交换李代数，PFB-GNLA）** 最底层的物理实现，即“ **药效效应幺半群** ”（**PDEM**）的计算引擎。它为O3理论构建“**立体模拟人体**”、实现“**虚拟临床试验**”乃至统一物理与生命科学的终极蓝图，提供了坚实、可计算的基石。
+
+---
 
 # ***激励创新，共筑未来***
 
@@ -15,6 +20,10 @@
 ### ***说明：为确保专款专用，我们启用此全新地址接收所有捐赠。所有资金往来公开透明，接受社区共同监督。***
 
 ### ***感谢您的慷慨支持！***
+
+![Donate ETH/EVM](my_scripts/0x3ea6fc8b18820bfb4bbd0bde69b4769ae8a86e99.png)
+
+---
 
 # my_docs 文档索引
 日期：2025年10月14日

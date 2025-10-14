@@ -3,7 +3,7 @@
 - 作者：GaoZheng
 - 日期：2025-09-29
 
-#### ***注：“O3理论/O3元数学理论/主纤维丛版广义非交换李代数(PFB-GNLA)”相关理论参见： [作者（GaoZheng）网盘分享](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) 或 [作者（GaoZheng）主页](https://mymetamathematics.blogspot.com)***
+#### ***注：“O3理论/O3元数学理论/主纤维丛版广义非交换李代数(PFB-GNLA)”相关理论参见： [作者（GaoZheng）网盘分享](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) 或 [作者（GaoZheng）开源项目](https://github.com/CTaiDeng/open_meta_mathematical_theory) 或 [作者（GaoZheng）主页](https://mymetamathematics.blogspot.com)，欢迎访问！***
 
 ## 摘要
 我们将把“HIV感染到阻断治疗”这条复杂的演化路径 $\gamma_{HIV \to ART}$ 作为一个**不变的客观实在**，然后逐一进入六个不同的观测者视角，来阐述他们各自会如何解释这同一个GRL路径积分、同一套微分动力、以及同一个最优路径塌缩。
