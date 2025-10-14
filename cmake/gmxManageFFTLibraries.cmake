@@ -1,3 +1,8 @@
+# Copyright (C) 2025 GaoZheng
+# SPDX-License-Identifier: GPL-3.0-only
+# This file is part of this project.
+# Licensed under the GNU General Public License version 3.
+# See https://www.gnu.org/licenses/gpl-3.0.html for details.
 #
 # This file is part of the GROMACS molecular simulation package.
 #
@@ -179,4 +184,3 @@ endif()
 if(FFTW3_THREADS OR FFTW3F_THREADS)
     add_definitions(-DFFT5D_FFTW_THREADS)
 endif()
-

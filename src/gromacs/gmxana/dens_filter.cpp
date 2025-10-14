@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: GPL-3.0-only
  *
  * Copyright (C) 2011- The GROMACS Authors
- * Copyright (C) 2025- GaoZheng
+ * Copyright (C) 2025 GaoZheng
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

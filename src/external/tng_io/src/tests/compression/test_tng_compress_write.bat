@@ -1,4 +1,4 @@
-REM Copyright (C) 2025- GaoZheng
+REM Copyright (C) 2025 GaoZheng
 REM SPDX-License-Identifier: GPL-3.0-only
 REM This file is part of this project.
 REM Licensed under the GNU General Public License version 3.

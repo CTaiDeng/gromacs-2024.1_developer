@@ -1,3 +1,8 @@
+# Copyright (C) 2025 GaoZheng
+# SPDX-License-Identifier: GPL-3.0-only
+# This file is part of this project.
+# Licensed under the GNU General Public License version 3.
+# See https://www.gnu.org/licenses/gpl-3.0.html for details.
 #
 # This file is part of the GROMACS molecular simulation package.
 #
@@ -90,4 +95,3 @@ if(clFFT_FOUND)
     target_link_libraries(clFFT INTERFACE "${clFFT_LIBRARY}" "${CMAKE_DL_LIBS}")
     target_include_directories(clFFT SYSTEM BEFORE INTERFACE "${clFFT_INCLUDE_DIR}")
 endif()
-

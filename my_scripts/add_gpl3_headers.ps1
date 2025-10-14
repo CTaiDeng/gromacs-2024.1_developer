@@ -1,13 +1,28 @@
 #!/usr/bin/env pwsh
-# Copyright (C) 2025- GaoZheng
 # SPDX-License-Identifier: GPL-3.0-only
-# This file is part of this project.
-# Licensed under the GNU General Public License version 3.
-# See https://www.gnu.org/licenses/gpl-3.0.html for details.
-# Add GPL-3.0 header to source files in this repo
-# Usage examples:
-#   pwsh my_scripts/add_gpl3_headers.ps1
-#   pwsh my_scripts/add_gpl3_headers.ps1 -Paths src,api,include -WhatIf
+#
+# Copyright (C) 2010- The GROMACS Authors
+# Copyright (C) 2025 GaoZheng
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 3.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+#
+# ---
+#
+# This file is part of a modified version of the GROMACS molecular simulation package.
+# For details on the original project, consult https://www.gromacs.org.
+#
+# To help fund GROMACS development, we humbly ask that you cite
+# the research papers on the package. Check out https://www.gromacs.org.
 
 [CmdletBinding(SupportsShouldProcess=$true)]
 param(
@@ -80,7 +95,7 @@ try {
   }
 
   function Make-HeaderLines($style) {
-    $year = '2025-'
+    $year = '2025'
     $copyLine = "Copyright (C) $year GaoZheng"
     $spdxLine = "SPDX-License-Identifier: $Spdx"
     $gpl = @(
@@ -132,7 +147,7 @@ function Insert-Header($path) {
         "SPDX-License-Identifier: $Spdx",
         "",
         "Copyright (C) $gmxYear The GROMACS Authors",
-        "Copyright (C) 2025- GaoZheng",
+        "Copyright (C) 2025 GaoZheng",
         "",
         "This program is free software: you can redistribute it and/or modify",
         "it under the terms of the GNU General Public License as published by",
@@ -191,7 +206,15 @@ function Insert-Header($path) {
       return $true
     }
 
-    if (Already-HasHeader $arr) { return $false }
+    # If header already present, still normalize GaoZheng year formatting (2025- -> 2025)
+    if (Already-HasHeader $arr) {
+      if ($head -match 'Copyright \(C\) 2025-\s+GaoZheng') {
+        $contentFixed = ($lines -replace 'Copyright \(C\) 2025-\s+GaoZheng','Copyright (C) 2025 GaoZheng')
+        Set-Content -LiteralPath $path -Value $contentFixed -Encoding utf8
+        return $true
+      }
+      return $false
+    }
 
     $header = Make-HeaderLines $style
     $insertAt = 0

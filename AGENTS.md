@@ -33,7 +33,7 @@
   - `SPDX-License-Identifier: GPL-3.0-only`
   - 版权行：
     - `Copyright (C) 2010- The GROMACS Authors`
-    - `Copyright (C) 2025- GaoZheng`
+    - `Copyright (C) 2025 GaoZheng`
   - GPL-3.0 许可说明（自由软件/无担保/许可证链接）。
 - 自动化工具：
   - PowerShell：`my_scripts/add_gpl3_headers.ps1`

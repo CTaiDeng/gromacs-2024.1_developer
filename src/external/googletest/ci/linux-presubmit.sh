@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright (C) 2025- GaoZheng
+# Copyright (C) 2025 GaoZheng
 # SPDX-License-Identifier: GPL-3.0-only
 # This file is part of this project.
 # Licensed under the GNU General Public License version 3.

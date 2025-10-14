@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Copyright (C) 2025- GaoZheng
+# Copyright (C) 2025 GaoZheng
 # SPDX-License-Identifier: GPL-3.0-only
 # This file is part of this project.
 # Licensed under the GNU General Public License version 3.
@@ -148,7 +148,7 @@ def has_gromacs_lgpl_header(lines: list[str]) -> bool:
 
 
 def make_header_lines(style: str, spdx: str = "GPL-3.0-only") -> list[str]:
-    year = "2025-"
+    year = "2025"
     copy = f"Copyright (C) {year} GaoZheng"
     gpl_lines = [
         copy,
@@ -171,7 +171,7 @@ def make_consolidated_header(style: str, gmx_year: str = "2010-", spdx: str = "G
         f"SPDX-License-Identifier: {spdx}",
         "",
         f"Copyright (C) {gmx_year} The GROMACS Authors",
-        "Copyright (C) 2025- GaoZheng",
+        "Copyright (C) 2025 GaoZheng",
         "",
         "This program is free software: you can redistribute it and/or modify",
         "it under the terms of the GNU General Public License as published by",
@@ -210,6 +210,14 @@ def insert_header(path: Path, spdx: str = "GPL-3.0-only") -> bool:
             return False
     lines = text.splitlines()
     style = detect_style(path)
+
+    # Normalize GaoZheng year format even if header already present (2025- -> 2025)
+    head_text = "\n".join(lines[:300])
+    if "Copyright (C) 2025 GaoZheng" in head_text:
+        new_text = text.replace("Copyright (C) 2025 GaoZheng", "Copyright (C) 2025 GaoZheng")
+        if new_text != text:
+            path.write_text(new_text, encoding="utf-8")
+            return True
 
     # Consolidate if both headers are present
     if has_gromacs_lgpl_header(lines) and re.search(r"SPDX-License-Identifier:\s*GPL-3\.0", "".join(lines[:300]), re.I):
