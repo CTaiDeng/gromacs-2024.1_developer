@@ -3,7 +3,7 @@
 - 作者：GaoZheng
 - 日期：2025-10-13
 
-#### ***注：O3 理论/O3 元理论/多维宇宙生成论（PFB-GNLA）相关参考请见 [作者 GaoZheng 的资料库](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) 与 [作者 GaoZheng 主页](https://mymetamathematics.blogspot.com)***
+#### ***注：“O3理论/O3元数学理论/主纤维丛版广义非交换李代数(PFB-GNLA)”相关理论参见： [作者（GaoZheng）网盘分享](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) 或 [作者（GaoZheng）主页](https://mymetamathematics.blogspot.com)***
 
 ## 目标与范围
 - 目录范围：`my_docs` 下的 `dev_docs` 与 `project_docs`。

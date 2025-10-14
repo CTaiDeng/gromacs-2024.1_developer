@@ -5,12 +5,13 @@
 # Licensed under the GNU General Public License version 3.
 # See https://www.gnu.org/licenses/gpl-3.0.html for details.
 #
-# Scan repository for traces of LGPL-2.1 in code files. Writes a list of
-# matching file paths to scripts/lgpl_traces_list.txt by default.
+# Scan the repository for code files that should have GPL-3.0 headers added
+# by my_scripts/add_gpl3_headers.*, and list any missing into
+# gpl3_header_missing_list.txt at repo root.
 
 [CmdletBinding()] param(
   [string]$Output,
-  [int]$HeadLines = 800
+  [int]$HeadLines = 250
 )
 
 Set-StrictMode -Version Latest
@@ -21,19 +22,19 @@ function Get-RepoRoot {
     $top = (git rev-parse --show-toplevel) 2>$null
     if ($LASTEXITCODE -eq 0 -and $top) { return (Resolve-Path $top).Path }
   } catch {}
-  return (Resolve-Path "$PSScriptRoot/.." ).Path
+  # Fallback for scripts/compliance location
+  return (Resolve-Path "$PSScriptRoot/../.." ).Path
 }
 
 $RepoRoot = Get-RepoRoot
 Push-Location $RepoRoot
 try {
-  # Default output path under scripts/
+  # Default output path to scripts/ if not provided
   if (-not $PSBoundParameters.ContainsKey('Output') -or [string]::IsNullOrWhiteSpace($Output)) {
-    $Output = Join-Path $PSScriptRoot 'lgpl_traces_list.txt'
+    $Output = Join-Path $PSScriptRoot 'gpl3_header_missing_list.txt'
   }
   $absOutput = if ([IO.Path]::IsPathRooted($Output)) { $Output } else { Join-Path $RepoRoot $Output }
-
-  # Code extensions (same union as header check) and CMakeLists.txt
+  # Union of extensions handled by add_gpl3_headers.* (PS1 + PY)
   $extensions = @(
     '.c','.cc','.cpp','.cxx','.h','.hh','.hpp','.hxx','.cu','.cuh',
     '.py','.sh','.ps1','.psm1','.cmake','.bat','.cmd','.js','.ts',
@@ -50,30 +51,21 @@ try {
     return $false
   }
 
-  # Case-insensitive patterns to detect LGPL-2.1 traces
-  $patterns = @(
-    'SPDX-License-Identifier:\s*LGPL-2\.1(?:-only|-or-later)?',
-    'GNU\s+Lesser\s+General\s+Public\s+License[^\n]*2\.1',
-    'Lesser\s+General\s+Public\s+License[^\n]*2\.1',
-    '\bLGPL\b[^\n]*2\.1',
-    'GNU\s+Library\s+General\s+Public\s+License[^\n]*2\.1'
-  )
-  $regex = [string]::Join('|', $patterns)
-
-  function Has-LgplTrace($path){
+  function Has-Gpl3Header($path){
     try { $lines = Get-Content -LiteralPath $path -TotalCount $HeadLines -ErrorAction Stop } catch { return $false }
     $head = -join $lines
-    return ($head -match $regex -as [bool])
+    return (
+      $head -match 'SPDX-License-Identifier:\s*GPL-3\.0' -and
+      $head -match 'GNU\s+General\s+Public\s+License'
+    )
   }
 
-  # Get files tracked/untracked but not ignored
+  # All repo files that are tracked or untracked and not ignored
   $all = git -c core.quotepath=false ls-files -co --exclude-standard | ForEach-Object { $_.Trim() } | Where-Object { $_ }
 
-  $hits = New-Object System.Collections.Generic.List[string]
+  $missing = New-Object System.Collections.Generic.List[string]
   $total = 0; $eligible = 0
   foreach($rel in $all){
-    # Skip this script itself and the scripts/ tree to avoid false positives on pattern literals
-    if ($rel -like 'scripts/*') { continue }
     $full = Join-Path $RepoRoot $rel
     if(-not (Test-Path -LiteralPath $full)){ continue }
     $it = Get-Item -LiteralPath $full -ErrorAction SilentlyContinue
@@ -81,11 +73,14 @@ try {
     $total++
     if(-not (Is-Eligible $rel)){ continue }
     $eligible++
-    if(Has-LgplTrace $full){ $hits.Add($rel) | Out-Null }
+    if(-not (Has-Gpl3Header $full)){
+      $missing.Add($rel) | Out-Null
+    }
   }
 
-  Set-Content -LiteralPath $absOutput -Value ($hits | Sort-Object) -Encoding UTF8
-  Write-Host ("[lgpl-trace-check] files(total)={0} eligible={1} hits={2} -> {3}" -f $total,$eligible,$hits.Count,$absOutput)
+  # Write report (plain list of relative file paths)
+  Set-Content -LiteralPath $absOutput -Value ($missing | Sort-Object) -Encoding UTF8
+  Write-Host ("[gpl3-header-check] files(total)={0} eligible={1} missing={2} -> {3}" -f $total,$eligible,$missing.Count,$absOutput)
 } finally {
   Pop-Location
 }

@@ -45,7 +45,8 @@ function Get-RepoRoot {
     $gitTop = (git rev-parse --show-toplevel) 2>$null
     if ($LASTEXITCODE -eq 0 -and $gitTop) { return (Resolve-Path $gitTop).Path }
   } catch {}
-  return (Resolve-Path "$PSScriptRoot/.." ).Path
+  # Fallback: this script is now in scripts/compliance
+  return (Resolve-Path "$PSScriptRoot/../.." ).Path
 }
 
 $RepoRoot = Get-RepoRoot

@@ -18,9 +18,27 @@ from __future__ import annotations
 import argparse
 import re
 from pathlib import Path
+import subprocess
 from typing import Iterable, Sequence
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+def get_repo_root() -> Path:
+    try:
+        out = subprocess.run(
+            ["git", "rev-parse", "--show-toplevel"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+            text=True,
+            check=True,
+        )
+        p = out.stdout.strip()
+        if p:
+            return Path(p)
+    except Exception:
+        pass
+    # Fallback: this script is in scripts/compliance now
+    return Path(__file__).resolve().parents[2]
+
+REPO_ROOT = get_repo_root()
 
 DEFAULT_PATHS = [
     REPO_ROOT / "src",
