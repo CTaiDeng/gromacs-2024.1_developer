@@ -168,8 +168,8 @@ void printCopyright(gmx::TextWriter* writer)
         // signatures in GROMACS, so does not need to show the normal
         // license statement.
         writer->writeLine("GROMACS is free software; you can redistribute it and/or modify it");
-        writer->writeLine("under the terms of the GNU Lesser General Public License");
-        writer->writeLine("as published by the Free Software Foundation; either version 2.1");
+        writer->writeLine("under the terms of the GNU General Public License");
+        writer->writeLine("as the Free Software Foundation, version 3.
         writer->writeLine("of the License, or (at your option) any later version.");
     }
     writer->ensureEmptyLine();
@@ -596,3 +596,4 @@ void printBinaryInformation(TextWriter*                      writer,
 }
 
 } // namespace gmx
+

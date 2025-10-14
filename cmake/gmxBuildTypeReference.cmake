@@ -11,9 +11,8 @@
 # Consult the AUTHORS/COPYING files and https://www.gromacs.org for details.
 #
 # GROMACS is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public License
-# as published by the Free Software Foundation; either version 2.1
-# of the License, or (at your option) any later version.
+# modify it under the terms of the GNU General Public License
+# as the Free Software Foundation, version 3.
 #
 # GROMACS is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -56,3 +55,4 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "Reference")
             "gcc 9.x, but your configuration is using ${CMAKE_C_COMPILER_ID}-${CMAKE_C_COMPILER_VERSION}.")
     endif()
 endif()
+

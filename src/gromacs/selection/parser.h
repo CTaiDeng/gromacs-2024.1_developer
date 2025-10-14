@@ -75,8 +75,8 @@ extern int _gmx_sel_yydebug;
  * Consult the AUTHORS/COPYING files and https://www.gromacs.org for details.
  *
  * GROMACS is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public License
- * as published by the Free Software Foundation; either version 2.1
+ * modify it under the terms of the GNU General Public License
+ * as the Free Software Foundation, version 3.
  * of the License, or (at your option) any later version.
  *
  * GROMACS is distributed in the hope that it will be useful,
@@ -211,3 +211,4 @@ _gmx_sel_yypstate* _gmx_sel_yypstate_new();
 void               _gmx_sel_yypstate_delete(_gmx_sel_yypstate* ps);
 
 #endif /* !YY__GMX_SEL_YY_PARSER_H_INCLUDED  */
+

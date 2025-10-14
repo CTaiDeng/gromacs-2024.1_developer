@@ -11,16 +11,15 @@
 # Consult the AUTHORS/COPYING files and https://www.gromacs.org for details.
 #
 # GROMACS is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public License
-# as published by the Free Software Foundation; either version 2.1
-# of the License, or (at your option) any later version.
+# modify it under the terms of the GNU General Public License
+# as the Free Software Foundation, version 3.
 #
 # GROMACS is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-# Lesser General Public License for more details.
+# General Public License for more details.
 #
-# You should have received a copy of the GNU Lesser General Public
+# You should have received a copy of the GNU General Public
 # License along with GROMACS; if not, see
 # https://www.gnu.org/licenses, or write to the Free Software Foundation,
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA.
@@ -242,3 +241,4 @@ function(add_sycl_to_target)
     set_property(SOURCE ${ARGS_SOURCES} APPEND PROPERTY COMPILE_OPTIONS ${SYCL_TOOLCHAIN_CXX_FLAGS})
     target_link_options(${ARGS_TARGET} PRIVATE ${SYCL_TOOLCHAIN_LINKER_FLAGS})
 endfunction(add_sycl_to_target)
+

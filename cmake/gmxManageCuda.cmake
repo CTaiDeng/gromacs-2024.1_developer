@@ -11,9 +11,8 @@
 # Consult the AUTHORS/COPYING files and https://www.gromacs.org for details.
 #
 # GROMACS is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public License
-# as published by the Free Software Foundation; either version 2.1
-# of the License, or (at your option) any later version.
+# modify it under the terms of the GNU General Public License
+# as the Free Software Foundation, version 3.
 #
 # GROMACS is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -128,3 +127,4 @@ if (GMX_USE_CUFFTMP OR GMX_NVSHMEM)
     find_library(GMX_CUDA_DRV_LIB cuda HINTS "${CUDA_TOOLKIT_ROOT_DIR}" PATH_SUFFIXES "lib64/stubs" REQUIRED)
     find_library(GMX_NVIDIA_ML_LIB nvidia-ml HINTS "${CUDA_TOOLKIT_ROOT_DIR}" PATH_SUFFIXES "lib64/stubs" REQUIRED)
 endif()
+

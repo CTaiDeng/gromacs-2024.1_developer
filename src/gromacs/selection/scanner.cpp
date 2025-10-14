@@ -482,8 +482,8 @@ static yyconst flex_int16_t yy_chk[151] = {
  * Consult the AUTHORS/COPYING files and https://www.gromacs.org for details.
  *
  * GROMACS is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public License
- * as published by the Free Software Foundation; either version 2.1
+ * modify it under the terms of the GNU General Public License
+ * as the Free Software Foundation, version 3.
  * of the License, or (at your option) any later version.
  *
  * GROMACS is distributed in the hope that it will be useful,
@@ -2234,3 +2234,4 @@ void _gmx_sel_yyfree(void* ptr, yyscan_t yyscanner)
 #define YYTABLES_NAME "yytables"
 
 #line 178 "scanner.l"
+

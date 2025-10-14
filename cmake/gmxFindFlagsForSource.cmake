@@ -11,9 +11,8 @@
 # Consult the AUTHORS/COPYING files and https://www.gromacs.org for details.
 #
 # GROMACS is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public License
-# as published by the Free Software Foundation; either version 2.1
-# of the License, or (at your option) any later version.
+# modify it under the terms of the GNU General Public License
+# as the Free Software Foundation, version 3.
 #
 # GROMACS is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -155,3 +154,4 @@ macro(gmx_find_flags C_RESULT_VARIABLE CXX_RESULT_VARIABLE SOURCE TOOLCHAIN_C_FL
     gmx_find_flag_for_source(${C_RESULT_VARIABLE} "${SOURCE}" "C" ${TOOLCHAIN_C_FLAGS_VARIABLE} ${C_FLAGS_VARIABLE} ${ARGN})
     gmx_find_flag_for_source(${CXX_RESULT_VARIABLE} "${SOURCE}" "CXX" ${TOOLCHAIN_CXX_FLAGS_VARIABLE} ${CXX_FLAGS_VARIABLE} ${ARGN})
 endmacro()
+
