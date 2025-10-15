@@ -111,7 +111,7 @@ function (gmx_cpack_write_config)
     set(CPACK_RESOURCE_FILE_WELCOME "${PROJECT_SOURCE_DIR}/admin/InstallWelcome.txt")
     # Its GPL/LGPL, so they do not have to agree to a license for mere usage,
     # but some installers require this...
-    set(CPACK_RESOURCE_FILE_LICENSE "${PROJECT_SOURCE_DIR}/COPYING")
+    set(CPACK_RESOURCE_FILE_LICENSE "${PROJECT_SOURCE_DIR}/LICENSE")
     set(CPACK_RESOURCE_FILE_README  "${PROJECT_SOURCE_DIR}/admin/InstallInfo.txt")
 
     # Our custom config file that is run by CPack for each generator, used to
