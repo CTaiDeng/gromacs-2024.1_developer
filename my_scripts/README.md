@@ -8,6 +8,8 @@ my_scripts 脚本清单（WSL 专用）
 - install_cmake_wsl.sh：安装/升级 CMake（Kitware 源），并规避 Conda libcurl 警告。
 - install_gromacs_wsl.sh：安装 GROMACS（apt 或源码构建，默认 2024.1）。
 - install_amber_deps_wsl.sh：用 conda 安装 AmberTools(antechamber) 与 Open Babel。
+- install_python_dev_wsl.sh：安装 Python3 开发组件（python3-dev、pythonX.Y-dev、libpythonX.Y-dev 等）。
+- install_sphinx_wsl.sh：安装 Sphinx(>=4.0) 与 Pygments（支持 venv/system/apt 三种模式）。
 - generate_hiv_mol2_wsl.sh：从 SMILES/结构文件生成标准 hiv.mol2（含 SUBSTRUCTURE）。
 - cgenff_charmm2gmx.py：CGenFF 输出与 GROMACS 格式转换辅助。
 - align_my_documents.py：对 my_docs/** 文档进行命名与日期规范化；并在 `my_docs/project_docs` 下强制 10 位数字前缀唯一（视为文档 ID）。若出现同时入库导致的同秒冲突：
@@ -19,6 +21,9 @@ my_scripts 脚本清单（WSL 专用）
 - 安装 CMake：`bash my_scripts/install_cmake_wsl.sh`
 - 安装 GROMACS：`bash my_scripts/install_gromacs_wsl.sh --method source --version 2024.1 -j 8`
 - 安装 AmberTools + Open Babel：`bash my_scripts/install_amber_deps_wsl.sh --env amber`
+- 安装 Python 开发组件：`bash my_scripts/install_python_dev_wsl.sh --py 3.10`
+- 安装 Sphinx（venv 默认 ./.venv-docs）：`bash my_scripts/install_sphinx_wsl.sh`
+- 安装 Sphinx 到用户环境：`bash my_scripts/install_sphinx_wsl.sh --system`
 - 生成 hiv.mol2：`bash my_scripts/generate_hiv_mol2_wsl.sh --smiles "C1=CC=CC=C1C(=O)N" --charge 0 --resname LIG --out hiv.mol2`
 
 - 修复 CMake BLAS/NVPL 告警并配置 BLAS/LAPACK：
