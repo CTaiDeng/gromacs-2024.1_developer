@@ -473,7 +473,7 @@ endif()
 # Parse present/past contributors and project leaders from AUTHORS     #
 ########################################################################
 set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS AUTHORS)
-file(READ "${CMAKE_SOURCE_DIR}/AUTHORS" AUTHORS)
+file(READ "${CMAKE_SOURCE_DIR}/AUTHORS.md" AUTHORS)
 string(REGEX REPLACE " <[^<]+>" "" AUTHORS_NO_EMAIL "${AUTHORS}")
 string(REGEX MATCH "CURRENT CONTRIBUTORS\n=+\n(.*)\n\n+PREVIOUS CONTRIBUTORS\n=+\n(.*)\n\n+CURRENT PROJECT LEADERS\n=+\n(.*)\n\n+" MATCH "${AUTHORS_NO_EMAIL}")
 
