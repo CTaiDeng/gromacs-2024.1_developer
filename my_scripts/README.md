@@ -8,6 +8,7 @@ my_scripts 脚本清单（WSL 专用）
 - install_cmake_wsl.sh：安装/升级 CMake（Kitware 源），并规避 Conda libcurl 警告。
 - install_gromacs_wsl.sh：安装 GROMACS（apt 或源码构建，默认 2024.1）。
 - install_amber_deps_wsl.sh：用 conda 安装 AmberTools(antechamber) 与 Open Babel。
+- install_all_pre_requirements_in_wsl.sh：统一安装入口；默认安装 Python 开发组件、Sphinx(venv) 与 CMake；可按需扩展。
 - install_python_dev_wsl.sh：安装 Python3 开发组件（python3-dev、pythonX.Y-dev、libpythonX.Y-dev 等）。
 - install_sphinx_wsl.sh：安装 Sphinx(>=4.0) 与 Pygments（支持 venv/system/apt 三种模式）。
 - generate_hiv_mol2_wsl.sh：从 SMILES/结构文件生成标准 hiv.mol2（含 SUBSTRUCTURE）。
@@ -21,6 +22,12 @@ my_scripts 脚本清单（WSL 专用）
 - 安装 CMake：`bash my_scripts/install_cmake_wsl.sh`
 - 安装 GROMACS：`bash my_scripts/install_gromacs_wsl.sh --method source --version 2024.1 -j 8`
 - 安装 AmberTools + Open Babel：`bash my_scripts/install_amber_deps_wsl.sh --env amber`
+- 一键预安装常用依赖（默认 Python Dev + Sphinx venv + CMake）：
+  - `bash my_scripts/install_all_pre_requirements_in_wsl.sh`
+- 自定义选择组件：
+  - `bash my_scripts/install_all_pre_requirements_in_wsl.sh --python-dev --sphinx --cmake --py 3.10 --sphinx-mode venv --sphinx-venv ./.venv-docs`
+- 加装可选组件与构建修复：
+  - `bash my_scripts/install_all_pre_requirements_in_wsl.sh --openbabel --amber-deps --gromacs --fix-blas openblas --fix-imagemagick`
 - 安装 Python 开发组件：`bash my_scripts/install_python_dev_wsl.sh --py 3.10`
 - 安装 Sphinx（venv 默认 ./.venv-docs）：`bash my_scripts/install_sphinx_wsl.sh`
 - 安装 Sphinx 到用户环境：`bash my_scripts/install_sphinx_wsl.sh --system`

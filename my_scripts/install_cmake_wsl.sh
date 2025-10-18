@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
-# Copyright (C) 2025 GaoZheng
 # SPDX-License-Identifier: GPL-3.0-only
-# This file is part of this project.
-# Licensed under the GNU General Public License version 3.
-# See https://www.gnu.org/licenses/gpl-3.0.html for details.
+# Copyright (C) 2010- The GROMACS Authors
+# Copyright (C) 2025 GaoZheng
+#
+# 本脚本为自由软件，遵循 GPL-3.0；不提供任何担保。
+# 说明：在 WSL/Ubuntu 通过 Kitware APT 安装/升级 CMake，并在 shell 中设置别名以避免
+#       与 Conda 的 libcurl 冲突。
+
 set -euo pipefail
 
 # Installs a recent CMake on WSL (Ubuntu/Debian) using Kitware APT repo
@@ -55,7 +58,7 @@ add_kitware_repo() {
   local codename
   codename=$(. /etc/os-release 2>/dev/null; echo "${UBUNTU_CODENAME:-${VERSION_CODENAME:-}}") || true
   if [ -z "$codename" ] && command -v lsb_release >/dev/null 2>&1; then
-    codename$(lsb_release -cs)
+    codename=$(lsb_release -cs)
   fi
   if [ -z "$codename" ]; then
     echo "Could not detect Ubuntu/Debian codename. Aborting." >&2
@@ -154,3 +157,4 @@ main() {
 }
 
 main "$@"
+
