@@ -1,15 +1,101 @@
-# 作者与致谢（非官方派生版）
+CURRENT CONTRIBUTORS
+====================
+Mark Abraham
+Andrey Alekseenko
+Vladimir Basov
+Cathrine Bergh
+Eliane Briand
+Ania Brown
+Mahesh Doijade
+Giacomo Fiorin
+Stefan Fleischmann
+Sergey Gorelov
+Gilles Gouaillardet
+Alan Gray
+M. Eric Irrgang
+Farzaneh Jalalypour
+Joe Jordan
+Carsten Kutzner
+Justin A. Lemkul
+Magnus Lundborg
+Pascal Merz
+Vedran Miletic
+Dmitry Morozov
+Julien Nabet
+Szilard Pall
+Andrea Pasquadibisceglie
+Michele Pellegrino
+Hubert Santuz
+Roland Schulz
+Tatiana Shugaeva
+Alexey Shvetsov
+Philip Turner
+Alessandra Villa
+Sebastian Wingbermuehle
 
-- 本仓库为基于 GROMACS 2024.1 的非官方开发者派生版，与上游无隶属或担保关系。
-- 维护者/作者：GaoZheng <banyanlimit@gmail.com>
-- 更多贡献者名单参见根目录文件 `AUTHORS`（包含上游与本派生版贡献者）。
+PREVIOUS CONTRIBUTORS
+=====================
+Emile Apol
+Rossen Apostolov
+James Barnett
+Paul Bauer
+Herman J.C. Berendsen
+Par Bjelkmar
+Christian Blau
+Viacheslav Bolnykh
+Kevin Boyd
+Aldert van Buuren
+Carlo Camilloni
+Rudi van Drunen
+Anton Feenstra
+Oliver Fleetwood
+Vytas Gapsys
+Gaurav Garg
+Gerrit Groenhof
+Bert de Groot
+Anca Hamuraru
+Vincent Hindriksen
+Victor Holanda
+Aleksei Iupinov
+Christoph Junghans
+Prashanth Kanduri
+Dimitrios Karkoulis
+Peter Kasson
+Sebastian Kehl
+Sebastian Keller
+Jiri Kraus
+Per Larsson
+Viveca Lindahl
+Erik Marklund
+Pieter Meulenhoff
+Teemu Murtola
+Sander Pronk
+Michael Shirts
+Alfons Sijbers
+Balint Soproni
+David van der Spoel
+Peter Tieleman
+Carsten Uphoff
+Jon Vincent
+Teemu Virolainen
+Christian Wennberg
+Maarten Wolf
+Artem Zhmurov
 
-## 许可证声明
+CURRENT PROJECT LEADERS
+=======================
+Berk Hess
+Erik Lindahl
 
-- 代码（本仓库源代码）：GPL-3.0-only
-- 知识库文档（`my_docs/project_docs`）：文档类型为“手册/知识库”，许可为 CC BY-NC-ND 4.0（除非单独文件另有声明）。
+MORE INFORMATION
+================
+GROMACS is written by an international developer community.
+You are very welcome to join us; the easiest way to connect
+might be to start discussing issues and changes in the GitLab
+repository at https://gitlab.com/gromacs/gromacs , or
+reach out to any of the active developers. You can also find
+more information at https://www.gromacs.org .
 
-## 致谢
-
-- 致谢 GROMACS 原始项目及其全部贡献者。
-- 如在学术成果或软件中使用本派生版，请在引用时明确其为“非官方派生版”。
+-----------------------------------------
+Modified for gromacs-2024.1_developer by:
+GaoZheng <banyanlimit@gmail.com>
