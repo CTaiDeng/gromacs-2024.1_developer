@@ -1,0 +1,183 @@
+# This CITATION.cff file was derived from the original GROMACS 2024.1 metadata.
+# It is intended for the gromacs-2024.1_developer version.
+
+cff-version: 1.2.0
+title: gromacs-2024.1_developer
+message: >-
+  This is a derivative work based on GROMACS 2024.1. 
+  If you use this version, please cite accordingly. 
+  We acknowledge all original contributors to the GROMACS project.
+type: software
+authors:
+  - given-names: Zheng
+    family-names: Gao
+  - given-names: Mark
+    family-names: Abraham
+  - given-names: Andrey
+    family-names: Alekseenko
+  - given-names: Vladimir
+    family-names: Basov
+  - given-names: Cathrine
+    family-names: Bergh
+  - given-names: Eliane
+    family-names: Briand
+  - given-names: Ania
+    family-names: Brown
+  - given-names: Mahesh
+    family-names: Doijade
+  - given-names: Giacomo
+    family-names: Fiorin
+  - given-names: Stefan
+    family-names: Fleischmann
+  - given-names: Sergey
+    family-names: Gorelov
+  - given-names: Gilles
+    family-names: Gouaillardet
+  - given-names: Alan
+    family-names: Gray
+  - given-names: M. Eric
+    family-names: Irrgang
+  - given-names: Farzaneh
+    family-names: Jalalypour
+  - given-names: Joe
+    family-names: Jordan
+  - given-names: Carsten
+    family-names: Kutzner
+  - given-names: Justin A.
+    family-names: Lemkul
+  - given-names: Magnus
+    family-names: Lundborg
+  - given-names: Pascal
+    family-names: Merz
+  - given-names: Vedran
+    family-names: Miletic
+  - given-names: Dmitry
+    family-names: Morozov
+  - given-names: Julien
+    family-names: Nabet
+  - given-names: Szilard
+    family-names: Pall
+  - given-names: Andrea
+    family-names: Pasquadibisceglie
+  - given-names: Michele
+    family-names: Pellegrino
+  - given-names: Hubert
+    family-names: Santuz
+  - given-names: Roland
+    family-names: Schulz
+  - given-names: Tatiana
+    family-names: Shugaeva
+  - given-names: Alexey
+    family-names: Shvetsov
+  - given-names: Philip
+    family-names: Turner
+  - given-names: Alessandra
+    family-names: Villa
+  - given-names: Sebastian
+    family-names: Wingbermuehle
+  - given-names: Emile
+    family-names: Apol
+  - given-names: Rossen
+    family-names: Apostolov
+  - given-names: James
+    family-names: Barnett
+  - given-names: Paul
+    family-names: Bauer
+  - given-names: Herman J.C.
+    family-names: Berendsen
+  - given-names: Par
+    family-names: Bjelkmar
+  - given-names: Christian
+    family-names: Blau
+  - given-names: Viacheslav
+    family-names: Bolnykh
+  - given-names: Kevin
+    family-names: Boyd
+  - given-names: Aldert
+    family-names: van Buuren
+  - given-names: Carlo
+    family-names: Camilloni
+  - given-names: Rudi
+    family-names: van Drunen
+  - given-names: Anton
+    family-names: Feenstra
+  - given-names: Oliver
+    family-names: Fleetwood
+  - given-names: Vytas
+    family-names: Gapsys
+  - given-names: Gaurav
+    family-names: Garg
+  - given-names: Gerrit
+    family-names: Groenhof
+  - given-names: Bert
+    family-names: de Groot
+  - given-names: Anca
+    family-names: Hamuraru
+  - given-names: Vincent
+    family-names: Hindriksen
+  - given-names: Victor
+    family-names: Holanda
+  - given-names: Aleksei
+    family-names: Iupinov
+  - given-names: Christoph
+    family-names: Junghans
+  - given-names: Prashanth
+    family-names: Kanduri
+  - given-names: Dimitrios
+    family-names: Karkoulis
+  - given-names: Peter
+    family-names: Kasson
+  - given-names: Sebastian
+    family-names: Kehl
+  - given-names: Sebastian
+    family-names: Keller
+  - given-names: Jiri
+    family-names: Kraus
+  - given-names: Per
+    family-names: Larsson
+  - given-names: Viveca
+    family-names: Lindahl
+  - given-names: Erik
+    family-names: Marklund
+  - given-names: Pieter
+    family-names: Meulenhoff
+  - given-names: Teemu
+    family-names: Murtola
+  - given-names: Sander
+    family-names: Pronk
+  - given-names: Michael
+    family-names: Shirts
+  - given-names: Alfons
+    family-names: Sijbers
+  - given-names: Balint
+    family-names: Soproni
+  - given-names: David
+    family-names: van der Spoel
+  - given-names: Peter
+    family-names: Tieleman
+  - given-names: Carsten
+    family-names: Uphoff
+  - given-names: Jon
+    family-names: Vincent
+  - given-names: Teemu
+    family-names: Virolainen
+  - given-names: Christian
+    family-names: Wennberg
+  - given-names: Maarten
+    family-names: Wolf
+  - given-names: Artem
+    family-names: Zhmurov
+  - given-names: Berk
+    family-names: Hess
+  - given-names: Erik
+    family-names: Lindahl
+abstract: "A modified developer version of GROMACS, a software suite for molecular dynamics simulation and analysis. This version is a derivative of GROMACS 2024.1."
+keywords:
+  - molecular dynamics
+  - molecular simulation
+  - biomolecular simulation
+  - high performance computing
+  - free software
+license: GPL-3.0-only
+version: '2024.1-developer'
+date-released: '2025-10-18'
