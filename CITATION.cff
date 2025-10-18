@@ -2,11 +2,10 @@
 # It is intended for the gromacs-2024.1_developer version.
 
 cff-version: 1.2.0
-title: gromacs-2024.1_developer
+title: gromacs-2024.1_developer（开发者派生版）
 message: >-
-  This is a derivative work based on GROMACS 2024.1. 
-  If you use this version, please cite accordingly. 
-  We acknowledge all original contributors to the GROMACS project.
+  本仓库为基于 GROMACS 2024.1 的非官方开发者派生版。
+  如使用本版本，请据此引用；并感谢与致谢 GROMACS 原始项目及其全部贡献者。
 type: software
 authors:
   - given-names: Zheng
@@ -172,13 +171,22 @@ authors:
     family-names: Hess
   - given-names: Erik
     family-names: Lindahl
-abstract: "A modified developer version of GROMACS, a software suite for molecular dynamics simulation and analysis. This version is a derivative of GROMACS 2024.1."
+abstract: "GROMACS 的开发者派生版（用于分子动力学模拟与分析）；本仓库与上游无隶属或担保关系。"
 keywords:
-  - molecular dynamics
-  - molecular simulation
-  - biomolecular simulation
-  - high performance computing
-  - free software
+  - 分子动力学
+  - 分子模拟
+  - 生物分子模拟
+  - 高性能计算
+  - 自由软件
 license: GPL-3.0-only
 version: '2024.1-developer'
 date-released: '2025-10-18'
+references:
+  - type: manual
+    title: Project Knowledge Base Documentation
+    authors:
+      - given-names: Zheng
+        family-names: Gao
+        email: banyanlimit@gmail.com
+    license: CC-BY-NC-ND-4.0
+    notes: "知识库文档位于 my_docs/project_docs；除非另有说明，默认采用 CC BY-NC-ND 4.0 许可。"
