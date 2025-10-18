@@ -11,6 +11,7 @@ type: software
 authors:
   - given-names: Zheng
     family-names: Gao
+    email: banyanlimit@gmail.com
   - given-names: Mark
     family-names: Abraham
   - given-names: Andrey

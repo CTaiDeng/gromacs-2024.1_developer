@@ -98,4 +98,4 @@ more information at https://www.gromacs.org .
 
 -----------------------------------------
 Modified for gromacs-2024.1_developer by:
-GaoZheng
+GaoZheng <banyanlimit@gmail.com>
