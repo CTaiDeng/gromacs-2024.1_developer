@@ -23,7 +23,7 @@ import subprocess
 import sys
 import json
 from pathlib import Path
-from typing import Optional, List
+from typing import Optional, List, Tuple
 import urllib.request
 import urllib.error
 import ssl
@@ -197,6 +197,121 @@ def generate_with_gemini(prompt: str) -> Optional[str]:
         return _generate_with_gemini_rest(prompt)
 
 
+# ------------------------------
+# Offline fallback (no network)
+# ------------------------------
+
+CODE_EXTS = {
+    ".c", ".cc", ".cpp", ".cxx", ".h", ".hpp", ".hh", ".hxx",
+    ".cu", ".cuh", ".py", ".rs", ".go", ".js", ".ts", ".java",
+    ".cs", ".m", ".mm", ".kt", ".swift", ".sh", ".ps1",
+}
+DOC_EXTS = {".md", ".rst", ".adoc", ".txt"}
+TEST_HINTS = {"test", "tests", "_test.", "-test.", "spec"}
+
+
+def _collect_names_filtered() -> List[str]:
+    names_raw = run(["git", "diff", "--staged", "--name-only"]).strip().splitlines()
+    return [n for n in (x.strip() for x in names_raw) if n and not _is_excluded_path(n)]
+
+
+def _collect_numstat(names: List[str]) -> List[Tuple[int, int, str]]:
+    if not names:
+        return []
+    raw = run(["git", "diff", "--staged", "--numstat", "--", *names]).strip()
+    rows: List[Tuple[int, int, str]] = []
+    for line in raw.splitlines():
+        parts = line.split("\t")
+        if len(parts) >= 3:
+            try:
+                add = int(parts[0]) if parts[0].isdigit() else 0
+                dele = int(parts[1]) if parts[1].isdigit() else 0
+            except Exception:
+                add, dele = 0, 0
+            path = parts[2]
+            if not _is_excluded_path(path):
+                rows.append((add, dele, path))
+    return rows
+
+
+def _infer_type(names: List[str], stat: str, patch: str, numstat: List[Tuple[int, int, str]]) -> str:
+    lowered = [n.lower() for n in names]
+    has_doc = any(Path(n).suffix.lower() in DOC_EXTS or "/docs/" in n.replace("\\", "/") for n in lowered)
+    has_code = any(Path(n).suffix.lower() in CODE_EXTS for n in lowered)
+    has_test = any(any(h in n for h in TEST_HINTS) for n in lowered)
+    added_code = False
+    for s in stat.splitlines():
+        s = s.strip()
+        if not s:
+            continue
+        if s.startswith("A\t"):
+            n = s.split("\t", 1)[1]
+            if Path(n).suffix.lower() in CODE_EXTS:
+                added_code = True
+                break
+    if has_doc and not has_code:
+        return "docs"
+    if added_code:
+        return "feat"
+    patch_l = patch.lower()
+    if "fix" in patch_l or "bug" in patch_l:
+        return "fix"
+    if has_test and has_code:
+        return "test"
+    if has_code:
+        return "refactor"
+    return "chore"
+
+
+def _shorten(text: str, limit: int = 60) -> str:
+    t = text.strip()
+    return t if len(t) <= limit else t[: limit - 1] + "…"
+
+
+def generate_offline_summary(stat: str, patch: str) -> Optional[str]:
+    names = _collect_names_filtered()
+    if not names:
+        return None
+    numstat = _collect_numstat(names)
+    adds = sum(a for a, _, _ in numstat)
+    dels = sum(d for _, d, _ in numstat)
+    changed = len(names)
+    t = _infer_type(names, stat, patch, numstat)
+
+    # subject in Chinese
+    if t == "docs" and changed == 1:
+        subject = f"文档更新：{Path(names[0]).name}"
+    elif t == "docs":
+        subject = f"文档更新（{changed} 个文件）"
+    elif t == "feat":
+        subject = f"新增/扩展：{changed} 个文件"
+    elif t == "fix":
+        subject = f"修复与调整（{changed} 个文件）"
+    elif t == "test":
+        subject = f"测试用例更新（{changed} 个文件）"
+    elif t == "refactor":
+        subject = f"代码重构与清理（{changed} 个文件）"
+    else:
+        subject = f"杂项维护（{changed} 个文件）"
+
+    header = f"{t}: {_shorten(subject)}"
+
+    # top files by churn
+    top = sorted(numstat, key=lambda r: (r[0] + r[1]), reverse=True)[:3]
+    top_paths = [p for _, _, p in top]
+
+    bullets: List[str] = []
+    bullets.append(f"- 变更统计：+{adds} / -{dels} 行，涉及 {changed} 个文件")
+    if top_paths:
+        bullets.append("- 主要文件：" + ", ".join(Path(p).as_posix() for p in top_paths))
+    if any("my_scripts/" in p.replace("\\", "/") for p in names):
+        bullets.append("- 脚本调整：my_scripts 下的工具更新")
+    if any(p.lower().endswith(".md") for p in names):
+        bullets.append("- 文档同步：Markdown 说明更新")
+
+    return "\n".join([header] + bullets)
+
+
 def is_comment_only_patch(patch: str) -> bool:
     if not patch.strip():
         return False
@@ -233,6 +348,10 @@ def main() -> int:
     prompt = build_prompt(stat, patch, lang)
     text = generate_with_gemini(prompt)
     if not text:
+        offline = generate_offline_summary(stat, patch)
+        if offline and offline.strip():
+            print(offline.strip())
+            return 0
         print('update')
         return 0
     print(text.strip())
