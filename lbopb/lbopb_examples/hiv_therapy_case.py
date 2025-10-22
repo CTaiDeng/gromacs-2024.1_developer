@@ -1,11 +1,13 @@
 # SPDX-License-Identifier: GPL-3.0-only
 # Copyright (C) 2025 GaoZheng
 
-"""HIV 治疗案例：以病理为基底，经联络到药效并展开六切面算子包。
-
+"""
+HIV 治疗案例：以病理为基底，经联络到药效并展开六切面算子包。
 数据来源：lbopb/src/operator_crosswalk.json -> case_packages["HIV_Therapy_Path"].
-运行（任意工作目录均可）：
-  python lbopb_examples/hiv_therapy_case.py
+运行（任意工作目录均可）：  python lbopb/lbopb_examples/hiv_therapy_case.py
+
+免责声明：本文件及其生成的报告仅用于方法学与技术演示，不构成医学建议或临床诊断/治疗方案；
+亦不用于任何实际诊疗决策或药物使用指导。若需临床决策，请咨询专业医师并遵循监管要求。
 """
 
 from __future__ import annotations
@@ -14,7 +16,7 @@ from typing import Dict, List
 
 # 确保可以从任意工作目录运行：将仓库根目录加入 sys.path
 import os, sys
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
