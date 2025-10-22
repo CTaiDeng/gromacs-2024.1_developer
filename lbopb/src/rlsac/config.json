@@ -16,8 +16,11 @@
   "update_every": 1,
   "updates_per_step": 4,
   "minibatch_floor": 1,
+  "log_to_file": true,
+  "log_every_step": true,
   "output_dir": "out"
 }
+
 
 
 

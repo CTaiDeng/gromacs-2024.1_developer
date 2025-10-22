@@ -25,6 +25,8 @@ import torch
 import torch.nn.functional as F
 import os
 import sys
+import re
+import time as _pytime
 
 # Support both package and script execution
 try:
@@ -124,14 +126,93 @@ def train(
     debug = bool(os.environ.get("RLSAC_DEBUG", "") or cfg.get("debug", False))
     # 每步打印：默认开启；可通过 env/config 调整
     log_every_step = bool(os.environ.get("RLSAC_LOG_EVERY_STEP", "1") or cfg.get("log_every_step", True))
+    log_to_file = bool(cfg.get("log_to_file", True))
 
     def dbg(msg: str) -> None:
         if debug:
             print(f"[DEBUG] {msg}")
+            if logger:
+                logger.write_line(f"[DEBUG] {msg}")
 
     def step_log(msg: str) -> None:
         if log_every_step or debug:
             print(msg)
+            if logger:
+                logger.write_line(msg)
+
+    class RunLogger:
+        def __init__(self, path: Path, append: bool = False):
+            self.path = path
+            self.f = open(path, 'a' if append else 'w', encoding='utf-8', newline='')
+
+        def write_line(self, text: str) -> None:
+            try:
+                # Ensure CRLF endings explicitly
+                self.f.write(text + "\r\n")
+                self.f.flush()
+            except Exception:
+                pass
+
+        def close(self) -> None:
+            try:
+                self.f.flush()
+                self.f.close()
+            except Exception:
+                pass
+
+    def _gen_report_from_log(log_file: Path, out_md: Path) -> None:
+        try:
+            text = log_file.read_text(encoding='utf-8')
+        except Exception:
+            return
+        pat = re.compile(r"^\[STEP\s+(?P<t>\d+)\]\s+a=(?P<a>-?\d+)\s+r=(?P<r>-?\d+\.?\d*)\s+d=(?P<d>True|False)\s+buf=(?P<buf>\d+)\s+upd=(?P<upd>\d+)\s+loss_q1=(?P<lq1>[-\.\d]+)\s+loss_q2=(?P<lq2>[-\.\d]+)\s+loss_pi=(?P<lpi>[-\.\d]+)\s+alpha=(?P<alpha>[-\.\d]+)$",
+                             re.MULTILINE)
+        rewards = []
+        updates = 0
+        last = {}
+        for m in pat.finditer(text):
+            r = float(m.group('r'))
+            rewards.append(r)
+            updates += int(m.group('upd'))
+            last = {
+                't': int(m.group('t')),
+                'a': int(m.group('a')),
+                'r': r,
+                'd': m.group('d'),
+                'buf': int(m.group('buf')),
+                'upd': int(m.group('upd')),
+                'lq1': m.group('lq1'),
+                'lq2': m.group('lq2'),
+                'lpi': m.group('lpi'),
+                'alpha': m.group('alpha'),
+            }
+        mean_r = (sum(rewards) / len(rewards)) if rewards else 0.0
+        last100 = (sum(rewards[-100:]) / len(rewards[-100:])) if len(rewards) >= 1 else 0.0
+        lines = []
+        lines.append(f"# 训练报告 (run: {log_file.parent.name})")
+        lines.append("")
+        lines.append(f"- 日期：{_pytime.strftime('%Y-%m-%d %H:%M:%S', _pytime.localtime())}")
+        lines.append(f"- 设备：{device}")
+        lines.append("")
+        lines.append("## 概览")
+        lines.append(f"- 总步数：{len(rewards)}")
+        lines.append(f"- 总更新轮数：{updates}")
+        lines.append(f"- 平均奖励：{mean_r:.6f}")
+        lines.append(f"- 近100步平均奖励：{last100:.6f}")
+        if last:
+            lines.append(f"- 最后一次记录：t={last['t']} buf={last['buf']} upd={last['upd']} alpha={last['alpha']}")
+            lines.append(f"  - loss_q1={last['lq1']} loss_q2={last['lq2']} loss_pi={last['lpi']}")
+        lines.append("")
+        lines.append("## 超参数")
+        for k in [
+            'learning_rate_actor','learning_rate_critic','gamma','tau','buffer_size','batch_size',
+            'alpha','learn_alpha','target_entropy','total_steps','start_steps','update_after','update_every','updates_per_step','minibatch_floor'
+        ]:
+            if k in cfg:
+                lines.append(f"- {k}: {cfg.get(k)}")
+        # Ensure CRLF
+        content = ("\n".join(lines)).replace("\r\n","\n").replace("\n","\r\n")
+        out_md.write_text(content, encoding='utf-8')
 
     dbg(f"配置文件: {cfg_path}")
     dbg(f"设备选择: {device}")
@@ -205,6 +286,15 @@ def train(
         run_dir = resume_dir
         resume = True
     dbg(f"训练运行目录: {run_dir} | 模式: {'续跑' if resume else '新建'}")
+
+    # Initialize logger
+    logger: RunLogger | None = None
+    log_path = run_dir / "train.log"
+    if log_to_file:
+        logger = RunLogger(log_path, append=resume)
+        logger.write_line(f"# TRAIN START { _pytime.strftime('%Y-%m-%d %H:%M:%S', _pytime.localtime()) }")
+        logger.write_line(f"device={device}")
+        logger.write_line(f"config={json.dumps(cfg, ensure_ascii=False)}")
 
     # Networks
     policy = DiscretePolicy(obs_dim, n_actions).to(device)
@@ -369,10 +459,19 @@ def train(
 
     # Minimal console note (no logger to keep dependencies minimal)
     print(f"Training finished. Prefilled: {prefilled} samples. Artifacts at: {run_dir}")
+    if logger:
+        logger.write_line("# TRAIN END")
+        logger.close()
+        # Generate markdown report
+        try:
+            _gen_report_from_log(log_path, run_dir / "train_report.md")
+        except Exception:
+            pass
 
 
 if __name__ == "__main__":
     train()
+
 
 
 
