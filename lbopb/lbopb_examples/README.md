@@ -10,12 +10,12 @@
 运行（从仓库根目录）：
 
 ```
-python -c "import sys,os; sys.path.insert(0, os.path.abspath('.')); import lbopb_examples.hiv_therapy_case as m; m.run_case()"
+python -c "import sys,os; sys.path.insert(0, os.path.abspath('.')); import lbopb.lbopb_examples.hiv_therapy_case as m; m.run_case()"
 ```
 
 或直接：
 
 ```
-python -c "import sys,os; sys.path.insert(0, os.path.abspath('.')); exec(open('lbopb_examples/hiv_therapy_case.py', 'r', encoding='utf-8').read())"
+python -c "import sys,os; sys.path.insert(0, os.path.abspath('.')); exec(open('lbopb/lbopb_examples/hiv_therapy_case.py', 'r', encoding='utf-8').read())"
 ```
 

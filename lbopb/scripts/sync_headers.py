@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 # Copyright (C) 2025 GaoZheng
 
-"""同步 lbopb/ 与 lbopb_examples/ 头注：
+"""同步 lbopb/ 与 lbopb/lbopb_examples/ 头注：
 
 - 仅保留本地版权行（GaoZheng），移除上游版权行；
 - 确保存在 SPDX 许可标识；
@@ -16,7 +16,10 @@ import pathlib
 import re
 from typing import Iterable
 
-ROOTS = [pathlib.Path(__file__).resolve().parents[1], pathlib.Path(__file__).resolve().parents[1].with_name('lbopb_examples')]
+ROOTS = [
+    pathlib.Path(__file__).resolve().parents[1],
+    pathlib.Path(__file__).resolve().parents[1] / 'lbopb_examples',
+]
 
 SPDX = "# SPDX-License-Identifier: GPL-3.0-only"
 COPY = "# Copyright (C) 2025 GaoZheng"
@@ -47,7 +50,9 @@ def sync_file(p: pathlib.Path) -> bool:
     ensure_at_top(COPY)
     ensure_at_top(SPDX)
     if changed:
-        p.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        # 强制使用 UTF-8（无 BOM）+ CRLF
+        with p.open("w", encoding="utf-8", newline="\r\n") as fh:
+            fh.write("\n".join(lines) + "\n")
     return changed
 
 def main() -> None:
@@ -59,4 +64,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
