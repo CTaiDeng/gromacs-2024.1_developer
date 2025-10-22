@@ -43,7 +43,7 @@ class PharmacodynamicRequirement:
     mechanism: str  # e.g. "IN antagonist" / "RT NNRTI"
     potency_ic50_nM: Optional[float] = None
     selectivity_index: Optional[float] = None
-    admet: ADMETConstraint = ADMETConstraint()
-    tox: ToxicologyConstraint = ToxicologyConstraint()
-    immuno: ImmunologyConstraint = ImmunologyConstraint()
-
+    from dataclasses import field
+    admet: ADMETConstraint = field(default_factory=ADMETConstraint)  # type: ignore
+    tox: ToxicologyConstraint = field(default_factory=ToxicologyConstraint)  # type: ignore
+    immuno: ImmunologyConstraint = field(default_factory=ImmunologyConstraint)  # type: ignore

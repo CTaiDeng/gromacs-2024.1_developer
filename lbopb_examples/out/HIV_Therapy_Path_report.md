@@ -195,9 +195,49 @@ ADME 链路用于保障暴露窗口与可达性，代谢/排泄控制全身风�
 
 免疫侧激活-分化-记忆，避免细胞因子过度释放。
 
+## 分子设计与分子模拟计划
+
+#### 说明：
+
+基于药效切面（PDEM）的拮抗链，给出小分子设计意图与 GROMACS 退化对接/MD/QM-MM 的命令方案。
+
+### 小分子设计意图
+
+- 目标: HIV IN
+- 机制: IN antagonist
+- 药效团: tridentate_metal_chelation, aryl_hydrophobe, tertiary_amine_sidechain
+- 母核: dihydroxy-aromatic + diketo-acid
+- 取代策略: para/meta hydrophobe fitting, pKa tuned amine for solubility
+- ADMET备注: target_solubility≥0.1 mg/mL, avoid_BBB, avoid_CYP:3A4
+- 毒理备注: low_hERG
+
+### 退化分子对接（命令方案）
+
+```bash
+# 生成随机姿势并打包为 TRR（伪指令，需对接构建工具）
+python gen_poses.py --receptor protein.pdb --ligand ligand.sdf --out out/docking\poses.trr
+# rerun 评估（示例命令）
+gmx mdrun -s topol.tpr -rerun out/docking\poses.trr -g out/docking/rerun.log
+python score_rerun.py --log out/docking/rerun.log --out out/docking\poses.scores.csv
+```
+
+### 经典分子动力学（命令方案）
+
+```bash
+gmx grompp -f md.mdp -c system.gro -p topol.top -o out/md/topol.tpr
+gmx mdrun -deffnm out/md/md
+```
+
+### QM/MM 占位（命令草案）
+
+```bash
+# 准备 QM/MM 输入（片段）: qmmm.inp
+# 示例：调用 CP2K/ORCA 进行 QM 区域能量/力评估并回填到 MD 步进
+```
+
 ## 复现指引
 
 ```
-python -c "import sys,os; sys.path.insert(0, os.path.abspath('.')); import lbopb_examples.hiv_therapy_case as m; m.run_case()"
+python -c "import sys,os; sys.path.insert(0, os.path.abspath('.')); import lbopb_examples.hiv_therapy_case as m; m.run_case(pharm_cfg_path=None)"
 ```
 

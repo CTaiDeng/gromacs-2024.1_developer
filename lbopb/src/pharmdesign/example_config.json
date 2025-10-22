@@ -1,0 +1,28 @@
+{
+  "design": {
+    "target_name": "HIV IN",
+    "mechanism": "IN antagonist",
+    "potency_ic50_nM": 10.0,
+    "admet": {"solubility_mg_per_ml": 0.1, "bbb_penetration": false, "cyp_avoid": ["3A4"]},
+    "tox": {"hERG_risk_low": true},
+    "immuno": {"cytokine_storm_avoid": true}
+  },
+  "docking": {
+    "receptor_pdb": "protein.pdb",
+    "ligand_sdf": "ligand.sdf",
+    "out_dir": "out/docking"
+  },
+  "md": {
+    "system_top": "topol.top",
+    "structure_gro": "system.gro",
+    "mdp": "md.mdp",
+    "out_dir": "out/md"
+  },
+  "qmmm": {
+    "system_top": "topol.top",
+    "structure_gro": "system.gro",
+    "qmmm_config": "qmmm.inp",
+    "out_dir": "out/qmmm"
+  }
+}
+

@@ -20,6 +20,9 @@ if ROOT not in sys.path:
 
 from lbopb.src.op_crosswalk import load_crosswalk
 from lbopb.src.powerset import compose_sequence, instantiate_ops
+from lbopb.src.pharmdesign.api import load_config as pd_load_config, plan_from_config as pd_plan_from_config
+from lbopb.src.pharmdesign.requirements import PharmacodynamicRequirement
+from lbopb.src.pharmdesign.design import propose_small_molecule
 
 # 导入各切面以便构造状态并执行
 from lbopb.src.pem import PEMState
@@ -50,7 +53,7 @@ def default_states() -> Dict[str, object]:
     )
 
 
-def run_case(case_name: str = "HIV_Therapy_Path") -> None:
+def run_case(case_name: str = "HIV_Therapy_Path", *, pharm_cfg_path: str | None = None) -> None:
     cw = load_crosswalk()
     case = cw.get("case_packages", {}).get(case_name)
     if not case:
@@ -84,7 +87,7 @@ def run_case(case_name: str = "HIV_Therapy_Path") -> None:
     os.makedirs(out_dir, exist_ok=True)
     md_path = os.path.join(out_dir, f"{case_name}_report.md")
     with open(md_path, "w", encoding="utf-8") as f:
-        f.write(gen_markdown_report(case_name, cw, states, seqs))
+        f.write(gen_markdown_report(case_name, cw, states, seqs, pharm_cfg_path))
     print(f"Markdown 报告已生成: {md_path}")
 
 
@@ -126,7 +129,7 @@ def _risk_and_cost(mod: str, seq: list[str], s0) -> tuple[float, float]:
     return float(risk), float(cost)
 
 
-def gen_markdown_report(case_name: str, cw: dict, states: Dict[str, object], seqs: Dict[str, List[str]]) -> str:
+def gen_markdown_report(case_name: str, cw: dict, states: Dict[str, object], seqs: Dict[str, List[str]], pharm_cfg_path: str | None) -> str:
     lines: list[str] = []
     case = cw.get("case_packages", {}).get(case_name, {})
     lines.append(f"# 案例：{case_name}\n\n")
@@ -189,9 +192,44 @@ def gen_markdown_report(case_name: str, cw: dict, states: Dict[str, object], seq
         elif mod == "iem":
             lines.append("免疫侧激活-分化-记忆，避免细胞因子过度释放。\n\n")
 
+    # 分子设计与分子模拟计划
+    lines.append("## 分子设计与分子模拟计划\n\n")
+    lines.append("#### 说明：\n\n")
+    lines.append("基于药效切面（PDEM）的拮抗链，给出小分子设计意图与 GROMACS 退化对接/MD/QM-MM 的命令方案。\n\n")
+    cfg = pd_load_config(pharm_cfg_path)
+    plan = pd_plan_from_config(cfg)
+    # 设计
+    sm = plan["design"]["small_molecule"]
+    lines.append("### 小分子设计意图\n\n")
+    lines.append(f"- 目标: {sm.get('target')}\n")
+    lines.append(f"- 机制: {sm.get('mechanism')}\n")
+    if sm.get("pharmacophore"):
+        lines.append(f"- 药效团: {', '.join(sm['pharmacophore'])}\n")
+    if sm.get("scaffold"):
+        lines.append(f"- 母核: {sm['scaffold']}\n")
+    if sm.get("substituent_strategy"):
+        lines.append(f"- 取代策略: {', '.join(sm['substituent_strategy'])}\n")
+    if sm.get("admet_notes"):
+        lines.append(f"- ADMET备注: {', '.join(sm['admet_notes'])}\n")
+    if sm.get("tox_notes"):
+        lines.append(f"- 毒理备注: {', '.join(sm['tox_notes'])}\n")
+    lines.append("\n")
+    # 对接
+    lines.append("### 退化分子对接（命令方案）\n\n")
+    dock = plan["docking"]
+    lines.append("```bash\n" + "\n".join(dock["commands"]) + "\n```\n\n")
+    # 经典 MD
+    lines.append("### 经典分子动力学（命令方案）\n\n")
+    mdp = plan["md"]
+    lines.append("```bash\n" + "\n".join(mdp["commands"]) + "\n```\n\n")
+    # QM/MM
+    lines.append("### QM/MM 占位（命令草案）\n\n")
+    qmmm = plan["qmmm"]
+    lines.append("```bash\n" + "\n".join(qmmm["commands"]) + "\n```\n\n")
+
     # 复现指引
     lines.append("## 复现指引\n\n")
-    lines.append("```\npython -c \"import sys,os; sys.path.insert(0, os.path.abspath('.')); import lbopb_examples.hiv_therapy_case as m; m.run_case()\"\n```\n\n")
+    lines.append("```\npython -c \"import sys,os; sys.path.insert(0, os.path.abspath('.')); import lbopb_examples.hiv_therapy_case as m; m.run_case(pharm_cfg_path=None)\"\n```\n\n")
 
     return "".join(lines)
 
