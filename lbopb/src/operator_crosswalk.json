@@ -1,0 +1,351 @@
+{
+  "meta": {
+    "version": "0.1.0",
+    "description": "LBOPB 七大幺半群（PEM/PRM/TEM/PKTM/PGOM/PDEM/IEM）的基本算子与仅由基本算子构成的规范化算子包的联络映射（类比对齐）。",
+    "docs": [
+      "my_docs/project_docs/1761062400_病理演化幺半群 (PEM) 公理系统.md",
+      "my_docs/project_docs/1761062401_生理调控幺半群 (PRM) 公理系统.md",
+      "my_docs/project_docs/1761062403_毒理学效应幺半群 (TEM) 公理系统.md",
+      "my_docs/project_docs/1761062404_药代转运幺半群 (PKTM) 公理系统.md",
+      "my_docs/project_docs/1761062405_药理基因组幺半群 (PGOM) 公理系统.md",
+      "my_docs/project_docs/1761062406_药效效应幺半群 (PDEM) 公理系统.md",
+      "my_docs/project_docs/1761062407_免疫效应幺半群 (IEM) 公理系统.md",
+      "my_docs/project_docs/1761062408_《病理演化幺半群》的核心构造及理论完备性.md",
+      "my_docs/project_docs/1761062409_《生理调控幺半群》的核心构造及理论完备性.md",
+      "my_docs/project_docs/1761062410_《毒理学效应幺半群》的核心构造及理论完备性.md",
+      "my_docs/project_docs/1761062411_《药代转运幺半群》的核心构造及理论完备性.md",
+      "my_docs/project_docs/1761062412_《药理基因组算子幺半群》的核心构造及理论完备性.md",
+      "my_docs/project_docs/1761062413_《药效效应幺半群》的核心构造及理论完备性.md",
+      "my_docs/project_docs/1761062414_《免疫效应幺半群》的核心构造及理论完备性.md"
+    ],
+    "notes": "本映射为跨幺半群的语义‘类比对齐’，用于建立算子包间的联络示例。并非严格一一对应，具体以各公理系统定义与实验情境为准。"
+  },
+  "modules": ["pem", "prm", "tem", "pktm", "pgom", "pdem", "iem"],
+  "tags": {
+    "identity": "单位元/不改变状态",
+    "load_up": "B↑（负荷/量/强度增加）",
+    "load_down": "B↓（负荷/量/强度减少）",
+    "boundary_up": "P↑（边界/接口增加）",
+    "boundary_down": "P↓（边界/接口减少）",
+    "fidelity_up": "F↑（保真/功能提升）",
+    "fidelity_down": "F↓（保真/功能下降）",
+    "component_up": "N_comp↑（单元/克隆/隔室增加）",
+    "component_down": "N_comp↓（单元/克隆/隔室减少）",
+    "inflammation": "炎症/反应增强",
+    "repair": "修复/解毒/愈合",
+    "damage": "损伤/病灶形成",
+    "dose": "给药/外源注入",
+    "absorb": "吸收",
+    "distribute": "分布/迁移",
+    "metabolize": "代谢",
+    "excrete": "排泄",
+    "bind": "结合/占有",
+    "transport": "跨膜/转运体介导转运",
+    "activate": "激活/诱导",
+    "repress": "抑制/抑制通路",
+    "mutation": "突变/致癌转化",
+    "signal": "信号传导",
+    "desens": "去敏/耐受",
+    "antagonist": "拮抗/阻断",
+    "potentiate": "增效/正变构",
+    "inverse_agonist": "反向激动",
+    "proliferate": "增殖/扩增",
+    "differentiate": "分化/成熟",
+    "memory": "免疫记忆/长期稳态",
+    "cytokine": "细胞因子释放/风暴"
+  },
+  "basic_ops": {
+    "pem": {
+      "Identity": ["identity"],
+      "Metastasis": ["component_up", "boundary_up", "fidelity_down", "load_down"],
+      "Apoptosis": ["load_down", "component_down", "boundary_down", "fidelity_up"],
+      "Inflammation": ["inflammation", "load_up", "boundary_up", "fidelity_down"],
+      "Carcinogenesis": ["mutation", "load_up", "boundary_up", "fidelity_down"]
+    },
+    "prm": {
+      "Identity": ["identity"],
+      "Ingest": ["load_up", "boundary_up", "fidelity_up", "component_up"],
+      "Exercise": ["load_down", "boundary_down", "fidelity_up"],
+      "Hormone": ["activate", "repress"],
+      "Proliferation": ["proliferate", "component_up", "boundary_up", "load_up", "fidelity_down"],
+      "Adaptation": ["repair", "load_down", "boundary_down", "fidelity_up", "component_down"],
+      "Stimulus": ["activate", "load_up", "boundary_up", "fidelity_down"]
+    },
+    "tem": {
+      "Identity": ["identity"],
+      "Exposure": ["dose", "damage", "load_up", "boundary_up", "fidelity_down"],
+      "Absorption": ["absorb", "load_up", "boundary_up", "fidelity_down"],
+      "Distribution": ["distribute", "component_up", "boundary_up", "load_up", "fidelity_down"],
+      "Lesion": ["damage", "component_up", "boundary_up", "load_up", "fidelity_down"],
+      "Inflammation": ["inflammation", "load_up", "boundary_up", "fidelity_down"],
+      "Detox": ["repair", "load_down", "boundary_down", "fidelity_up"],
+      "Repair": ["repair", "load_down", "boundary_down", "fidelity_up", "component_down"]
+    },
+    "pktm": {
+      "Identity": ["identity"],
+      "Dose": ["dose", "load_up", "boundary_up", "fidelity_down"],
+      "Absorb": ["absorb", "load_up", "boundary_up", "fidelity_down"],
+      "Distribute": ["distribute", "component_up", "boundary_up", "load_up"],
+      "Metabolize": ["metabolize", "load_down", "boundary_down", "fidelity_up"],
+      "Excrete": ["excrete", "load_down", "boundary_down", "fidelity_up"],
+      "Bind": ["bind", "fidelity_up"],
+      "Transport": ["transport", "boundary_up"]
+    },
+    "pgom": {
+      "Identity": ["identity"],
+      "Activate": ["activate", "load_up", "boundary_up", "fidelity_up"],
+      "Repress": ["repress", "load_down", "boundary_down", "fidelity_down"],
+      "Mutation": ["mutation", "component_up", "boundary_up", "fidelity_down"],
+      "RepairGenome": ["repair", "load_down", "boundary_down", "fidelity_up", "component_down"],
+      "EpigeneticMod": ["activate", "repress"],
+      "PathwayInduction": ["activate", "load_up", "boundary_up", "fidelity_up"],
+      "PathwayInhibition": ["repress", "load_down", "boundary_down", "fidelity_down"]
+    },
+    "pdem": {
+      "Identity": ["identity"],
+      "Bind": ["bind", "load_up", "boundary_up", "fidelity_up"],
+      "Signal": ["signal", "load_up", "boundary_up", "fidelity_up"],
+      "Desensitization": ["desens", "load_down", "boundary_down", "fidelity_down"],
+      "Antagonist": ["antagonist", "load_down", "boundary_down", "fidelity_down"],
+      "Potentiation": ["potentiate", "load_up", "boundary_up", "fidelity_up"],
+      "InverseAgonist": ["inverse_agonist", "load_down", "boundary_down", "fidelity_down"]
+    },
+    "iem": {
+      "Identity": ["identity"],
+      "Activate": ["activate", "load_up", "boundary_up", "fidelity_up"],
+      "Suppress": ["repress", "load_down", "boundary_down", "fidelity_down"],
+      "Proliferate": ["proliferate", "component_up", "boundary_up", "load_up"],
+      "Differentiate": ["differentiate", "fidelity_up", "boundary_up"],
+      "CytokineRelease": ["cytokine", "load_up", "boundary_up", "fidelity_down", "component_up"],
+      "Memory": ["memory", "repair", "load_down", "boundary_down", "fidelity_up", "component_down"]
+    }
+  },
+  "crosswalk_by_tag": {
+    "activate": {"pgom": ["Activate", "PathwayInduction"], "prm": ["Stimulus", "Hormone"], "iem": ["Activate"], "pdem": ["Signal", "Potentiation"], "pem": [], "tem": [], "pktm": []},
+    "repress": {"pgom": ["Repress", "PathwayInhibition"], "iem": ["Suppress"], "pdem": ["Antagonist"], "prm": ["Hormone"], "pem": [], "tem": [], "pktm": []},
+    "proliferate": {"prm": ["Proliferation"], "iem": ["Proliferate"], "pgom": ["Mutation"], "pem": ["Metastasis"], "tem": ["Distribution", "Lesion"], "pktm": ["Distribute"], "pdem": []},
+    "repair": {"tem": ["Detox", "Repair"], "pgom": ["RepairGenome"], "prm": ["Adaptation"], "pem": ["Apoptosis"], "iem": ["Memory"], "pktm": ["Metabolize", "Excrete"], "pdem": []},
+    "inflammation": {"pem": ["Inflammation"], "tem": ["Inflammation"], "iem": ["CytokineRelease"], "prm": ["Stimulus"], "pgom": [], "pktm": [], "pdem": []},
+    "damage": {"tem": ["Lesion", "Exposure"], "pem": ["Carcinogenesis"], "pgom": ["Mutation"], "iem": ["CytokineRelease"], "prm": [], "pktm": ["Dose"], "pdem": ["InverseAgonist"]},
+    "bind": {"pdem": ["Bind"], "pktm": ["Bind"], "pgom": [], "iem": [], "prm": [], "tem": [], "pem": []},
+    "signal": {"pdem": ["Signal"], "pgom": ["PathwayInduction"], "iem": ["Activate"], "prm": [], "tem": [], "pktm": []},
+    "desens": {"pdem": ["Desensitization"], "iem": ["Suppress"], "prm": ["Adaptation"], "tem": [], "pgom": [], "pktm": [], "pem": []},
+    "dose": {"pktm": ["Dose"], "tem": ["Exposure"], "prm": ["Ingest"], "pdem": [], "pgom": [], "iem": [], "pem": []}
+  },
+  "canonical_packages": {
+    "adme_pipeline": {
+      "说明": "药代/暴露到清除的标准流程（仅基本算子）。",
+      "pktm": ["Dose", "Absorb", "Distribute", "Metabolize", "Excrete"],
+      "tem": ["Exposure", "Absorption", "Distribution", "Detox"],
+      "pdem": ["Bind", "Signal", "Desensitization"],
+      "pgom": ["Activate", "PathwayInduction", "RepairGenome"],
+      "iem": ["Activate", "Proliferate", "Memory"],
+      "prm": ["Stimulus", "Adaptation"],
+      "pem": ["Inflammation", "Apoptosis"]
+    },
+    "damage_heal": {
+      "说明": "损伤-炎症-修复的普适时序（仅基本算子）。",
+      "tem": ["Lesion", "Inflammation", "Detox", "Repair"],
+      "pem": ["Inflammation", "Apoptosis"],
+      "iem": ["CytokineRelease", "Suppress", "Memory"],
+      "pgom": ["Mutation", "RepairGenome"],
+      "prm": ["Stimulus", "Adaptation"],
+      "pktm": ["Dose", "Metabolize", "Excrete"],
+      "pdem": ["InverseAgonist", "Potentiation"]
+    },
+    "activation_signal": {
+      "说明": "激活-信号-去敏/拮抗的效应链（仅基本算子）。",
+      "pdem": ["Bind", "Signal", "Desensitization"],
+      "pgom": ["Activate", "PathwayInduction", "PathwayInhibition"],
+      "iem": ["Activate", "Differentiate", "Suppress"],
+      "prm": ["Stimulus", "Adaptation"],
+      "tem": ["Inflammation", "Detox"],
+      "pktm": ["Bind", "Transport"],
+      "pem": ["Inflammation", "Apoptosis"]
+    }
+  },
+  "powersets": {
+    "pem": {
+      "base": ["Inflammation", "Apoptosis", "Metastasis", "Carcinogenesis", "Identity"],
+      "max_len": 3,
+      "constraints": {"no_consecutive_duplicate": true, "skip_identity": true},
+      "families": {
+        "repair_path": [
+          ["Inflammation", "Apoptosis"]
+        ],
+        "progression": [
+          ["Inflammation", "Carcinogenesis", "Metastasis"]
+        ]
+      },
+      "generators": [
+        {
+          "name": "progress_heal",
+          "chain": [
+            "Inflammation",
+            {"choice": ["Carcinogenesis", "Metastasis", "Identity"]},
+            {"choice": ["Apoptosis", "Identity"]}
+          ]
+        }
+      ]
+    },
+    
+    "prm": {
+      "base": ["Ingest", "Exercise", "Hormone", "Proliferation", "Adaptation", "Stimulus", "Identity"],
+      "max_len": 3,
+      "constraints": {"no_consecutive_duplicate": true, "skip_identity": true},
+      "families": {
+        "performance": [
+          ["Ingest", "Exercise", "Adaptation"]
+        ],
+        "recovery": [
+          ["Stimulus", "Adaptation"]
+        ],
+        "hormonal_mod": [
+          ["Hormone", "Adaptation"]
+        ]
+      },
+      "generators": [
+        {
+          "name": "train_recover",
+          "chain": [
+            "Ingest",
+            {"repeat": {"op": "Exercise", "min": 1, "max": 3}},
+            "Adaptation"
+          ]
+        }
+      ]
+    },
+    
+    "tem": {
+      "base": ["Exposure", "Absorption", "Distribution", "Lesion", "Inflammation", "Detox", "Repair", "Identity"],
+      "max_len": 3,
+      "constraints": {"no_consecutive_duplicate": true, "skip_identity": true},
+      "families": {
+        "insult": [
+          ["Exposure", "Lesion", "Inflammation"]
+        ],
+        "detox_repair": [
+          ["Detox", "Repair"]
+        ]
+      },
+      "generators": [
+        {
+          "name": "insult_detox",
+          "chain": [
+            {"choice": ["Exposure", "Lesion"]},
+            "Inflammation",
+            {"choice": ["Detox", "Repair"]}
+          ]
+        }
+      ]
+    },
+    
+    "pktm": {
+      "base": ["Dose", "Absorb", "Distribute", "Metabolize", "Excrete", "Bind", "Transport", "Identity"],
+      "max_len": 4,
+      "constraints": {"no_consecutive_duplicate": true, "skip_identity": true},
+      "families": {
+        "adme": [
+          ["Dose", "Absorb", "Distribute", "Metabolize", "Excrete"]
+        ],
+        "binding_transport": [
+          ["Bind", "Transport"]
+        ]
+      },
+      "generators": [
+        {
+          "name": "adme_chain",
+          "chain": [
+            "Dose",
+            "Absorb",
+            "Distribute",
+            {"choice": ["Metabolize", "Identity"]},
+            {"choice": ["Excrete", "Identity"]}
+          ]
+        }
+      ]
+    },
+    
+    "pgom": {
+      "base": ["Activate", "Repress", "Mutation", "RepairGenome", "EpigeneticMod", "PathwayInduction", "PathwayInhibition", "Identity"],
+      "max_len": 3,
+      "constraints": {"no_consecutive_duplicate": true, "skip_identity": true},
+      "families": {
+        "activation": [
+          ["Activate", "PathwayInduction"]
+        ],
+        "repair": [
+          ["RepairGenome"]
+        ],
+        "inhibition": [
+          ["PathwayInhibition"]
+        ]
+      },
+      "generators": [
+        {
+          "name": "activation_cycle",
+          "chain": [
+            "Activate",
+            {"choice": ["PathwayInduction", "EpigeneticMod"]},
+            {"choice": ["RepairGenome", "Identity"]}
+          ]
+        }
+      ]
+    },
+    
+    "pdem": {
+      "base": ["Bind", "Signal", "Desensitization", "Antagonist", "Potentiation", "InverseAgonist", "Identity"],
+      "max_len": 3,
+      "constraints": {"no_consecutive_duplicate": true, "skip_identity": true},
+      "families": {
+        "activation_signal": [
+          ["Bind", "Signal"]
+        ],
+        "tolerance": [
+          ["Desensitization"]
+        ],
+        "block": [
+          ["Antagonist"]
+        ]
+      },
+      "generators": [
+        {
+          "name": "activation_tolerance",
+          "chain": [
+            "Bind",
+            "Signal",
+            {"choice": ["Desensitization", "Antagonist"]}
+          ]
+        }
+      ]
+    },
+    
+    "iem": {
+      "base": ["Activate", "Suppress", "Proliferate", "Differentiate", "CytokineRelease", "Memory", "Identity"],
+      "max_len": 3,
+      "constraints": {"no_consecutive_duplicate": true, "skip_identity": true},
+      "families": {
+        "immune_response": [
+          ["Activate", "Proliferate", "CytokineRelease"]
+        ],
+        "resolution": [
+          ["Suppress", "Memory"]
+        ],
+        "maturation": [
+          ["Activate", "Differentiate", "Memory"]
+        ]
+      },
+      "generators": [
+        {
+          "name": "response_resolution",
+          "chain": [
+            "Activate",
+            "Proliferate",
+            {"choice": ["CytokineRelease", "Identity"]},
+            {"choice": ["Memory", "Suppress"]}
+          ]
+        }
+      ]
+    }
+  }
+}

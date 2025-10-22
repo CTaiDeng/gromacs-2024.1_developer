@@ -19,4 +19,4 @@
 子模块：`pem`。
 """
 
-__all__ = ["pem", "prm", "tem", "pgom", "pktm", "pdem", "iem"]
+__all__ = ["pem", "prm", "tem", "pgom", "pktm", "pdem", "iem", "op_crosswalk", "powerset"]
