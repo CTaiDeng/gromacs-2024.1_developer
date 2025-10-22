@@ -1,4 +1,5 @@
 # SPDX-License-Identifier: GPL-3.0-only
+# Copyright (C) 2010- The GROMACS Authors
 # Copyright (C) 2025 GaoZheng
 #
 # This program is free software: you can redistribute it and/or modify
@@ -18,4 +19,4 @@
 子模块：`pem`。
 """
 
-__all__ = ["pem"]
+__all__ = ["pem", "prm", "tem", "pgom", "pktm", "pdem", "iem"]
