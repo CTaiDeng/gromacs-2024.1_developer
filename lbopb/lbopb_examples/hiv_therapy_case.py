@@ -134,6 +134,9 @@ def _risk_and_cost(mod: str, seq: list[str], s0) -> tuple[float, float]:
 def gen_markdown_report(case_name: str, cw: dict, states: Dict[str, object], seqs: Dict[str, List[str]], pharm_cfg_path: str | None) -> str:
     lines: list[str] = []
     case = cw.get("case_packages", {}).get(case_name, {})
+    # 免责声明（示例/演示用途，不构成医学建议）
+    lines.append("免责声明：本文件及其生成的报告仅用于方法学与技术演示，不构成医学建议或临床诊断/治疗方案；\n")
+    lines.append("亦不用于任何实际诊疗决策或药物使用指导。若需临床决策，请咨询专业医师并遵循监管要求。\n\n")
     lines.append(f"# 案例：{case_name}\n\n")
     if case.get("description"):
         lines.append("#### 说明：\n\n")
