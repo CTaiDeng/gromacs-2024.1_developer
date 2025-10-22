@@ -6,15 +6,18 @@
   "gamma": 0.99,
   "tau": 0.005,
   "buffer_size": 100000,
-  "batch_size": 64,
+  "batch_size": 1,
   "alpha": 0.2,
   "learn_alpha": true,
   "target_entropy": -2.0,
-  "total_steps": 2000,
-  "start_steps": 200,
-  "update_after": 200,
-  "update_every": 50,
-  "output_dir": "lbopb/src/rlsac/out"
+  "total_steps": 10000,
+  "start_steps": 0,
+  "update_after": 1,
+  "update_every": 1,
+  "updates_per_step": 4,
+  "minibatch_floor": 1,
+  "output_dir": "out"
 }
+
 
 

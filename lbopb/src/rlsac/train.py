@@ -23,6 +23,8 @@ from typing import Dict, Any
 
 import torch
 import torch.nn.functional as F
+import os
+import sys
 
 # Support both package and script execution
 try:
@@ -71,7 +73,7 @@ def _prefill_from_json(buf: ReplayBuffer, json_path: Path, obs_dim: int) -> int:
     return cnt
 
 
-def _select_run_dir(base_out: Path) -> Path | None:
+def _select_run_dir(base_out: Path, select: str | None = None) -> Path | None:
     """Scan base_out/train_* and prompt to resume one.
 
     Returns selected run dir Path or None for a new run.
@@ -81,6 +83,17 @@ def _select_run_dir(base_out: Path) -> Path | None:
     runs = sorted([p for p in base_out.glob("train_*") if p.is_dir()])
     if not runs:
         return None
+    # Auto selection by argument/env
+    if select:
+        s = str(select).strip().lower()
+        if s == "new":
+            return None
+        if s == "latest":
+            return runs[-1]
+        if s.isdigit():
+            idx = int(s)
+            if 0 <= idx < len(runs):
+                return runs[idx]
     print("Detected previous training runs:")
     for i, r in enumerate(runs):
         print(f"  [{i}] {r.name}")
@@ -107,9 +120,20 @@ def train(
     cfg = _load_config(cfg_path)
     device = select_device_from_config(cfg_path)
 
+    # 调试模式：环境变量 RLSAC_DEBUG 优先，其次读取配置项 debug
+    debug = bool(os.environ.get("RLSAC_DEBUG", "") or cfg.get("debug", False))
+
+    def dbg(msg: str) -> None:
+        if debug:
+            print(f"[DEBUG] {msg}")
+
+    dbg(f"配置文件: {cfg_path}")
+    dbg(f"设备选择: {device}")
+
     env = DummyEnv()
     obs_dim = env.observation_space.shape[0]
     n_actions = env.action_space.high - env.action_space.low
+    dbg(f"环境初始化: obs_dim={obs_dim}, n_actions={n_actions}")
 
     # Hyperparameters
     lr_actor = float(cfg.get("learning_rate_actor", 3e-4))
@@ -125,6 +149,8 @@ def train(
     start_steps = int(cfg.get("start_steps", 1000))
     update_after = int(cfg.get("update_after", 1000))
     update_every = int(cfg.get("update_every", 50))
+    updates_per_step = int(cfg.get("updates_per_step", 1))
+    minibatch_floor = int(cfg.get("minibatch_floor", 1))  # allow training with very small buffers
 
     # Output directory at project root (repo_root/out by default) and resume selection
     # repo_root ~= rlsac/../../..
@@ -136,7 +162,27 @@ def train(
     out_path = Path(out_cfg)
     base_out = out_path if out_path.is_absolute() else (repo_root / out_path)
     base_out.mkdir(parents=True, exist_ok=True)
-    resume_dir = _select_run_dir(base_out)
+    # parse CLI/env selection to avoid interactive block
+    select_arg: str | None = None
+    args = sys.argv[1:]
+    if "--new" in args:
+        select_arg = "new"
+    elif "--latest" in args:
+        select_arg = "latest"
+    elif "--resume" in args:
+        try:
+            idx_pos = args.index("--resume") + 1
+            select_arg = args[idx_pos]
+        except Exception:
+            select_arg = None
+    if not select_arg:
+        env_sel = os.environ.get("RLSAC_SELECT", "").strip()
+        if env_sel:
+            select_arg = env_sel
+        elif cfg.get("select"):
+            select_arg = str(cfg.get("select")).strip()
+    resume_dir = _select_run_dir(base_out, select=select_arg)
+    dbg(f"选择逻辑: args={args}, RLSAC_SELECT={os.environ.get('RLSAC_SELECT','')!r}, cfg.select={cfg.get('select', None)!r}, 自动选择={select_arg!r}")
     import time as _pytime
     if resume_dir is None:
         run_dir = base_out / ("train_" + str(int(_pytime.time())))
@@ -145,6 +191,7 @@ def train(
     else:
         run_dir = resume_dir
         resume = True
+    dbg(f"训练运行目录: {run_dir} | 模式: {'续跑' if resume else '新建'}")
 
     # Networks
     policy = DiscretePolicy(obs_dim, n_actions).to(device)
@@ -182,6 +229,7 @@ def train(
     buf = ReplayBuffer(buffer_size, obs_dim)
     data_path = Path(data_json) if data_json else (mod_dir / "operator_crosswalk_train.json")
     prefilled = _prefill_from_json(buf, data_path, obs_dim)
+    dbg(f"预填充回放池: 来自 {data_path}, 条目数={prefilled}")
 
     state = env.reset()
     ep_ret = 0.0
@@ -190,69 +238,84 @@ def train(
         with torch.no_grad():
             if t < start_steps:
                 action = env.action_space.sample().item()
+                dbg(f"t={t} 随机动作: a={action}")
             else:
                 s = state.to(device).unsqueeze(0)
                 logits, probs = policy(s)
                 dist = torch.distributions.Categorical(probs=probs)
                 action = int(dist.sample().item())
+                if debug:
+                    dbg(f"t={t} 策略动作: a={action} | probs={probs.squeeze(0).detach().cpu().numpy()}")
 
         s2, r, d, _ = env.step(torch.tensor([action], dtype=torch.int32))
         buf.push(state, action, r, s2, d)
         state = s2
         ep_ret += r
+        if debug:
+            dbg(f"t={t} 交互: r={r:.6f}, done={d}, 回放池大小={len(buf)}")
 
         # Update
-        if t >= update_after and t % update_every == 0 and len(buf) >= batch_size:
-            s_b, a_b, r_b, s2_b, d_b = buf.sample(batch_size)
-            s_b = s_b.to(device)
-            a_b = a_b.to(device)
-            r_b = r_b.to(device)
-            s2_b = s2_b.to(device)
-            d_b = d_b.to(device)
+        if t >= update_after and t % update_every == 0 and len(buf) >= max(1, minibatch_floor):
+            # Perform multiple gradient updates per environment step
+            for upd in range(max(1, updates_per_step)):
+                s_b, a_b, r_b, s2_b, d_b = buf.sample(batch_size)
+                s_b = s_b.to(device)
+                a_b = a_b.to(device)
+                r_b = r_b.to(device)
+                s2_b = s2_b.to(device)
+                d_b = d_b.to(device)
 
-            # Target V(s') using target critics + current policy
-            with torch.no_grad():
-                logits2, probs2 = policy(s2_b)
-                q1_t = tgt_q1(s2_b)
-                q2_t = tgt_q2(s2_b)
-                q_min = torch.min(q1_t, q2_t)
-                logp2 = torch.log(torch.clamp(probs2, 1e-8, 1.0))
-                alpha = log_alpha.exp().detach() if learn_alpha else torch.tensor(init_alpha, device=device)
-                v_s2 = (probs2 * (q_min - alpha * logp2)).sum(dim=-1)
-                y = r_b + gamma * (1.0 - d_b) * v_s2
+                # Target V(s') using target critics + current policy
+                with torch.no_grad():
+                    logits2, probs2 = policy(s2_b)
+                    q1_t = tgt_q1(s2_b)
+                    q2_t = tgt_q2(s2_b)
+                    q_min = torch.min(q1_t, q2_t)
+                    logp2 = torch.log(torch.clamp(probs2, 1e-8, 1.0))
+                    alpha = log_alpha.exp().detach() if learn_alpha else torch.tensor(init_alpha, device=device)
+                    v_s2 = (probs2 * (q_min - alpha * logp2)).sum(dim=-1)
+                    y = r_b + gamma * (1.0 - d_b) * v_s2
 
-            # Critic loss: MSE(Q(s,a), y)
-            q1_sa = q1(s_b).gather(1, a_b.view(-1, 1)).squeeze(1)
-            q2_sa = q2(s_b).gather(1, a_b.view(-1, 1)).squeeze(1)
-            loss_q1 = F.mse_loss(q1_sa, y)
-            loss_q2 = F.mse_loss(q2_sa, y)
-            opt_q1.zero_grad(); loss_q1.backward(); opt_q1.step()
-            opt_q2.zero_grad(); loss_q2.backward(); opt_q2.step()
+                # Critic loss: MSE(Q(s,a), y)
+                q1_sa = q1(s_b).gather(1, a_b.view(-1, 1)).squeeze(1)
+                q2_sa = q2(s_b).gather(1, a_b.view(-1, 1)).squeeze(1)
+                loss_q1 = F.mse_loss(q1_sa, y)
+                loss_q2 = F.mse_loss(q2_sa, y)
+                opt_q1.zero_grad(); loss_q1.backward(); opt_q1.step()
+                opt_q2.zero_grad(); loss_q2.backward(); opt_q2.step()
+                if debug:
+                    dbg(f"t={t} upd={upd+1} Critic: loss_q1={loss_q1.item():.6f}, loss_q2={loss_q2.item():.6f}")
 
-            # Actor loss: E[alpha * log pi(a|s) - Q(s,a)]
-            logits, probs = policy(s_b)
-            logp = torch.log(torch.clamp(probs, 1e-8, 1.0))
-            q1_pi = q1(s_b)
-            q2_pi = q2(s_b)
-            q_pi = torch.min(q1_pi, q2_pi)
-            alpha = log_alpha.exp() if learn_alpha else torch.tensor(init_alpha, device=device)
-            loss_pi = (probs * (alpha * logp - q_pi)).sum(dim=-1).mean()
-            opt_pi.zero_grad(); loss_pi.backward(); opt_pi.step()
+                # Actor loss: E[alpha * log pi(a|s) - Q(s,a)]
+                logits, probs = policy(s_b)
+                logp = torch.log(torch.clamp(probs, 1e-8, 1.0))
+                q1_pi = q1(s_b)
+                q2_pi = q2(s_b)
+                q_pi = torch.min(q1_pi, q2_pi)
+                alpha = log_alpha.exp() if learn_alpha else torch.tensor(init_alpha, device=device)
+                loss_pi = (probs * (alpha * logp - q_pi)).sum(dim=-1).mean()
+                opt_pi.zero_grad(); loss_pi.backward(); opt_pi.step()
+                if debug:
+                    dbg(f"t={t} upd={upd+1} Actor: loss_pi={loss_pi.item():.6f}")
 
-            # Temperature loss (optional)
-            if learn_alpha and opt_alpha is not None:
-                ent = discrete_entropy(probs).detach()
-                loss_alpha = -(log_alpha * (target_entropy - ent).detach()).mean()
-                opt_alpha.zero_grad(); loss_alpha.backward(); opt_alpha.step()
+                # Temperature loss (optional)
+                if learn_alpha and opt_alpha is not None:
+                    ent = discrete_entropy(probs).detach()
+                    loss_alpha = -(log_alpha * (target_entropy - ent).detach()).mean()
+                    opt_alpha.zero_grad(); loss_alpha.backward(); opt_alpha.step()
+                    dbg(f"t={t} upd={upd+1} Alpha: loss_alpha={loss_alpha.item():.6f}, alpha={float(log_alpha.exp().item()):.6f}")
 
-            # Soft update of target networks
-            soft_update(tgt_q1, q1, tau)
-            soft_update(tgt_q2, q2, tau)
+                # Soft update of target networks
+                soft_update(tgt_q1, q1, tau)
+                soft_update(tgt_q2, q2, tau)
+            if debug:
+                dbg(f"t={t} 已完成 {max(1, updates_per_step)} 次梯度更新")
 
         # Episode handling (DummyEnv never ends; reset occasionally)
         if t % 200 == 0:
             state = env.reset()
             ep_ret = 0.0
+            dbg(f"t={t} 周期性重置环境")
 
     # Save artifacts into run_dir
     torch.save(policy.state_dict(), run_dir / "policy.pt")
@@ -272,6 +335,9 @@ def train(
 
 if __name__ == "__main__":
     train()
+
+
+
 
 
 
