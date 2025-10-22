@@ -19,4 +19,15 @@
 配套工具：`op_crosswalk`（联络映射）、`powerset`（幂集算法）。
 """
 
-__all__ = ["pem", "prm", "tem", "pgom", "pktm", "pdem", "iem", "op_crosswalk", "powerset"]
+__all__ = [
+    "pem",
+    "prm",
+    "tem",
+    "pgom",
+    "pktm",
+    "pdem",
+    "iem",
+    "op_crosswalk",
+    "powerset",
+    "pharmdesign",
+]
