@@ -30,4 +30,6 @@ __all__ = [
     "op_crosswalk",
     "powerset",
     "pharmdesign",
+    "rlsac",
 ]
+

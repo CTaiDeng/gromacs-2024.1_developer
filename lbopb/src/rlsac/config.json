@@ -1,0 +1,20 @@
+{
+  "device": "cpu",
+  "use_gpu": false,
+  "learning_rate_actor": 0.0003,
+  "learning_rate_critic": 0.0003,
+  "gamma": 0.99,
+  "tau": 0.005,
+  "buffer_size": 100000,
+  "batch_size": 64,
+  "alpha": 0.2,
+  "learn_alpha": true,
+  "target_entropy": -2.0,
+  "total_steps": 2000,
+  "start_steps": 200,
+  "update_after": 200,
+  "update_every": 50,
+  "output_dir": "lbopb/src/rlsac/out"
+}
+
+
