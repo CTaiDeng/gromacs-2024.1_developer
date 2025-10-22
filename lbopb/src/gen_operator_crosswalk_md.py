@@ -239,6 +239,44 @@ def render_markdown(cw: Mapping[str, Any]) -> str:
     lines.append("- 修改 JSON 后，请重新执行上述命令同步更新本文件。\n")
     lines.append("- 仓库 Git Hooks 不执行自动改写（遵循 AGENTS 规范）；需人工手动运行脚本。\n\n")
 
+    # 案例包（可复现示例）
+    cases = cw.get("case_packages", {})
+    if cases:
+        lines.append(_h2("案例包（可复现示例）"))
+        for name in sorted(cases.keys()):
+            case = cases[name]
+            lines.append(f"### {name}\n\n")
+            if case.get("description"):
+                lines.append("#### 说明：\n\n")
+                lines.append(f"{case['description']}\n\n")
+            if case.get("notes"):
+                lines.append("#### 说明：\n\n")
+                lines.append(f"{case['notes']}\n\n")
+            seqs = case.get("sequences", {})
+            rows = []
+            for mod in list_modules(cw):
+                s = seqs.get(mod)
+                if s:
+                    rows.append((mod, " → ".join(s)))
+            if rows:
+                lines.append(_table(["模块", "算子序列"], rows))
+
+            # 复现代码示例（基于 powerset.compose_sequence）
+            lines.append("#### 复现示例（Python）：\n\n")
+            code = []
+            code.append("from lbopb.src.powerset import compose_sequence")
+            code.append("from lbopb.src.op_crosswalk import load_crosswalk")
+            code.append("cw = load_crosswalk()")
+            code.append(f"case = cw['case_packages']['{name}']")
+            code.append("seqs = case['sequences']")
+            code.append("# 示例：药效（PDEM）复合并应用\nfrom lbopb.src.pdem import PDEMState")
+            code.append("pdem_seq = seqs['pdem']")
+            code.append("O = compose_sequence('pdem', pdem_seq)")
+            code.append("s0 = PDEMState(b=1.5, n_comp=1, perim=0.8, fidelity=0.6)")
+            code.append("s1 = O(s0)")
+            code.append("print('PDEM seq:', pdem_seq)\nprint('s0→s1:', s0, '→', s1)")
+            lines.append("```python\n" + "\n".join(code) + "\n```\n\n")
+
     return "".join(lines)
 
 

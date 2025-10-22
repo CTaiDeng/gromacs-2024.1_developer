@@ -420,4 +420,21 @@
       }
     }
   }
+  ,
+  "case_packages": {
+    "HIV_Therapy_Path": {
+      "description": "以病理（PEM）为基底流形，构造 HIV 治疗算子包，经联络映射到药效切面（PDEM），并对六大切面给出对齐算子包。",
+      "base_module": "pem",
+      "notes": "病理 repair_path（Inflammation→Apoptosis）与药效拮抗链（Bind→Antagonist）语义对齐：修复对应占有+抑制；其余切面选择与稳态回归/ADME/通路抑制/解毒与免疫分辨相协调的链。",
+      "sequences": {
+        "pem": ["Inflammation", "Apoptosis"],
+        "pdem": ["Bind", "Antagonist"],
+        "pktm": ["Dose", "Absorb", "Distribute", "Metabolize", "Excrete"],
+        "pgom": ["PathwayInhibition"],
+        "tem": ["Detox", "Repair"],
+        "prm": ["Stimulus", "Adaptation"],
+        "iem": ["Activate", "Differentiate", "Memory"]
+      }
+    }
+  }
 }

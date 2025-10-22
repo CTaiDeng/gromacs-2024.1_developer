@@ -562,3 +562,43 @@ IEM 聚焦免疫识别-效应-分辨-记忆的全链路过程。
 - 修改 JSON 后，请重新执行上述命令同步更新本文件。
 - 仓库 Git Hooks 不执行自动改写（遵循 AGENTS 规范）；需人工手动运行脚本。
 
+## 案例包（可复现示例）
+
+### HIV_Therapy_Path
+
+#### 说明：
+
+以病理（PEM）为基底流形，构造 HIV 治疗算子包，经联络映射到药效切面（PDEM），并对六大切面给出对齐算子包。
+
+#### 说明：
+
+病理 repair_path（Inflammation→Apoptosis）与药效拮抗链（Bind→Antagonist）语义对齐：修复对应占有+抑制；其余切面选择与稳态回归/ADME/通路抑制/解毒与免疫分辨相协调的链。
+
+| 模块 | 算子序列 |
+| :--- | :--- |
+| pem | Inflammation → Apoptosis |
+| prm | Stimulus → Adaptation |
+| tem | Detox → Repair |
+| pktm | Dose → Absorb → Distribute → Metabolize → Excrete |
+| pgom | PathwayInhibition |
+| pdem | Bind → Antagonist |
+| iem | Activate → Differentiate → Memory |
+
+#### 复现示例（Python）：
+
+```python
+from lbopb.src.powerset import compose_sequence
+from lbopb.src.op_crosswalk import load_crosswalk
+cw = load_crosswalk()
+case = cw['case_packages']['HIV_Therapy_Path']
+seqs = case['sequences']
+# 示例：药效（PDEM）复合并应用
+from lbopb.src.pdem import PDEMState
+pdem_seq = seqs['pdem']
+O = compose_sequence('pdem', pdem_seq)
+s0 = PDEMState(b=1.5, n_comp=1, perim=0.8, fidelity=0.6)
+s1 = O(s0)
+print('PDEM seq:', pdem_seq)
+print('s0→s1:', s0, '→', s1)
+```
+
