@@ -24,10 +24,22 @@ from typing import Dict, Any
 import torch
 import torch.nn.functional as F
 
-from .env import DummyEnv
-from .models import DiscretePolicy, QNetwork
-from .replay_buffer import ReplayBuffer
-from .utils import soft_update, select_device_from_config, discrete_entropy
+# Support both package and script execution
+try:
+    from .env import DummyEnv
+    from .models import DiscretePolicy, QNetwork
+    from .replay_buffer import ReplayBuffer
+    from .utils import soft_update, select_device_from_config, discrete_entropy
+except ImportError:  # running as a script (no package parent)
+    import sys as _sys
+    from pathlib import Path as _Path
+    _PKG_PARENT = _Path(__file__).resolve().parents[1]  # lbopb/src
+    if str(_PKG_PARENT) not in _sys.path:
+        _sys.path.insert(0, str(_PKG_PARENT))
+    from rlsac.env import DummyEnv  # type: ignore
+    from rlsac.models import DiscretePolicy, QNetwork  # type: ignore
+    from rlsac.replay_buffer import ReplayBuffer  # type: ignore
+    from rlsac.utils import soft_update, select_device_from_config, discrete_entropy  # type: ignore
 
 
 def _load_config(cfg_path: Path) -> Dict[str, Any]:
@@ -114,6 +126,26 @@ def train(
     update_after = int(cfg.get("update_after", 1000))
     update_every = int(cfg.get("update_every", 50))
 
+    # Output directory at project root (repo_root/out by default) and resume selection
+    # repo_root ~= rlsac/../../..
+    try:
+        repo_root = mod_dir.parents[2]
+    except Exception:
+        repo_root = Path.cwd()
+    out_cfg = cfg.get("output_dir", "out")
+    out_path = Path(out_cfg)
+    base_out = out_path if out_path.is_absolute() else (repo_root / out_path)
+    base_out.mkdir(parents=True, exist_ok=True)
+    resume_dir = _select_run_dir(base_out)
+    import time as _pytime
+    if resume_dir is None:
+        run_dir = base_out / ("train_" + str(int(_pytime.time())))
+        run_dir.mkdir(parents=True, exist_ok=True)
+        resume = False
+    else:
+        run_dir = resume_dir
+        resume = True
+
     # Networks
     policy = DiscretePolicy(obs_dim, n_actions).to(device)
     q1 = QNetwork(obs_dim, n_actions).to(device)
@@ -150,26 +182,6 @@ def train(
     buf = ReplayBuffer(buffer_size, obs_dim)
     data_path = Path(data_json) if data_json else (mod_dir / "operator_crosswalk_train.json")
     prefilled = _prefill_from_json(buf, data_path, obs_dim)
-
-    # Output directory at project root (repo_root/out by default)
-    # repo_root ~= rlsac/../../..
-    try:
-        repo_root = mod_dir.parents[2]
-    except Exception:
-        repo_root = Path.cwd()
-    out_cfg = cfg.get("output_dir", "out")
-    out_path = Path(out_cfg)
-    base_out = out_path if out_path.is_absolute() else (repo_root / out_path)
-    base_out.mkdir(parents=True, exist_ok=True)
-    resume_dir = _select_run_dir(base_out)
-    import time as _pytime
-    if resume_dir is None:
-        run_dir = base_out / ("train_" + str(int(_pytime.time())))
-        run_dir.mkdir(parents=True, exist_ok=True)
-        resume = False
-    else:
-        run_dir = resume_dir
-        resume = True
 
     state = env.reset()
     ep_ret = 0.0
@@ -260,6 +272,8 @@ def train(
 
 if __name__ == "__main__":
     train()
+
+
 
 
 
