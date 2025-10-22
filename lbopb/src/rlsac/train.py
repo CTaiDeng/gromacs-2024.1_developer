@@ -122,10 +122,16 @@ def train(
 
     # 调试模式：环境变量 RLSAC_DEBUG 优先，其次读取配置项 debug
     debug = bool(os.environ.get("RLSAC_DEBUG", "") or cfg.get("debug", False))
+    # 每步打印：默认开启；可通过 env/config 调整
+    log_every_step = bool(os.environ.get("RLSAC_LOG_EVERY_STEP", "1") or cfg.get("log_every_step", True))
 
     def dbg(msg: str) -> None:
         if debug:
             print(f"[DEBUG] {msg}")
+
+    def step_log(msg: str) -> None:
+        if log_every_step or debug:
+            print(msg)
 
     dbg(f"配置文件: {cfg_path}")
     dbg(f"设备选择: {device}")
@@ -151,6 +157,13 @@ def train(
     update_every = int(cfg.get("update_every", 50))
     updates_per_step = int(cfg.get("updates_per_step", 1))
     minibatch_floor = int(cfg.get("minibatch_floor", 1))  # allow training with very small buffers
+    dbg(
+        "超参数: lr_actor={:.1e}, lr_critic={:.1e}, gamma={}, tau={}, buffer_size={}, batch_size={}, "
+        "target_entropy={}, learn_alpha={}, alpha_init={}, total_steps={}, start_steps={}, update_after={}, update_every={}, updates_per_step={}, minibatch_floor={}".format(
+            lr_actor, lr_critic, gamma, tau, buffer_size, batch_size, target_entropy, learn_alpha, init_alpha,
+            total_steps, start_steps, update_after, update_every, updates_per_step, minibatch_floor
+        )
+    )
 
     # Output directory at project root (repo_root/out by default) and resume selection
     # repo_root ~= rlsac/../../..
@@ -199,6 +212,7 @@ def train(
     q2 = QNetwork(obs_dim, n_actions).to(device)
     tgt_q1 = QNetwork(obs_dim, n_actions).to(device)
     tgt_q2 = QNetwork(obs_dim, n_actions).to(device)
+    dbg("网络已创建: policy/q1/q2 及目标网络")
     # Resume weights if requested
     if resume:
         try:
@@ -220,10 +234,12 @@ def train(
     opt_pi = torch.optim.Adam(policy.parameters(), lr=lr_actor)
     opt_q1 = torch.optim.Adam(q1.parameters(), lr=lr_critic)
     opt_q2 = torch.optim.Adam(q2.parameters(), lr=lr_critic)
+    dbg("优化器已创建: opt_pi/opt_q1/opt_q2")
 
     # Temperature parameter alpha (either fixed or learnable)
     log_alpha = torch.tensor(float(torch.log(torch.tensor(init_alpha))), requires_grad=learn_alpha, device=device)
     opt_alpha = torch.optim.Adam([log_alpha], lr=lr_actor) if learn_alpha else None
+    dbg(f"温度系数: learn_alpha={learn_alpha}, alpha_init={init_alpha}")
 
     # Replay buffer
     buf = ReplayBuffer(buffer_size, obs_dim)
@@ -233,6 +249,10 @@ def train(
 
     state = env.reset()
     ep_ret = 0.0
+    last_q1 = None
+    last_q2 = None
+    last_pi = None
+    last_alpha = float(log_alpha.exp().item()) if learn_alpha else init_alpha
     for t in range(1, total_steps + 1):
         # Select action
         with torch.no_grad():
@@ -255,6 +275,7 @@ def train(
             dbg(f"t={t} 交互: r={r:.6f}, done={d}, 回放池大小={len(buf)}")
 
         # Update
+        updates_done = 0
         if t >= update_after and t % update_every == 0 and len(buf) >= max(1, minibatch_floor):
             # Perform multiple gradient updates per environment step
             for upd in range(max(1, updates_per_step)):
@@ -285,6 +306,8 @@ def train(
                 opt_q2.zero_grad(); loss_q2.backward(); opt_q2.step()
                 if debug:
                     dbg(f"t={t} upd={upd+1} Critic: loss_q1={loss_q1.item():.6f}, loss_q2={loss_q2.item():.6f}")
+                last_q1 = float(loss_q1.item())
+                last_q2 = float(loss_q2.item())
 
                 # Actor loss: E[alpha * log pi(a|s) - Q(s,a)]
                 logits, probs = policy(s_b)
@@ -297,6 +320,7 @@ def train(
                 opt_pi.zero_grad(); loss_pi.backward(); opt_pi.step()
                 if debug:
                     dbg(f"t={t} upd={upd+1} Actor: loss_pi={loss_pi.item():.6f}")
+                last_pi = float(loss_pi.item())
 
                 # Temperature loss (optional)
                 if learn_alpha and opt_alpha is not None:
@@ -304,12 +328,26 @@ def train(
                     loss_alpha = -(log_alpha * (target_entropy - ent).detach()).mean()
                     opt_alpha.zero_grad(); loss_alpha.backward(); opt_alpha.step()
                     dbg(f"t={t} upd={upd+1} Alpha: loss_alpha={loss_alpha.item():.6f}, alpha={float(log_alpha.exp().item()):.6f}")
+                    last_alpha = float(log_alpha.exp().item())
 
                 # Soft update of target networks
                 soft_update(tgt_q1, q1, tau)
                 soft_update(tgt_q2, q2, tau)
             if debug:
                 dbg(f"t={t} 已完成 {max(1, updates_per_step)} 次梯度更新")
+            updates_done = max(1, updates_per_step)
+
+        # 每步打印汇总
+        step_log(
+            "[STEP {t}] a={a} r={r:.6f} d={d} buf={buf} upd={upd} "
+            "loss_q1={lq1} loss_q2={lq2} loss_pi={lpi} alpha={alpha}".format(
+                t=t, a=action, r=r, d=d, buf=len(buf), upd=updates_done,
+                lq1=("{:.6f}".format(last_q1) if last_q1 is not None else "-"),
+                lq2=("{:.6f}".format(last_q2) if last_q2 is not None else "-"),
+                lpi=("{:.6f}".format(last_pi) if last_pi is not None else "-"),
+                alpha=("{:.6f}".format(last_alpha) if last_alpha is not None else "-")
+            )
+        )
 
         # Episode handling (DummyEnv never ends; reset occasionally)
         if t % 200 == 0:
