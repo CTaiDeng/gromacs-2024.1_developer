@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: GPL-3.0-only
-# Copyright (C) 2010- The GROMACS Authors
 # Copyright (C) 2025 GaoZheng
 #
 # This program is free software: you can redistribute it and/or modify
@@ -38,7 +37,7 @@ from .op_crosswalk import (
     crosswalk_for_tag,
     canonical_package,
 )
-from .powerset import get_powerset_config
+from .powerset import get_powerset_config, generate_by_generator
 
 
 def _h1(s: str) -> str:
@@ -65,9 +64,25 @@ def render_markdown(cw: Mapping[str, Any]) -> str:
 
     lines: list[str] = []
     lines.append(_h1("LBOPB 幺半群算子联络预览（自动生成）"))
+    lines.append("本文件由脚本自动生成（请勿手工编辑）。数据源：`lbopb/src/operator_crosswalk.json`。\n\n")
+
+    # 概念与术语
+    lines.append(_h2("概念与术语"))
     lines.append(
-        "本文件由脚本自动生成（请勿手工编辑）。数据源：`lbopb/src/operator_crosswalk.json`。\n\n"
+        "- 幺半群（Monoid）：带有结合律与单位元的代数结构；本文中各模块（PEM/PRM/TEM/PKTM/PGOM/PDEM/IEM）均是非交换幺半群。\n"
+        "- 基本算子（Basic Operator）：各模块的最小过程单元（如 Dose/Absorb/Activate/Repair 等）。\n"
+        "- 规范化算子包（Canonical Package）：仅由基本算子构成、能代表通用时序的序列（如 ADME 管线、损伤-修复链）。\n"
+        "- 联络（Crosswalk）：以语义标签为桥，建立跨模块基本算子的类比映射与包的对齐规则。\n"
+        "- 幂集（Powerset）：在约束下枚举仅基本算子构成的序列（自由幺半群），并可结合常用序列与生成器。\n\n"
     )
+
+    # 对齐原则与使用建议
+    guidelines = meta.get("guidelines", [])
+    if guidelines:
+        lines.append(_h2("对齐原则与使用建议"))
+        for g in guidelines:
+            lines.append(f"- {g}\n")
+        lines.append("\n")
     # 基本信息
     lines.append(_h2("基本信息"))
     rows = [
@@ -122,8 +137,13 @@ def render_markdown(cw: Mapping[str, Any]) -> str:
     pkgs = cw.get("canonical_packages", {})
     if pkgs:
         lines.append(_h2("规范化算子包（仅基本算子）"))
+        desc_map = cw.get("canonical_packages_desc", {})
         for name in sorted(pkgs.keys()):
             lines.append(f"### {name}\n\n")
+            d = desc_map.get(name)
+            if d:
+                lines.append("#### 说明：\n\n")
+                lines.append(f"{d}\n\n")
             prow = []
             pkgmap = canonical_package(cw, name)
             for mod in modules:
@@ -152,6 +172,9 @@ def render_markdown(cw: Mapping[str, Any]) -> str:
                 ]
             )
             lines.append(_table(["键", "值"], [("基本算子集", ", ".join(base)), ("最大长度", max_len), ("约束", cons_desc)]))
+            if cfg.get("notes"):
+                lines.append("#### 说明：\n\n")
+                lines.append(f"{cfg.get('notes')}\n\n")
 
             fam = cfg.get("families", {})
             if fam:
@@ -159,6 +182,10 @@ def render_markdown(cw: Mapping[str, Any]) -> str:
                 for fname, seqs in sorted(fam.items(), key=lambda kv: kv[0].lower()):
                     frows.append((fname, "；".join([" → ".join(seq) for seq in seqs])))
                 lines.append(_table(["常用幂集族名", "算子序列组"], frows))
+                fdesc = cfg.get("family_descriptions", {})
+                if fdesc:
+                    rows = [(k, str(v)) for k, v in sorted(fdesc.items())]
+                    lines.append(_table(["族名", "说明"], rows))
 
             # 生成器（常用序列生成器）
             gens = cfg.get("generators", [])
@@ -182,6 +209,27 @@ def render_markdown(cw: Mapping[str, Any]) -> str:
                     pattern = " → ".join([render_step(x) for x in chain])
                     grows.append((name, pattern))
                 lines.append(_table(["生成器名", "链式模式"], grows))
+                gdesc = cfg.get("generator_descriptions", {})
+                if gdesc:
+                    rows = [(k, str(v)) for k, v in sorted(gdesc.items())]
+                    lines.append(_table(["生成器名", "说明"], rows))
+
+                # 生成器示例（自动抽样）
+                sample_rows: list[tuple[str, str]] = []
+                SAMPLE_N = 5
+                for g in gens:
+                    name = str(g.get("name"))
+                    try:
+                        seqs = []
+                        for i, seq in enumerate(generate_by_generator(mod, name)):
+                            if i >= SAMPLE_N:
+                                break
+                            seqs.append(" → ".join(seq))
+                        sample_rows.append((name, "；".join(seqs) if seqs else "(无生成)"))
+                    except Exception as e:  # 容错输出
+                        sample_rows.append((name, f"生成失败: {e}"))
+                if sample_rows:
+                    lines.append(_table(["生成器名", f"示例（前{SAMPLE_N}条）"], sample_rows))
 
     # 同步规范
     lines.append(_h2("同步规范（重要）"))

@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: GPL-3.0-only
-# Copyright (C) 2010- The GROMACS Authors
 # Copyright (C) 2025 GaoZheng
 #
 # This program is free software: you can redistribute it and/or modify
@@ -16,13 +15,13 @@
 
 """PGOM Python operator package.
 
-基于《药理基因组幺半群 (PGOM) 公理系统》的简化实现：
- - 状态表示与可观察量（表达/通路/表型/药敏）
- - 幺半群（单位元与复合）/ 非交换性
- - 基因调控算子：激活、抑制、突变、修复、表观修饰、通路诱导/抑制
- - 指标：非交换度、拓扑风险、路径代价、可达性
+药理基因组幺半群（PGOM）子包，包含：
+ - 状态/可观察量、幺半群与常用基因调控算子（激活/抑制/突变/修复/表观/通路诱导/抑制）
+ - 指标：非交换度、拓扑风险、路径代价与可达性
 
-参考：`my_docs/project_docs/1761062405_药理基因组幺半群 (PGOM) 公理系统.md`
+参考文档：
+ - `my_docs/project_docs/1761062405_药理基因组幺半群 (PGOM) 公理系统.md`
+ - `my_docs/project_docs/1761062412_《药理基因组算子幺半群》的核心构造及理论完备性.md`
 """
 
 from .state import PGOMState
@@ -68,4 +67,3 @@ __all__ = [
 ]
 
 __version__ = "0.1.0"
-

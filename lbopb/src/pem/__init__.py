@@ -15,13 +15,14 @@
 
 """PEM Python operator package.
 
-基于“病理演化幺半群 (PEM) 公理系统”构建：
- - 状态表示与可观测量
- - 幺半群（算子族）的组合与恒等元
- - 典型病理演化算子（转移/凋亡/炎症/致癌）
- - 非对易性指标、拓扑风险、可达性等度量
+病理演化幺半群（PEM）子包，包含：
+ - 状态表示与可观察量
+ - 幺半群（单位元/复合）与常用病理过程算子（转移/凋亡/炎症/致癌）
+ - 非交换度、风险、代价与可达性等指标
 
-文档参阅：`my_docs/dev_docs/PEM_OPERATOR_PACKAGE.md`。
+参考文档：
+ - `my_docs/project_docs/1761062400_病理演化幺半群 (PEM) 公理系统.md`
+ - `my_docs/project_docs/1761062408_《病理演化幺半群》的核心构造及理论完备性.md`
 """
 
 from .state import PEMState

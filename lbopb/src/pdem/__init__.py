@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: GPL-3.0-only
-# Copyright (C) 2010- The GROMACS Authors
 # Copyright (C) 2025 GaoZheng
 #
 # This program is free software: you can redistribute it and/or modify
@@ -16,13 +15,13 @@
 
 """PDEM Python operator package.
 
-基于《药效效应幺半群 (PDEM) 公理系统》的简化实现：
- - 状态表示与可观察量（占有/信号/效应强度/百分比）
- - 幺半群（单位元与复合）/ 非交换性
- - 药效过程算子：结合、信号、去敏、拮抗、增效、反向激动
- - 指标：非交换度、效应风险、路径代价、可达性
+药效效应幺半群（PDEM）子包，包含：
+ - 状态/可观察量、幺半群与常用药效算子（结合/信号/去敏/拮抗/增效/反向激动）
+ - 指标：非交换度、效应风险、路径代价与可达性
 
-参考：`my_docs/project_docs/1761062406_药效效应幺半群 (PDEM) 公理系统.md`
+参考文档：
+ - `my_docs/project_docs/1761062406_药效效应幺半群 (PDEM) 公理系统.md`
+ - `my_docs/project_docs/1761062413_《药效效应幺半群》的核心构造及理论完备性.md`
 """
 
 from .state import PDEMState
@@ -68,4 +67,3 @@ __all__ = [
 ]
 
 __version__ = "0.1.0"
-

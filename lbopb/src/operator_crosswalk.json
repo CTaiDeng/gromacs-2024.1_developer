@@ -18,7 +18,14 @@
       "my_docs/project_docs/1761062413_《药效效应幺半群》的核心构造及理论完备性.md",
       "my_docs/project_docs/1761062414_《免疫效应幺半群》的核心构造及理论完备性.md"
     ],
-    "notes": "本映射为跨幺半群的语义‘类比对齐’，用于建立算子包间的联络示例。并非严格一一对应，具体以各公理系统定义与实验情境为准。"
+    "notes": "本映射为跨幺半群的语义‘类比对齐’，用于建立算子包间的联络示例。并非严格一一对应，具体以各公理系统定义与实验情境为准。",
+    "guidelines": [
+      "对齐原则：以 B（负荷）、P（边界/接口）、N_comp（单元/克隆/隔室）、F（保真/质量）的变化方向作为一阶语义对齐基准。",
+      "语义标签：activate/repress/proliferate/repair 等用于抽象过程本质，跨模块类比时优先匹配标签。",
+      "联络使用：按标签 crosswalk 选择目标模块基本算子，保持序列顺序（非交换性重要）。",
+      "幂集生成：仅基本算子构成的自由幺半群序列，遵循各模块 powersets 的约束与常用家族/生成器。",
+      "风险与代价：评估跨模块路径时，可结合各模块 metrics（如 tox_risk/eff_risk/topo_risk、action_cost）进行筛选。"
+    ]
   },
   "modules": ["pem", "prm", "tem", "pktm", "pgom", "pdem", "iem"],
   "tags": {
@@ -164,6 +171,11 @@
       "pem": ["Inflammation", "Apoptosis"]
     }
   },
+  "canonical_packages_desc": {
+    "adme_pipeline": "药代学 ADME 管线：从给药/暴露到清除，兼容 TEM/PKTM/PDEM/PGOM/IEM/PRM/PEM 的跨视角投影。",
+    "damage_heal": "损伤-炎症-修复序列：适用于组织损伤后的炎症反应与恢复过程的统一抽象。",
+    "activation_signal": "激活-信号-去敏（或拮抗）效应链：适用于受体结合-信号放大-耐受/阻断的动力学。"
+  },
   "powersets": {
     "pem": {
       "base": ["Inflammation", "Apoptosis", "Metastasis", "Carcinogenesis", "Identity"],
@@ -177,6 +189,11 @@
           ["Inflammation", "Carcinogenesis", "Metastasis"]
         ]
       },
+      "notes": "PEM 以病理负荷/边界/单元/保真为核心观测。常用序列体现炎症驱动的损伤进展与凋亡型修复。",
+      "family_descriptions": {
+        "repair_path": "炎症后凋亡与清除，偏向负向负荷/边界收敛，F 提升。",
+        "progression": "炎症—致癌—转移的进展链，负荷/边界/单元多上升，F 下降。"
+      },
       "generators": [
         {
           "name": "progress_heal",
@@ -186,7 +203,10 @@
             {"choice": ["Apoptosis", "Identity"]}
           ]
         }
-      ]
+      ],
+      "generator_descriptions": {
+        "progress_heal": "从炎症出发，允许进入进展分支或保持原状，随后进入修复/保持。"
+      }
     },
     
     "prm": {
@@ -204,6 +224,12 @@
           ["Hormone", "Adaptation"]
         ]
       },
+      "notes": "PRM 强调能量/边界/保真的协同调控，常用链路体现‘摄入-运动-适应’与激素调谐。",
+      "family_descriptions": {
+        "performance": "摄入补给后训练并以适应收束，提升 F，降低 B/P。",
+        "recovery": "刺激激发后通过适应回归稳态。",
+        "hormonal_mod": "激素短期调谐后以适应实现稳态回归。"
+      },
       "generators": [
         {
           "name": "train_recover",
@@ -213,7 +239,10 @@
             "Adaptation"
           ]
         }
-      ]
+      ],
+      "generator_descriptions": {
+        "train_recover": "典型‘补给-训练-恢复’循环，训练强度通过重复次数控制。"
+      }
     },
     
     "tem": {
@@ -228,6 +257,11 @@
           ["Detox", "Repair"]
         ]
       },
+      "notes": "TEM 关注外源损伤与内源反应，常用链路体现急性损伤后的炎症与解毒/修复。",
+      "family_descriptions": {
+        "insult": "外源暴露/病灶诱发炎症反应，B/P 上升明显。",
+        "detox_repair": "解毒与组织修复阶段，B/P 下降，F 回升。"
+      },
       "generators": [
         {
           "name": "insult_detox",
@@ -237,7 +271,10 @@
             {"choice": ["Detox", "Repair"]}
           ]
         }
-      ]
+      ],
+      "generator_descriptions": {
+        "insult_detox": "损伤路径（暴露/病灶）后进入炎症期，随后选择解毒或修复。"
+      }
     },
     
     "pktm": {
@@ -252,6 +289,11 @@
           ["Bind", "Transport"]
         ]
       },
+      "notes": "PKTM 为 ADME/转运视角，常用链路为 ADME 管线与结合-转运。",
+      "family_descriptions": {
+        "adme": "标准 ADME 流：给药→吸收→分布→代谢→排泄。",
+        "binding_transport": "结合后经转运体跨膜转运。"
+      },
       "generators": [
         {
           "name": "adme_chain",
@@ -263,7 +305,10 @@
             {"choice": ["Excrete", "Identity"]}
           ]
         }
-      ]
+      ],
+      "generator_descriptions": {
+        "adme_chain": "ADME 主链，允许在代谢/排泄处保持（Identity）以模拟滞留。"
+      }
     },
     
     "pgom": {
@@ -281,6 +326,12 @@
           ["PathwayInhibition"]
         ]
       },
+      "notes": "PGOM 聚焦基因/通路调控，常用链路体现激活-诱导与修复/抑制。",
+      "family_descriptions": {
+        "activation": "基因/通路激活与诱导，B/P/F 同步上行。",
+        "repair": "基因修复，F 提升，B/P 下降。",
+        "inhibition": "通路抑制，B/P/F 下行。"
+      },
       "generators": [
         {
           "name": "activation_cycle",
@@ -290,7 +341,10 @@
             {"choice": ["RepairGenome", "Identity"]}
           ]
         }
-      ]
+      ],
+      "generator_descriptions": {
+        "activation_cycle": "激活后选择诱导或表观修饰，随后进入修复或保持。"
+      }
     },
     
     "pdem": {
@@ -308,6 +362,12 @@
           ["Antagonist"]
         ]
       },
+      "notes": "PDEM 对应药效动力学，常用链路体现结合-信号-去敏/拮抗的效应链。",
+      "family_descriptions": {
+        "activation_signal": "结合后引发信号放大，B/P/F 上行。",
+        "tolerance": "去敏/耐受，F 下行并收敛。",
+        "block": "拮抗阻断效应。"
+      },
       "generators": [
         {
           "name": "activation_tolerance",
@@ -317,7 +377,10 @@
             {"choice": ["Desensitization", "Antagonist"]}
           ]
         }
-      ]
+      ],
+      "generator_descriptions": {
+        "activation_tolerance": "结合-信号后进入去敏或拮抗分支。"
+      }
     },
     
     "iem": {
@@ -335,6 +398,12 @@
           ["Activate", "Differentiate", "Memory"]
         ]
       },
+      "notes": "IEM 聚焦免疫识别-效应-分辨-记忆的全链路过程。",
+      "family_descriptions": {
+        "immune_response": "激活扩增并释放细胞因子，B/P 上行，F 可能下降。",
+        "resolution": "抑制与记忆形成，B/P 下降，F 上行。",
+        "maturation": "分化成熟并进入记忆。"
+      },
       "generators": [
         {
           "name": "response_resolution",
@@ -345,7 +414,10 @@
             {"choice": ["Memory", "Suppress"]}
           ]
         }
-      ]
+      ],
+      "generator_descriptions": {
+        "response_resolution": "应答后进入释放或保持，再进入记忆/抑制以实现分辨。"
+      }
     }
   }
 }

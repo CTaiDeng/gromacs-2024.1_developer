@@ -13,9 +13,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-"""lbopb: Local bindings and operator prototypes bucket.
+"""lbopb：本地绑定与算子原型集合。
 
-子模块：`lbopb.src`。
+子包：`lbopb.src`（包含 PEM/PRM/TEM/PKTM/PGOM/PDEM/IEM 以及联络映射与幂集算法工具）。
 """
 
 __all__ = ["src"]

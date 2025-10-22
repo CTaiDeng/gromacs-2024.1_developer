@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: GPL-3.0-only
-# Copyright (C) 2010- The GROMACS Authors
 # Copyright (C) 2025 GaoZheng
 #
 # This program is free software: you can redistribute it and/or modify
@@ -16,13 +15,13 @@
 
 """TEM Python operator package.
 
-基于《毒理学效应幺半群 (TEM) 公理系统》的简化实现：
- - 状态表示与可观察量（损伤负荷/病灶数/边界/保真）
- - 幺半群（单位元与复合）/ 非交换性
- - 毒理过程算子：暴露、吸收、分布、病灶、炎症、解毒、修复
- - 指标：非交换度、毒理风险、路径代价、可达性
+毒理学效应幺半群（TEM）子包，包含：
+ - 状态/可观察量、幺半群与常用毒理过程算子（暴露/吸收/分布/病灶/炎症/解毒/修复）
+ - 指标：非交换度、毒理风险、路径代价与可达性
 
-参考：`my_docs/project_docs/1761062403_毒理学效应幺半群 (TEM) 公理系统.md`
+参考文档：
+ - `my_docs/project_docs/1761062403_毒理学效应幺半群 (TEM) 公理系统.md`
+ - `my_docs/project_docs/1761062410_《毒理学效应幺半群》的核心构造及理论完备性.md`
 """
 
 from .state import TEMState
@@ -70,4 +69,3 @@ __all__ = [
 ]
 
 __version__ = "0.1.0"
-
