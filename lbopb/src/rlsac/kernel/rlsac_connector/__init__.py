@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: GPL-3.0-only
-# Copyright (C) 2010- The GROMACS Authors
 # Copyright (C) 2025 GaoZheng
 
 """rlsac_connector：跨领域“法则联络”映射发现（SAC 版）。

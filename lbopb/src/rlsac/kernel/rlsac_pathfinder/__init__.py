@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: GPL-3.0-only
-# Copyright (C) 2010- The GROMACS Authors
 # Copyright (C) 2025 GaoZheng
 
 """rlsac_pathfinder：单域算子包路径探索器（支持 pem/pdem/pktm/pgom/tem/prm/iem）。
