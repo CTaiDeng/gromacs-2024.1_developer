@@ -1,0 +1,18 @@
+{
+  "case_packages": {
+    "NSCLC_Therapy_Path": {
+      "description": "以病理（PEM）为基底流形，构造 NSCLC 干预算子包，并在各切面给出目标路径（仅方法学示例）。",
+      "base_module": "pem",
+      "notes": "示例采用通用基础算子名（如 Bind/Antagonist/Repair 等），用于方法学演示，不构成医学建议。",
+      "sequences": {
+        "pem": ["Carcinogenesis", "Apoptosis"],
+        "pdem": ["Bind", "Antagonist"],
+        "pktm": ["Dose", "Absorb", "Distribute", "Metabolize", "Excrete"],
+        "pgom": ["PathwayInhibition"],
+        "tem": ["Detox", "Repair"],
+        "prm": ["Stimulus", "Adaptation"],
+        "iem": ["Activate", "Differentiate", "Memory"]
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "env": "dummy",
+  "env": "sequence",
   "device": "cpu",
   "use_gpu": false,
   "learning_rate_actor": 0.0003,
@@ -19,5 +19,6 @@
   "minibatch_floor": 1,
   "log_to_file": true,
   "log_every_step": true,
-  "output_dir": "out"
+  "output_dir": "out",
+  "reward_lambda": 0.2
 }

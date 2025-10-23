@@ -8,11 +8,9 @@ from typing import Dict, Any
 import torch
 import torch.nn.functional as F
 import os
-import sys
-import re
 import time as _pytime
 
-from .env import DummyEnv
+from .sequence_env import NSCLCSequenceEnv
 from .models import DiscretePolicy, QNetwork
 from .replay_buffer import ReplayBuffer
 from .utils import soft_update, select_device_from_config, discrete_entropy
@@ -37,29 +35,24 @@ def train(config_path: str | Path | None = None, data_json: str | Path | None = 
             self.path = path
             self.f = open(path, 'a' if append else 'w', encoding='utf-8', newline='')
         def write_line(self, text: str) -> None:
-            try:
-                self.f.write(text + "\r\n"); self.f.flush()
-            except Exception:
-                pass
+            try: self.f.write(text + "\r\n"); self.f.flush()
+            except Exception: pass
         def close(self) -> None:
-            try:
-                self.f.flush(); self.f.close()
-            except Exception:
-                pass
+            try: self.f.flush(); self.f.close()
+            except Exception: pass
 
     def dbg(msg: str) -> None:
         if debug:
             print(f"[DEBUG] {msg}")
-            if logger:
-                logger.write_line(f"[DEBUG] {msg}")
+            if logger: logger.write_line(f"[DEBUG] {msg}")
 
     def step_log(msg: str) -> None:
         if log_every_step or debug:
             print(msg)
-            if logger:
-                logger.write_line(msg)
+            if logger: logger.write_line(msg)
 
-    env = DummyEnv()
+    reward_lambda = float(cfg.get("reward_lambda", 0.2))
+    env = NSCLCSequenceEnv(case_json=str(mod_dir / "operator_crosswalk_train.json"), reward_lambda=reward_lambda)
     obs_dim = env.observation_space.shape[0]
     n_actions = env.action_space.high - env.action_space.low
     dbg(f"环境初始化: obs_dim={obs_dim}, n_actions={n_actions}")
@@ -99,8 +92,7 @@ def train(config_path: str | Path | None = None, data_json: str | Path | None = 
     last_alpha = float(log_alpha.exp().item()) if learn_alpha else init_alpha
     logger: RunLogger | None = None
 
-    # 运行目录与日志
-    repo_root = mod_dir.parents[2]
+    repo_root = Path(__file__).resolve().parents[2]
     base_out = repo_root / Path(cfg.get("output_dir", "out"))
     base_out.mkdir(parents=True, exist_ok=True)
     run_dir = base_out / ("train_" + str(int(_pytime.time())))
@@ -111,6 +103,16 @@ def train(config_path: str | Path | None = None, data_json: str | Path | None = 
         logger.write_line(f"# TRAIN START { _pytime.strftime('%Y-%m-%d %H:%M:%S', _pytime.localtime()) }")
         logger.write_line(f"device={device}")
         logger.write_line(f"config={json.dumps(cfg, ensure_ascii=False)}")
+
+    # 导出 op 索引
+    try:
+        if hasattr(env, "op2idx"):
+            mapping = getattr(env, "op2idx")
+            text = json.dumps(mapping, ensure_ascii=False, indent=2)
+            text = text.replace("\r\n", "\n").replace("\n", "\r\n")
+            (run_dir / "op_index.json").write_text(text, encoding="utf-8")
+    except Exception:
+        pass
 
     for t in range(1, total_steps + 1):
         with torch.no_grad():
@@ -135,8 +137,7 @@ def train(config_path: str | Path | None = None, data_json: str | Path | None = 
 
                 with torch.no_grad():
                     logits2, probs2 = policy(s2_b)
-                    q1_t = tgt_q1(s2_b)
-                    q2_t = tgt_q2(s2_b)
+                    q1_t = tgt_q1(s2_b); q2_t = tgt_q2(s2_b)
                     q_min = torch.min(q1_t, q2_t)
                     logp2 = torch.log(torch.clamp(probs2, 1e-8, 1.0))
                     alpha = log_alpha.exp().detach() if learn_alpha else torch.tensor(init_alpha, device=device)
@@ -176,11 +177,11 @@ def train(config_path: str | Path | None = None, data_json: str | Path | None = 
                 lq1=("{:.6f}".format(last_q1) if last_q1 is not None else "-"),
                 lq2=("{:.6f}".format(last_q2) if last_q2 is not None else "-"),
                 lpi=("{:.6f}".format(last_pi) if last_pi is not None else "-"),
-                alpha=("{:.6f}".format(last_alpha) if last_alpha is not None else "-")
+                alpha=("{:.6f}".format(float(log_alpha.exp().item())) if learn_alpha else f"{init_alpha:.6f}")
             )
         )
 
-        if t % 200 == 0:
+        if d or (t % 200 == 0):
             state = env.reset()
 
     torch.save(policy.state_dict(), run_dir / "policy.pt")
