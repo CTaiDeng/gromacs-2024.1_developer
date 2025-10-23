@@ -1,0 +1,23 @@
+{
+  "env": "dummy",
+  "device": "cpu",
+  "use_gpu": false,
+  "learning_rate_actor": 0.0003,
+  "learning_rate_critic": 0.0003,
+  "gamma": 0.99,
+  "tau": 0.005,
+  "buffer_size": 100000,
+  "batch_size": 1,
+  "alpha": 0.2,
+  "learn_alpha": true,
+  "target_entropy": -2.0,
+  "total_steps": 10000,
+  "start_steps": 0,
+  "update_after": 1,
+  "update_every": 1,
+  "updates_per_step": 4,
+  "minibatch_floor": 1,
+  "log_to_file": true,
+  "log_every_step": true,
+  "output_dir": "out"
+}
