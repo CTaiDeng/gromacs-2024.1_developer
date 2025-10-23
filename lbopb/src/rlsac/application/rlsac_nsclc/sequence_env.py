@@ -85,14 +85,17 @@ class NSCLCSequenceEnv:
 
     def _features_of_state(self, st: object) -> List[float]:
         try:
-            b = float(getattr(st, "b")); p = float(getattr(st, "perim"))
-            f = float(getattr(st, "fidelity")); n = float(getattr(st, "n_comp"))
+            b = float(getattr(st, "b"));
+            p = float(getattr(st, "perim"))
+            f = float(getattr(st, "fidelity"));
+            n = float(getattr(st, "n_comp"))
         except Exception:
             b = p = f = n = 0.0
         return [b, p, f, n]
 
     def _vectorize(self) -> torch.Tensor:
-        m_onehot = [0.0] * 7; m_onehot[self.mod_idx] = 1.0
+        m_onehot = [0.0] * 7;
+        m_onehot[self.mod_idx] = 1.0
         feats: List[float] = []
         for m in MODULES:
             st = self.states.get(m)
@@ -102,7 +105,8 @@ class NSCLCSequenceEnv:
         cur_mod = MODULES[self.mod_idx]
         seq = self.seqs.get(cur_mod, []) or []
         if self.ptr < len(seq):
-            op = seq[self.ptr]; j = self.op2idx.get(op, -1)
+            op = seq[self.ptr];
+            j = self.op2idx.get(op, -1)
             if j >= 0: next_hot[j] = 1.0
             pos = self.ptr / float(max(1, len(seq)))
         else:
@@ -110,9 +114,11 @@ class NSCLCSequenceEnv:
         return torch.tensor(m_onehot + feats + next_hot + [pos], dtype=torch.float32)
 
     def reset(self) -> torch.Tensor:
-        self.mod_idx = 0; self.ptr = 0
+        self.mod_idx = 0;
+        self.ptr = 0
         while self.mod_idx < len(MODULES) and len(self.seqs.get(MODULES[self.mod_idx], []) or []) == 0:
-            self.mod_idx += 1; self.ptr = 0
+            self.mod_idx += 1;
+            self.ptr = 0
         return self._vectorize()
 
     def _apply_op(self, mod: str, st: object, op_name: str) -> object:
@@ -143,12 +149,16 @@ class NSCLCSequenceEnv:
         a = int(action.view(-1)[0].item())
         cur_mod = MODULES[self.mod_idx]
         seq = self.seqs.get(cur_mod, []) or []
-        reward = 0.0; done = False
+        reward = 0.0;
+        done = False
         need_idx = self.op2idx.get(seq[self.ptr], -1) if self.ptr < len(seq) else -1
 
-        st0 = self.states.get(cur_mod); risk0 = self._risk_of(cur_mod, st0)
+        st0 = self.states.get(cur_mod);
+        risk0 = self._risk_of(cur_mod, st0)
         chosen_op = self.ops[a] if 0 <= a < len(self.ops) else None
-        st1 = st0; risk1 = risk0; c = 0.0
+        st1 = st0;
+        risk1 = risk0;
+        c = 0.0
         if chosen_op is not None and (chosen_op in seq):
             try:
                 st1 = self._apply_op(cur_mod, st0, chosen_op)
@@ -166,12 +176,10 @@ class NSCLCSequenceEnv:
             self.ptr += 1
 
         if self.ptr >= len(seq):
-            self.mod_idx += 1; self.ptr = 0
+            self.mod_idx += 1;
+            self.ptr = 0
             while self.mod_idx < len(MODULES) and len(self.seqs.get(MODULES[self.mod_idx], []) or []) == 0:
                 self.mod_idx += 1
             done = True
 
         return self._vectorize(), reward, done, {"module": cur_mod}
-
-
-

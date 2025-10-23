@@ -16,6 +16,7 @@ from typing import Dict, List
 
 # 确保可以从任意工作目录运行：将仓库根目录加入 sys.path
 import os, sys
+
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
@@ -66,11 +67,11 @@ def run_case(case_name: str = "HIV_Therapy_Path", *, pharm_cfg_path: str | None 
 
     print(f"== 案例包: {case_name}")
     if case.get("description"):
-        print("描述:", case["description"]) 
+        print("描述:", case["description"])
     if case.get("notes"):
-        print("说明:", case["notes"]) 
+        print("说明:", case["notes"])
 
-    # 逐模块复合并执行
+        # 逐模块复合并执行
     for mod, seq in seqs.items():
         if mod not in states:
             continue
@@ -131,7 +132,8 @@ def _risk_and_cost(mod: str, seq: list[str], s0) -> tuple[float, float]:
     return float(risk), float(cost)
 
 
-def gen_markdown_report(case_name: str, cw: dict, states: Dict[str, object], seqs: Dict[str, List[str]], pharm_cfg_path: str | None) -> str:
+def gen_markdown_report(case_name: str, cw: dict, states: Dict[str, object], seqs: Dict[str, List[str]],
+                        pharm_cfg_path: str | None) -> str:
     lines: list[str] = []
     case = cw.get("case_packages", {}).get(case_name, {})
     # 免责声明（示例/演示用途，不构成医学建议）
@@ -234,7 +236,8 @@ def gen_markdown_report(case_name: str, cw: dict, states: Dict[str, object], seq
 
     # 复现指引
     lines.append("## 复现指引\n\n")
-    lines.append("```\npython -c \"import sys,os; sys.path.insert(0, os.path.abspath('.')); import lbopb_examples.hiv_therapy_case as m; m.run_case(pharm_cfg_path=None)\"\n```\n\n")
+    lines.append(
+        "```\npython -c \"import sys,os; sys.path.insert(0, os.path.abspath('.')); import lbopb_examples.hiv_therapy_case as m; m.run_case(pharm_cfg_path=None)\"\n```\n\n")
 
     return "".join(lines)
 

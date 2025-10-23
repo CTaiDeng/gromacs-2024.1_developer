@@ -2,14 +2,15 @@
 
 - 独立的离散 SAC 实现，使用 `NSCLCSequenceEnv` 将 `operator_crosswalk_train.json` 的“模块→算子序列”转为训练样本。
 - 运行：
-  - `python lbopb/src/rlsac/application/rlsac_nsclc/train.py`（配置见同目录 `config.json`）
+    - `python lbopb/src/rlsac/application/rlsac_nsclc/train.py`（配置见同目录 `config.json`）
 - 产物：`out/train_*/` 下生成 `policy.pt` 等权重与日志；自动导出 `op_index.json`（op→id 对照表）。
 
 说明：本包不依赖 `lbopb/src/rlsac`，内部自洽（sequence_env/models/utils/replay_buffer/train）。
 
 结论（更准确的表述）：
 
-- rlsac_nsclc 并非直接“用 NSCLC 的 JSON 当监督样本训练”，而是“把 `NSCLC_Therapy_Path` 作为动作空间与目标干预路径的定义”，在交互式环境中在线生成训练样本 `(s, a, r, s')` 进行强化学习。
+- rlsac_nsclc 并非直接“用 NSCLC 的 JSON 当监督样本训练”，而是“把 `NSCLC_Therapy_Path` 作为动作空间与目标干预路径的定义”，在交互式环境中在线生成训练样本
+  `(s, a, r, s')` 进行强化学习。
 
 ## 深入解析（验证）
 
@@ -18,17 +19,18 @@
 ### 1. `operator_crosswalk_train.json` 是什么？
 
 - 它不是训练样本，而是“字典/指令集”。用于定义智能体可以执行的“干预算子（Operator）”全集，以及各模块的目标序列（Case Package）。
-- 本包会在初始化时读取该 JSON，构建全局“干预算子词表（vocabulary）”，并在训练目录导出 `op_index.json`（op→id 对照），用于将整数动作 id 反查为具体算子名。
+- 本包会在初始化时读取该 JSON，构建全局“干预算子词表（vocabulary）”，并在训练目录导出 `op_index.json`（op→id 对照），用于将整数动作
+  id 反查为具体算子名。
 
 ### 2. 输入 Observation 代表什么？
 
 在 rlsac_nsclc 中，Observation 被设计为一个拼接向量：
 
 - `[module_onehot(7) | per-module(B,P,F,N,risk)*7 | next_op_onehot(M) | pos]`
-  - `module_onehot(7)`: 当前正在推进的模块（pem/pdem/pktm/pgom/tem/prm/iem）。
-  - 每模块 5 维数值特征：`B、P、F、N、risk`（来自各模块 `metrics.py`）。
-  - `next_op_onehot(M)`: 在该模块目标序列中“下一应选算子”的 one-hot 提示（M 为全局干预算子个数）。
-  - `pos`: 当前指针在该模块目标序列的归一化位置。
+    - `module_onehot(7)`: 当前正在推进的模块（pem/pdem/pktm/pgom/tem/prm/iem）。
+    - 每模块 5 维数值特征：`B、P、F、N、risk`（来自各模块 `metrics.py`）。
+    - `next_op_onehot(M)`: 在该模块目标序列中“下一应选算子”的 one-hot 提示（M 为全局干预算子个数）。
+    - `pos`: 当前指针在该模块目标序列的归一化位置。
 
 ### 3. 输出 Action 代表什么？如何映射到算子？
 
@@ -71,7 +73,8 @@ graph TD
     J --> B
 ```
 
-小结：`operator_crosswalk_train.json` 是“做什么”的菜单；Observation 是“当前情况”的报告；Action 是基于报告从菜单中做出的“最佳选择”的预测，目标是使长期累积奖励最大化。
+小结：`operator_crosswalk_train.json` 是“做什么”的菜单；Observation 是“当前情况”的报告；Action
+是基于报告从菜单中做出的“最佳选择”的预测，目标是使长期累积奖励最大化。
 
 
 

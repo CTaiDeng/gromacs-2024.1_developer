@@ -14,6 +14,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import os, sys
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from lbopb.src.pem import (
     PEMState,
@@ -48,7 +49,7 @@ def main() -> None:
 
     costs = [action_cost(seq, s0) for seq in candidates]
     for i, c in enumerate(costs):
-        print(f"Seq#{i+1} cost = {c:.4f}")
+        print(f"Seq#{i + 1} cost = {c:.4f}")
 
     rp = reach_probability(s0, s_star, candidates)
     print("Reach probability ≈", rp)

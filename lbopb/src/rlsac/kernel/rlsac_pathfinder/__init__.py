@@ -8,15 +8,14 @@
 """
 
 from .env_domain import DomainPathfinderEnv, Goal
-from .train import train, extract_operator_package
+from .train import train, train_all, extract_operator_package
 from .domain import get_domain_spec
 
 __all__ = [
     "DomainPathfinderEnv",
     "Goal",
     "train",
+    "train_all",
     "extract_operator_package",
     "get_domain_spec",
 ]
-
-

@@ -23,6 +23,7 @@ class DiscretePolicy(nn.Module):
     def __init__(self, obs_dim: int, n_actions: int, hidden=(128, 128)):
         super().__init__()
         self.net = mlp((obs_dim, *hidden, n_actions))
+
     def forward(self, x: torch.Tensor):
         logits = self.net(x)
         probs = F.softmax(logits, dim=-1)
@@ -33,8 +34,6 @@ class QNetwork(nn.Module):
     def __init__(self, obs_dim: int, n_actions: int, hidden=(256, 256)):
         super().__init__()
         self.net = mlp((obs_dim, *hidden, n_actions))
+
     def forward(self, x: torch.Tensor):
         return self.net(x)
-
-
-

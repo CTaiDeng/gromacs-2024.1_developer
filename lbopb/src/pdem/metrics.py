@@ -24,10 +24,10 @@ from .state import PDEMState
 
 
 def delta_phi(
-    A: PDEMOperator,
-    B: PDEMOperator,
-    s0: PDEMState,
-    phi: Observables | None = None,
+        A: PDEMOperator,
+        B: PDEMOperator,
+        s0: PDEMState,
+        phi: Observables | None = None,
 ) -> float:
     phi = phi or Observables.default()
     s_ab = A(B(s0))
@@ -38,10 +38,10 @@ def delta_phi(
 
 
 def non_commutativity_index(
-    A: PDEMOperator,
-    B: PDEMOperator,
-    s0: PDEMState,
-    phi: Observables | None = None,
+        A: PDEMOperator,
+        B: PDEMOperator,
+        s0: PDEMState,
+        phi: Observables | None = None,
 ) -> float:
     phi = phi or Observables.default()
     denom = 1.0 + sum(phi.eval_all(s0).values())
@@ -61,12 +61,12 @@ def topo_risk(s: PDEMState, alpha1: float = 1.0, alpha2: float = 1.0) -> float:
 
 
 def action_cost(
-    ops: Sequence[PDEMOperator],
-    s0: PDEMState,
-    w_b: float = 0.8,
-    w_p: float = 0.3,
-    w_n: float = 0.1,
-    w_f: float = 1.0,
+        ops: Sequence[PDEMOperator],
+        s0: PDEMState,
+        w_b: float = 0.8,
+        w_p: float = 0.3,
+        w_n: float = 0.1,
+        w_f: float = 1.0,
 ) -> float:
     """路径代价：惩罚 B/P/N_comp 上升与 F 下降"""
 
@@ -87,10 +87,10 @@ def action_cost(
 
 
 def reach_probability(
-    s0: PDEMState,
-    s_star: PDEMState,
-    candidate_sequences: Iterable[Sequence[PDEMOperator]],
-    temperature: float = 1.0,
+        s0: PDEMState,
+        s_star: PDEMState,
+        candidate_sequences: Iterable[Sequence[PDEMOperator]],
+        temperature: float = 1.0,
 ) -> float:
     best = None
     for seq in candidate_sequences:
@@ -100,4 +100,3 @@ def reach_probability(
         return 0.0
     t = max(1e-6, float(temperature))
     return float(exp(-best / t))
-

@@ -24,10 +24,10 @@ from .state import PKTMState
 
 
 def delta_phi(
-    A: PKTMOperator,
-    B: PKTMOperator,
-    s0: PKTMState,
-    phi: Observables | None = None,
+        A: PKTMOperator,
+        B: PKTMOperator,
+        s0: PKTMState,
+        phi: Observables | None = None,
 ) -> float:
     phi = phi or Observables.default()
     s_ab = A(B(s0))
@@ -38,10 +38,10 @@ def delta_phi(
 
 
 def non_commutativity_index(
-    A: PKTMOperator,
-    B: PKTMOperator,
-    s0: PKTMState,
-    phi: Observables | None = None,
+        A: PKTMOperator,
+        B: PKTMOperator,
+        s0: PKTMState,
+        phi: Observables | None = None,
 ) -> float:
     phi = phi or Observables.default()
     denom = 1.0 + sum(phi.eval_all(s0).values())
@@ -55,12 +55,12 @@ def topo_risk(s: PKTMState, alpha1: float = 1.0, alpha2: float = 1.0) -> float:
 
 
 def action_cost(
-    ops: Sequence[PKTMOperator],
-    s0: PKTMState,
-    w_b: float = 1.0,
-    w_p: float = 0.4,
-    w_n: float = 0.2,
-    w_f: float = 0.6,
+        ops: Sequence[PKTMOperator],
+        s0: PKTMState,
+        w_b: float = 1.0,
+        w_p: float = 0.4,
+        w_n: float = 0.2,
+        w_f: float = 0.6,
 ) -> float:
     def penalty(prev: PKTMState, cur: PKTMState) -> float:
         db = max(0.0, cur.b - prev.b)
@@ -79,10 +79,10 @@ def action_cost(
 
 
 def reach_probability(
-    s0: PKTMState,
-    s_star: PKTMState,
-    candidate_sequences: Iterable[Sequence[PKTMOperator]],
-    temperature: float = 1.0,
+        s0: PKTMState,
+        s_star: PKTMState,
+        candidate_sequences: Iterable[Sequence[PKTMOperator]],
+        temperature: float = 1.0,
 ) -> float:
     best = None
     for seq in candidate_sequences:
@@ -92,4 +92,3 @@ def reach_probability(
         return 0.0
     t = max(1e-6, float(temperature))
     return float(exp(-best / t))
-

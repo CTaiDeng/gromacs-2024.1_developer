@@ -37,6 +37,7 @@ try:
     from my_scripts.gemini_client import generate_gemini_content as _gemini_generate_central
 except Exception as _e:
     import sys as _sys
+
     _sys.stderr.write(f"[WARN] import my_scripts.gemini_client failed: {_e}\n")
     _gemini_generate_central = None  # 回退到本地 urllib 实现
 
@@ -116,7 +117,8 @@ def _risk_and_cost(mod: str, seq: List[str], s0) -> tuple[float, float]:
     return float(risk), float(cost)
 
 
-def gen_html_report(case_name: str, cw: dict, states: Dict[str, object], seqs: Dict[str, List[str]], pharm_cfg_path: str | None) -> str:
+def gen_html_report(case_name: str, cw: dict, states: Dict[str, object], seqs: Dict[str, List[str]],
+                    pharm_cfg_path: str | None) -> str:
     # 数据准备
     case = cw.get("case_packages", {}).get(case_name, {})
     modules = ["pem", "pdem", "pktm", "pgom", "tem", "prm", "iem"]
@@ -195,10 +197,10 @@ def gen_html_report(case_name: str, cw: dict, states: Dict[str, object], seqs: D
     if api_key and not os.environ.get("NO_GEMINI"):
         try:
             prompt = (
-                "请作为跨学科审评专家（病理/药效/ADME/通路/毒理/免疫），对如下 HIV 治疗路径进行结构化评价。"
-                "请返回 JSON，字段包含：summary, coherence_score, feasibility_score, risk_score, cost_score, "
-                "module_notes{pem,pdem,pktm,pgom,tem,prm,iem}, top_actions, caveats, confidence。\n"
-                "数据(UTF-8 JSON)：\n" + json.dumps(mod_data, ensure_ascii=False)
+                    "请作为跨学科审评专家（病理/药效/ADME/通路/毒理/免疫），对如下 HIV 治疗路径进行结构化评价。"
+                    "请返回 JSON，字段包含：summary, coherence_score, feasibility_score, risk_score, cost_score, "
+                    "module_notes{pem,pdem,pktm,pgom,tem,prm,iem}, top_actions, caveats, confidence。\n"
+                    "数据(UTF-8 JSON)：\n" + json.dumps(mod_data, ensure_ascii=False)
             )
             gemini_result = _gemini_generate(prompt, api_key=api_key)
         except Exception as _:
@@ -414,10 +416,10 @@ def gen_html_report(case_name: str, cw: dict, states: Dict[str, object], seqs: D
             if sm.get("tox_notes"): design_lines.append(f"毒理备注: {', '.join(sm['tox_notes'])}")
             design_text = "\n".join(design_lines)
             prompt_design = (
-                "请以药物化学/ADMET/毒理视角，对下述小分子设计要点做中文要点式简评：\n"
-                "- 给出3-6条结论，涵盖优势、潜在风险与改进建议；\n"
-                "- 语言精炼，避免套话；仅输出条目列表；\n\n"
-                + design_text
+                    "请以药物化学/ADMET/毒理视角，对下述小分子设计要点做中文要点式简评：\n"
+                    "- 给出3-6条结论，涵盖优势、潜在风险与改进建议；\n"
+                    "- 语言精炼，避免套话；仅输出条目列表；\n\n"
+                    + design_text
             )
             gemini_design_eval = _gemini_generate(prompt_design, api_key=api_key)
             _j("      <h3>Gemini 评价（小分子设计）</h3>")
@@ -444,8 +446,8 @@ def gen_html_report(case_name: str, cw: dict, states: Dict[str, object], seqs: D
         _j("      </pre>")
 
     _block("退化分子对接（命令方案）", plan["docking"]["commands"])  # type: ignore
-    _block("经典分子动力学（命令方案）", plan["md"]["commands"])      # type: ignore
-    _block("QM/MM 占位（命令草案）", plan["qmmm"]["commands"])        # type: ignore
+    _block("经典分子动力学（命令方案）", plan["md"]["commands"])  # type: ignore
+    _block("QM/MM 占位（命令草案）", plan["qmmm"]["commands"])  # type: ignore
 
     _j("    </section>")
 

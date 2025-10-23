@@ -40,14 +40,14 @@ class PEMPathfinderEnv:
     """
 
     def __init__(
-        self,
-        *,
-        init_state: PEMState,
-        goal: PEMGoal,
-        max_steps: int = 64,
-        improve_weight: float = 1.0,
-        step_penalty: float = 0.01,
-        include_identity: bool = False,
+            self,
+            *,
+            init_state: PEMState,
+            goal: PEMGoal,
+            max_steps: int = 64,
+            improve_weight: float = 1.0,
+            step_penalty: float = 0.01,
+            include_identity: bool = False,
     ) -> None:
         self._init_state_cfg = init_state
         self._goal = goal
@@ -57,7 +57,7 @@ class PEMPathfinderEnv:
         self._steps = 0
         self._state = init_state
         self._ops: List[PEMOperator] = self._build_opset(include_identity=include_identity)
-        self._op2idx: Dict[str, int] = { self._op_name(o): i for i, o in enumerate(self._ops) }
+        self._op2idx: Dict[str, int] = {self._op_name(o): i for i, o in enumerate(self._ops)}
         self.observation_space = SimpleBoxFloat32(low=0.0, high=10.0, shape=(4,))
         self.action_space = SimpleBoxInt32(low=0, high=len(self._ops), shape=(1,))
 
@@ -101,10 +101,10 @@ class PEMPathfinderEnv:
     def _is_goal(self, s: PEMState) -> bool:
         t = self._goal.target
         return (
-            abs(float(s.b) - float(t.b)) <= self._goal.tol_b and
-            abs(float(s.n_comp) - float(t.n_comp)) <= self._goal.tol_n and
-            abs(float(s.perim) - float(t.perim)) <= self._goal.tol_p and
-            abs(float(s.fidelity) - float(t.fidelity)) <= self._goal.tol_f
+                abs(float(s.b) - float(t.b)) <= self._goal.tol_b and
+                abs(float(s.n_comp) - float(t.n_comp)) <= self._goal.tol_n and
+                abs(float(s.perim) - float(t.perim)) <= self._goal.tol_p and
+                abs(float(s.fidelity) - float(t.fidelity)) <= self._goal.tol_f
         )
 
     def step(self, action: torch.Tensor | int) -> Tuple[torch.Tensor, float, bool, Dict[str, float]]:
@@ -126,8 +126,3 @@ class PEMPathfinderEnv:
             reward += 5.0  # 目标奖励（可调）
 
         return self._to_obs(cur), float(reward), bool(done), {"improve": float(improve), "dist": float(cur_d)}
-
-
-
-
-

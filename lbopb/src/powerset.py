@@ -65,12 +65,12 @@ def compose_sequence(module: str, op_names: Sequence[str]) -> Any:
 
 
 def enumerate_sequences(
-    base: Sequence[str],
-    max_len: int,
-    *,
-    include_empty: bool = False,
-    no_consecutive_duplicate: bool = True,
-    skip_identity: bool = True,
+        base: Sequence[str],
+        max_len: int,
+        *,
+        include_empty: bool = False,
+        no_consecutive_duplicate: bool = True,
+        skip_identity: bool = True,
 ) -> Iterator[List[str]]:
     """生成算子名序列（仅基本算子构成）。
 
@@ -101,10 +101,10 @@ def get_powerset_config(cw: Mapping[str, Any], module: str) -> Mapping[str, Any]
 
 
 def generate_powerset(
-    module: str,
-    *,
-    json_path: Optional[str] = None,
-    include_empty: bool = False,
+        module: str,
+        *,
+        json_path: Optional[str] = None,
+        include_empty: bool = False,
 ) -> Iterator[List[str]]:
     """按 JSON 配置生成某模块的“仅基本算子构成”的序列（幂集枚举）。"""
 
@@ -115,7 +115,8 @@ def generate_powerset(
     cons = cfg.get("constraints", {})
     no_dup = bool(cons.get("no_consecutive_duplicate", True))
     skip_id = bool(cons.get("skip_identity", True))
-    yield from enumerate_sequences(base, max_len, include_empty=include_empty, no_consecutive_duplicate=no_dup, skip_identity=skip_id)
+    yield from enumerate_sequences(base, max_len, include_empty=include_empty, no_consecutive_duplicate=no_dup,
+                                   skip_identity=skip_id)
 
 
 def list_families(module: str, *, json_path: Optional[str] = None) -> Dict[str, List[List[str]]]:
@@ -151,7 +152,7 @@ def _expand_chain_step(step: Any) -> List[List[str]]:
         return [[step]]
     if isinstance(step, dict):
         if "choice" in step:
-            return [[x] for x in list(step["choice"]) ]
+            return [[x] for x in list(step["choice"])]
         if "repeat" in step:
             spec = dict(step["repeat"])
             op = str(spec.get("op"))
@@ -170,7 +171,8 @@ def expand_chain_pattern(chain: Sequence[Any]) -> Iterator[List[str]]:
     """展开链式生成器的模式为若干算子名序列。"""
 
     # 将每一步转为若干备选序列，再做笛卡尔积
-    steps_opts: List[List[List[str]]] = [ _expand_chain_step(st) for st in chain ]
+    steps_opts: List[List[List[str]]] = [_expand_chain_step(st) for st in chain]
+
     # 笛卡尔积
     def _prod(acc: List[List[str]], rest: List[List[List[str]]]) -> List[List[str]]:
         if not rest:

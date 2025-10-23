@@ -6,11 +6,11 @@
 ## 文件与格式
 
 - `samples.demo.json`：数组，每个元素是一条样本：
-  - `state`: 浮点数组（长度 = 7 + 5*7 + M + 1 = 60；M=17 为全局干预算子数）。
-  - `action`: 整型动作 id（参考同目录 `../op_index.json`）。
-  - `reward`: 浮点奖励。
-  - `next_state`: 同 `state` 维度。
-  - `done`: 回合终止标记（布尔）。
+    - `state`: 浮点数组（长度 = 7 + 5*7 + M + 1 = 60；M=17 为全局干预算子数）。
+    - `action`: 整型动作 id（参考同目录 `../op_index.json`）。
+    - `reward`: 浮点奖励。
+    - `next_state`: 同 `state` 维度。
+    - `done`: 回合终止标记（布尔）。
 
 示例：
 
@@ -25,6 +25,7 @@
 ```
 
 提示：
+
 - 若你需要将 `action` 反查成具体干预算子名，可用 `../op_index.json` 中的 `id2op[action]`。
 - 真实训练时，`state/next_state` 的数值由环境基于模块状态与算子应用动态生成，非固定 0/1。
 

@@ -17,7 +17,8 @@ from ..pdem import action_cost as pdem_action_cost
 from ..op_crosswalk import load_crosswalk, basic_ops, crosswalk_for_tag
 
 
-def pdem_path_integral(seq_ops: Iterable, s0: PDEMState, *, alpha: float = 1.0, beta: float = 1.0) -> Tuple[float, List[PDEMState]]:
+def pdem_path_integral(seq_ops: Iterable, s0: PDEMState, *, alpha: float = 1.0, beta: float = 1.0) -> Tuple[
+    float, List[PDEMState]]:
     """离散路径积分（示意）：
 
     L_t = alpha * B(S_t) + beta * (1 - F(S_t))
@@ -66,4 +67,3 @@ def map_pdem_sequence_to_fibers(pdem_seq: List[str]) -> Dict[str, List[str]]:
                 if cand[0] not in out[mod]:
                     out[mod].append(cand[0])
     return out
-

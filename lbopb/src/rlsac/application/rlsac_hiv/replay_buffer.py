@@ -40,6 +40,3 @@ class ReplayBuffer:
         s2 = self.next_obs[idx]
         d = self.dones[idx]
         return s, a, r, s2, d
-
-
-

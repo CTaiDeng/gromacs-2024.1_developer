@@ -4,13 +4,11 @@
   "log_to_file": true,
   "use_gpu": false,
   "device": "cpu",
-
   "packages_dir": "lbopb/src/rlsac/kernel/rlsac_pathfinder",
   "cost_lambda": 0.2,
   "consistency_bonus": 1.0,
   "inconsistency_penalty": 1.0,
   "eps_change": 0.001,
-
   "learning_rate_actor": 0.0003,
   "learning_rate_critic": 0.0003,
   "gamma": 0.99,
@@ -26,11 +24,6 @@
   "update_every": 50,
   "updates_per_step": 1,
   "minibatch_floor": 1,
-
-  "output_dir": "out_connector"
+  "output_dir": "out_connector",
+  "use_llm_oracle": false
 }
-
-
-
-
-

@@ -25,12 +25,14 @@ SPDX = "# SPDX-License-Identifier: GPL-3.0-only"
 COPY = "# Copyright (C) 2025 GaoZheng"
 UPSTREAM_RE = re.compile(r"^#\s*Copyright\s*\(C\)\s*2010-\s*The GROMACS Authors\s*$", re.I)
 
+
 def iter_files() -> Iterable[pathlib.Path]:
     for root in ROOTS:
         if not root.exists():
             continue
         for p in root.rglob("*.py"):
             yield p
+
 
 def sync_file(p: pathlib.Path) -> bool:
     text = p.read_text(encoding="utf-8")
@@ -41,12 +43,14 @@ def sync_file(p: pathlib.Path) -> bool:
     if len(new_lines) != len(lines):
         lines = new_lines
         changed = True
+
     # 确保 SPDX 与本地版权行在文件顶部
     def ensure_at_top(marker: str) -> None:
         nonlocal lines, changed
         if not any(ln.strip() == marker for ln in lines[:5]):
             lines.insert(0, marker)
             changed = True
+
     ensure_at_top(COPY)
     ensure_at_top(SPDX)
     if changed:
@@ -55,12 +59,14 @@ def sync_file(p: pathlib.Path) -> bool:
             fh.write("\n".join(lines) + "\n")
     return changed
 
+
 def main() -> None:
     total = 0
     for f in iter_files():
         if sync_file(f):
             total += 1
     print(f"Synced headers in {total} files.")
+
 
 if __name__ == "__main__":
     main()

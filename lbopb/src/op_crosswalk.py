@@ -39,7 +39,6 @@ import json
 import os
 from typing import Any, Dict, Iterable, List, Mapping, Optional
 
-
 _DEFAULT_JSON = os.path.join(os.path.dirname(__file__), "operator_crosswalk.json")
 
 

@@ -171,7 +171,8 @@ def render_markdown(cw: Mapping[str, Any]) -> str:
                     ("跳过Identity" if cons.get("skip_identity", True) else "包含Identity"),
                 ]
             )
-            lines.append(_table(["键", "值"], [("基本算子集", ", ".join(base)), ("最大长度", max_len), ("约束", cons_desc)]))
+            lines.append(
+                _table(["键", "值"], [("基本算子集", ", ".join(base)), ("最大长度", max_len), ("约束", cons_desc)]))
             if cfg.get("notes"):
                 lines.append("#### 说明：\n\n")
                 lines.append(f"{cfg.get('notes')}\n\n")
@@ -191,6 +192,7 @@ def render_markdown(cw: Mapping[str, Any]) -> str:
             gens = cfg.get("generators", [])
             if gens:
                 grows = []
+
                 def render_step(st: Any) -> str:
                     if isinstance(st, str):
                         return st
@@ -203,6 +205,7 @@ def render_markdown(cw: Mapping[str, Any]) -> str:
                         ma = spec.get("max", mi)
                         return f"{op}{{{mi}..{ma}}}"
                     return "?"
+
                 for g in gens:
                     name = str(g.get("name"))
                     chain = g.get("chain", [])

@@ -25,6 +25,3 @@ def select_device_from_config(cfg_path: Path) -> torch.device:
 def discrete_entropy(probs: torch.Tensor, eps: float = 1e-8) -> torch.Tensor:
     p = torch.clamp(probs, eps, 1.0)
     return -(p * torch.log(p)).sum(dim=-1)
-
-
-

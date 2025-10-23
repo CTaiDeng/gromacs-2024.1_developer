@@ -42,6 +42,7 @@ try:
         Image, Preformatted, ListFlowable, ListItem
     )
     from reportlab.lib.utils import ImageReader
+
     _HAVE_REPORTLAB = True
 except Exception:
     # 允许缺失；缺失时 simple 模式将自动降级为 browser 模式
@@ -123,7 +124,7 @@ def _extract_small_molecule_points(html_text: str) -> list[str]:
 
 def _parse_modules(html: str) -> dict:
     modules = {}
-    mod_list = ["pem","pdem","pktm","pgom","tem","prm","iem"]
+    mod_list = ["pem", "pdem", "pktm", "pgom", "tem", "prm", "iem"]
     for mod in mod_list:
         # 指标块：从标题起向后截取一段，提取后续 4 个 <div class="v">...</div>
         B = P = F = N = None
@@ -131,6 +132,7 @@ def _parse_modules(html: str) -> dict:
         if m:
             seg = html[m.end(): m.end() + 3000]
             vals = re.findall(r"<div class=\"v\">([^<]+)</div>", seg)
+
             def _pair(v):
                 parts = re.split(r"→|->", v)
                 if len(parts) == 2:
@@ -139,6 +141,7 @@ def _parse_modules(html: str) -> dict:
                     except Exception:
                         return None
                 return None
+
             if len(vals) >= 4:
                 B = _pair(vals[0])
                 P = _pair(vals[1])
@@ -157,8 +160,8 @@ def _parse_modules(html: str) -> dict:
                     AC = float(vals[2].strip())
             except Exception:
                 pass
-        if any(x is not None for x in [B,P,F,N,R0,R1,AC]):
-            modules[mod] = {"B":B, "P":P, "F":F, "N":N, "Risk0":R0, "Risk1":R1, "ActionCost":AC}
+        if any(x is not None for x in [B, P, F, N, R0, R1, AC]):
+            modules[mod] = {"B": B, "P": P, "F": F, "N": N, "Risk0": R0, "Risk1": R1, "ActionCost": AC}
     return modules
 
 
@@ -254,7 +257,7 @@ def _export_simple_pdf(in_html: Path, out_pdf: Path) -> None:
     styles["Heading1"].fontName = font_name
     styles["Heading2"].fontName = font_name
     styles["Heading3"].fontName = font_name
-    for k in ("Heading1","Heading2","Heading3"):
+    for k in ("Heading1", "Heading2", "Heading3"):
         styles[k].textColor = colors.black
     # 免责声明样式
     disclaimer = ParagraphStyle(
@@ -313,7 +316,7 @@ def _export_simple_pdf(in_html: Path, out_pdf: Path) -> None:
             rows = []
             for tr in tbl.find_all("tr", recursive=False):
                 cells = []
-                for td in tr.find_all(["th","td"], recursive=False):
+                for td in tr.find_all(["th", "td"], recursive=False):
                     cells.append(_text_of(td))
                 if cells:
                     rows.append(cells)
@@ -362,14 +365,14 @@ def _export_simple_pdf(in_html: Path, out_pdf: Path) -> None:
         if gem_json and isinstance(gem_json, dict):
             story.append(Paragraph("Gemini 评价（结构化）", h3))
             if 'summary' in gem_json:
-                story.append(Paragraph(_strip_bold_markers(str(gem_json.get('summary',''))), normal))
+                story.append(Paragraph(_strip_bold_markers(str(gem_json.get('summary', ''))), normal))
             # 指标
             kvs = []
-            for k in ['coherence_score','feasibility_score','risk_score','cost_score','confidence']:
+            for k in ['coherence_score', 'feasibility_score', 'risk_score', 'cost_score', 'confidence']:
                 if k in gem_json:
                     kvs.append([k, str(gem_json.get(k))])
             if kvs:
-                t = Table([['指标','值']]+kvs)
+                t = Table([['指标', '值']] + kvs)
                 t.setStyle(TableStyle([
                     ("FONTNAME", (0, 0), (-1, -1), font_name),
                     ("FONTSIZE", (0, 0), (-1, -1), 9),
@@ -379,7 +382,7 @@ def _export_simple_pdf(in_html: Path, out_pdf: Path) -> None:
                 story.append(t)
                 story.append(Spacer(1, 6))
             # 列表型
-            for name in ['risk_flags','signals','top_actions','caveats']:
+            for name in ['risk_flags', 'signals', 'top_actions', 'caveats']:
                 arr = gem_json.get(name)
                 if isinstance(arr, list) and arr:
                     story.append(Paragraph(name, h3))
@@ -394,20 +397,22 @@ def _export_simple_pdf(in_html: Path, out_pdf: Path) -> None:
                 s = line.strip()
                 if not s:
                     continue
-                if s.startswith(('*','-')):
-                    story.append(ListFlowable([ListItem(Paragraph(_strip_bold_markers(s.lstrip('*- ').strip()), normal))], bulletType='bullet'))
+                if s.startswith(('*', '-')):
+                    story.append(
+                        ListFlowable([ListItem(Paragraph(_strip_bold_markers(s.lstrip('*- ').strip()), normal))],
+                                     bulletType='bullet'))
                 else:
                     story.append(Paragraph(_strip_bold_markers(s), normal))
             story.append(Spacer(1, 8))
-        
+
         # 遍历 main 的直接子元素
         for el in main.children:
             if getattr(el, 'name', None) is None:
                 continue
             name = el.name.lower()
-            if name in ("h1","h2","h3","h4","h5","h6"):
+            if name in ("h1", "h2", "h3", "h4", "h5", "h6"):
                 lvl = int(name[1])
-                style = h1 if lvl==1 else h2 if lvl==2 else h3 if lvl==3 else normal
+                style = h1 if lvl == 1 else h2 if lvl == 2 else h3 if lvl == 3 else normal
                 story.append(Paragraph(_strip_bold_markers(_text_of(el)), style))
                 story.append(Spacer(1, 6))
             elif name == "p":
@@ -419,12 +424,14 @@ def _export_simple_pdf(in_html: Path, out_pdf: Path) -> None:
                 story.append(Preformatted(txt, normal))
                 story.append(Spacer(1, 6))
             elif name == "ul":
-                items = [ListItem(Paragraph(_strip_bold_markers(_text_of(li)), normal)) for li in el.find_all('li', recursive=False)]
+                items = [ListItem(Paragraph(_strip_bold_markers(_text_of(li)), normal)) for li in
+                         el.find_all('li', recursive=False)]
                 if items:
                     story.append(ListFlowable(items, bulletType='bullet'))
                     story.append(Spacer(1, 6))
             elif name == "ol":
-                items = [ListItem(Paragraph(_strip_bold_markers(_text_of(li)), normal)) for li in el.find_all('li', recursive=False)]
+                items = [ListItem(Paragraph(_strip_bold_markers(_text_of(li)), normal)) for li in
+                         el.find_all('li', recursive=False)]
                 if items:
                     story.append(ListFlowable(items, bulletType='1'))
                     story.append(Spacer(1, 6))
@@ -485,8 +492,9 @@ def _export_simple_pdf(in_html: Path, out_pdf: Path) -> None:
     story.append(Spacer(1, 10))
 
     # 4) 附：汇总图表（由 matplotlib 生成）
-    order = ["pem","pdem","pktm","pgom","tem","prm","iem"]
+    order = ["pem", "pdem", "pktm", "pgom", "tem", "prm", "iem"]
     mods = [m for m in order if m in modules]
+
     # 图A：ΔB（s1 - s0）
     def _fig_deltaB():
         import matplotlib.pyplot as plt
@@ -506,6 +514,7 @@ def _export_simple_pdf(in_html: Path, out_pdf: Path) -> None:
         ax.set_title('模块 ΔB 概览')
         ax.grid(True, axis='y', alpha=0.3)
         return fig
+
     imgA = _matplotlib_image(_fig_deltaB)
     if imgA:
         story.append(Paragraph("4.1 模块 ΔB 概览", h3))
@@ -515,15 +524,16 @@ def _export_simple_pdf(in_html: Path, out_pdf: Path) -> None:
     # 图B：Risk(s0) 与 Risk(s1)
     def _fig_risk():
         import matplotlib.pyplot as plt
-        r0 = []; r1 = []
+        r0 = [];
+        r1 = []
         for m in mods:
             r0.append(modules[m].get("Risk0") or 0.0)
             r1.append(modules[m].get("Risk1") or 0.0)
         x = list(range(len(mods)))
         w = 0.38
         fig, ax = plt.subplots(figsize=(7.2, 3))
-        ax.bar([i - w/2 for i in x], r0, width=w, label='Risk(s0)', color='#95a5a6')
-        ax.bar([i + w/2 for i in x], r1, width=w, label='Risk(s1)', color='#34495e')
+        ax.bar([i - w / 2 for i in x], r0, width=w, label='Risk(s0)', color='#95a5a6')
+        ax.bar([i + w / 2 for i in x], r1, width=w, label='Risk(s1)', color='#34495e')
         ax.set_xticks(x)
         ax.set_xticklabels(mods)
         ax.set_ylabel('Risk')
@@ -531,6 +541,7 @@ def _export_simple_pdf(in_html: Path, out_pdf: Path) -> None:
         ax.legend()
         ax.grid(True, axis='y', alpha=0.3)
         return fig
+
     imgB = _matplotlib_image(_fig_risk)
     if imgB:
         story.append(Paragraph("4.2 模块风险对比", h3))
@@ -549,6 +560,7 @@ def _export_simple_pdf(in_html: Path, out_pdf: Path) -> None:
         ax.set_title('操作代价概览')
         ax.grid(True, axis='y', alpha=0.3)
         return fig
+
     imgC = _matplotlib_image(_fig_cost)
     if imgC:
         story.append(Paragraph("4.3 操作代价概览", h3))
@@ -557,12 +569,17 @@ def _export_simple_pdf(in_html: Path, out_pdf: Path) -> None:
 
     # 5) 模块指标与风险摘要（表格）
     story.append(Paragraph("5. 模块指标与风险摘要", h2))
-    data = [["模块","B s0","B s1","P s0","P s1","F s0","F s1","N s0","N s1","Risk0","Risk1","ActionCost"]]
+    data = [["模块", "B s0", "B s1", "P s0", "P s1", "F s0", "F s1", "N s0", "N s1", "Risk0", "Risk1", "ActionCost"]]
     for m in mods:
         md = modules[m]
+
         def vpair(x):
-            return (x[0], x[1]) if (isinstance(x, tuple) and len(x)==2) else (None, None)
-        b0,b1 = vpair(md.get("B")); p0,p1 = vpair(md.get("P")); f0,f1 = vpair(md.get("F")); n0,n1 = vpair(md.get("N"))
+            return (x[0], x[1]) if (isinstance(x, tuple) and len(x) == 2) else (None, None)
+
+        b0, b1 = vpair(md.get("B"));
+        p0, p1 = vpair(md.get("P"));
+        f0, f1 = vpair(md.get("F"));
+        n0, n1 = vpair(md.get("N"))
         row = [m, b0, b1, p0, p1, f0, f1, n0, n1, md.get("Risk0"), md.get("Risk1"), md.get("ActionCost")]
         data.append(row)
     tbl2 = Table(data, repeatRows=1)
@@ -605,7 +622,7 @@ def _export_simple_pdf(in_html: Path, out_pdf: Path) -> None:
             rows = []
             for tr in tbl.find_all("tr", recursive=False):
                 cells = []
-                for td in tr.find_all(["th","td"], recursive=False):
+                for td in tr.find_all(["th", "td"], recursive=False):
                     cells.append(_text_of(td))
                 if cells:
                     rows.append(cells)
@@ -656,9 +673,9 @@ def _export_simple_pdf(in_html: Path, out_pdf: Path) -> None:
             if getattr(el, 'name', None) is None:
                 continue
             name = el.name.lower()
-            if name in ("h1","h2","h3","h4","h5","h6"):
+            if name in ("h1", "h2", "h3", "h4", "h5", "h6"):
                 lvl = int(name[1])
-                style = h1 if lvl==1 else h2 if lvl==2 else h3 if lvl==3 else normal
+                style = h1 if lvl == 1 else h2 if lvl == 2 else h3 if lvl == 3 else normal
                 story.append(Paragraph(_text_of(el), style))
                 story.append(Spacer(1, 6))
             elif name == "p":
@@ -678,9 +695,9 @@ def _export_simple_pdf(in_html: Path, out_pdf: Path) -> None:
             elif name == "section" or name == "div":
                 # 递归处理常见子块（浅递归，避免过度复杂）
                 for sub in el.find_all(recursive=False):
-                    if sub.name in ("h1","h2","h3","h4","h5","h6"):
+                    if sub.name in ("h1", "h2", "h3", "h4", "h5", "h6"):
                         lvl = int(sub.name[1])
-                        style = h1 if lvl==1 else h2 if lvl==2 else h3 if lvl==3 else normal
+                        style = h1 if lvl == 1 else h2 if lvl == 2 else h3 if lvl == 3 else normal
                         story.append(Paragraph(_text_of(sub), style))
                         story.append(Spacer(1, 6))
                     elif sub.name == "p":
@@ -710,7 +727,8 @@ def _export_simple_pdf(in_html: Path, out_pdf: Path) -> None:
         canvas.drawString(28, h - 20, title)
         canvas.drawRightString(w - 28, 20, f"第 {doc.page} 页")
 
-    doc = SimpleDocTemplate(str(out_pdf), pagesize=A4, leftMargin=18*1.5, rightMargin=18*1.5, topMargin=18*1.5, bottomMargin=18*1.5)
+    doc = SimpleDocTemplate(str(out_pdf), pagesize=A4, leftMargin=18 * 1.5, rightMargin=18 * 1.5, topMargin=18 * 1.5,
+                            bottomMargin=18 * 1.5)
     doc.build(story, onFirstPage=_header_footer, onLaterPages=_header_footer)
 
 
@@ -723,7 +741,8 @@ def main() -> None:
     ap.add_argument("--html", default=str(default_html), help=f"输入 HTML 路径 (默认: {default_html})")
     ap.add_argument("--out", default=str(default_out), help=f"输出 PDF 路径 (默认: {default_out})")
     ap.add_argument("--wait", type=float, default=2.0, help="渲染等待秒数（仅 browser 模式用于 Chart.js 绘图）")
-    ap.add_argument("--mode", choices=["simple", "browser"], default="simple", help="导出引擎：simple=纯 Python 黑白简约；browser=Playwright 渲染")
+    ap.add_argument("--mode", choices=["simple", "browser"], default="simple",
+                    help="导出引擎：simple=纯 Python 黑白简约；browser=Playwright 渲染")
     args = ap.parse_args()
 
     in_html = Path(args.html).resolve()

@@ -24,10 +24,10 @@ from .state import PEMState
 
 
 def delta_phi(
-    A: PEMOperator,
-    B: PEMOperator,
-    s0: PEMState,
-    phi: Observables | None = None,
+        A: PEMOperator,
+        B: PEMOperator,
+        s0: PEMState,
+        phi: Observables | None = None,
 ) -> float:
     """Δ_Φ(O_A, O_B; S) 非对易差异：先后次序对观测的影响强度。
 
@@ -47,10 +47,10 @@ def delta_phi(
 
 
 def non_commutativity_index(
-    A: PEMOperator,
-    B: PEMOperator,
-    s0: PEMState,
-    phi: Observables | None = None,
+        A: PEMOperator,
+        B: PEMOperator,
+        s0: PEMState,
+        phi: Observables | None = None,
 ) -> float:
     """NC(O_A, O_B; S) = Δ_Φ / (1 + Σ_φ φ(S)) 的无量纲化指标。"""
 
@@ -67,12 +67,12 @@ def topo_risk(s: PEMState, alpha1: float = 1.0, alpha2: float = 1.0) -> float:
 
 
 def action_cost(
-    ops: Sequence[PEMOperator],
-    s0: PEMState,
-    w_b: float = 1.0,
-    w_p: float = 0.2,
-    w_n: float = 0.1,
-    w_f: float = 0.5,
+        ops: Sequence[PEMOperator],
+        s0: PEMState,
+        w_b: float = 1.0,
+        w_p: float = 0.2,
+        w_n: float = 0.1,
+        w_f: float = 0.5,
 ) -> float:
     """给定算子序列的“作用量”成本 𝒜(𝐎; S->S*):
 
@@ -98,10 +98,10 @@ def action_cost(
 
 
 def reach_probability(
-    s0: PEMState,
-    s_star: PEMState,
-    candidate_sequences: Iterable[Sequence[PEMOperator]],
-    temperature: float = 1.0,
+        s0: PEMState,
+        s_star: PEMState,
+        candidate_sequences: Iterable[Sequence[PEMOperator]],
+        temperature: float = 1.0,
 ) -> float:
     """可达概率近似：Reach = exp(- min_Seq 𝒜(Seq; S->S*))。
 

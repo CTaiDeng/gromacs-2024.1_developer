@@ -24,10 +24,10 @@ from .state import PRMState
 
 
 def delta_phi(
-    A: PRMOperator,
-    B: PRMOperator,
-    s0: PRMState,
-    phi: Observables | None = None,
+        A: PRMOperator,
+        B: PRMOperator,
+        s0: PRMState,
+        phi: Observables | None = None,
 ) -> float:
     """Δ_Φ(A, B; S): 非交换对可观测量的影响强度
 
@@ -45,10 +45,10 @@ def delta_phi(
 
 
 def non_commutativity_index(
-    A: PRMOperator,
-    B: PRMOperator,
-    s0: PRMState,
-    phi: Observables | None = None,
+        A: PRMOperator,
+        B: PRMOperator,
+        s0: PRMState,
+        phi: Observables | None = None,
 ) -> float:
     """NC(A, B; S) = Δ_Φ / (1 + Σφ(S)): 归一化非交换指数"""
 
@@ -65,12 +65,12 @@ def topo_risk(s: PRMState, alpha1: float = 1.0, alpha2: float = 1.0) -> float:
 
 
 def action_cost(
-    ops: Sequence[PRMOperator],
-    s0: PRMState,
-    w_b: float = 1.0,
-    w_p: float = 0.2,
-    w_n: float = 0.1,
-    w_f: float = 0.5,
+        ops: Sequence[PRMOperator],
+        s0: PRMState,
+        w_b: float = 1.0,
+        w_p: float = 0.2,
+        w_n: float = 0.1,
+        w_f: float = 0.5,
 ) -> float:
     """路径代价：对“负向”变化加权惩罚并累加
 
@@ -94,10 +94,10 @@ def action_cost(
 
 
 def reach_probability(
-    s0: PRMState,
-    s_star: PRMState,
-    candidate_sequences: Iterable[Sequence[PRMOperator]],
-    temperature: float = 1.0,
+        s0: PRMState,
+        s_star: PRMState,
+        candidate_sequences: Iterable[Sequence[PRMOperator]],
+        temperature: float = 1.0,
 ) -> float:
     """可达性启发：Reach ≈ exp(- min_seq Action(seq; S→S*))
 
@@ -112,4 +112,3 @@ def reach_probability(
         return 0.0
     t = max(1e-6, float(temperature))
     return float(exp(-best / t))
-

@@ -54,7 +54,8 @@ def docking_degenerate_gromacs(job: DockingJob) -> Dict:
         "scores": os.path.join(job.out_dir, "poses.scores.csv"),
     }
     commands.append(f"# 生成随机姿势并打包为 TRR（伪指令，需对接构建工具）")
-    commands.append(f"python gen_poses.py --receptor {job.receptor_pdb} --ligand {job.ligand_sdf} --out {exp_outputs['traj']}")
+    commands.append(
+        f"python gen_poses.py --receptor {job.receptor_pdb} --ligand {job.ligand_sdf} --out {exp_outputs['traj']}")
     commands.append(f"# rerun 评估（示例命令）")
     commands.append(f"gmx mdrun -s topol.tpr -rerun {exp_outputs['traj']} -g {job.out_dir}/rerun.log")
     commands.append(f"python score_rerun.py --log {job.out_dir}/rerun.log --out {exp_outputs['scores']}")
@@ -83,4 +84,3 @@ def md_qmmm_stub(job: QMMMJob) -> Dict:
     ]
     outputs = {"traj": f"{job.out_dir}/qmmm.trr", "ener": f"{job.out_dir}/qmmm.edr"}
     return {"commands": commands, "outputs": outputs}
-

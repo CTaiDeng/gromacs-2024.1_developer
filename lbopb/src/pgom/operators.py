@@ -237,4 +237,3 @@ def compose(*ops: PGOMOperator) -> PGOMOperator:
     if len(flat) == 1:
         return flat[0]
     return ComposedOperator(*flat)
-

@@ -18,21 +18,23 @@ except ImportError:
     # 兼容直接脚本执行：将仓库根加入 sys.path 后用绝对导入
     from pathlib import Path as _Path
     import sys as _sys
+
     _sys.path.insert(0, str(_Path(__file__).resolve().parents[5]))
     from lbopb.src.rlsac.kernel.rlsac_pathfinder.env_domain import DomainPathfinderEnv, Goal
     from lbopb.src.rlsac.kernel.rlsac_pathfinder.domain import get_domain_spec
-from lbopb.src.rlsac.application.rlsac_nsclc.models import DiscretePolicy, QNetwork
-from lbopb.src.rlsac.application.rlsac_nsclc.replay_buffer import ReplayBuffer
-from lbopb.src.rlsac.application.rlsac_nsclc.utils import soft_update, select_device_from_config, discrete_entropy
+from .sampler import sample_random_package
+from .oracle import AxiomOracle, default_init_state, apply_sequence
+from .scorer import PackageScorer, train_scorer
+from lbopb.src.rlsac.application.rlsac_nsclc.utils import select_device_from_config
 
 
 def _load_config(cfg_path: Path) -> Dict[str, Any]:
     return json.loads(cfg_path.read_text(encoding="utf-8"))
 
 
-def build_env_from_config(cfg_path: Path) -> DomainPathfinderEnv:
+def build_env_from_config(cfg_path: Path, domain_override: str | None = None) -> DomainPathfinderEnv:
     cfg = _load_config(cfg_path)
-    domain = str(cfg.get("domain", "pem")).lower()
+    domain = str(domain_override if domain_override is not None else cfg.get("domain", "pem")).lower()
     spec = get_domain_spec(domain)
     s0_cfg = cfg.get("initial_state", {"b": 3.0, "n_comp": 3, "perim": 5.0, "fidelity": 0.4})
     st_cfg = cfg.get("target_state", {"b": 0.5, "n_comp": 1, "perim": 2.0, "fidelity": 0.9})
@@ -71,7 +73,7 @@ def build_env_from_config(cfg_path: Path) -> DomainPathfinderEnv:
     return env
 
 
-def train(config_path: str | Path | None = None) -> Path:
+def train(config_path: str | Path | None = None, domain_override: str | None = None) -> Path:
     mod_dir = Path(__file__).resolve().parent
     cfg_path = Path(config_path) if config_path else (mod_dir / "config.json")
     cfg = _load_config(cfg_path)
@@ -85,14 +87,18 @@ def train(config_path: str | Path | None = None) -> Path:
         def __init__(self, path: Path, append: bool = False):
             self.path = path
             self.f = open(path, 'a' if append else 'w', encoding='utf-8', newline='')
+
         def write_line(self, text: str) -> None:
             try:
-                self.f.write(text + "\r\n"); self.f.flush()
+                self.f.write(text + "\r\n");
+                self.f.flush()
             except Exception:
                 pass
+
         def close(self) -> None:
             try:
-                self.f.flush(); self.f.close()
+                self.f.flush();
+                self.f.close()
             except Exception:
                 pass
 
@@ -109,150 +115,98 @@ def train(config_path: str | Path | None = None) -> Path:
                 logger.write_line(msg)
 
     # 环境
-    env = build_env_from_config(cfg_path)
-    obs_dim = env.observation_space.shape[0]
-    n_actions = env.action_space.high - env.action_space.low
-    dbg(f"环境初始化: obs_dim={obs_dim}, n_actions={n_actions}")
+    # 确定本次训练的域
+    this_domain = str(domain_override if domain_override is not None else cfg.get("domain", "pem")).lower()
 
-    lr_actor = float(cfg.get("learning_rate_actor", 3e-4))
-    lr_critic = float(cfg.get("learning_rate_critic", 3e-4))
-    gamma = float(cfg.get("gamma", 0.99))
-    tau = float(cfg.get("tau", 0.005))
-    buffer_size = int(cfg.get("buffer_size", 50000))
+    # 采样-监督：随机生成算子包 → 公理系统打分(0/1) → 训练打分网络
+    min_len = int(cfg.get("min_len", 1))
+    max_len = int(cfg.get("max_len", 4))
+    no_dup = bool(cfg.get("sampler_no_consecutive_dup", True))
+    n_samples = int(cfg.get("samples", 2000))
+    epochs = int(cfg.get("epochs", 20))
     batch_size = int(cfg.get("batch_size", 64))
-    target_entropy = float(cfg.get("target_entropy", -1.0 * n_actions))
-    learn_alpha = bool(cfg.get("learn_alpha", True))
-    init_alpha = float(cfg.get("alpha", 0.2))
-    total_steps = int(cfg.get("total_steps", 5000))
-    start_steps = int(cfg.get("start_steps", 1000))
-    update_after = int(cfg.get("update_after", 1000))
-    update_every = int(cfg.get("update_every", 50))
-    updates_per_step = int(cfg.get("updates_per_step", 1))
-    minibatch_floor = int(cfg.get("minibatch_floor", 1))
+    topk = int(cfg.get("topk", 50))
+    cost_lambda = float(cfg.get("cost_lambda", 0.2))
+    oracle = AxiomOracle(cost_lambda=cost_lambda, use_llm=bool(cfg.get("use_llm_oracle", False)))
 
-    policy = DiscretePolicy(obs_dim, n_actions).to(device)
-    q1 = QNetwork(obs_dim, n_actions).to(device)
-    q2 = QNetwork(obs_dim, n_actions).to(device)
-    tgt_q1 = QNetwork(obs_dim, n_actions).to(device)
-    tgt_q2 = QNetwork(obs_dim, n_actions).to(device)
-    tgt_q1.load_state_dict(q1.state_dict()); tgt_q2.load_state_dict(q2.state_dict())
-    opt_pi = torch.optim.Adam(policy.parameters(), lr=lr_actor)
-    opt_q1 = torch.optim.Adam(q1.parameters(), lr=lr_critic)
-    opt_q2 = torch.optim.Adam(q2.parameters(), lr=lr_critic)
+    spec = get_domain_spec(this_domain)
+    op_names = []
+    # 确定特征维度：每个基本算子一个计数 + 序列长度 + Δrisk + cost
+    for cls in spec.op_classes:
+        try:
+            nm = cls().name
+        except Exception:
+            nm = cls.__name__
+        op_names.append(str(nm))
+    feat_dim = len(op_names) + 3
 
-    log_alpha = torch.tensor(float(torch.log(torch.tensor(init_alpha))), requires_grad=learn_alpha, device=device)
-    opt_alpha = torch.optim.Adam([log_alpha], lr=lr_actor) if learn_alpha else None
+    X = torch.zeros((n_samples, feat_dim), dtype=torch.float32)
+    y = torch.zeros((n_samples,), dtype=torch.float32)
+    init_state = default_init_state(this_domain)
+    for i in range(n_samples):
+        seq = sample_random_package(spec, min_len=min_len, max_len=max_len, no_consecutive_duplicate=no_dup)
+        # 特征：op 计数
+        cnts = [float(seq.count(nm)) for nm in op_names]
+        # 作用效果特征
+        _, dr, c = apply_sequence(this_domain, init_state, seq)
+        length = float(len(seq))
+        vec = cnts + [length, float(dr), float(c)]
+        X[i] = torch.tensor(vec, dtype=torch.float32)
+        y[i] = float(oracle.judge(this_domain, seq, init_state))
 
-    buf = ReplayBuffer(buffer_size, obs_dim)
-    state = env.reset()
-    last_q1 = last_q2 = last_pi = None
-    last_alpha = float(log_alpha.exp().item()) if learn_alpha else init_alpha
-    logger: RunLogger | None = None
+    model = PackageScorer(X.shape[1]).to(device)
+    train_scorer(model, X.to(device), y.to(device), epochs=epochs, batch_size=batch_size,
+                 lr=float(cfg.get("learning_rate_actor", 3e-4)))
+
+    # 训练完生成大量候选，打分选 Top-K，写入辞海
+    cand_n = int(cfg.get("candidate_generate", 1000))
+    scored: list[tuple[float, List[str], float, float]] = []
+    with torch.no_grad():
+        for _ in range(cand_n):
+            seq = sample_random_package(spec, min_len=min_len, max_len=max_len, no_consecutive_duplicate=no_dup)
+            cnts = [float(seq.count(nm)) for nm in op_names]
+            _, dr, c = apply_sequence(this_domain, init_state, seq)
+            length = float(len(seq))
+            vec = torch.tensor([*(cnts), length, float(dr), float(c)], dtype=torch.float32).unsqueeze(0).to(device)
+            score = float(model(vec).item())
+            scored.append((score, seq, float(dr), float(c)))
+    scored.sort(key=lambda t: t[0], reverse=True)
 
     # 运行目录与日志
     repo_root = Path(__file__).resolve().parents[5]
     out_root = repo_root / "out"
     base_out = out_root / Path(cfg.get("output_dir", "out_pathfinder"))
     base_out.mkdir(parents=True, exist_ok=True)
-    run_dir = base_out / ("train_" + str(int(_pytime.time())))
+    _stamp = str(int(_pytime.time()))
+    run_name = "train_" + _stamp + (f"_{this_domain}" if this_domain else "")
+    run_dir = base_out / run_name
     run_dir.mkdir(parents=True, exist_ok=True)
     log_path = run_dir / "train.log"
     if log_to_file:
         logger = RunLogger(log_path, append=False)
-        logger.write_line(f"# TRAIN START { _pytime.strftime('%Y-%m-%d %H:%M:%S', _pytime.localtime()) }")
+        logger.write_line(f"# TRAIN START {_pytime.strftime('%Y-%m-%d %H:%M:%S', _pytime.localtime())}")
         logger.write_line(f"device={device}")
         logger.write_line(f"config={json.dumps(cfg, ensure_ascii=False)}")
 
-    # 导出 op 索引
-    try:
-        if hasattr(env, "op2idx"):
-            mapping = getattr(env, "op2idx")
-            text = json.dumps(mapping, ensure_ascii=False, indent=2)
-            text = text.replace("\r\n", "\n").replace("\n", "\r\n")
-            (run_dir / "op_index.json").write_text(text, encoding="utf-8")
-    except Exception:
-        pass
+    # 选择 Top-K 并写入本域辞海（run_dir 下与全局）
+    unique = []
+    seen = set()
+    for score, seq, dr, c in scored:
+        t = tuple(seq)
+        if t in seen:
+            continue
+        seen.add(t)
+        unique.append((score, seq, dr, c))
+        if len(unique) >= topk:
+            break
 
-    for t in range(1, total_steps + 1):
-        with torch.no_grad():
-            if t < start_steps:
-                action = env.action_space.sample().item()
-            else:
-                s = state.to(device).unsqueeze(0)
-                logits, probs = policy(s)
-                dist = torch.distributions.Categorical(probs=probs)
-                action = int(dist.sample().item())
-
-        s2, r, d, info = env.step(torch.tensor([action], dtype=torch.int32))
-        buf.push(state, action, r, s2, d)
-        state = s2
-
-        updates_done = 0
-        if t >= update_after and t % update_every == 0 and len(buf) >= max(1, minibatch_floor):
-            for upd in range(max(1, updates_per_step)):
-                s_b, a_b, r_b, s2_b, d_b = buf.sample(batch_size)
-                s_b = s_b.to(device); a_b = a_b.to(device); r_b = r_b.to(device)
-                s2_b = s2_b.to(device); d_b = d_b.to(device)
-
-                with torch.no_grad():
-                    logits2, probs2 = policy(s2_b)
-                    q1_t = tgt_q1(s2_b); q2_t = tgt_q2(s2_b)
-                    q_min = torch.min(q1_t, q2_t)
-                    logp2 = torch.log(torch.clamp(probs2, 1e-8, 1.0))
-                    alpha = log_alpha.exp().detach() if learn_alpha else torch.tensor(init_alpha, device=device)
-                    v_s2 = (probs2 * (q_min - alpha * logp2)).sum(dim=-1)
-                    y = r_b + gamma * (1.0 - d_b) * v_s2
-
-                q1_sa = q1(s_b).gather(1, a_b.view(-1, 1)).squeeze(1)
-                q2_sa = q2(s_b).gather(1, a_b.view(-1, 1)).squeeze(1)
-                loss_q1 = F.mse_loss(q1_sa, y)
-                loss_q2 = F.mse_loss(q2_sa, y)
-                opt_q1.zero_grad(); loss_q1.backward(); opt_q1.step()
-                opt_q2.zero_grad(); loss_q2.backward(); opt_q2.step()
-                last_q1 = float(loss_q1.item()); last_q2 = float(loss_q2.item())
-
-                logits, probs = policy(s_b)
-                logp = torch.log(torch.clamp(probs, 1e-8, 1.0))
-                q1_pi = q1(s_b); q2_pi = q2(s_b)
-                q_pi = torch.min(q1_pi, q2_pi)
-                alpha = log_alpha.exp() if learn_alpha else torch.tensor(init_alpha, device=device)
-                loss_pi = (probs * (alpha * logp - q_pi)).sum(dim=-1).mean()
-                opt_pi.zero_grad(); loss_pi.backward(); opt_pi.step()
-                last_pi = float(loss_pi.item())
-
-                if learn_alpha and opt_alpha is not None:
-                    ent = discrete_entropy(probs).detach()
-                    loss_alpha = -(log_alpha * (target_entropy - ent).detach()).mean()
-                    opt_alpha.zero_grad(); loss_alpha.backward(); opt_alpha.step()
-
-                soft_update(tgt_q1, q1, tau); soft_update(tgt_q2, q2, tau)
-            updates_done = max(1, updates_per_step)
-
-        step_log(
-            "[STEP {t}] a={a} r={r:.6f} d={d} buf={buf} upd={upd} "
-            "loss_q1={lq1} loss_q2={lq2} loss_pi={lpi} alpha={alpha} dist={dist}".format(
-                t=t, a=action, r=r, d=d, buf=len(buf), upd=updates_done,
-                lq1=("{:.6f}".format(last_q1) if last_q1 is not None else "-"),
-                lq2=("{:.6f}".format(last_q2) if last_q2 is not None else "-"),
-                lpi=("{:.6f}".format(last_pi) if last_pi is not None else "-"),
-                alpha=("{:.6f}".format(float(log_alpha.exp().item())) if learn_alpha else f"{init_alpha:.6f}"),
-                dist=float(info.get("dist", 0.0)),
-            )
-        )
-
-        if d:
-            state = env.reset()
-
-    # 保存权重
-    torch.save(policy.state_dict(), run_dir / "policy.pt")
-    torch.save(q1.state_dict(), run_dir / "q1.pt")
-    torch.save(q2.state_dict(), run_dir / "q2.pt")
+    # 保存模型权重（可选）
+    torch.save(model.state_dict(), run_dir / "scorer.pt")
 
     # 训练结束后，自动提取算子包并写入训练目录
     try:
-        pkg = extract_operator_package(run_dir, cfg_path)
-        domain = str(cfg.get("domain", "pem")).lower()
-        run_dict_path = run_dir / f"{domain}_operator_packages.json"
+        pkg = extract_operator_package(run_dir, cfg_path, domain_override=this_domain)
+        run_dict_path = run_dir / f"{this_domain}_operator_packages.json"
         arr: List[Dict[str, Any]] = []
         if run_dict_path.exists():
             try:
@@ -270,7 +224,24 @@ def train(config_path: str | Path | None = None) -> Path:
     return run_dir
 
 
-def extract_operator_package(run_dir: str | Path, config_path: str | Path | None = None, max_len: int | None = None) -> Dict[str, Any]:
+def train_all(config_path: str | Path | None = None, domains: list[str] | None = None) -> list[Path]:
+    """按顺序训练多个域（默认七域），并分别提取算子包。
+
+    返回各域的训练输出目录列表。
+    """
+    doms = domains or ["pem", "pdem", "pktm", "pgom", "tem", "prm", "iem"]
+    out: list[Path] = []
+    for d in doms:
+        try:
+            rd = train(config_path, domain_override=d)
+            out.append(rd)
+        except Exception:
+            continue
+    return out
+
+
+def extract_operator_package(run_dir: str | Path, config_path: str | Path | None = None, max_len: int | None = None) -> \
+Dict[str, Any]:
     """贪心解码提取算子包，写入对应域的 operator_packages.json。"""
     mod_dir = Path(__file__).resolve().parent
     cfg_path = Path(config_path) if config_path else (mod_dir / "config.json")
@@ -341,8 +312,3 @@ def extract_operator_package(run_dir: str | Path, config_path: str | Path | None
 if __name__ == "__main__":
     out = train()
     print(out)
-
-
-
-
-

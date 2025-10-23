@@ -78,4 +78,3 @@ def propose_biologic(req: PharmacodynamicRequirement) -> Dict:
         "notes": ["optimize paratope for epitope complementarity"],
     }
     return design
-

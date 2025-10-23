@@ -24,10 +24,10 @@ from .state import TEMState
 
 
 def delta_phi(
-    A: TEMOperator,
-    B: TEMOperator,
-    s0: TEMState,
-    phi: Observables | None = None,
+        A: TEMOperator,
+        B: TEMOperator,
+        s0: TEMState,
+        phi: Observables | None = None,
 ) -> float:
     """Δ_Φ(A, B; S): 非交换对可观测量的影响强度"""
 
@@ -40,10 +40,10 @@ def delta_phi(
 
 
 def non_commutativity_index(
-    A: TEMOperator,
-    B: TEMOperator,
-    s0: TEMState,
-    phi: Observables | None = None,
+        A: TEMOperator,
+        B: TEMOperator,
+        s0: TEMState,
+        phi: Observables | None = None,
 ) -> float:
     """NC(A, B; S) = Δ_Φ / (1 + Σφ(S))"""
 
@@ -65,12 +65,12 @@ def topo_risk(s: TEMState, alpha1: float = 1.0, alpha2: float = 1.0) -> float:
 
 
 def action_cost(
-    ops: Sequence[TEMOperator],
-    s0: TEMState,
-    w_b: float = 1.0,
-    w_p: float = 0.5,
-    w_n: float = 0.2,
-    w_f: float = 1.0,
+        ops: Sequence[TEMOperator],
+        s0: TEMState,
+        w_b: float = 1.0,
+        w_p: float = 0.5,
+        w_n: float = 0.2,
+        w_f: float = 1.0,
 ) -> float:
     """路径代价：对“毒理不利”变化加权惩罚
 
@@ -94,10 +94,10 @@ def action_cost(
 
 
 def reach_probability(
-    s0: TEMState,
-    s_star: TEMState,
-    candidate_sequences: Iterable[Sequence[TEMOperator]],
-    temperature: float = 1.0,
+        s0: TEMState,
+        s_star: TEMState,
+        candidate_sequences: Iterable[Sequence[TEMOperator]],
+        temperature: float = 1.0,
 ) -> float:
     """可达性启发：Reach ≈ exp(- min_seq Action(seq; S→S*))"""
 
@@ -109,4 +109,3 @@ def reach_probability(
         return 0.0
     t = max(1e-6, float(temperature))
     return float(exp(-best / t))
-

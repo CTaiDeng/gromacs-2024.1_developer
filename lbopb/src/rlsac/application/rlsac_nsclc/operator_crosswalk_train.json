@@ -5,13 +5,37 @@
       "base_module": "pem",
       "notes": "示例采用通用基础算子名（如 Bind/Antagonist/Repair 等），用于方法学演示，不构成医学建议。",
       "sequences": {
-        "pem": ["Carcinogenesis", "Apoptosis"],
-        "pdem": ["Bind", "Antagonist"],
-        "pktm": ["Dose", "Absorb", "Distribute", "Metabolize", "Excrete"],
-        "pgom": ["PathwayInhibition"],
-        "tem": ["Detox", "Repair"],
-        "prm": ["Stimulus", "Adaptation"],
-        "iem": ["Activate", "Differentiate", "Memory"]
+        "pem": [
+          "Carcinogenesis",
+          "Apoptosis"
+        ],
+        "pdem": [
+          "Bind",
+          "Antagonist"
+        ],
+        "pktm": [
+          "Dose",
+          "Absorb",
+          "Distribute",
+          "Metabolize",
+          "Excrete"
+        ],
+        "pgom": [
+          "PathwayInhibition"
+        ],
+        "tem": [
+          "Detox",
+          "Repair"
+        ],
+        "prm": [
+          "Stimulus",
+          "Adaptation"
+        ],
+        "iem": [
+          "Activate",
+          "Differentiate",
+          "Memory"
+        ]
       }
     }
   }

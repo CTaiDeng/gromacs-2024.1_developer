@@ -27,7 +27,15 @@
       "风险与代价：评估跨模块路径时，可结合各模块 metrics（如 tox_risk/eff_risk/topo_risk、action_cost）进行筛选。"
     ]
   },
-  "modules": ["pem", "prm", "tem", "pktm", "pgom", "pdem", "iem"],
+  "modules": [
+    "pem",
+    "prm",
+    "tem",
+    "pktm",
+    "pgom",
+    "pdem",
+    "iem"
+  ],
   "tags": {
     "identity": "单位元/不改变状态",
     "load_up": "B↑（负荷/量/强度增加）",
@@ -63,112 +71,588 @@
   },
   "basic_ops": {
     "pem": {
-      "Identity": ["identity"],
-      "Metastasis": ["component_up", "boundary_up", "fidelity_down", "load_down"],
-      "Apoptosis": ["load_down", "component_down", "boundary_down", "fidelity_up"],
-      "Inflammation": ["inflammation", "load_up", "boundary_up", "fidelity_down"],
-      "Carcinogenesis": ["mutation", "load_up", "boundary_up", "fidelity_down"]
+      "Identity": [
+        "identity"
+      ],
+      "Metastasis": [
+        "component_up",
+        "boundary_up",
+        "fidelity_down",
+        "load_down"
+      ],
+      "Apoptosis": [
+        "load_down",
+        "component_down",
+        "boundary_down",
+        "fidelity_up"
+      ],
+      "Inflammation": [
+        "inflammation",
+        "load_up",
+        "boundary_up",
+        "fidelity_down"
+      ],
+      "Carcinogenesis": [
+        "mutation",
+        "load_up",
+        "boundary_up",
+        "fidelity_down"
+      ]
     },
     "prm": {
-      "Identity": ["identity"],
-      "Ingest": ["load_up", "boundary_up", "fidelity_up", "component_up"],
-      "Exercise": ["load_down", "boundary_down", "fidelity_up"],
-      "Hormone": ["activate", "repress"],
-      "Proliferation": ["proliferate", "component_up", "boundary_up", "load_up", "fidelity_down"],
-      "Adaptation": ["repair", "load_down", "boundary_down", "fidelity_up", "component_down"],
-      "Stimulus": ["activate", "load_up", "boundary_up", "fidelity_down"]
+      "Identity": [
+        "identity"
+      ],
+      "Ingest": [
+        "load_up",
+        "boundary_up",
+        "fidelity_up",
+        "component_up"
+      ],
+      "Exercise": [
+        "load_down",
+        "boundary_down",
+        "fidelity_up"
+      ],
+      "Hormone": [
+        "activate",
+        "repress"
+      ],
+      "Proliferation": [
+        "proliferate",
+        "component_up",
+        "boundary_up",
+        "load_up",
+        "fidelity_down"
+      ],
+      "Adaptation": [
+        "repair",
+        "load_down",
+        "boundary_down",
+        "fidelity_up",
+        "component_down"
+      ],
+      "Stimulus": [
+        "activate",
+        "load_up",
+        "boundary_up",
+        "fidelity_down"
+      ]
     },
     "tem": {
-      "Identity": ["identity"],
-      "Exposure": ["dose", "damage", "load_up", "boundary_up", "fidelity_down"],
-      "Absorption": ["absorb", "load_up", "boundary_up", "fidelity_down"],
-      "Distribution": ["distribute", "component_up", "boundary_up", "load_up", "fidelity_down"],
-      "Lesion": ["damage", "component_up", "boundary_up", "load_up", "fidelity_down"],
-      "Inflammation": ["inflammation", "load_up", "boundary_up", "fidelity_down"],
-      "Detox": ["repair", "load_down", "boundary_down", "fidelity_up"],
-      "Repair": ["repair", "load_down", "boundary_down", "fidelity_up", "component_down"]
+      "Identity": [
+        "identity"
+      ],
+      "Exposure": [
+        "dose",
+        "damage",
+        "load_up",
+        "boundary_up",
+        "fidelity_down"
+      ],
+      "Absorption": [
+        "absorb",
+        "load_up",
+        "boundary_up",
+        "fidelity_down"
+      ],
+      "Distribution": [
+        "distribute",
+        "component_up",
+        "boundary_up",
+        "load_up",
+        "fidelity_down"
+      ],
+      "Lesion": [
+        "damage",
+        "component_up",
+        "boundary_up",
+        "load_up",
+        "fidelity_down"
+      ],
+      "Inflammation": [
+        "inflammation",
+        "load_up",
+        "boundary_up",
+        "fidelity_down"
+      ],
+      "Detox": [
+        "repair",
+        "load_down",
+        "boundary_down",
+        "fidelity_up"
+      ],
+      "Repair": [
+        "repair",
+        "load_down",
+        "boundary_down",
+        "fidelity_up",
+        "component_down"
+      ]
     },
     "pktm": {
-      "Identity": ["identity"],
-      "Dose": ["dose", "load_up", "boundary_up", "fidelity_down"],
-      "Absorb": ["absorb", "load_up", "boundary_up", "fidelity_down"],
-      "Distribute": ["distribute", "component_up", "boundary_up", "load_up"],
-      "Metabolize": ["metabolize", "load_down", "boundary_down", "fidelity_up"],
-      "Excrete": ["excrete", "load_down", "boundary_down", "fidelity_up"],
-      "Bind": ["bind", "fidelity_up"],
-      "Transport": ["transport", "boundary_up"]
+      "Identity": [
+        "identity"
+      ],
+      "Dose": [
+        "dose",
+        "load_up",
+        "boundary_up",
+        "fidelity_down"
+      ],
+      "Absorb": [
+        "absorb",
+        "load_up",
+        "boundary_up",
+        "fidelity_down"
+      ],
+      "Distribute": [
+        "distribute",
+        "component_up",
+        "boundary_up",
+        "load_up"
+      ],
+      "Metabolize": [
+        "metabolize",
+        "load_down",
+        "boundary_down",
+        "fidelity_up"
+      ],
+      "Excrete": [
+        "excrete",
+        "load_down",
+        "boundary_down",
+        "fidelity_up"
+      ],
+      "Bind": [
+        "bind",
+        "fidelity_up"
+      ],
+      "Transport": [
+        "transport",
+        "boundary_up"
+      ]
     },
     "pgom": {
-      "Identity": ["identity"],
-      "Activate": ["activate", "load_up", "boundary_up", "fidelity_up"],
-      "Repress": ["repress", "load_down", "boundary_down", "fidelity_down"],
-      "Mutation": ["mutation", "component_up", "boundary_up", "fidelity_down"],
-      "RepairGenome": ["repair", "load_down", "boundary_down", "fidelity_up", "component_down"],
-      "EpigeneticMod": ["activate", "repress"],
-      "PathwayInduction": ["activate", "load_up", "boundary_up", "fidelity_up"],
-      "PathwayInhibition": ["repress", "load_down", "boundary_down", "fidelity_down"]
+      "Identity": [
+        "identity"
+      ],
+      "Activate": [
+        "activate",
+        "load_up",
+        "boundary_up",
+        "fidelity_up"
+      ],
+      "Repress": [
+        "repress",
+        "load_down",
+        "boundary_down",
+        "fidelity_down"
+      ],
+      "Mutation": [
+        "mutation",
+        "component_up",
+        "boundary_up",
+        "fidelity_down"
+      ],
+      "RepairGenome": [
+        "repair",
+        "load_down",
+        "boundary_down",
+        "fidelity_up",
+        "component_down"
+      ],
+      "EpigeneticMod": [
+        "activate",
+        "repress"
+      ],
+      "PathwayInduction": [
+        "activate",
+        "load_up",
+        "boundary_up",
+        "fidelity_up"
+      ],
+      "PathwayInhibition": [
+        "repress",
+        "load_down",
+        "boundary_down",
+        "fidelity_down"
+      ]
     },
     "pdem": {
-      "Identity": ["identity"],
-      "Bind": ["bind", "load_up", "boundary_up", "fidelity_up"],
-      "Signal": ["signal", "load_up", "boundary_up", "fidelity_up"],
-      "Desensitization": ["desens", "load_down", "boundary_down", "fidelity_down"],
-      "Antagonist": ["antagonist", "load_down", "boundary_down", "fidelity_down"],
-      "Potentiation": ["potentiate", "load_up", "boundary_up", "fidelity_up"],
-      "InverseAgonist": ["inverse_agonist", "load_down", "boundary_down", "fidelity_down"]
+      "Identity": [
+        "identity"
+      ],
+      "Bind": [
+        "bind",
+        "load_up",
+        "boundary_up",
+        "fidelity_up"
+      ],
+      "Signal": [
+        "signal",
+        "load_up",
+        "boundary_up",
+        "fidelity_up"
+      ],
+      "Desensitization": [
+        "desens",
+        "load_down",
+        "boundary_down",
+        "fidelity_down"
+      ],
+      "Antagonist": [
+        "antagonist",
+        "load_down",
+        "boundary_down",
+        "fidelity_down"
+      ],
+      "Potentiation": [
+        "potentiate",
+        "load_up",
+        "boundary_up",
+        "fidelity_up"
+      ],
+      "InverseAgonist": [
+        "inverse_agonist",
+        "load_down",
+        "boundary_down",
+        "fidelity_down"
+      ]
     },
     "iem": {
-      "Identity": ["identity"],
-      "Activate": ["activate", "load_up", "boundary_up", "fidelity_up"],
-      "Suppress": ["repress", "load_down", "boundary_down", "fidelity_down"],
-      "Proliferate": ["proliferate", "component_up", "boundary_up", "load_up"],
-      "Differentiate": ["differentiate", "fidelity_up", "boundary_up"],
-      "CytokineRelease": ["cytokine", "load_up", "boundary_up", "fidelity_down", "component_up"],
-      "Memory": ["memory", "repair", "load_down", "boundary_down", "fidelity_up", "component_down"]
+      "Identity": [
+        "identity"
+      ],
+      "Activate": [
+        "activate",
+        "load_up",
+        "boundary_up",
+        "fidelity_up"
+      ],
+      "Suppress": [
+        "repress",
+        "load_down",
+        "boundary_down",
+        "fidelity_down"
+      ],
+      "Proliferate": [
+        "proliferate",
+        "component_up",
+        "boundary_up",
+        "load_up"
+      ],
+      "Differentiate": [
+        "differentiate",
+        "fidelity_up",
+        "boundary_up"
+      ],
+      "CytokineRelease": [
+        "cytokine",
+        "load_up",
+        "boundary_up",
+        "fidelity_down",
+        "component_up"
+      ],
+      "Memory": [
+        "memory",
+        "repair",
+        "load_down",
+        "boundary_down",
+        "fidelity_up",
+        "component_down"
+      ]
     }
   },
   "crosswalk_by_tag": {
-    "activate": {"pgom": ["Activate", "PathwayInduction"], "prm": ["Stimulus", "Hormone"], "iem": ["Activate"], "pdem": ["Signal", "Potentiation"], "pem": [], "tem": [], "pktm": []},
-    "repress": {"pgom": ["Repress", "PathwayInhibition"], "iem": ["Suppress"], "pdem": ["Antagonist"], "prm": ["Hormone"], "pem": [], "tem": [], "pktm": []},
-    "proliferate": {"prm": ["Proliferation"], "iem": ["Proliferate"], "pgom": ["Mutation"], "pem": ["Metastasis"], "tem": ["Distribution", "Lesion"], "pktm": ["Distribute"], "pdem": []},
-    "repair": {"tem": ["Detox", "Repair"], "pgom": ["RepairGenome"], "prm": ["Adaptation"], "pem": ["Apoptosis"], "iem": ["Memory"], "pktm": ["Metabolize", "Excrete"], "pdem": []},
-    "inflammation": {"pem": ["Inflammation"], "tem": ["Inflammation"], "iem": ["CytokineRelease"], "prm": ["Stimulus"], "pgom": [], "pktm": [], "pdem": []},
-    "damage": {"tem": ["Lesion", "Exposure"], "pem": ["Carcinogenesis"], "pgom": ["Mutation"], "iem": ["CytokineRelease"], "prm": [], "pktm": ["Dose"], "pdem": ["InverseAgonist"]},
-    "bind": {"pdem": ["Bind"], "pktm": ["Bind"], "pgom": [], "iem": [], "prm": [], "tem": [], "pem": []},
-    "signal": {"pdem": ["Signal"], "pgom": ["PathwayInduction"], "iem": ["Activate"], "prm": [], "tem": [], "pktm": []},
-    "desens": {"pdem": ["Desensitization"], "iem": ["Suppress"], "prm": ["Adaptation"], "tem": [], "pgom": [], "pktm": [], "pem": []},
-    "dose": {"pktm": ["Dose"], "tem": ["Exposure"], "prm": ["Ingest"], "pdem": [], "pgom": [], "iem": [], "pem": []}
+    "activate": {
+      "pgom": [
+        "Activate",
+        "PathwayInduction"
+      ],
+      "prm": [
+        "Stimulus",
+        "Hormone"
+      ],
+      "iem": [
+        "Activate"
+      ],
+      "pdem": [
+        "Signal",
+        "Potentiation"
+      ],
+      "pem": [],
+      "tem": [],
+      "pktm": []
+    },
+    "repress": {
+      "pgom": [
+        "Repress",
+        "PathwayInhibition"
+      ],
+      "iem": [
+        "Suppress"
+      ],
+      "pdem": [
+        "Antagonist"
+      ],
+      "prm": [
+        "Hormone"
+      ],
+      "pem": [],
+      "tem": [],
+      "pktm": []
+    },
+    "proliferate": {
+      "prm": [
+        "Proliferation"
+      ],
+      "iem": [
+        "Proliferate"
+      ],
+      "pgom": [
+        "Mutation"
+      ],
+      "pem": [
+        "Metastasis"
+      ],
+      "tem": [
+        "Distribution",
+        "Lesion"
+      ],
+      "pktm": [
+        "Distribute"
+      ],
+      "pdem": []
+    },
+    "repair": {
+      "tem": [
+        "Detox",
+        "Repair"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ],
+      "prm": [
+        "Adaptation"
+      ],
+      "pem": [
+        "Apoptosis"
+      ],
+      "iem": [
+        "Memory"
+      ],
+      "pktm": [
+        "Metabolize",
+        "Excrete"
+      ],
+      "pdem": []
+    },
+    "inflammation": {
+      "pem": [
+        "Inflammation"
+      ],
+      "tem": [
+        "Inflammation"
+      ],
+      "iem": [
+        "CytokineRelease"
+      ],
+      "prm": [
+        "Stimulus"
+      ],
+      "pgom": [],
+      "pktm": [],
+      "pdem": []
+    },
+    "damage": {
+      "tem": [
+        "Lesion",
+        "Exposure"
+      ],
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "pgom": [
+        "Mutation"
+      ],
+      "iem": [
+        "CytokineRelease"
+      ],
+      "prm": [],
+      "pktm": [
+        "Dose"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "bind": {
+      "pdem": [
+        "Bind"
+      ],
+      "pktm": [
+        "Bind"
+      ],
+      "pgom": [],
+      "iem": [],
+      "prm": [],
+      "tem": [],
+      "pem": []
+    },
+    "signal": {
+      "pdem": [
+        "Signal"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ],
+      "iem": [
+        "Activate"
+      ],
+      "prm": [],
+      "tem": [],
+      "pktm": []
+    },
+    "desens": {
+      "pdem": [
+        "Desensitization"
+      ],
+      "iem": [
+        "Suppress"
+      ],
+      "prm": [
+        "Adaptation"
+      ],
+      "tem": [],
+      "pgom": [],
+      "pktm": [],
+      "pem": []
+    },
+    "dose": {
+      "pktm": [
+        "Dose"
+      ],
+      "tem": [
+        "Exposure"
+      ],
+      "prm": [
+        "Ingest"
+      ],
+      "pdem": [],
+      "pgom": [],
+      "iem": [],
+      "pem": []
+    }
   },
   "canonical_packages": {
     "adme_pipeline": {
       "说明": "药代/暴露到清除的标准流程（仅基本算子）。",
-      "pktm": ["Dose", "Absorb", "Distribute", "Metabolize", "Excrete"],
-      "tem": ["Exposure", "Absorption", "Distribution", "Detox"],
-      "pdem": ["Bind", "Signal", "Desensitization"],
-      "pgom": ["Activate", "PathwayInduction", "RepairGenome"],
-      "iem": ["Activate", "Proliferate", "Memory"],
-      "prm": ["Stimulus", "Adaptation"],
-      "pem": ["Inflammation", "Apoptosis"]
+      "pktm": [
+        "Dose",
+        "Absorb",
+        "Distribute",
+        "Metabolize",
+        "Excrete"
+      ],
+      "tem": [
+        "Exposure",
+        "Absorption",
+        "Distribution",
+        "Detox"
+      ],
+      "pdem": [
+        "Bind",
+        "Signal",
+        "Desensitization"
+      ],
+      "pgom": [
+        "Activate",
+        "PathwayInduction",
+        "RepairGenome"
+      ],
+      "iem": [
+        "Activate",
+        "Proliferate",
+        "Memory"
+      ],
+      "prm": [
+        "Stimulus",
+        "Adaptation"
+      ],
+      "pem": [
+        "Inflammation",
+        "Apoptosis"
+      ]
     },
     "damage_heal": {
       "说明": "损伤-炎症-修复的普适时序（仅基本算子）。",
-      "tem": ["Lesion", "Inflammation", "Detox", "Repair"],
-      "pem": ["Inflammation", "Apoptosis"],
-      "iem": ["CytokineRelease", "Suppress", "Memory"],
-      "pgom": ["Mutation", "RepairGenome"],
-      "prm": ["Stimulus", "Adaptation"],
-      "pktm": ["Dose", "Metabolize", "Excrete"],
-      "pdem": ["InverseAgonist", "Potentiation"]
+      "tem": [
+        "Lesion",
+        "Inflammation",
+        "Detox",
+        "Repair"
+      ],
+      "pem": [
+        "Inflammation",
+        "Apoptosis"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Suppress",
+        "Memory"
+      ],
+      "pgom": [
+        "Mutation",
+        "RepairGenome"
+      ],
+      "prm": [
+        "Stimulus",
+        "Adaptation"
+      ],
+      "pktm": [
+        "Dose",
+        "Metabolize",
+        "Excrete"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Potentiation"
+      ]
     },
     "activation_signal": {
       "说明": "激活-信号-去敏/拮抗的效应链（仅基本算子）。",
-      "pdem": ["Bind", "Signal", "Desensitization"],
-      "pgom": ["Activate", "PathwayInduction", "PathwayInhibition"],
-      "iem": ["Activate", "Differentiate", "Suppress"],
-      "prm": ["Stimulus", "Adaptation"],
-      "tem": ["Inflammation", "Detox"],
-      "pktm": ["Bind", "Transport"],
-      "pem": ["Inflammation", "Apoptosis"]
+      "pdem": [
+        "Bind",
+        "Signal",
+        "Desensitization"
+      ],
+      "pgom": [
+        "Activate",
+        "PathwayInduction",
+        "PathwayInhibition"
+      ],
+      "iem": [
+        "Activate",
+        "Differentiate",
+        "Suppress"
+      ],
+      "prm": [
+        "Stimulus",
+        "Adaptation"
+      ],
+      "tem": [
+        "Inflammation",
+        "Detox"
+      ],
+      "pktm": [
+        "Bind",
+        "Transport"
+      ],
+      "pem": [
+        "Inflammation",
+        "Apoptosis"
+      ]
     }
   },
   "canonical_packages_desc": {
@@ -178,15 +662,31 @@
   },
   "powersets": {
     "pem": {
-      "base": ["Inflammation", "Apoptosis", "Metastasis", "Carcinogenesis", "Identity"],
+      "base": [
+        "Inflammation",
+        "Apoptosis",
+        "Metastasis",
+        "Carcinogenesis",
+        "Identity"
+      ],
       "max_len": 3,
-      "constraints": {"no_consecutive_duplicate": true, "skip_identity": true},
+      "constraints": {
+        "no_consecutive_duplicate": true,
+        "skip_identity": true
+      },
       "families": {
         "repair_path": [
-          ["Inflammation", "Apoptosis"]
+          [
+            "Inflammation",
+            "Apoptosis"
+          ]
         ],
         "progression": [
-          ["Inflammation", "Carcinogenesis", "Metastasis"]
+          [
+            "Inflammation",
+            "Carcinogenesis",
+            "Metastasis"
+          ]
         ]
       },
       "notes": "PEM 以病理负荷/边界/单元/保真为核心观测。常用序列体现炎症驱动的损伤进展与凋亡型修复。",
@@ -199,8 +699,19 @@
           "name": "progress_heal",
           "chain": [
             "Inflammation",
-            {"choice": ["Carcinogenesis", "Metastasis", "Identity"]},
-            {"choice": ["Apoptosis", "Identity"]}
+            {
+              "choice": [
+                "Carcinogenesis",
+                "Metastasis",
+                "Identity"
+              ]
+            },
+            {
+              "choice": [
+                "Apoptosis",
+                "Identity"
+              ]
+            }
           ]
         }
       ],
@@ -208,20 +719,40 @@
         "progress_heal": "从炎症出发，允许进入进展分支或保持原状，随后进入修复/保持。"
       }
     },
-    
     "prm": {
-      "base": ["Ingest", "Exercise", "Hormone", "Proliferation", "Adaptation", "Stimulus", "Identity"],
+      "base": [
+        "Ingest",
+        "Exercise",
+        "Hormone",
+        "Proliferation",
+        "Adaptation",
+        "Stimulus",
+        "Identity"
+      ],
       "max_len": 3,
-      "constraints": {"no_consecutive_duplicate": true, "skip_identity": true},
+      "constraints": {
+        "no_consecutive_duplicate": true,
+        "skip_identity": true
+      },
       "families": {
         "performance": [
-          ["Ingest", "Exercise", "Adaptation"]
+          [
+            "Ingest",
+            "Exercise",
+            "Adaptation"
+          ]
         ],
         "recovery": [
-          ["Stimulus", "Adaptation"]
+          [
+            "Stimulus",
+            "Adaptation"
+          ]
         ],
         "hormonal_mod": [
-          ["Hormone", "Adaptation"]
+          [
+            "Hormone",
+            "Adaptation"
+          ]
         ]
       },
       "notes": "PRM 强调能量/边界/保真的协同调控，常用链路体现‘摄入-运动-适应’与激素调谐。",
@@ -235,7 +766,13 @@
           "name": "train_recover",
           "chain": [
             "Ingest",
-            {"repeat": {"op": "Exercise", "min": 1, "max": 3}},
+            {
+              "repeat": {
+                "op": "Exercise",
+                "min": 1,
+                "max": 3
+              }
+            },
             "Adaptation"
           ]
         }
@@ -244,17 +781,35 @@
         "train_recover": "典型‘补给-训练-恢复’循环，训练强度通过重复次数控制。"
       }
     },
-    
     "tem": {
-      "base": ["Exposure", "Absorption", "Distribution", "Lesion", "Inflammation", "Detox", "Repair", "Identity"],
+      "base": [
+        "Exposure",
+        "Absorption",
+        "Distribution",
+        "Lesion",
+        "Inflammation",
+        "Detox",
+        "Repair",
+        "Identity"
+      ],
       "max_len": 3,
-      "constraints": {"no_consecutive_duplicate": true, "skip_identity": true},
+      "constraints": {
+        "no_consecutive_duplicate": true,
+        "skip_identity": true
+      },
       "families": {
         "insult": [
-          ["Exposure", "Lesion", "Inflammation"]
+          [
+            "Exposure",
+            "Lesion",
+            "Inflammation"
+          ]
         ],
         "detox_repair": [
-          ["Detox", "Repair"]
+          [
+            "Detox",
+            "Repair"
+          ]
         ]
       },
       "notes": "TEM 关注外源损伤与内源反应，常用链路体现急性损伤后的炎症与解毒/修复。",
@@ -266,9 +821,19 @@
         {
           "name": "insult_detox",
           "chain": [
-            {"choice": ["Exposure", "Lesion"]},
+            {
+              "choice": [
+                "Exposure",
+                "Lesion"
+              ]
+            },
             "Inflammation",
-            {"choice": ["Detox", "Repair"]}
+            {
+              "choice": [
+                "Detox",
+                "Repair"
+              ]
+            }
           ]
         }
       ],
@@ -276,17 +841,37 @@
         "insult_detox": "损伤路径（暴露/病灶）后进入炎症期，随后选择解毒或修复。"
       }
     },
-    
     "pktm": {
-      "base": ["Dose", "Absorb", "Distribute", "Metabolize", "Excrete", "Bind", "Transport", "Identity"],
+      "base": [
+        "Dose",
+        "Absorb",
+        "Distribute",
+        "Metabolize",
+        "Excrete",
+        "Bind",
+        "Transport",
+        "Identity"
+      ],
       "max_len": 4,
-      "constraints": {"no_consecutive_duplicate": true, "skip_identity": true},
+      "constraints": {
+        "no_consecutive_duplicate": true,
+        "skip_identity": true
+      },
       "families": {
         "adme": [
-          ["Dose", "Absorb", "Distribute", "Metabolize", "Excrete"]
+          [
+            "Dose",
+            "Absorb",
+            "Distribute",
+            "Metabolize",
+            "Excrete"
+          ]
         ],
         "binding_transport": [
-          ["Bind", "Transport"]
+          [
+            "Bind",
+            "Transport"
+          ]
         ]
       },
       "notes": "PKTM 为 ADME/转运视角，常用链路为 ADME 管线与结合-转运。",
@@ -301,8 +886,18 @@
             "Dose",
             "Absorb",
             "Distribute",
-            {"choice": ["Metabolize", "Identity"]},
-            {"choice": ["Excrete", "Identity"]}
+            {
+              "choice": [
+                "Metabolize",
+                "Identity"
+              ]
+            },
+            {
+              "choice": [
+                "Excrete",
+                "Identity"
+              ]
+            }
           ]
         }
       ],
@@ -310,20 +905,38 @@
         "adme_chain": "ADME 主链，允许在代谢/排泄处保持（Identity）以模拟滞留。"
       }
     },
-    
     "pgom": {
-      "base": ["Activate", "Repress", "Mutation", "RepairGenome", "EpigeneticMod", "PathwayInduction", "PathwayInhibition", "Identity"],
+      "base": [
+        "Activate",
+        "Repress",
+        "Mutation",
+        "RepairGenome",
+        "EpigeneticMod",
+        "PathwayInduction",
+        "PathwayInhibition",
+        "Identity"
+      ],
       "max_len": 3,
-      "constraints": {"no_consecutive_duplicate": true, "skip_identity": true},
+      "constraints": {
+        "no_consecutive_duplicate": true,
+        "skip_identity": true
+      },
       "families": {
         "activation": [
-          ["Activate", "PathwayInduction"]
+          [
+            "Activate",
+            "PathwayInduction"
+          ]
         ],
         "repair": [
-          ["RepairGenome"]
+          [
+            "RepairGenome"
+          ]
         ],
         "inhibition": [
-          ["PathwayInhibition"]
+          [
+            "PathwayInhibition"
+          ]
         ]
       },
       "notes": "PGOM 聚焦基因/通路调控，常用链路体现激活-诱导与修复/抑制。",
@@ -337,8 +950,18 @@
           "name": "activation_cycle",
           "chain": [
             "Activate",
-            {"choice": ["PathwayInduction", "EpigeneticMod"]},
-            {"choice": ["RepairGenome", "Identity"]}
+            {
+              "choice": [
+                "PathwayInduction",
+                "EpigeneticMod"
+              ]
+            },
+            {
+              "choice": [
+                "RepairGenome",
+                "Identity"
+              ]
+            }
           ]
         }
       ],
@@ -346,20 +969,37 @@
         "activation_cycle": "激活后选择诱导或表观修饰，随后进入修复或保持。"
       }
     },
-    
     "pdem": {
-      "base": ["Bind", "Signal", "Desensitization", "Antagonist", "Potentiation", "InverseAgonist", "Identity"],
+      "base": [
+        "Bind",
+        "Signal",
+        "Desensitization",
+        "Antagonist",
+        "Potentiation",
+        "InverseAgonist",
+        "Identity"
+      ],
       "max_len": 3,
-      "constraints": {"no_consecutive_duplicate": true, "skip_identity": true},
+      "constraints": {
+        "no_consecutive_duplicate": true,
+        "skip_identity": true
+      },
       "families": {
         "activation_signal": [
-          ["Bind", "Signal"]
+          [
+            "Bind",
+            "Signal"
+          ]
         ],
         "tolerance": [
-          ["Desensitization"]
+          [
+            "Desensitization"
+          ]
         ],
         "block": [
-          ["Antagonist"]
+          [
+            "Antagonist"
+          ]
         ]
       },
       "notes": "PDEM 对应药效动力学，常用链路体现结合-信号-去敏/拮抗的效应链。",
@@ -374,7 +1014,12 @@
           "chain": [
             "Bind",
             "Signal",
-            {"choice": ["Desensitization", "Antagonist"]}
+            {
+              "choice": [
+                "Desensitization",
+                "Antagonist"
+              ]
+            }
           ]
         }
       ],
@@ -382,20 +1027,41 @@
         "activation_tolerance": "结合-信号后进入去敏或拮抗分支。"
       }
     },
-    
     "iem": {
-      "base": ["Activate", "Suppress", "Proliferate", "Differentiate", "CytokineRelease", "Memory", "Identity"],
+      "base": [
+        "Activate",
+        "Suppress",
+        "Proliferate",
+        "Differentiate",
+        "CytokineRelease",
+        "Memory",
+        "Identity"
+      ],
       "max_len": 3,
-      "constraints": {"no_consecutive_duplicate": true, "skip_identity": true},
+      "constraints": {
+        "no_consecutive_duplicate": true,
+        "skip_identity": true
+      },
       "families": {
         "immune_response": [
-          ["Activate", "Proliferate", "CytokineRelease"]
+          [
+            "Activate",
+            "Proliferate",
+            "CytokineRelease"
+          ]
         ],
         "resolution": [
-          ["Suppress", "Memory"]
+          [
+            "Suppress",
+            "Memory"
+          ]
         ],
         "maturation": [
-          ["Activate", "Differentiate", "Memory"]
+          [
+            "Activate",
+            "Differentiate",
+            "Memory"
+          ]
         ]
       },
       "notes": "IEM 聚焦免疫识别-效应-分辨-记忆的全链路过程。",
@@ -410,8 +1076,18 @@
           "chain": [
             "Activate",
             "Proliferate",
-            {"choice": ["CytokineRelease", "Identity"]},
-            {"choice": ["Memory", "Suppress"]}
+            {
+              "choice": [
+                "CytokineRelease",
+                "Identity"
+              ]
+            },
+            {
+              "choice": [
+                "Memory",
+                "Suppress"
+              ]
+            }
           ]
         }
       ],
@@ -419,21 +1095,44 @@
         "response_resolution": "应答后进入释放或保持，再进入记忆/抑制以实现分辨。"
       }
     }
-  }
-  ,
+  },
   "case_packages": {
     "HIV_Therapy_Path": {
       "description": "以病理（PEM）为基底流形，构造 HIV 治疗算子包，经联络映射到药效切面（PDEM），并对六大切面给出对齐算子包。",
       "base_module": "pem",
       "notes": "病理 repair_path（Inflammation→Apoptosis）与药效拮抗链（Bind→Antagonist）语义对齐：修复对应占有+抑制；其余切面选择与稳态回归/ADME/通路抑制/解毒与免疫分辨相协调的链。",
       "sequences": {
-        "pem": ["Inflammation", "Apoptosis"],
-        "pdem": ["Bind", "Antagonist"],
-        "pktm": ["Dose", "Absorb", "Distribute", "Metabolize", "Excrete"],
-        "pgom": ["PathwayInhibition"],
-        "tem": ["Detox", "Repair"],
-        "prm": ["Stimulus", "Adaptation"],
-        "iem": ["Activate", "Differentiate", "Memory"]
+        "pem": [
+          "Inflammation",
+          "Apoptosis"
+        ],
+        "pdem": [
+          "Bind",
+          "Antagonist"
+        ],
+        "pktm": [
+          "Dose",
+          "Absorb",
+          "Distribute",
+          "Metabolize",
+          "Excrete"
+        ],
+        "pgom": [
+          "PathwayInhibition"
+        ],
+        "tem": [
+          "Detox",
+          "Repair"
+        ],
+        "prm": [
+          "Stimulus",
+          "Adaptation"
+        ],
+        "iem": [
+          "Activate",
+          "Differentiate",
+          "Memory"
+        ]
       }
     }
   }

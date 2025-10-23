@@ -224,4 +224,3 @@ def compose(*ops: PKTMOperator) -> PKTMOperator:
     if len(flat) == 1:
         return flat[0]
     return ComposedOperator(*flat)
-

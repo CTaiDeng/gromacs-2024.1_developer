@@ -5,13 +5,37 @@
       "base_module": "pem",
       "notes": "病理 repair_path（Inflammation→Apoptosis）与药效拮抗链（Bind→Antagonist）语义对齐：修复对应占有+抑制；其余切面选择与稳态回归/ADME/通路抑制/解毒与免疫分辨相协调的链。",
       "sequences": {
-        "pem": ["Inflammation","Apoptosis"],
-        "pdem": ["Bind","Antagonist"],
-        "pktm": ["Dose","Absorb","Distribute","Metabolize","Excrete"],
-        "pgom": ["PathwayInhibition"],
-        "tem": ["Detox","Repair"],
-        "prm": ["Stimulus","Adaptation"],
-        "iem": ["Activate","Differentiate","Memory"]
+        "pem": [
+          "Inflammation",
+          "Apoptosis"
+        ],
+        "pdem": [
+          "Bind",
+          "Antagonist"
+        ],
+        "pktm": [
+          "Dose",
+          "Absorb",
+          "Distribute",
+          "Metabolize",
+          "Excrete"
+        ],
+        "pgom": [
+          "PathwayInhibition"
+        ],
+        "tem": [
+          "Detox",
+          "Repair"
+        ],
+        "prm": [
+          "Stimulus",
+          "Adaptation"
+        ],
+        "iem": [
+          "Activate",
+          "Differentiate",
+          "Memory"
+        ]
       }
     }
   }

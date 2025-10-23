@@ -26,6 +26,3 @@ class SimpleBoxFloat32:
 
     def sample(self) -> torch.Tensor:
         return (self.low + (self.high - self.low) * torch.rand(self.shape)).to(torch.float32)
-
-
-

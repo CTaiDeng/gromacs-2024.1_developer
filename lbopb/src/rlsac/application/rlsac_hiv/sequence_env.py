@@ -196,5 +196,3 @@ class LBOPBSequenceEnv:
             done = True
 
         return self._vectorize(), reward, done, {"module": cur_mod}
-
-

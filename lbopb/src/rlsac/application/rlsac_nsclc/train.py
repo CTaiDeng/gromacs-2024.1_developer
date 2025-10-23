@@ -35,12 +35,18 @@ def train(config_path: str | Path | None = None, data_json: str | Path | None = 
         def __init__(self, path: Path, append: bool = False):
             self.path = path
             self.f = open(path, 'a' if append else 'w', encoding='utf-8', newline='')
+
         def write_line(self, text: str) -> None:
-            try: self.f.write(text + "\r\n"); self.f.flush()
-            except Exception: pass
+            try:
+                self.f.write(text + "\r\n"); self.f.flush()
+            except Exception:
+                pass
+
         def close(self) -> None:
-            try: self.f.flush(); self.f.close()
-            except Exception: pass
+            try:
+                self.f.flush(); self.f.close()
+            except Exception:
+                pass
 
     def dbg(msg: str) -> None:
         if debug:
@@ -79,7 +85,8 @@ def train(config_path: str | Path | None = None, data_json: str | Path | None = 
     q2 = QNetwork(obs_dim, n_actions).to(device)
     tgt_q1 = QNetwork(obs_dim, n_actions).to(device)
     tgt_q2 = QNetwork(obs_dim, n_actions).to(device)
-    tgt_q1.load_state_dict(q1.state_dict()); tgt_q2.load_state_dict(q2.state_dict())
+    tgt_q1.load_state_dict(q1.state_dict());
+    tgt_q2.load_state_dict(q2.state_dict())
     opt_pi = torch.optim.Adam(policy.parameters(), lr=lr_actor)
     opt_q1 = torch.optim.Adam(q1.parameters(), lr=lr_critic)
     opt_q2 = torch.optim.Adam(q2.parameters(), lr=lr_critic)
@@ -101,7 +108,7 @@ def train(config_path: str | Path | None = None, data_json: str | Path | None = 
     log_path = run_dir / "train.log"
     if log_to_file:
         logger = RunLogger(log_path, append=False)
-        logger.write_line(f"# TRAIN START { _pytime.strftime('%Y-%m-%d %H:%M:%S', _pytime.localtime()) }")
+        logger.write_line(f"# TRAIN START {_pytime.strftime('%Y-%m-%d %H:%M:%S', _pytime.localtime())}")
         logger.write_line(f"device={device}")
         logger.write_line(f"config={json.dumps(cfg, ensure_ascii=False)}")
 
@@ -133,12 +140,16 @@ def train(config_path: str | Path | None = None, data_json: str | Path | None = 
         if t >= update_after and t % update_every == 0 and len(buf) >= max(1, minibatch_floor):
             for upd in range(max(1, updates_per_step)):
                 s_b, a_b, r_b, s2_b, d_b = buf.sample(batch_size)
-                s_b = s_b.to(device); a_b = a_b.to(device); r_b = r_b.to(device)
-                s2_b = s2_b.to(device); d_b = d_b.to(device)
+                s_b = s_b.to(device);
+                a_b = a_b.to(device);
+                r_b = r_b.to(device)
+                s2_b = s2_b.to(device);
+                d_b = d_b.to(device)
 
                 with torch.no_grad():
                     logits2, probs2 = policy(s2_b)
-                    q1_t = tgt_q1(s2_b); q2_t = tgt_q2(s2_b)
+                    q1_t = tgt_q1(s2_b);
+                    q2_t = tgt_q2(s2_b)
                     q_min = torch.min(q1_t, q2_t)
                     logp2 = torch.log(torch.clamp(probs2, 1e-8, 1.0))
                     alpha = log_alpha.exp().detach() if learn_alpha else torch.tensor(init_alpha, device=device)
@@ -149,26 +160,37 @@ def train(config_path: str | Path | None = None, data_json: str | Path | None = 
                 q2_sa = q2(s_b).gather(1, a_b.view(-1, 1)).squeeze(1)
                 loss_q1 = F.mse_loss(q1_sa, y)
                 loss_q2 = F.mse_loss(q2_sa, y)
-                opt_q1.zero_grad(); loss_q1.backward(); opt_q1.step()
-                opt_q2.zero_grad(); loss_q2.backward(); opt_q2.step()
-                last_q1 = float(loss_q1.item()); last_q2 = float(loss_q2.item())
+                opt_q1.zero_grad();
+                loss_q1.backward();
+                opt_q1.step()
+                opt_q2.zero_grad();
+                loss_q2.backward();
+                opt_q2.step()
+                last_q1 = float(loss_q1.item());
+                last_q2 = float(loss_q2.item())
 
                 logits, probs = policy(s_b)
                 logp = torch.log(torch.clamp(probs, 1e-8, 1.0))
-                q1_pi = q1(s_b); q2_pi = q2(s_b)
+                q1_pi = q1(s_b);
+                q2_pi = q2(s_b)
                 q_pi = torch.min(q1_pi, q2_pi)
                 alpha = log_alpha.exp() if learn_alpha else torch.tensor(init_alpha, device=device)
                 loss_pi = (probs * (alpha * logp - q_pi)).sum(dim=-1).mean()
-                opt_pi.zero_grad(); loss_pi.backward(); opt_pi.step()
+                opt_pi.zero_grad();
+                loss_pi.backward();
+                opt_pi.step()
                 last_pi = float(loss_pi.item())
 
                 if learn_alpha and opt_alpha is not None:
                     ent = discrete_entropy(probs).detach()
                     loss_alpha = -(log_alpha * (target_entropy - ent).detach()).mean()
-                    opt_alpha.zero_grad(); loss_alpha.backward(); opt_alpha.step()
+                    opt_alpha.zero_grad();
+                    loss_alpha.backward();
+                    opt_alpha.step()
                     last_alpha = float(log_alpha.exp().item())
 
-                soft_update(tgt_q1, q1, tau); soft_update(tgt_q2, q2, tau)
+                soft_update(tgt_q1, q1, tau);
+                soft_update(tgt_q2, q2, tau)
             updates_done = max(1, updates_per_step)
 
         step_log(
@@ -193,6 +215,3 @@ def train(config_path: str | Path | None = None, data_json: str | Path | None = 
 
 if __name__ == "__main__":
     train()
-
-
-

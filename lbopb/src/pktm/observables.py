@@ -55,4 +55,3 @@ class Observables:
 
     def names(self) -> Iterable[str]:
         return self.funcs.keys()
-

@@ -24,10 +24,10 @@ from .state import IEMState
 
 
 def delta_phi(
-    A: IEMOperator,
-    B: IEMOperator,
-    s0: IEMState,
-    phi: Observables | None = None,
+        A: IEMOperator,
+        B: IEMOperator,
+        s0: IEMState,
+        phi: Observables | None = None,
 ) -> float:
     phi = phi or Observables.default()
     s_ab = A(B(s0))
@@ -38,10 +38,10 @@ def delta_phi(
 
 
 def non_commutativity_index(
-    A: IEMOperator,
-    B: IEMOperator,
-    s0: IEMState,
-    phi: Observables | None = None,
+        A: IEMOperator,
+        B: IEMOperator,
+        s0: IEMState,
+        phi: Observables | None = None,
 ) -> float:
     phi = phi or Observables.default()
     denom = 1.0 + sum(phi.eval_all(s0).values())
@@ -61,12 +61,12 @@ def topo_risk(s: IEMState, alpha1: float = 1.0, alpha2: float = 1.0) -> float:
 
 
 def action_cost(
-    ops: Sequence[IEMOperator],
-    s0: IEMState,
-    w_b: float = 0.8,
-    w_p: float = 0.4,
-    w_n: float = 0.2,
-    w_f: float = 1.0,
+        ops: Sequence[IEMOperator],
+        s0: IEMState,
+        w_b: float = 0.8,
+        w_p: float = 0.4,
+        w_n: float = 0.2,
+        w_f: float = 1.0,
 ) -> float:
     def penalty(prev: IEMState, cur: IEMState) -> float:
         db = max(0.0, cur.b - prev.b)
@@ -85,10 +85,10 @@ def action_cost(
 
 
 def reach_probability(
-    s0: IEMState,
-    s_star: IEMState,
-    candidate_sequences: Iterable[Sequence[IEMOperator]],
-    temperature: float = 1.0,
+        s0: IEMState,
+        s_star: IEMState,
+        candidate_sequences: Iterable[Sequence[IEMOperator]],
+        temperature: float = 1.0,
 ) -> float:
     best = None
     for seq in candidate_sequences:
@@ -98,4 +98,3 @@ def reach_probability(
         return 0.0
     t = max(1e-6, float(temperature))
     return float(exp(-best / t))
-

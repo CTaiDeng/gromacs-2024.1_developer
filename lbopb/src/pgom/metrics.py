@@ -24,10 +24,10 @@ from .state import PGOMState
 
 
 def delta_phi(
-    A: PGOMOperator,
-    B: PGOMOperator,
-    s0: PGOMState,
-    phi: Observables | None = None,
+        A: PGOMOperator,
+        B: PGOMOperator,
+        s0: PGOMState,
+        phi: Observables | None = None,
 ) -> float:
     phi = phi or Observables.default()
     s_ab = A(B(s0))
@@ -38,10 +38,10 @@ def delta_phi(
 
 
 def non_commutativity_index(
-    A: PGOMOperator,
-    B: PGOMOperator,
-    s0: PGOMState,
-    phi: Observables | None = None,
+        A: PGOMOperator,
+        B: PGOMOperator,
+        s0: PGOMState,
+        phi: Observables | None = None,
 ) -> float:
     phi = phi or Observables.default()
     denom = 1.0 + sum(phi.eval_all(s0).values())
@@ -55,12 +55,12 @@ def topo_risk(s: PGOMState, alpha1: float = 1.0, alpha2: float = 1.0) -> float:
 
 
 def action_cost(
-    ops: Sequence[PGOMOperator],
-    s0: PGOMState,
-    w_b: float = 0.5,
-    w_p: float = 0.2,
-    w_n: float = 0.1,
-    w_f: float = 0.7,
+        ops: Sequence[PGOMOperator],
+        s0: PGOMState,
+        w_b: float = 0.5,
+        w_p: float = 0.2,
+        w_n: float = 0.1,
+        w_f: float = 0.7,
 ) -> float:
     """基于表达稳定性与结构复杂度的路径代价"""
 
@@ -81,10 +81,10 @@ def action_cost(
 
 
 def reach_probability(
-    s0: PGOMState,
-    s_star: PGOMState,
-    candidate_sequences: Iterable[Sequence[PGOMOperator]],
-    temperature: float = 1.0,
+        s0: PGOMState,
+        s_star: PGOMState,
+        candidate_sequences: Iterable[Sequence[PGOMOperator]],
+        temperature: float = 1.0,
 ) -> float:
     best = None
     for seq in candidate_sequences:
@@ -94,4 +94,3 @@ def reach_probability(
         return 0.0
     t = max(1e-6, float(temperature))
     return float(exp(-best / t))
-

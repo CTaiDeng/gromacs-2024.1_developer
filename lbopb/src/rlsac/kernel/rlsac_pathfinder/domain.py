@@ -6,7 +6,6 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Callable, Dict, List, Sequence, Tuple, Type, TypeVar
 
-
 TState = TypeVar("TState")
 
 
@@ -33,7 +32,8 @@ def _pem_spec() -> DomainSpec:
 
 def _pdem_spec() -> DomainSpec:
     from lbopb.src.pdem.state import PDEMState
-    from lbopb.src.pdem.operators import Identity, Bind, Signal, Desensitization, Antagonist, Potentiation, InverseAgonist
+    from lbopb.src.pdem.operators import Identity, Bind, Signal, Desensitization, Antagonist, Potentiation, \
+        InverseAgonist
     return DomainSpec(
         name="pdem",
         state_cls=PDEMState,
@@ -57,7 +57,8 @@ def _pktm_spec() -> DomainSpec:
 
 def _pgom_spec() -> DomainSpec:
     from lbopb.src.pgom.state import PGOMState
-    from lbopb.src.pgom.operators import Identity, Activate, Repress, Mutation, RepairGenome, EpigeneticMod, PathwayInduction, PathwayInhibition
+    from lbopb.src.pgom.operators import Identity, Activate, Repress, Mutation, RepairGenome, EpigeneticMod, \
+        PathwayInduction, PathwayInhibition
     return DomainSpec(
         name="pgom",
         state_cls=PGOMState,
@@ -69,7 +70,8 @@ def _pgom_spec() -> DomainSpec:
 
 def _tem_spec() -> DomainSpec:
     from lbopb.src.tem.state import TEMState
-    from lbopb.src.tem.operators import Identity, Exposure, Absorption, Distribution, Lesion, Inflammation, Detox, Repair
+    from lbopb.src.tem.operators import Identity, Exposure, Absorption, Distribution, Lesion, Inflammation, Detox, \
+        Repair
     return DomainSpec(
         name="tem",
         state_cls=TEMState,
@@ -93,7 +95,8 @@ def _prm_spec() -> DomainSpec:
 
 def _iem_spec() -> DomainSpec:
     from lbopb.src.iem.state import IEMState
-    from lbopb.src.iem.operators import Identity, Activate, Suppress, Proliferate, Differentiate, CytokineRelease, Memory
+    from lbopb.src.iem.operators import Identity, Activate, Suppress, Proliferate, Differentiate, CytokineRelease, \
+        Memory
     return DomainSpec(
         name="iem",
         state_cls=IEMState,
@@ -120,7 +123,3 @@ def get_domain_spec(name: str) -> DomainSpec:
     if key == "iem":
         return _iem_spec()
     raise ValueError(f"Unknown domain: {name}")
-
-
-
-

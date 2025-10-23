@@ -24,7 +24,6 @@ from .sim import (
     md_qmmm_stub,
 )
 
-
 DEFAULT_CONFIG: Dict[str, Any] = {
     "design": {
         "target_name": "HIV IN",
@@ -64,12 +63,14 @@ def load_config(path: Optional[str] = None) -> Dict[str, Any]:
             cfg = json.load(f)
         # 简单合并默认值
         merged = json.loads(json.dumps(DEFAULT_CONFIG))
+
         def _merge(dst: Dict[str, Any], src: Dict[str, Any]):
             for k, v in src.items():
                 if isinstance(v, dict) and isinstance(dst.get(k), dict):
                     _merge(dst[k], v)
                 else:
                     dst[k] = v
+
         _merge(merged, cfg)
         return merged
     except Exception:
@@ -124,4 +125,3 @@ def plan_from_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
         "md": md_plan,
         "qmmm": qmmm_plan,
     }
-

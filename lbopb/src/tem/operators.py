@@ -265,4 +265,3 @@ def compose(*ops: TEMOperator) -> TEMOperator:
     if len(flat) == 1:
         return flat[0]
     return ComposedOperator(*flat)
-

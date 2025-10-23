@@ -32,7 +32,6 @@ from lbopb.src.tem import action_cost as tem_cost
 from lbopb.src.prm import action_cost as prm_cost
 from lbopb.src.iem import action_cost as iem_cost
 
-
 MODULES: List[str] = ["pem", "pdem", "pktm", "pgom", "tem", "prm", "iem"]
 
 
@@ -117,16 +116,17 @@ class LBOPBConnectorEnv:
     """
 
     def __init__(
-        self,
-        *,
-        packages_dir: str | Path | None = None,
-        cost_lambda: float = 0.2,
-        consistency_bonus: float = 1.0,
-        inconsistency_penalty: float = 1.0,
-        eps_change: float = 1e-3,
-        init_states: Optional[Mapping[str, Any]] = None,
+            self,
+            *,
+            packages_dir: str | Path | None = None,
+            cost_lambda: float = 0.2,
+            consistency_bonus: float = 1.0,
+            inconsistency_penalty: float = 1.0,
+            eps_change: float = 1e-3,
+            init_states: Optional[Mapping[str, Any]] = None,
     ) -> None:
-        self.packages_dir = Path(packages_dir) if packages_dir else (Path(__file__).resolve().parents[1] / "rlsac_pathfinder")
+        self.packages_dir = Path(packages_dir) if packages_dir else (
+                    Path(__file__).resolve().parents[1] / "rlsac_pathfinder")
         self.cost_lambda = float(cost_lambda)
         self.consistency_bonus = float(consistency_bonus)
         self.inconsistency_penalty = float(inconsistency_penalty)
@@ -260,7 +260,8 @@ class LBOPBConnectorEnv:
         base = sum(deltas.values())
         cost = sum(costs.values())
         cons = self._consistency_score(changes)
-        reward = base + self.consistency_bonus * max(0.0, cons) - self.inconsistency_penalty * max(0.0, -cons) - self.cost_lambda * cost
+        reward = base + self.consistency_bonus * max(0.0, cons) - self.inconsistency_penalty * max(0.0,
+                                                                                                   -cons) - self.cost_lambda * cost
 
         self.states = next_states
         obs = self._vectorize()
@@ -272,8 +273,3 @@ class LBOPBConnectorEnv:
             "cost": float(cost),
         }
         return obs, float(reward), bool(done), info
-
-
-
-
-
