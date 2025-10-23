@@ -34,7 +34,7 @@
 
 ## 产物
 
-- `out_connector/train_*/`: 训练日志与权重（policy/q1/q2），`action_space_meta.json`（总动作数与各域基数）
+- `out/out_connector/train_*/`: 训练日志与权重（policy/q1/q2），`action_space_meta.json`（总动作数与各域基数）
 - `lbopb/src/rlsac/kernel/rlsac_connector/law_connections.json`: 联络候选体（七元组）与评分记录
 
 > 说明：为保持与现有离散 SAC 训练脚本一致性，本实现将“七域联动选择”编码为单一离散动作。

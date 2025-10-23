@@ -11,8 +11,16 @@ from typing import Any, Dict, List
 import torch
 import torch.nn.functional as F
 
-from .env_domain import DomainPathfinderEnv, Goal
-from .domain import get_domain_spec
+try:
+    from .env_domain import DomainPathfinderEnv, Goal
+    from .domain import get_domain_spec
+except ImportError:
+    # 兼容直接脚本执行：将仓库根加入 sys.path 后用绝对导入
+    from pathlib import Path as _Path
+    import sys as _sys
+    _sys.path.insert(0, str(_Path(__file__).resolve().parents[5]))
+    from lbopb.src.rlsac.kernel.rlsac_pathfinder.env_domain import DomainPathfinderEnv, Goal
+    from lbopb.src.rlsac.kernel.rlsac_pathfinder.domain import get_domain_spec
 from lbopb.src.rlsac.application.rlsac_nsclc.models import DiscretePolicy, QNetwork
 from lbopb.src.rlsac.application.rlsac_nsclc.replay_buffer import ReplayBuffer
 from lbopb.src.rlsac.application.rlsac_nsclc.utils import soft_update, select_device_from_config, discrete_entropy
@@ -142,8 +150,9 @@ def train(config_path: str | Path | None = None) -> Path:
     logger: RunLogger | None = None
 
     # 运行目录与日志
-    repo_root = Path(__file__).resolve().parents[3]
-    base_out = repo_root / Path(cfg.get("output_dir", "out_pathfinder"))
+    repo_root = Path(__file__).resolve().parents[5]
+    out_root = repo_root / "out"
+    base_out = out_root / Path(cfg.get("output_dir", "out_pathfinder"))
     base_out.mkdir(parents=True, exist_ok=True)
     run_dir = base_out / ("train_" + str(int(_pytime.time())))
     run_dir.mkdir(parents=True, exist_ok=True)
@@ -238,6 +247,25 @@ def train(config_path: str | Path | None = None) -> Path:
     torch.save(policy.state_dict(), run_dir / "policy.pt")
     torch.save(q1.state_dict(), run_dir / "q1.pt")
     torch.save(q2.state_dict(), run_dir / "q2.pt")
+
+    # 训练结束后，自动提取算子包并写入训练目录
+    try:
+        pkg = extract_operator_package(run_dir, cfg_path)
+        domain = str(cfg.get("domain", "pem")).lower()
+        run_dict_path = run_dir / f"{domain}_operator_packages.json"
+        arr: List[Dict[str, Any]] = []
+        if run_dict_path.exists():
+            try:
+                arr = json.loads(run_dict_path.read_text(encoding="utf-8"))
+            except Exception:
+                arr = []
+        arr.append(pkg)
+        text = json.dumps(arr, ensure_ascii=False, indent=2)
+        text = text.replace("\r\n", "\n").replace("\n", "\r\n")
+        run_dict_path.write_text(text, encoding="utf-8")
+    except Exception:
+        pass
+
     print(f"Training finished. Artifacts at: {run_dir}")
     return run_dir
 

@@ -25,7 +25,7 @@
 
 ## 产物
 
-- `out_pathfinder/train_*/`：训练日志、权重（`policy.pt`、`q1.pt`、`q2.pt`）、`op_index.json`（动作索引映射）。
+- `out/out_pathfinder/train_*/`：训练日志、权重（`policy.pt`、`q1.pt`、`q2.pt`）、`op_index.json`（动作索引映射）。
 - `lbopb/src/rlsac/kernel/rlsac_pathfinder/<domain>_operator_packages.json`：辞海式存储的算子包条目数组。
 
 ## 配置关键项（示例）

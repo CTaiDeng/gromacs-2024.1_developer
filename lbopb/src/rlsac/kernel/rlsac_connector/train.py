@@ -11,7 +11,14 @@ from typing import Any, Dict, List
 import torch
 import torch.nn.functional as F
 
-from .env import LBOPBConnectorEnv
+try:
+    from .env import LBOPBConnectorEnv
+except ImportError:
+    # 兼容直接脚本执行：将仓库根加入 sys.path 后用绝对导入
+    from pathlib import Path as _Path
+    import sys as _sys
+    _sys.path.insert(0, str(_Path(__file__).resolve().parents[5]))
+    from lbopb.src.rlsac.kernel.rlsac_connector.env import LBOPBConnectorEnv
 from lbopb.src.rlsac.application.rlsac_nsclc.models import DiscretePolicy, QNetwork
 from lbopb.src.rlsac.application.rlsac_nsclc.replay_buffer import ReplayBuffer
 from lbopb.src.rlsac.application.rlsac_nsclc.utils import soft_update, select_device_from_config, discrete_entropy
@@ -115,8 +122,9 @@ def train(config_path: str | Path | None = None) -> Path:
     last_alpha = float(log_alpha.exp().item()) if learn_alpha else init_alpha
     logger: RunLogger | None = None
 
-    repo_root = Path(__file__).resolve().parents[3]
-    base_out = repo_root / Path(cfg.get("output_dir", "out_connector"))
+    repo_root = Path(__file__).resolve().parents[5]
+    out_root = repo_root / "out"
+    base_out = out_root / Path(cfg.get("output_dir", "out_connector"))
     base_out.mkdir(parents=True, exist_ok=True)
     run_dir = base_out / ("train_" + str(int(_pytime.time())))
     run_dir.mkdir(parents=True, exist_ok=True)
