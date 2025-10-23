@@ -1,0 +1,35 @@
+{
+  "debug": false,
+  "log_every_step": true,
+  "log_to_file": true,
+  "use_gpu": false,
+  "device": "cpu",
+
+  "packages_dir": "lbopb/src/rlsac/rlsac_pathfinder",
+  "cost_lambda": 0.2,
+  "consistency_bonus": 1.0,
+  "inconsistency_penalty": 1.0,
+  "eps_change": 0.001,
+
+  "learning_rate_actor": 0.0003,
+  "learning_rate_critic": 0.0003,
+  "gamma": 0.99,
+  "tau": 0.005,
+  "buffer_size": 100000,
+  "batch_size": 64,
+  "target_entropy": -4.0,
+  "learn_alpha": true,
+  "alpha": 0.2,
+  "total_steps": 5000,
+  "start_steps": 1000,
+  "update_after": 1000,
+  "update_every": 50,
+  "updates_per_step": 1,
+  "minibatch_floor": 1,
+
+  "output_dir": "out_connector"
+}
+
+
+
+

@@ -1,0 +1,42 @@
+{
+  "op2id": {
+    "Inflammation": 0,
+    "Apoptosis": 1,
+    "Bind": 2,
+    "Antagonist": 3,
+    "Dose": 4,
+    "Absorb": 5,
+    "Distribute": 6,
+    "Metabolize": 7,
+    "Excrete": 8,
+    "PathwayInhibition": 9,
+    "Detox": 10,
+    "Repair": 11,
+    "Stimulus": 12,
+    "Adaptation": 13,
+    "Activate": 14,
+    "Differentiate": 15,
+    "Memory": 16
+  },
+  "id2op": [
+    "Inflammation",
+    "Apoptosis",
+    "Bind",
+    "Antagonist",
+    "Dose",
+    "Absorb",
+    "Distribute",
+    "Metabolize",
+    "Excrete",
+    "PathwayInhibition",
+    "Detox",
+    "Repair",
+    "Stimulus",
+    "Adaptation",
+    "Activate",
+    "Differentiate",
+    "Memory"
+  ]
+}
+
+
