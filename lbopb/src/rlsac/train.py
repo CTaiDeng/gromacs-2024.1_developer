@@ -338,7 +338,7 @@ def train(
         A("<head>")
         A("  <meta charset=\"utf-8\" />")
         A("  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />")
-        A("  <title>SAC 训练报告 · {}".format(log_file.parent.name))
+        A("  <title>SAC 训练报告 · {}</title>".format(log_file.parent.name))
         A("  <script src=\"https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js\"></script>")
         A("  <style>")
         A("    :root{--bg:#0b1020;--bg2:#0f1830;--card:#141a2a;--txt:#e8efff;--muted:#9fb0d0;--good:#27ae60;--warn:#f39c12;--bad:#e74c3c}")
@@ -401,8 +401,26 @@ def train(
         A("    <script>")
         A("const STEPS = {}".format(steps))
         A("const REWARDS = {}".format([round(x, 6) for x in rewards]))
-        A("const ctx = document.getElementById('reward_chart').getContext('2d');")
-        A("new Chart(ctx, {type:'line', data:{labels:STEPS, datasets:[{label:'reward', data:REWARDS, borderColor:'#36c', pointRadius:0, tension:0.15}]}, options:{plugins:{legend:{labels:{color:'#cfe0ff'}}}, scales:{x:{ticks:{color:'#9fb0d0', display:false}}, y:{ticks:{color:'#9fb0d0'}, grid:{color:'rgba(255,255,255,.08)'}}}}});")
+        A("(function(){\n"
+          "  function drawSimpleLine(canvasId, xs, ys){\n"
+          "    var c = document.getElementById(canvasId); if(!c) return;\n"
+          "    var ctx = c.getContext('2d'); var w = c.width||c.clientWidth||600, h = c.height||c.clientHeight||160;\n"
+          "    // 适配 DPI\n"
+          "    var ratio = window.devicePixelRatio||1; if(c.width< w*ratio){ c.width = w*ratio; c.height = h*ratio; } w=c.width; h=c.height; ctx.setTransform(1,0,0,1,0,0);\n"
+          "    ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,w,h);\n"
+          "    var m=30; var min=Infinity,max=-Infinity; for(var i=0;i<ys.length;i++){var v=ys[i]; if(v<min)min=v; if(v>max)max=v;} if(!isFinite(min)||!isFinite(max)||min===max){min=0;max=1;}\n"
+          "    ctx.strokeStyle='#333'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(m,h-m); ctx.lineTo(w-m,h-m); ctx.lineTo(w-m,m); ctx.stroke();\n"
+          "    ctx.strokeStyle='#000'; ctx.lineWidth=1.5; ctx.beginPath();\n"
+          "    for(var i=0;i<ys.length;i++){ var x=m+(w-2*m)*(i/Math.max(1,ys.length-1)); var y=h-m-(h-2*m)*((ys[i]-min)/Math.max(1e-9,(max-min))); if(i===0)ctx.moveTo(x,y); else ctx.lineTo(x,y);} ctx.stroke();\n"
+          "    ctx.fillStyle='#333'; ctx.font='10px KaiTi, STKaiti, \"Noto Serif SC\", serif'; ctx.fillText(max.toFixed(3), 4, m+8); ctx.fillText(min.toFixed(3), 4, h-m-2);\n"
+          "  }\n"
+          "  try{\n"
+          "    if (window.Chart){\n"
+          "      var ctx = document.getElementById('reward_chart').getContext('2d');\n"
+          "      new Chart(ctx, {type:'line', data:{labels:STEPS, datasets:[{label:'reward', data:REWARDS, borderColor:'#36c', pointRadius:0, tension:0.15}]}, options:{plugins:{legend:{labels:{color:'#cfe0ff'}}}, scales:{x:{ticks:{color:'#9fb0d0', display:false}}, y:{ticks:{color:'#9fb0d0'}, grid:{color:'rgba(255,255,255,.08)'}}}}});\n"
+          "    } else { drawSimpleLine('reward_chart', STEPS, REWARDS); }\n"
+          "  }catch(e){ drawSimpleLine('reward_chart', STEPS, REWARDS); }\n"
+          "})();")
         A("    </script>")
         A("  </main>")
         A("</body>")
@@ -413,10 +431,20 @@ def train(
     dbg(f"配置文件: {cfg_path}")
     dbg(f"设备选择: {device}")
 
-    env = DummyEnv()
+    # 环境选择：默认 DummyEnv；当 cfg.env == 'sequence' 时，使用基于案例包的序列环境
+    env_kind = str(cfg.get("env", "dummy")).strip().lower()
+    if env_kind == "sequence":
+        try:
+            from .sequence_env import LBOPBSequenceEnv  # type: ignore
+            env = LBOPBSequenceEnv(case_json=str(mod_dir / "operator_crosswalk_train.json"))
+        except Exception as e:
+            print(f"[WARN] 加载 LBOPBSequenceEnv 失败（回退 DummyEnv）：{e}")
+            env = DummyEnv()
+    else:
+        env = DummyEnv()
     obs_dim = env.observation_space.shape[0]
     n_actions = env.action_space.high - env.action_space.low
-    dbg(f"环境初始化: obs_dim={obs_dim}, n_actions={n_actions}")
+    dbg(f"环境初始化({env_kind}): obs_dim={obs_dim}, n_actions={n_actions}")
 
     # Hyperparameters
     lr_actor = float(cfg.get("learning_rate_actor", 3e-4))
@@ -713,25 +741,34 @@ def train(
                 "    policy.load_state_dict(ckpt)\r\n"
                 "    policy.eval()\r\n"
                 "    writer = None\r\n"
+                "    writer_fh = None\r\n"
                 "    if args.csv:\r\n"
-                "        f = open(args.csv, 'w', encoding='utf-8', newline='')\r\n"
-                "        writer = csv.writer(f)\r\n"
+                "        writer_fh = open(args.csv, 'w', encoding='utf-8', newline='')\r\n"
+                "        writer = csv.writer(writer_fh)\r\n"
                 "        writer.writerow(['t','action','reward','done'])\r\n"
                 "    for ep in range(args.episodes):\r\n"
                 "        s = env.reset()\r\n"
                 "        ep_ret = 0.0\r\n"
                 "        for t in range(1, args.steps + 1):\r\n"
                 "            with torch.no_grad():\r\n"
-                "                logits, probs = policy(torch.tensor([s], dtype=torch.float32).to(device))\r\n"
+                "                # 兼容 s 为 tensor/ndarray/list 的情形\r\n"
+                "                if isinstance(s, torch.Tensor):\r\n"
+                "                    s_in = s.to(device=device, dtype=torch.float32)\r\n"
+                "                else:\r\n"
+                "                    s_in = torch.as_tensor(s, dtype=torch.float32, device=device)\r\n"
+                "                if s_in.dim() == 1: s_in = s_in.unsqueeze(0)\r\n"
+                "                logits, probs = policy(s_in)\r\n"
                 "                a = int(torch.argmax(probs, dim=-1).item())\r\n"
-                "            s2, r, d, _ = env.step(a)\r\n"
+                "            # 与训练保持一致的动作张量类型\r\n"
+                "            s2, r, d, _ = env.step(torch.tensor([a], dtype=torch.int32))\r\n"
                 "            ep_ret += float(r)\r\n"
                 "            print(f'[INFER] ep={{ep+1}} t={{t}} a={{a}} r={{r:.6f}} done={{d}}')\r\n"
                 "            if writer: writer.writerow([t, a, float(r), bool(d)])\r\n"
                 "            s = s2\r\n"
                 "            if d: break\r\n"
                 "        print(f'[INFER] episode_return={{ep_ret:.6f}}')\r\n"
-                "    if writer: writer.writerow([]); writer = None\r\n"
+                "    if writer: writer.writerow([])\r\n"
+                "    if writer_fh: writer_fh.close(); writer_fh = None\r\n"
                 "\r\n"
                 "if __name__ == '__main__':\r\n"
                 "    main()\r\n"
