@@ -6,8 +6,8 @@
 ## 使用方法
 
 - 训练：
-  - `python -m lbopb.src.rlsac.rlsac_pathfinder.train`（或在代码内调用 `train()`）。
-  - 配置文件：`lbopb/src/rlsac/rlsac_pathfinder/config.json`，通过 `domain` 指定目标域（默认 `pem`）
+  - `python -m lbopb.src.rlsac.kernel.rlsac_pathfinder.train`（或在代码内调用 `train()`）。
+  - 配置文件：`lbopb/src/rlsac/kernel/rlsac_pathfinder/config.json`，通过 `domain` 指定目标域（默认 `pem`）
 - 提取算子包（贪心解码）：
   - 训练结束后：`extract_operator_package(run_dir)` 会在同目录生成/更新 `<domain>_operator_packages.json`。
 
@@ -26,7 +26,7 @@
 ## 产物
 
 - `out_pathfinder/train_*/`：训练日志、权重（`policy.pt`、`q1.pt`、`q2.pt`）、`op_index.json`（动作索引映射）。
-- `lbopb/src/rlsac/rlsac_pathfinder/<domain>_operator_packages.json`：辞海式存储的算子包条目数组。
+- `lbopb/src/rlsac/kernel/rlsac_pathfinder/<domain>_operator_packages.json`：辞海式存储的算子包条目数组。
 
 ## 配置关键项（示例）
 
@@ -35,6 +35,7 @@
 - RL 超参：`learning_rate_* / gamma / tau / total_steps / *` 与 `out_pathfinder` 输出目录名等。
 
 > 注：本实现pem/pdem/pktm/pgom/tem/prm/iem；扩展到其他幺半群时，可复用训练框架并替换环境定义与基本算子集。
+
 
 
 

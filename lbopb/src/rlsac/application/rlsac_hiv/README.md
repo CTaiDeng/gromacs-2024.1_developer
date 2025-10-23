@@ -2,7 +2,7 @@
 
 - 独立的离散 SAC 实现，使用 `LBOPBSequenceEnv` 将 `operator_crosswalk_train.json` 的“模块→算子序列”转为训练样本。
 - 运行：
-  - `python lbopb/src/rlsac/rlsac_hiv/train.py`（配置见同目录 `config.json`）
+  - `python lbopb/src/rlsac/application/rlsac_hiv/train.py`（配置见同目录 `config.json`）
 - 产物：`out/train_*/` 下生成 `policy.pt` 等权重与日志；自动导出 `op_index.json`（op→id 对照表）。
 
 结论（更准确的表述）：
@@ -10,16 +10,16 @@
 - rlsac_hiv 并非直接“用 HIV_Therapy_Path 的 JSON 当监督样本训练”，而是“把 HIV_Therapy_Path 作为动作空间与目标干预路径的定义”，在交互式环境中在线生成训练样本 `(s, a, r, s')` 进行强化学习。
 
 具体说明：
-- 动作空间与目标路径：来自 `lbopb/src/rlsac/rlsac_hiv/operator_crosswalk_train.json` 的 `HIV_Therapy_Path` 定义了全局干预算子集合（动作空间）与各模块的目标干预序列。训练时在运行目录导出 `op_index.json`，把整数动作 id 映射到具体干预算子名（便于解释策略输出）。
-- 环境与样本：环境为 `lbopb/src/rlsac/rlsac_hiv/sequence_env.py`（SequenceEnv）。Observation 拼接为 `[module_onehot(7) | per‑module(B/P/F/N/risk)*7 | next_op_onehot(M) | pos]`；奖励为 `Δrisk − λ·cost`（risk/cost 来自各模块 metrics；`λ` 可在 `config.json` 调整）；推进规则为仅当选中动作等于“该模块目标序列的下一应选算子”时推进指针（相当于用目标路径做“教师/引导”）。样本来源是与环境交互在线产生的 `(state, action, reward, next_state, done)`，并存入回放池，JSON 本身不是监督样本。
+- 动作空间与目标路径：来自 `lbopb/src/rlsac/application/rlsac_hiv/operator_crosswalk_train.json` 的 `HIV_Therapy_Path` 定义了全局干预算子集合（动作空间）与各模块的目标干预序列。训练时在运行目录导出 `op_index.json`，把整数动作 id 映射到具体干预算子名（便于解释策略输出）。
+- 环境与样本：环境为 `lbopb/src/rlsac/application/rlsac_hiv/sequence_env.py`（SequenceEnv）。Observation 拼接为 `[module_onehot(7) | per‑module(B/P/F/N/risk)*7 | next_op_onehot(M) | pos]`；奖励为 `Δrisk − λ·cost`（risk/cost 来自各模块 metrics；`λ` 可在 `config.json` 调整）；推进规则为仅当选中动作等于“该模块目标序列的下一应选算子”时推进指针（相当于用目标路径做“教师/引导”）。样本来源是与环境交互在线产生的 `(state, action, reward, next_state, done)`，并存入回放池，JSON 本身不是监督样本。
 - 若“作为样本”指“用目标路径引导训练”：是的，SequenceEnv 把 `HIV_Therapy_Path` 的目标序列作为“样本模式/教师信号”来约束推进与奖励，但仍是 RL 的在线采样学习，不是静态标签的监督学习。
-- 离线示例（可选）：`lbopb/src/rlsac/rlsac_hiv/train_data/` 提供了 JSON 结构的 Demo 样本（演示用）；如需预填回放池，可扩展 `train.py` 读取这些样本进行 warm‑start。
+- 离线示例（可选）：`lbopb/src/rlsac/application/rlsac_hiv/train_data/` 提供了 JSON 结构的 Demo 样本（演示用）；如需预填回放池，可扩展 `train.py` 读取这些样本进行 warm‑start。
 
 说明：本包不依赖 `lbopb/src/rlsac`，内部自洽（sequence_env/models/utils/replay_buffer/train）。
 
 ## 深入解析（验证）
 
-下面解读在 `lbopb/src/rlsac/rlsac_hiv` 框架中，`operator_crosswalk_train.json` 如何被使用，以及输入/输出设计与训练数据的来源。
+下面解读在 `lbopb/src/rlsac/application/rlsac_hiv` 框架中，`operator_crosswalk_train.json` 如何被使用，以及输入/输出设计与训练数据的来源。
 
 ### 1. `operator_crosswalk_train.json` 是什么？
 
@@ -80,6 +80,7 @@ graph TD
 ```
 
 小结：`operator_crosswalk_train.json` 是“做什么”的菜单；Observation 是“当前情况”的报告；Action 是基于报告从菜单中做出的“最佳选择”的预测，目标是使长期累积奖励最大化。
+
 
 
 

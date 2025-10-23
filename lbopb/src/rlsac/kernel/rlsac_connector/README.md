@@ -6,8 +6,8 @@
 ## 使用方法
 
 - 训练：
-  - `python -m lbopb.src.rlsac.rlsac_connector.train`
-  - 配置：`lbopb/src/rlsac/rlsac_connector/config.json`（指定 `packages_dir` 指向第一阶段输出的辞海目录）
+  - `python -m lbopb.src.rlsac.kernel.rlsac_connector.train`
+  - 配置：`lbopb/src/rlsac/kernel/rlsac_connector/config.json`（指定 `packages_dir` 指向第一阶段输出的辞海目录）
 - 提取联络：
   - 训练后调用 `extract_connection(run_dir)`，在本目录生成/更新 `law_connections.json`，写入联络七元组与评分元信息。
 
@@ -29,16 +29,17 @@
 
 ## 依赖数据（七本“领域辞海”）
 
-- 目录：`lbopb/src/rlsac/rlsac_pathfinder/`
+- 目录：`lbopb/src/rlsac/kernel/rlsac_pathfinder/`
 - 文件：`<domain>_operator_packages.json`（由第一阶段 rlsac_pathfinder 生成；元素包含 `id` 与 `sequence`）
 
 ## 产物
 
 - `out_connector/train_*/`: 训练日志与权重（policy/q1/q2），`action_space_meta.json`（总动作数与各域基数）
-- `lbopb/src/rlsac/rlsac_connector/law_connections.json`: 联络候选体（七元组）与评分记录
+- `lbopb/src/rlsac/kernel/rlsac_connector/law_connections.json`: 联络候选体（七元组）与评分记录
 
 > 说明：为保持与现有离散 SAC 训练脚本一致性，本实现将“七域联动选择”编码为单一离散动作。
 > 实际可替换为多头策略（Multi-Discrete）以降低组合空间复杂度。
+
 
 
 

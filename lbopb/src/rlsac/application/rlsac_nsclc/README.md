@@ -2,7 +2,7 @@
 
 - 独立的离散 SAC 实现，使用 `NSCLCSequenceEnv` 将 `operator_crosswalk_train.json` 的“模块→算子序列”转为训练样本。
 - 运行：
-  - `python lbopb/src/rlsac/rlsac_nsclc/train.py`（配置见同目录 `config.json`）
+  - `python lbopb/src/rlsac/application/rlsac_nsclc/train.py`（配置见同目录 `config.json`）
 - 产物：`out/train_*/` 下生成 `policy.pt` 等权重与日志；自动导出 `op_index.json`（op→id 对照表）。
 
 说明：本包不依赖 `lbopb/src/rlsac`，内部自洽（sequence_env/models/utils/replay_buffer/train）。
@@ -13,7 +13,7 @@
 
 ## 深入解析（验证）
 
-下面解读在 `lbopb/src/rlsac/rlsac_nsclc` 框架中，`operator_crosswalk_train.json` 如何被使用，以及输入/输出设计与训练数据的来源。
+下面解读在 `lbopb/src/rlsac/application/rlsac_nsclc` 框架中，`operator_crosswalk_train.json` 如何被使用，以及输入/输出设计与训练数据的来源。
 
 ### 1. `operator_crosswalk_train.json` 是什么？
 
@@ -72,6 +72,7 @@ graph TD
 ```
 
 小结：`operator_crosswalk_train.json` 是“做什么”的菜单；Observation 是“当前情况”的报告；Action 是基于报告从菜单中做出的“最佳选择”的预测，目标是使长期累积奖励最大化。
+
 
 
 

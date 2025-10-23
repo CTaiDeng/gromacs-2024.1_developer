@@ -14,9 +14,9 @@ import torch.nn.functional as F
 
 from .env_domain import DomainPathfinderEnv, Goal
 from .domain import get_domain_spec
-from lbopb.src.rlsac.rlsac_nsclc.models import DiscretePolicy, QNetwork
-from lbopb.src.rlsac.rlsac_nsclc.replay_buffer import ReplayBuffer
-from lbopb.src.rlsac.rlsac_nsclc.utils import soft_update, select_device_from_config, discrete_entropy
+from lbopb.src.rlsac.application.rlsac_nsclc.models import DiscretePolicy, QNetwork
+from lbopb.src.rlsac.application.rlsac_nsclc.replay_buffer import ReplayBuffer
+from lbopb.src.rlsac.application.rlsac_nsclc.utils import soft_update, select_device_from_config, discrete_entropy
 
 
 def _load_config(cfg_path: Path) -> Dict[str, Any]:
@@ -314,6 +314,7 @@ def extract_operator_package(run_dir: str | Path, config_path: str | Path | None
 if __name__ == "__main__":
     out = train()
     print(out)
+
 
 
 

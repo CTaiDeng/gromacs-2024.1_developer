@@ -13,9 +13,9 @@ import torch
 import torch.nn.functional as F
 
 from .env import LBOPBConnectorEnv
-from lbopb.src.rlsac.rlsac_nsclc.models import DiscretePolicy, QNetwork
-from lbopb.src.rlsac.rlsac_nsclc.replay_buffer import ReplayBuffer
-from lbopb.src.rlsac.rlsac_nsclc.utils import soft_update, select_device_from_config, discrete_entropy
+from lbopb.src.rlsac.application.rlsac_nsclc.models import DiscretePolicy, QNetwork
+from lbopb.src.rlsac.application.rlsac_nsclc.replay_buffer import ReplayBuffer
+from lbopb.src.rlsac.application.rlsac_nsclc.utils import soft_update, select_device_from_config, discrete_entropy
 
 
 def _load_config(cfg_path: Path) -> Dict[str, Any]:
@@ -24,7 +24,7 @@ def _load_config(cfg_path: Path) -> Dict[str, Any]:
 
 def build_env_from_config(cfg_path: Path) -> LBOPBConnectorEnv:
     cfg = _load_config(cfg_path)
-    pk_dir = Path(cfg.get("packages_dir", "lbopb/src/rlsac/rlsac_pathfinder"))
+    pk_dir = Path(cfg.get("packages_dir", "lbopb/src/rlsac/kernel/rlsac_pathfinder"))
     cost_lambda = float(cfg.get("cost_lambda", 0.2))
     consistency_bonus = float(cfg.get("consistency_bonus", 1.0))
     inconsistency_penalty = float(cfg.get("inconsistency_penalty", 1.0))
@@ -256,6 +256,7 @@ def extract_connection(run_dir: str | Path, config_path: str | Path | None = Non
 if __name__ == "__main__":
     out = train()
     print(out)
+
 
 
 
