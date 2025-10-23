@@ -4,6 +4,8 @@
 - 日期：2025-10-23
 - 版本：v1.0.0
 
+#### ***注：“O3理论/O3元数学理论/主纤维丛版广义非交换李代数(PFB-GNLA)”相关理论参见： [作者（GaoZheng）网盘分享](https://drive.google.com/drive/folders/1lrgVtvhEq8cNal0Aa0AjeCNQaRA8WERu?usp=sharing) 或 [作者（GaoZheng）开源项目](https://github.com/CTaiDeng/open_meta_mathematical_theory) 或 [作者（GaoZheng）主页](https://mymetamathematics.blogspot.com)，欢迎访问！***
+
 ## 摘要
 本文**离散版 Soft Actor-Critic (SAC)**——制定了详细的技术需求。其核心目标是将为连续动作空间设计的标准 SAC 算法，成功适配到 LBOPB 框架特有的、由海量离散生物学算子构成的动作空间中。
 

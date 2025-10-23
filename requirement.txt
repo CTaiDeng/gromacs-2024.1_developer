@@ -22,4 +22,7 @@ pymbar==4.0.3
 matplotlib==3.10.7
 
 
+# PDF export utilities
+playwright
+
 

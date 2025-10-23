@@ -27,6 +27,33 @@ import os
 import sys
 import re
 import time as _pytime
+import urllib.request
+import urllib.error
+import json as _json
+# 确保仓库根与 my_scripts 可被导入
+try:
+    _P = Path(__file__).resolve()
+    # 默认指向 three-level-up 作为仓库根（.../repo_root）
+    _REPO_ROOT = _P.parents[3]
+    # 若目录层级与预期不符，回退到两级（.../lbopb）再探测上一层
+    if not (_REPO_ROOT / 'my_scripts').is_dir():
+        _REPO_ROOT = _P.parents[2]
+        if not (_REPO_ROOT / 'my_scripts').is_dir() and len(_P.parents) > 3:
+            _REPO_ROOT = _P.parents[3]
+    if str(_REPO_ROOT) not in sys.path:
+        sys.path.insert(0, str(_REPO_ROOT))
+    _MS = _REPO_ROOT / "my_scripts"
+    if _MS.is_dir() and str(_MS) not in sys.path:
+        sys.path.insert(0, str(_MS))
+except Exception:
+    pass
+try:
+    # 优先使用集中封装的 my_scripts.gemini_client
+    from my_scripts.gemini_client import generate_gemini_content as _gemini_generate_central
+except Exception as _e:
+    import sys as _sys
+    _sys.stderr.write(f"[WARN] import my_scripts.gemini_client failed: {_e}\n")
+    _gemini_generate_central = None
 
 # Support both package and script execution
 try:
@@ -213,6 +240,175 @@ def train(
         # Ensure CRLF
         content = ("\n".join(lines)).replace("\r\n","\n").replace("\n","\r\n")
         out_md.write_text(content, encoding='utf-8')
+
+    def _gemini_generate(prompt: str, *, api_key: str, model: str | None = None) -> str:
+        # 如已安装集中封装，直接调用（模型优先取 GEMINI_MODEL）
+        if _gemini_generate_central is not None:
+            return _gemini_generate_central(prompt, api_key=api_key, model=model)
+        # 本地兜底：从环境变量解析模型
+        if not model:
+            model = os.environ.get("GEMINI_MODEL", "gemini-2.5-pro-latest")
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+        headers = {
+            "Content-Type": "application/json; charset=utf-8",
+            "x-goog-api-key": api_key,
+        }
+        body = {"contents": [{"parts": [{"text": prompt}]}]}
+        data = _json.dumps(body).encode("utf-8")
+        req = urllib.request.Request(url, data=data, headers=headers, method="POST")
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                raw = resp.read().decode("utf-8", errors="replace")
+                jo = _json.loads(raw)
+        except urllib.error.HTTPError as e:
+            try:
+                err = e.read().decode("utf-8", errors="replace")
+            except Exception:
+                err = str(e)
+            return f"[Gemini HTTPError] {e.code}: {err}"
+        except Exception as e:
+            return f"[Gemini Error] {e}"
+        try:
+            cands = jo.get("candidates", [])
+            if not cands:
+                return _json.dumps(jo, ensure_ascii=False)
+            parts = cands[0].get("content", {}).get("parts", [])
+            texts = [p.get("text") for p in parts if p.get("text")]
+            return "\n".join(texts) if texts else _json.dumps(jo, ensure_ascii=False)
+        except Exception:
+            return _json.dumps(jo, ensure_ascii=False)
+
+    def _gen_train_html_report(log_file: Path, cfg: Dict[str, Any], out_html: Path) -> None:
+        # 解析日志，构造时间序列
+        try:
+            text = log_file.read_text(encoding='utf-8')
+        except Exception:
+            text = ''
+        pat = re.compile(r"^\[STEP\s+(?P<t>\d+)\]\s+a=(?P<a>-?\d+)\s+r=(?P<r>-?\d+\.?\d*)\s+d=(?P<d>True|False)\s+buf=(?P<buf>\d+)\s+upd=(?P<upd>\d+)\s+loss_q1=(?P<lq1>[-\.\d]+)\s+loss_q2=(?P<lq2>[-\.\d]+)\s+loss_pi=(?P<lpi>[-\.\d]+)\s+alpha=(?P<alpha>[-\.\d]+)$",
+                             re.MULTILINE)
+        steps: list[int] = []
+        rewards: list[float] = []
+        lq1_s: list[float] = []
+        lq2_s: list[float] = []
+        lpi_s: list[float] = []
+        alpha_s: list[float] = []
+        for m in pat.finditer(text):
+            try:
+                steps.append(int(m.group('t')))
+                rewards.append(float(m.group('r')))
+                if m.group('lq1') not in ('-', ''):
+                    lq1_s.append(float(m.group('lq1')))
+                if m.group('lq2') not in ('-', ''):
+                    lq2_s.append(float(m.group('lq2')))
+                if m.group('lpi') not in ('-', ''):
+                    lpi_s.append(float(m.group('lpi')))
+                if m.group('alpha') not in ('-', ''):
+                    alpha_s.append(float(m.group('alpha')))
+            except Exception:
+                continue
+        mean_r = (sum(rewards) / len(rewards)) if rewards else 0.0
+        last100 = (sum(rewards[-100:]) / max(1, len(rewards[-100:]))) if rewards else 0.0
+        last_t = steps[-1] if steps else 0
+        # Gemini 自动评价（若配置了 API Key）
+        gemini_api = os.environ.get('GEMINI_API_KEY') or os.environ.get('GOOGLE_API_KEY')
+        gemini_text: str | None = None
+        if gemini_api and not os.environ.get('NO_GEMINI'):
+            overview = {
+                'total_steps': len(rewards),
+                'updates_sum': None,
+                'avg_reward': mean_r,
+                'avg_reward_100': last100,
+                'last_step': last_t,
+                'cfg_brief': {k: cfg.get(k) for k in ['learning_rate_actor','learning_rate_critic','gamma','tau','batch_size','buffer_size','alpha','learn_alpha','target_entropy','updates_per_step'] if k in cfg}
+            }
+            prompt = (
+                "请作为强化学习/DeepRL 专家，对下述 SAC 训练运行进行结构化诊断并给出改进建议。"
+                "请返回 JSON，包含 fields: summary, stability_score, efficiency_score, risk_flags, signals, top_actions, caveats, confidence。\n"
+                "训练概览(JSON)：\n" + _json.dumps(overview, ensure_ascii=False)
+            )
+            try:
+                gemini_text = _gemini_generate(prompt, api_key=gemini_api)
+            except Exception:
+                gemini_text = None
+
+        # 生成 HTML（深色主题 + 图表）
+        L: list[str] = []; A = L.append
+        A("<!DOCTYPE html>")
+        A("<html lang=\"zh-CN\">")
+        A("<head>")
+        A("  <meta charset=\"utf-8\" />")
+        A("  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />")
+        A("  <title>SAC 训练报告 · {}".format(log_file.parent.name))
+        A("  <script src=\"https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js\"></script>")
+        A("  <style>")
+        A("    :root{--bg:#0b1020;--bg2:#0f1830;--card:#141a2a;--txt:#e8efff;--muted:#9fb0d0;--good:#27ae60;--warn:#f39c12;--bad:#e74c3c}")
+        A("    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--txt)}")
+        A("    .container{max-width:1120px;margin:0 auto;padding:24px}")
+        A("    .hero{padding:56px 24px 24px}")
+        A("    .card{background:#141a2a;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;margin:12px 0}")
+        A("    .muted{color:#9fb0d0}")
+        A("    pre{white-space:pre-wrap;background:#0d1322;border:1px solid rgba(255,255,255,.08);padding:12px;border-radius:8px}")
+        A("    /* 兼容性：若背景未渲染（某些预览器），用浅色主题避免看起来空白 */")
+        A("    .no-bg body{background:#ffffff !important;color:#111 !important}")
+        A("    .no-bg .card{background:#ffffff !important;border:1px solid #dddddd}")
+        A("    .no-bg .muted{color:#555555 !important}")
+        A("    @media print{body{background:#ffffff !important;color:#111 !important}.card{background:#fff !important;border:1px solid #ddd}.muted{color:#555 !important}}");
+        A("  </style>")
+        # 当脚本被禁用时，使用 noscript 强制浅色主题，避免白底白字看起来像空白
+        A("  <noscript><style>body{background:#fff !important;color:#111 !important}.card{background:#fff !important;border:1px solid #ddd}.muted{color:#555 !important}</style></noscript>")
+        A("</head>")
+        A("<body>")
+        A("  <header class=\"hero\"><div class=\"container\">")
+        A("    <h1>SAC 训练报告 · {}</h1>".format(log_file.parent.name))
+        A("    <div class=\"muted\">本页由训练脚本自动生成，并尝试调用 Gemini 进行自动评价（如已配置密钥）。</div>")
+        A("  </div></header>")
+        A("  <main class=\"container\">")
+        A("    <script>")
+        A("    (function(){try{var bg=getComputedStyle(document.body).backgroundImage;if(!bg||bg==='none'){document.documentElement.classList.add('no-bg');}}catch(e){}})();")
+        A("    </script>")
+        # 概览
+        A("    <section class=\"card\">")
+        A("      <h2>概览</h2>")
+        A("      <ul>")
+        A("        <li>总步数：{}</li>".format(len(rewards)))
+        A("        <li>平均奖励：{:.6f}</li>".format(mean_r))
+        A("        <li>近100步平均奖励：{:.6f}</li>".format(last100))
+        A("        <li>最后步：{}</li>".format(last_t))
+        A("      </ul>")
+        A("    </section>")
+        # 图表
+        A("    <section class=\"card\">")
+        A("      <h2>奖励趋势</h2>")
+        A("      <canvas id=\"reward_chart\" height=\"160\"></canvas>")
+        A("    </section>")
+        # LLM 评价
+        A("    <section class=\"card\">")
+        A("      <h2>Gemini 评价结果</h2>")
+        if gemini_text:
+            esc = gemini_text.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
+            A("      <pre>{}</pre>".format(esc))
+        elif not gemini_api:
+            A("      <p class=\"muted\">未检测到 GEMINI_API_KEY/GOOGLE_API_KEY，已跳过自动评价。</p>")
+        else:
+            A("      <p class=\"muted\">调用 Gemini 失败或无响应。</p>")
+        A("    </section>")
+        # 超参数
+        A("    <section class=\"card\">")
+        A("      <h2>超参数</h2>")
+        A("      <pre>{}</pre>".format(_json.dumps(cfg, ensure_ascii=False, indent=2)))
+        A("    </section>")
+        # 图表脚本
+        A("    <script>")
+        A("const STEPS = {}".format(steps))
+        A("const REWARDS = {}".format([round(x, 6) for x in rewards]))
+        A("const ctx = document.getElementById('reward_chart').getContext('2d');")
+        A("new Chart(ctx, {type:'line', data:{labels:STEPS, datasets:[{label:'reward', data:REWARDS, borderColor:'#36c', pointRadius:0, tension:0.15}]}, options:{plugins:{legend:{labels:{color:'#cfe0ff'}}}, scales:{x:{ticks:{color:'#9fb0d0', display:false}}, y:{ticks:{color:'#9fb0d0'}, grid:{color:'rgba(255,255,255,.08)'}}}}});")
+        A("    </script>")
+        A("  </main>")
+        A("</body>")
+        A("</html>")
+        content = ("\n".join(L)).replace("\r\n","\n").replace("\n","\r\n") + "\r\n"
+        out_html.write_text(content, encoding='utf-8')
 
     dbg(f"配置文件: {cfg_path}")
     dbg(f"设备选择: {device}")
@@ -467,6 +663,107 @@ def train(
             _gen_report_from_log(log_path, run_dir / "train_report.md")
         except Exception:
             pass
+        # 生成美化 HTML 报告，并尝试自动请求 Gemini
+        try:
+            _gen_train_html_report(log_path, cfg, run_dir / "train_report.html")
+        except Exception as e:
+            print(f"Warning: failed to generate HTML report: {e}")
+
+        # 输出“模型使用脚本 + 使用说明”到当前训练目录
+        try:
+            infer_py = run_dir / "run_infer.py"
+            infer_md = run_dir / "MODEL_USAGE.md"
+            _infer_src = (
+                "# SPDX-License-Identifier: GPL-3.0-only\r\n"
+                "# Copyright (C) 2010- The GROMACS Authors\r\n"
+                "# Copyright (C) 2025 GaoZheng\r\n\r\n"
+                "\"\"\"\r\n"
+                "轻量推理脚本：加载本目录的 policy.pt 并在 DummyEnv 上滚动演示。\r\n"
+                "用法：\r\n"
+                "  python run_infer.py --steps 200 --episodes 1 --device cpu\r\n"
+                "可选：--model policy.pt --csv infer_trace.csv\r\n"
+                "\"\"\"\r\n\r\n"
+                "from __future__ import annotations\r\n"
+                "import argparse, os, sys, csv\r\n"
+                "from pathlib import Path\r\n"
+                "import torch\r\n"
+                "# 尝试确保可以导入包\r\n"
+                "_P = Path(__file__).resolve()\r\n"
+                "for up in [2,3,4]:\r\n"
+                "    root = _P.parents[up] if len(_P.parents) > up else _P.parent\r\n"
+                "    if (root / 'lbopb').is_dir():\r\n"
+                "        if str(root) not in sys.path: sys.path.insert(0, str(root))\r\n"
+                "        break\r\n"
+                "from lbopb.src.rlsac.env import DummyEnv\r\n"
+                "from lbopb.src.rlsac.models import DiscretePolicy\r\n\r\n"
+                "def main():\r\n"
+                "    ap = argparse.ArgumentParser(description='SAC policy inference (DummyEnv)')\r\n"
+                "    ap.add_argument('--model', default='policy.pt')\r\n"
+                "    ap.add_argument('--steps', type=int, default=200)\r\n"
+                "    ap.add_argument('--episodes', type=int, default=1)\r\n"
+                "    ap.add_argument('--device', default='cpu')\r\n"
+                "    ap.add_argument('--csv', default='')\r\n"
+                "    args = ap.parse_args()\r\n\r\n"
+                "    device = torch.device(args.device)\r\n"
+                "    env = DummyEnv()\r\n"
+                "    obs_dim = env.observation_space.shape[0]\r\n"
+                "    n_actions = env.action_space.high - env.action_space.low\r\n"
+                "    policy = DiscretePolicy(obs_dim, n_actions).to(device)\r\n"
+                "    ckpt = torch.load(args.model, map_location=device)\r\n"
+                "    policy.load_state_dict(ckpt)\r\n"
+                "    policy.eval()\r\n"
+                "    writer = None\r\n"
+                "    if args.csv:\r\n"
+                "        f = open(args.csv, 'w', encoding='utf-8', newline='')\r\n"
+                "        writer = csv.writer(f)\r\n"
+                "        writer.writerow(['t','action','reward','done'])\r\n"
+                "    for ep in range(args.episodes):\r\n"
+                "        s = env.reset()\r\n"
+                "        ep_ret = 0.0\r\n"
+                "        for t in range(1, args.steps + 1):\r\n"
+                "            with torch.no_grad():\r\n"
+                "                logits, probs = policy(torch.tensor([s], dtype=torch.float32).to(device))\r\n"
+                "                a = int(torch.argmax(probs, dim=-1).item())\r\n"
+                "            s2, r, d, _ = env.step(a)\r\n"
+                "            ep_ret += float(r)\r\n"
+                "            print(f'[INFER] ep={{ep+1}} t={{t}} a={{a}} r={{r:.6f}} done={{d}}')\r\n"
+                "            if writer: writer.writerow([t, a, float(r), bool(d)])\r\n"
+                "            s = s2\r\n"
+                "            if d: break\r\n"
+                "        print(f'[INFER] episode_return={{ep_ret:.6f}}')\r\n"
+                "    if writer: writer.writerow([]); writer = None\r\n"
+                "\r\n"
+                "if __name__ == '__main__':\r\n"
+                "    main()\r\n"
+            )
+            infer_py.write_text(_infer_src, encoding='utf-8', newline='\r\n')
+
+            _infer_md = (
+                f"# 模型使用说明 (run: {run_dir.name})\r\n\r\n"
+                "本目录包含训练得到的策略网络（policy.pt）与推理脚本 run_infer.py，可用于在 DummyEnv 上完成快速滚动演示。\r\n\r\n"
+                "## 准备环境\r\n\r\n"
+                "```powershell\r\n"
+                "# 可选：创建虚拟环境\r\n"
+                "python -m venv .venv\r\n"
+                "# Windows PowerShell 激活\r\n"
+                ".\\.venv\\Scripts\\Activate.ps1\r\n"
+                "# 安装依赖\r\n"
+                "pip install -r requirement.txt\r\n"
+                "```\r\n\r\n"
+                "## 运行推理\r\n\r\n"
+                "```powershell\r\n"
+                "python run_infer.py --steps 200 --episodes 1 --device cpu\r\n"
+                "# 或指定权重/输出 CSV\r\n"
+                "python run_infer.py --model policy.pt --steps 500 --csv infer_trace.csv\r\n"
+                "```\r\n\r\n"
+                "## 说明\r\n\r\n"
+                "- 该脚本使用 lbopb/src/rlsac 下的 DummyEnv 进行演示；\r\n"
+                "- 若需在自定义环境上推理，请替换 env 与状态/动作维度；\r\n"
+                "- 本推理脚本仅用于连通性测试与演示，不代表任何生产评估。\r\n"
+            )
+            infer_md.write_text(_infer_md, encoding='utf-8', newline='\r\n')
+        except Exception as e:
+            print(f"Warning: failed to write inference package: {e}")
 
 
 if __name__ == "__main__":

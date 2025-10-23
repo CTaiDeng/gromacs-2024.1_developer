@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HIV 治疗路径报告 · HIV_Therapy_Path</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    /* 深色主题配色与基础排版（中文注释：可按需自定义） */
+    :root{--bg:#0b1020;--bg2:#0f1830;--card:#141a2a;--txt:#e8efff;--muted:#9fb0d0;--acc:#36c;--good:#27ae60;--warn:#f39c12;--bad:#e74c3c;--chip:#223;--chip-b:#335;}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--txt);}
+    .container{max-width:1120px;margin:0 auto;padding:24px}
+    .hero{padding:72px 24px 48px;background:radial-gradient(1200px 600px at 20% -10%,rgba(51,102,204,.35),transparent),radial-gradient(800px 400px at 80% -20%,rgba(231,76,60,.25),transparent);} 
+    .title{font-size:36px;font-weight:700;margin:0 0 8px}
+    .subtitle{font-size:16px;color:var(--muted);margin:0 0 16px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);font-size:12px;color:#d0ddff;margin-right:8px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{grid-column:span 12;background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px}
+    @media(min-width:980px){.card.half{grid-column:span 6}}
+    h2{font-size:22px;margin:10px 0 8px}
+    h3{font-size:18px;margin:10px 0 8px;color:#d7e0ff}
+    p,li{line-height:1.6;color:#cfdbff}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 8px}
+    .chip{background:var(--chip);border:1px solid var(--chip-b);color:#cfe0ff;padding:4px 8px;border-radius:8px;font-size:12px}
+    .kvs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:8px 0}
+    .kv{background:#0e1322;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:8px}
+    .kv .k{font-size:11px;color:#9fb0d0}
+    .kv .v{font-family:ui-monospace,Consolas,monospace;font-size:14px}
+    .toc a{color:#9fc8ff;text-decoration:none;margin-right:12px}
+    .muted{color:var(--muted)}
+    pre{white-space:pre-wrap;background:#0d1322;border:1px solid rgba(255,255,255,.08);padding:12px;border-radius:8px}
+    footer{color:#9fb0d0;font-size:12px;margin:32px 0 12px}
+  </style>
+</head>
+<body>
+  <!-- 封面区块（封面/标题/副标题/徽标） -->
+  <header class="hero">
+    <div class="container">
+      <div class="badge">非官方派生 / 非医学建议</div>
+      <h1 class="title">HIV 治疗路径报告 · HIV_Therapy_Path</h1>
+      <p class="subtitle">基于病理→药效与多切面算子复合的可视化示意；展示状态变更、风险-代价与分子设计计划。</p>
+      <div class="muted">本仓库为 GROMACS 的非官方派生版，仅作技术演示。</div>
+    </div>
+  </header>
+  <main class="container">
+    <!-- 目录区块（页面快速跳转） -->
+    <section class="card">
+      <h2 id="toc">目录</h2>
+      <div class="toc">
+        <a href="#overview">立体序列总览</a>
+        <a href="#modules">分模块详情</a>
+        <a href="#pharm">分子设计与模拟</a>
+        <a href="#llm_result">Gemini 评价结果</a>
+      </div>
+      <p class="muted">免责声明：本报告仅用于方法学与技术演示，不构成医学建议或临床诊断/治疗方案；亦不用于任何实际诊疗决策或药物使用指导。</p>
+    </section>
+    <section id="llm_result" class="card">
+      <h2>Gemini 评价结果</h2>
+      <p class="muted">以下内容由 Google Gemini API 自动生成，供方法学参考，不构成医学建议。</p>
+      <pre>```json
+{
+  "summary": "该HIV治疗路径旨在通过靶向抑制特定通路（pgom: PathwayInhibition）来减轻炎症和细胞凋亡（pem: Inflammation, Apoptosis）。药代动力学（pktm）特性良好，毒理学（tem）和免疫学（iem）方面展现出高可行性及风险降低的积极信号。然而，核心药效学（pdem: Bind, Antagonist）和通路抑制（pgom）在优化后的s1状态下表现出效益、效力和可行性的下降，这是一个关键的警示。此外，患者响应及适应性管理（prm）模块显示出显著的风险增加和效力需求上升，强烈提示可能存在药物耐药性或患者适应性挑战。整体而言，该路径在PK/安全/免疫模块表现出色，但在核心作用机制及长期患者依从性/耐药性方面存在重大瓶颈。",
+  "coherence_score": 3.5,
+  "feasibility_score": 0.832,
+  "risk_score": 25.926,
+  "cost_score": 4.231,
+  "module_notes": {
+    "pem": "该模块针对“炎症”和“细胞凋亡”，在HIV发病机制中至关重要。从s0到s1，可行性（F: 0.6 -&gt; 0.67）有所提升，但效益（B: 8.0 -&gt; 6.72）有所下降，效力（P: 2.0 -&gt; 2.125）略有提高。风险（s1: 6.125）在所有模块中仍相对较高，表明对病理学过程的完全缓解仍具挑战。",
+    "pdem": "作用机制为“结合”和“拮抗”。从s0到s1，效益（B: 1.5 -&gt; 1.44）、效力（P: 0.8 -&gt; 0.756）和可行性（F: 0.6 -&gt; 0.5632）均出现下降。这是一个严重关切，表明在优化或项目进展中，药物的核心作用机制可能表现出效果减弱或可靠性降低。风险（s1: 1.877）适中。",
+    "pktm": "标准ADME过程。从s0到s1，效益（B: 0.5 -&gt; 1.134）显著增加，可行性（F: 0.95 -&gt; 1.0）达到完美，这是一个显著优势。效力（P: 0.5 -&gt; 0.4516）有所下降，可能与序列步骤N增加（1 -&gt; 2）导致PK过程更复杂有关。风险（s1: 2.452）和成本（1.673）相对较高，但高可行性缓解了部分担忧。",
+    "pgom": "目标是“通路抑制”。与PDEM类似，从s0到s1，效益（B: 3.0 -&gt; 2.7）、效力（P: 1.5 -&gt; 1.425）和可行性（F: 0.8 -&gt; 0.752）均略有下降。这进一步印证了核心作用机制在优化状态下可能面临挑战。风险（s1: 3.425）适中。",
+    "tem": "关注“解毒”和“修复”。从s0到s1，效益（B: 5.0 -&gt; 3.1875）和效力（P: 2.0 -&gt; 1.2）显著下降，但可行性（F: 0.9 -&gt; 1.0）达到完美，且风险（s1: 5.1 -&gt; 3.1875）大幅降低。这表明药物具有良好的安全性，身体的毒理学负担减轻，生理修复能力提升，是积极信号。",
+    "prm": "涉及“刺激”和“适应”。从s0到s1，效益（B: 10.0 -&gt; 9.9）略有下降，但效力（P: 5.0 -&gt; 5.7）显著增加，可行性（F: 0.8 -&gt; 0.84）略有提升。最值得关注的是风险（s1: 6.0 -&gt; 6.7）显著增加，且成本（1.22）较高。效力需求增加而效益下降，加上“适应”过程，强烈暗示可能存在药物耐药性发展或患者异质性带来的管理挑战。",
+    "iem": "目标是“激活”、“分化”和“记忆”，对HIV免疫应答至关重要。从s0到s1，效益（B: 2.0 -&gt; 2.16）略有增加，可行性（F: 0.7 -&gt; 1.0）达到完美，风险（s1: 2.3 -&gt; 2.16）降低。效力（P: 1.0 -&gt; 0.936）略有下降。这表明该路径在免疫调节方面具有积极潜力，且执行可行性高，但效力仍需关注。"
+  },
+  "top_actions": [
+    "立即重新评估和优化核心药效学（PDEM）和通路抑制（PGOM）策略：效益、效力和可行性在s1状态的下降是致命缺陷，必须查明原因（例如，靶点选择、拮抗剂设计、药物作用动力学）并进行改进。",
+    "制定全面的患者适应性/耐药性管理方案（PRM）：PRM模块中风险的显著增加和效力需求上升，提示耐药性是主要挑战。需要投入资源进行耐药性监测、预防策略及耐药后替代方案的研发。",
+    "深入探究病理学模块（PEM）的高风险：尽管可行性有所提高，s1的风险仍然较高。应进一步研究残余炎症和细胞凋亡的机制，以期实现更全面的病理缓解。",
+    "充分利用PKTM、TEM、IEM模块的优势：这些模块展现出高可行性、优化的安全性和积极的免疫调节潜力。应确保这些优势得以维持，并探索如何将这些优点与核心疗效模块的改进相结合，以提升整体治疗效果。"
+  ],
+  "caveats": [
+    "数据中“效益（B）”、“效力（P）”、“可行性（F）”、“风险（Risk）”和“成本（Cost）”的具体定义和单位未明确，本评估基于常规科学语境下的相对定性或半定量解释。",
+    "s0和s1状态的精确含义（例如，基线/现状 vs. 优化/预测状态）是根据数据趋势推断的。",
+    "未提供具体的药物分子、靶点或通路细节，限制了更深层次的分子机制批判。",
+    "PKTM和PEM模块中序列步骤数（N）的增加可能表示更复杂的考量或纳入了更多子过程，这可能影响效力等指标的解读。"
+  ],
+  "confidence": "High"
+}
+```</pre>
+    </section>
+    <!-- 概览区块：展示各模块序列（chips）与案例说明 -->
+    <section id="overview" class="card">
+      <h2>立体序列总览</h2>
+      <p class="muted">以病理（PEM）为基底流形，构造 HIV 治疗算子包，经联络映射到药效切面（PDEM），并对六大切面给出对齐算子包。</p>
+      <p class="muted">病理 repair_path（Inflammation→Apoptosis）与药效拮抗链（Bind→Antagonist）语义对齐：修复对应占有+抑制；其余切面选择与稳态回归/ADME/通路抑制/解毒与免疫分辨相协调的链。</p>
+      <div class="grid">
+        <div class="card half">
+          <h3>pem</h3>
+          <div class="chips"><span class='chip'>Inflammation</span><span class='chip'>Apoptosis</span></div>
+        </div>
+        <div class="card half">
+          <h3>pdem</h3>
+          <div class="chips"><span class='chip'>Bind</span><span class='chip'>Antagonist</span></div>
+        </div>
+        <div class="card half">
+          <h3>pktm</h3>
+          <div class="chips"><span class='chip'>Dose</span><span class='chip'>Absorb</span><span class='chip'>Distribute</span><span class='chip'>Metabolize</span><span class='chip'>Excrete</span></div>
+        </div>
+        <div class="card half">
+          <h3>pgom</h3>
+          <div class="chips"><span class='chip'>PathwayInhibition</span></div>
+        </div>
+        <div class="card half">
+          <h3>tem</h3>
+          <div class="chips"><span class='chip'>Detox</span><span class='chip'>Repair</span></div>
+        </div>
+        <div class="card half">
+          <h3>prm</h3>
+          <div class="chips"><span class='chip'>Stimulus</span><span class='chip'>Adaptation</span></div>
+        </div>
+        <div class="card half">
+          <h3>iem</h3>
+          <div class="chips"><span class='chip'>Activate</span><span class='chip'>Differentiate</span><span class='chip'>Memory</span></div>
+        </div>
+      </div>
+      <h3>名词与符号注释</h3>
+      <ul>
+        <li>模块缩写：PEM（病理演化）、PDEM（药效效应）、PKTM（药代转运/ADME）、PGOM（药理基因组/通路）、TEM（毒理效应）、PRM（生理调控/稳态）、IEM（免疫效应）。</li>
+        <li>指标：B=Benefit（效益/负荷）、P=Perimeter（边界/周长，示意）、F=Fidelity（保真度）、N=Components（组件数）。</li>
+        <li>符号：s0→s1 表示初始到变化后状态；Δ 表示增量；Risk=风险函数；ActionCost=操作序列代价（示意）。</li>
+      </ul>
+    </section>
+    <!-- 分模块详情：指标卡片 + 图表（Chart.js） -->
+    <section id="modules" class="card">
+      <h2>分模块详情</h2>
+      <div class="grid">
+        <div class="card half">
+          <h3>pem · 指标</h3>
+          <div class="kvs">
+            <div class="kv">
+              <div class="k">B (s0 → s1)</div>
+              <div class="v">8 → 6.72</div>
+            </div>
+            <div class="kv">
+              <div class="k">P (s0 → s1)</div>
+              <div class="v">2 → 2.125</div>
+            </div>
+            <div class="kv">
+              <div class="k">F (s0 → s1)</div>
+              <div class="v">0.6 → 0.67</div>
+            </div>
+            <div class="kv">
+              <div class="k">N (s0 → s1)</div>
+              <div class="v">3 → 4</div>
+            </div>
+          </div>
+          <p class="muted">注释：B=Benefit（效益/负荷）；P=Perimeter（边界/周长，示意）；F=Fidelity（保真度）；N=Components（组件数）；s0→s1=初末状态；Δ=增量；Risk=风险函数；ActionCost=操作序列代价（示意）。</p>
+          <canvas id="chart_metrics_pem" height="150"></canvas>
+        </div>
+        <div class="card half">
+          <h3>pem · 风险与代价</h3>
+          <div class="kvs">
+            <div class="kv"><div class="k">Risk(s0)</div><div class="v">5</div></div>
+            <div class="kv"><div class="k">Risk(s1)</div><div class="v">6.125</div></div>
+            <div class="kv"><div class="k">ActionCost</div><div class="v">0.615</div></div>
+          </div>
+          <canvas id="chart_risk_pem" height="150"></canvas>
+        </div>
+        <div class="card half">
+          <h3>pdem · 指标</h3>
+          <div class="kvs">
+            <div class="kv">
+              <div class="k">B (s0 → s1)</div>
+              <div class="v">1.5 → 1.44</div>
+            </div>
+            <div class="kv">
+              <div class="k">P (s0 → s1)</div>
+              <div class="v">0.8 → 0.756</div>
+            </div>
+            <div class="kv">
+              <div class="k">F (s0 → s1)</div>
+              <div class="v">0.6 → 0.5632</div>
+            </div>
+            <div class="kv">
+              <div class="k">N (s0 → s1)</div>
+              <div class="v">1 → 1</div>
+            </div>
+          </div>
+          <p class="muted">注释：B=Benefit（效益/负荷）；P=Perimeter（边界/周长，示意）；F=Fidelity（保真度）；N=Components（组件数）；s0→s1=初末状态；Δ=增量；Risk=风险函数；ActionCost=操作序列代价（示意）。</p>
+          <canvas id="chart_metrics_pdem" height="150"></canvas>
+        </div>
+        <div class="card half">
+          <h3>pdem · 风险与代价</h3>
+          <div class="kvs">
+            <div class="kv"><div class="k">Risk(s0)</div><div class="v">1.9</div></div>
+            <div class="kv"><div class="k">Risk(s1)</div><div class="v">1.877</div></div>
+            <div class="kv"><div class="k">ActionCost</div><div class="v">0.3288</div></div>
+          </div>
+          <canvas id="chart_risk_pdem" height="150"></canvas>
+        </div>
+        <div class="card half">
+          <h3>pktm · 指标</h3>
+          <div class="kvs">
+            <div class="kv">
+              <div class="k">B (s0 → s1)</div>
+              <div class="v">0.5 → 1.134</div>
+            </div>
+            <div class="kv">
+              <div class="k">P (s0 → s1)</div>
+              <div class="v">0.5 → 0.4516</div>
+            </div>
+            <div class="kv">
+              <div class="k">F (s0 → s1)</div>
+              <div class="v">0.95 → 1</div>
+            </div>
+            <div class="kv">
+              <div class="k">N (s0 → s1)</div>
+              <div class="v">1 → 2</div>
+            </div>
+          </div>
+          <p class="muted">注释：B=Benefit（效益/负荷）；P=Perimeter（边界/周长，示意）；F=Fidelity（保真度）；N=Components（组件数）；s0→s1=初末状态；Δ=增量；Risk=风险函数；ActionCost=操作序列代价（示意）。</p>
+          <canvas id="chart_metrics_pktm" height="150"></canvas>
+        </div>
+        <div class="card half">
+          <h3>pktm · 风险与代价</h3>
+          <div class="kvs">
+            <div class="kv"><div class="k">Risk(s0)</div><div class="v">1.5</div></div>
+            <div class="kv"><div class="k">Risk(s1)</div><div class="v">2.452</div></div>
+            <div class="kv"><div class="k">ActionCost</div><div class="v">1.673</div></div>
+          </div>
+          <canvas id="chart_risk_pktm" height="150"></canvas>
+        </div>
+        <div class="card half">
+          <h3>pgom · 指标</h3>
+          <div class="kvs">
+            <div class="kv">
+              <div class="k">B (s0 → s1)</div>
+              <div class="v">3 → 2.7</div>
+            </div>
+            <div class="kv">
+              <div class="k">P (s0 → s1)</div>
+              <div class="v">1.5 → 1.425</div>
+            </div>
+            <div class="kv">
+              <div class="k">F (s0 → s1)</div>
+              <div class="v">0.8 → 0.752</div>
+            </div>
+            <div class="kv">
+              <div class="k">N (s0 → s1)</div>
+              <div class="v">2 → 2</div>
+            </div>
+          </div>
+          <p class="muted">注释：B=Benefit（效益/负荷）；P=Perimeter（边界/周长，示意）；F=Fidelity（保真度）；N=Components（组件数）；s0→s1=初末状态；Δ=增量；Risk=风险函数；ActionCost=操作序列代价（示意）。</p>
+          <canvas id="chart_metrics_pgom" height="150"></canvas>
+        </div>
+        <div class="card half">
+          <h3>pgom · 风险与代价</h3>
+          <div class="kvs">
+            <div class="kv"><div class="k">Risk(s0)</div><div class="v">3.5</div></div>
+            <div class="kv"><div class="k">Risk(s1)</div><div class="v">3.425</div></div>
+            <div class="kv"><div class="k">ActionCost</div><div class="v">0.0336</div></div>
+          </div>
+          <canvas id="chart_risk_pgom" height="150"></canvas>
+        </div>
+        <div class="card half">
+          <h3>tem · 指标</h3>
+          <div class="kvs">
+            <div class="kv">
+              <div class="k">B (s0 → s1)</div>
+              <div class="v">5 → 3.188</div>
+            </div>
+            <div class="kv">
+              <div class="k">P (s0 → s1)</div>
+              <div class="v">2 → 1.2</div>
+            </div>
+            <div class="kv">
+              <div class="k">F (s0 → s1)</div>
+              <div class="v">0.9 → 1</div>
+            </div>
+            <div class="kv">
+              <div class="k">N (s0 → s1)</div>
+              <div class="v">1 → 1</div>
+            </div>
+          </div>
+          <p class="muted">注释：B=Benefit（效益/负荷）；P=Perimeter（边界/周长，示意）；F=Fidelity（保真度）；N=Components（组件数）；s0→s1=初末状态；Δ=增量；Risk=风险函数；ActionCost=操作序列代价（示意）。</p>
+          <canvas id="chart_metrics_tem" height="150"></canvas>
+        </div>
+        <div class="card half">
+          <h3>tem · 风险与代价</h3>
+          <div class="kvs">
+            <div class="kv"><div class="k">Risk(s0)</div><div class="v">5.1</div></div>
+            <div class="kv"><div class="k">Risk(s1)</div><div class="v">3.188</div></div>
+            <div class="kv"><div class="k">ActionCost</div><div class="v">0</div></div>
+          </div>
+          <canvas id="chart_risk_tem" height="150"></canvas>
+        </div>
+        <div class="card half">
+          <h3>prm · 指标</h3>
+          <div class="kvs">
+            <div class="kv">
+              <div class="k">B (s0 → s1)</div>
+              <div class="v">10 → 9.9</div>
+            </div>
+            <div class="kv">
+              <div class="k">P (s0 → s1)</div>
+              <div class="v">5 → 5.7</div>
+            </div>
+            <div class="kv">
+              <div class="k">F (s0 → s1)</div>
+              <div class="v">0.8 → 0.84</div>
+            </div>
+            <div class="kv">
+              <div class="k">N (s0 → s1)</div>
+              <div class="v">1 → 1</div>
+            </div>
+          </div>
+          <p class="muted">注释：B=Benefit（效益/负荷）；P=Perimeter（边界/周长，示意）；F=Fidelity（保真度）；N=Components（组件数）；s0→s1=初末状态；Δ=增量；Risk=风险函数；ActionCost=操作序列代价（示意）。</p>
+          <canvas id="chart_metrics_prm" height="150"></canvas>
+        </div>
+        <div class="card half">
+          <h3>prm · 风险与代价</h3>
+          <div class="kvs">
+            <div class="kv"><div class="k">Risk(s0)</div><div class="v">6</div></div>
+            <div class="kv"><div class="k">Risk(s1)</div><div class="v">6.7</div></div>
+            <div class="kv"><div class="k">ActionCost</div><div class="v">1.22</div></div>
+          </div>
+          <canvas id="chart_risk_prm" height="150"></canvas>
+        </div>
+        <div class="card half">
+          <h3>iem · 指标</h3>
+          <div class="kvs">
+            <div class="kv">
+              <div class="k">B (s0 → s1)</div>
+              <div class="v">2 → 2.16</div>
+            </div>
+            <div class="kv">
+              <div class="k">P (s0 → s1)</div>
+              <div class="v">1 → 0.9364</div>
+            </div>
+            <div class="kv">
+              <div class="k">F (s0 → s1)</div>
+              <div class="v">0.7 → 1</div>
+            </div>
+            <div class="kv">
+              <div class="k">N (s0 → s1)</div>
+              <div class="v">2 → 2</div>
+            </div>
+          </div>
+          <p class="muted">注释：B=Benefit（效益/负荷）；P=Perimeter（边界/周长，示意）；F=Fidelity（保真度）；N=Components（组件数）；s0→s1=初末状态；Δ=增量；Risk=风险函数；ActionCost=操作序列代价（示意）。</p>
+          <canvas id="chart_metrics_iem" height="150"></canvas>
+        </div>
+        <div class="card half">
+          <h3>iem · 风险与代价</h3>
+          <div class="kvs">
+            <div class="kv"><div class="k">Risk(s0)</div><div class="v">2.3</div></div>
+            <div class="kv"><div class="k">Risk(s1)</div><div class="v">2.16</div></div>
+            <div class="kv"><div class="k">ActionCost</div><div class="v">0.3606</div></div>
+          </div>
+          <canvas id="chart_risk_iem" height="150"></canvas>
+        </div>
+      </div>
+    </section>
+    <!-- 药设与模拟计划：小分子设计要点与命令示例 -->
+    <section id="pharm" class="card">
+      <h2>分子设计与分子模拟计划</h2>
+      <h3>小分子设计意图</h3>
+      <ul>
+        <li>目标: HIV IN</li>
+        <li>机制: IN antagonist</li>
+        <li>药效团: tridentate_metal_chelation, aryl_hydrophobe, tertiary_amine_sidechain</li>
+        <li>母核: dihydroxy-aromatic + diketo-acid</li>
+        <li>取代策略: para/meta hydrophobe fitting, pKa tuned amine for solubility</li>
+        <li>ADMET备注: target_solubility≥0.1 mg/mL, avoid_BBB, avoid_CYP:3A4</li>
+        <li>毒理备注: low_hERG</li>
+      </ul>
+      <h3>设计要点评估（人工摘要）</h3>
+      <ul>
+        <li><strong>优势：</strong>核心药效团及母核经过验证，具高结合亲和力与特定机制（三齿金属螯合），辅以可调 pKa 叔胺优化溶解度。</li>
+        <li><strong>优势：</strong>ADMET/毒理目标明确且具前瞻性，尤其避开 BBB、CYP3A4 及 hERG，显著降低早期开发风险，提升成药性。</li>
+        <li><strong>风险：</strong>作为 IN 拮抗剂，其针对常见耐药株的效力及耐药屏障需重点评估，现有取代策略或影响耐药谱。</li>
+        <li><strong>风险：</strong>三齿金属螯合虽利于靶点结合，但需警惕潜在的非特异性金属螯合毒性或体内其他金属酶的干扰。</li>
+        <li><strong>改进：</strong>叔胺结构需更精细设计，在保证溶解度的同时，彻底规避 hERG、其他 CYP 代谢及磷脂沉积等潜在脱靶风险。</li>
+        <li><strong>挑战：</strong>实现高溶解度、低 BBB 渗透、低 CYP3A4 代谢及低 hERG 活性的多参数平衡优化，可能存在结构—活性/ADMET 间的权衡。</li>
+      </ul>
+      <h3>Gemini 评价（小分子设计）</h3>
+      <div id="design_eval_md"></div>
+      <script>
+      (function(){
+        const MD = "*   **优势：靶向机制成熟，骨架设计具潜力。** `三齿金属螯合`结合`二羟基芳香` + `二酮酸`母核，是经验证的HIV IN抑制剂药效团，有望实现高活性与特异性。\n*   **优势：ADMET/毒理目标明确，风险规避意识强。** 明确的`目标溶解度`、`规避BBB`、`规避CYP3A4`及`低hERG`设计要求，体现了前瞻性的早期风险管理策略。\n*   **风险：金属螯合非特异性。** `三齿金属螯合`基团虽靶向IN，但存在与生理性金属离子（如Fe、Cu、Zn）非特异性结合的风险，需警惕潜在毒性或离子稳态干扰。\n*   **风险：ADMET多参数平衡挑战。** 在保持效力的前提下，同步实现`目标溶解度`、`规避BBB`、`规避CYP3A4`和`低hERG`，对结构设计与优化是巨大的多参数平衡挑战。\n*   **建议：全面代谢图谱与优化。** 除规避CYP3A4外，需深入评估`叔胺侧链`的N-氧化及其他代谢途径，结合构效关系进行精细结构改造，以提高整体代谢稳定性。\n*   **建议：系统性非靶点螯合评估。** 早期开展化合物与多种生理金属离子的结合谱研究，预测并规避潜在的非靶点金属螯合毒性，确保安全性。";
+        const el = document.getElementById("design_eval_md");
+        if (window.marked && el) { el.innerHTML = marked.parse(MD); } else { el.textContent = MD; }
+      })();
+      </script>
+      <h3>退化分子对接（命令方案）</h3>
+      <pre>
+# 生成随机姿势并打包为 TRR（伪指令，需对接构建工具）
+python gen_poses.py --receptor protein.pdb --ligand ligand.sdf --out out/docking\poses.trr
+# rerun 评估（示例命令）
+gmx mdrun -s topol.tpr -rerun out/docking\poses.trr -g out/docking/rerun.log
+python score_rerun.py --log out/docking/rerun.log --out out/docking\poses.scores.csv
+      </pre>
+      <h3>经典分子动力学（命令方案）</h3>
+      <pre>
+gmx grompp -f md.mdp -c system.gro -p topol.top -o out/md/topol.tpr
+gmx mdrun -deffnm out/md/md
+      </pre>
+      <h3>QM/MM 占位（命令草案）</h3>
+      <pre>
+# 准备 QM/MM 输入（片段）: qmmm.inp
+# 示例：调用 CP2K/ORCA 进行 QM 区域能量/力评估并回填到 MD 步进
+      </pre>
+    </section>
+    <footer>© 2010– GROMACS Authors · © 2025 GaoZheng · GPL-3.0-only · 本仓库为非官方派生，报告仅用于演示。</footer>
+  </main>
+  <script>
+    const MOD_DATA = 
+{"pem": {"seq": ["Inflammation", "Apoptosis"], "s0": {"B": 8.0, "P": 2.0, "F": 0.6, "N": 3}, "s1": {"B": 6.720000000000001, "P": 2.125, "F": 0.6699999999999999, "N": 4}, "risk": {"s0": 5.0, "s1": 6.125, "cost": 0.6150000000000003}}, "pdem": {"seq": ["Bind", "Antagonist"], "s0": {"B": 1.5, "P": 0.8, "F": 0.6, "N": 1}, "s1": {"B": 1.44, "P": 0.7560000000000001, "F": 0.5632, "N": 1}, "risk": {"s0": 1.9, "s1": 1.8767999999999998, "cost": 0.32879999999999987}}, "pktm": {"seq": ["Dose", "Absorb", "Distribute", "Metabolize", "Excrete"], "s0": {"B": 0.5, "P": 0.5, "F": 0.95, "N": 1}, "s1": {"B": 1.1340000000000001, "P": 0.4516050000000001, "F": 1.0, "N": 2}, "risk": {"s0": 1.5, "s1": 2.4516050000000003, "cost": 1.672636}}, "pgom": {"seq": ["PathwayInhibition"], "s0": {"B": 3.0, "P": 1.5, "F": 0.8, "N": 2}, "s1": {"B": 2.7, "P": 1.4249999999999998, "F": 0.752, "N": 2}, "risk": {"s0": 3.5, "s1": 3.425, "cost": 0.033600000000000026}}, "tem": {"seq": ["Detox", "Repair"], "s0": {"B": 5.0, "P": 2.0, "F": 0.9, "N": 1}, "s1": {"B": 3.1875, "P": 1.2000000000000002, "F": 1.0, "N": 1}, "risk": {"s0": 5.1, "s1": 3.1875, "cost": 0.0}}, "prm": {"seq": ["Stimulus", "Adaptation"], "s0": {"B": 10.0, "P": 5.0, "F": 0.8, "N": 1}, "s1": {"B": 9.9, "P": 5.699999999999999, "F": 0.84, "N": 1}, "risk": {"s0": 6.0, "s1": 6.699999999999999, "cost": 1.22}}, "iem": {"seq": ["Activate", "Differentiate", "Memory"], "s0": {"B": 2.0, "P": 1.0, "F": 0.7, "N": 2}, "s1": {"B": 2.16, "P": 0.9363600000000001, "F": 1.0, "N": 2}, "risk": {"s0": 2.3, "s1": 2.16, "cost": 0.36064}}}
+;
+    const makeBar = (id, labels, s0, s1) => {
+      const el = document.getElementById(id); if(!el) return;
+      new Chart(el.getContext('2d'), {type:'bar', data:{labels, datasets:[{label:'s0', data:s0, backgroundColor:'rgba(54,162,235,.6)'},{label:'s1', data:s1, backgroundColor:'rgba(39,174,96,.7)'}]}, options:{plugins:{legend:{labels:{color:'#cfe0ff'}}}, scales:{x:{ticks:{color:'#9fb0d0'}}, y:{ticks:{color:'#9fb0d0'}, grid:{color:'rgba(255,255,255,.08)'}}}}});
+    };
+    const makeRisk = (id, r0, r1, cost) => {
+      const el = document.getElementById(id); if(!el) return;
+      new Chart(el.getContext('2d'), {type:'bar', data:{labels:['Risk(s0)','Risk(s1)','Cost'], datasets:[{label:'值', data:[r0,r1,cost], backgroundColor:['#e67e22','#27ae60','#8e44ad']}]}, options:{plugins:{legend:{display:false}}, scales:{x:{ticks:{color:'#9fb0d0'}}, y:{ticks:{color:'#9fb0d0'}, grid:{color:'rgba(255,255,255,.08)'}}}}});
+    };
+    for (const [mod, d] of Object.entries(MOD_DATA)) {
+      const labels=['B','P','F'];
+      makeBar(`chart_metrics_${mod}`, labels, [d.s0.B, d.s0.P, d.s0.F], [d.s1.B, d.s1.P, d.s1.F]);
+      makeRisk(`chart_risk_${mod}`, d.risk.s0, d.risk.s1, d.risk.cost);
+    }
+  </script>
+</body>
+</html>
