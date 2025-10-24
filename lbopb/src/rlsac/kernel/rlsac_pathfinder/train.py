@@ -153,11 +153,79 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
         op_names.append(str(nm))
     feat_dim = len(op_names) + 3
 
+    # 准备运行目录（便于调试产物写入）
+    repo_root = Path(__file__).resolve().parents[5]
+    out_root = repo_root / "out"
+    base_out = out_root / Path(cfg.get("output_dir", "out_pathfinder"))
+    base_out.mkdir(parents=True, exist_ok=True)
+    _stamp = str(int(_pytime.time()))
+    run_name = "train_" + _stamp + (f"_{this_domain}" if this_domain else "")
+    run_dir = base_out / run_name
+    run_dir.mkdir(parents=True, exist_ok=True)
+    log_path = run_dir / "train.log"
+    if log_to_file:
+        logger = RunLogger(log_path, append=False)
+        logger.write_line(f"# TRAIN START {_pytime.strftime('%Y-%m-%d %H:%M:%S', _pytime.localtime())}")
+        logger.write_line(f"device={device}")
+        logger.write_line(f"config={json.dumps(cfg, ensure_ascii=False)}")
+
     X = torch.zeros((n_samples, feat_dim), dtype=torch.float32)
     y = torch.zeros((n_samples,), dtype=torch.float32)
     debug_dump = bool(cfg.get("debug_dump", True))
     dataset_dump: list[dict[str, Any]] = [] if debug_dump else []
     init_state = default_init_state(this_domain)
+
+    def evaluate_with_details(domain: str, seq: List[str], s0: Any | None = None) -> dict[str, Any]:
+        import importlib
+        s0 = s0 if s0 is not None else default_init_state(domain)
+        # syntax check
+        syntax = {"errors": [], "warnings": [], "valid": True}
+        try:
+            mod = importlib.import_module(f"lbopb.src.{domain}.syntax_checker")
+            func = getattr(mod, "check_sequence", None)
+            if callable(func):
+                res = func(list(seq), init_state=s0)
+                syntax = {
+                    "errors": list(res.get("errors", []) or []),
+                    "warnings": list(res.get("warnings", []) or []),
+                    "valid": bool(res.get("valid", True)),
+                }
+        except Exception:
+            pass
+        # heuristics
+        _, dr, c = apply_sequence(domain, s0, seq)
+        heur_ok = bool((dr - cost_lambda * c) > 0.0)
+        # LLM only when warnings present and enabled
+        llm_used = False
+        llm_raw: str | None = None
+        if syntax["errors"]:
+            label = 0
+        else:
+            label = int(heur_ok)
+            warns_present = bool(syntax.get("warnings"))
+            if bool(cfg.get("use_llm_oracle", False)) and warns_present:
+                try:
+                    from lbopb.src.rlsac.kernel.common.llm_oracle import call_llm, build_pathfinder_prompt
+                    prompt = build_pathfinder_prompt(domain, list(seq))
+                    txt = call_llm(prompt)
+                    llm_used = True
+                    llm_raw = str(txt) if txt is not None else None
+                    if isinstance(txt, str):
+                        label = int(heur_ok and (("1" in txt and "0" not in txt) or (txt.strip() == "1")))
+                except Exception:
+                    pass
+        # 控制台调试输出
+        if debug:
+            print(f"[SAMPLE] seq={seq} label={label} syntax_errors={len(syntax['errors'])} warnings={len(syntax['warnings'])} heur_ok={heur_ok} llm_used={llm_used}")
+        return {
+            "label": int(label),
+            "syntax": syntax,
+            "heur_ok": bool(heur_ok),
+            "delta_risk": float(dr),
+            "cost": float(c),
+            "llm_used": bool(llm_used),
+            "llm_raw": llm_raw,
+        }
     for i in range(n_samples):
         seq = sample_random_package(spec, min_len=min_len, max_len=max_len, no_consecutive_duplicate=no_dup)
         # 特征：op 计数
@@ -167,7 +235,8 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
         length = float(len(seq))
         vec = cnts + [length, float(dr), float(c)]
         X[i] = torch.tensor(vec, dtype=torch.float32)
-        label_i = int(oracle.judge(this_domain, seq, init_state))
+        judge = evaluate_with_details(this_domain, seq, init_state)
+        label_i = int(judge["label"])
         y[i] = float(label_i)
         if debug_dump:
             dataset_dump.append({
@@ -179,12 +248,29 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                     "delta_risk": float(dr),
                     "cost": float(c)
                 },
+                "judge": judge,
                 "label": int(label_i)
             })
 
     model = PackageScorer(X.shape[1]).to(device)
     train_scorer(model, X.to(device), y.to(device), epochs=epochs, batch_size=batch_size,
                  lr=float(cfg.get("learning_rate_actor", 3e-4)))
+
+    # 校验并可选迭代直至完美匹配
+    fit_until_perfect = bool(cfg.get("fit_until_perfect", True))
+    max_refit_rounds = int(cfg.get("max_refit_rounds", 10))
+    refit_epochs = int(cfg.get("refit_epochs", epochs))
+    rounds = 0
+    with torch.no_grad():
+        preds = (model(X.to(device)).cpu().view(-1) >= 0.5).to(torch.float32)
+        acc = float((preds == y).to(torch.float32).mean().item())
+    while fit_until_perfect and acc < 1.0 and rounds < max_refit_rounds:
+        train_scorer(model, X.to(device), y.to(device), epochs=refit_epochs, batch_size=batch_size,
+                     lr=float(cfg.get("learning_rate_actor", 3e-4)))
+        with torch.no_grad():
+            preds = (model(X.to(device)).cpu().view(-1) >= 0.5).to(torch.float32)
+            acc = float((preds == y).to(torch.float32).mean().item())
+        rounds += 1
 
     # 训练完生成大量候选，打分选 Top-K，写入辞海
     cand_n = int(cfg.get("candidate_generate", 1000))
@@ -207,7 +293,9 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                 json.dump({
                     "domain": this_domain,
                     "op_names": op_names,
-                    "samples": dataset_dump
+                    "samples": dataset_dump,
+                    "fit_rounds": rounds if fit_until_perfect else 0,
+                    "train_acc": acc
                 }, f, ensure_ascii=False, indent=2)
             with open(debug_cand_path, 'w', encoding='utf-8', newline='') as f:
                 json.dump([
@@ -216,22 +304,6 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                 ], f, ensure_ascii=False, indent=2)
         except Exception:
             pass
-
-    # 运行目录与日志
-    repo_root = Path(__file__).resolve().parents[5]
-    out_root = repo_root / "out"
-    base_out = out_root / Path(cfg.get("output_dir", "out_pathfinder"))
-    base_out.mkdir(parents=True, exist_ok=True)
-    _stamp = str(int(_pytime.time()))
-    run_name = "train_" + _stamp + (f"_{this_domain}" if this_domain else "")
-    run_dir = base_out / run_name
-    run_dir.mkdir(parents=True, exist_ok=True)
-    log_path = run_dir / "train.log"
-    if log_to_file:
-        logger = RunLogger(log_path, append=False)
-        logger.write_line(f"# TRAIN START {_pytime.strftime('%Y-%m-%d %H:%M:%S', _pytime.localtime())}")
-        logger.write_line(f"device={device}")
-        logger.write_line(f"config={json.dumps(cfg, ensure_ascii=False)}")
 
     # 选择 Top-K 并写入本域辞海（run_dir 下与全局）
     unique = []
