@@ -40,6 +40,34 @@
 
 > 注：如需更严谨的校验，可扩展各模块 syntax_checker.py 中的规则引擎（上下文/阈值/停机/不可交换/次序模式等）。
 
+## 调试步骤（建议）
+
+1) 最小化训练配置
+- 将 `samples/epochs/candidate_generate/topk` 设为较小值（如 `samples=50, epochs=3, candidate_generate=100, topk=10`）。
+- 开启 `debug_dump=true`（默认已开启）。
+- 如需 LLM 辅助，仅当 `use_llm_oracle=true` 且出现 warnings 时才会请求。
+
+2) 运行并查看运行目录
+- 命令：`python -m lbopb.src.rlsac.kernel.rlsac_pathfinder.train`
+- 运行目录：`out/out_pathfinder/train_<ts>_<domain>/`
+- 重点文件：
+  - `debug_dataset.json`：包含每个样本的 `sequence/特征(label/Δrisk/cost)`；
+  - `debug_candidates.json`：按网络评分排序的候选 Top‑N（由 `debug_candidates_top` 控制，默认 50）。
+
+3) 逐条核对标签生成
+- 对 `debug_dataset.json` 某条样本的 `sequence` 手动调用：
+  - `python lbopb/src/<domain>/syntax_checker.py <op1> <op2> ...`
+- 确认 `errors/warnings` 与 `oracle` 中记录的一致；有 `warnings` 时再比对 LLM 输出（如启用）。
+
+4) 特征与判定联动
+- 检查特征的 `delta_risk/cost/length` 是否与 `apply_sequence` 计算一致；
+- 如需进一步解释，可在 scorer 处同时输出中间层激活或引入“违规类型”多标签头。
+
+5) 日志开关
+- 环境变量：`RLSAC_DEBUG=1`、`RLSAC_LOG_EVERY_STEP=1` 可加大日志量；
+- 配置中的 `log_to_file=true` 将日志写入 `train.log`；
+- 直接脚本执行时的导入问题已做回退，推荐使用包方式：`python -m lbopb.src.rlsac.kernel.rlsac_pathfinder.train`。
+
 ## Network I/O And Dual Validation (可落地方案)
 
 一、网络要学什么（输出）

@@ -22,9 +22,22 @@ except ImportError:
     _sys.path.insert(0, str(_Path(__file__).resolve().parents[5]))
     from lbopb.src.rlsac.kernel.rlsac_pathfinder.env_domain import DomainPathfinderEnv, Goal
     from lbopb.src.rlsac.kernel.rlsac_pathfinder.domain import get_domain_spec
-from .sampler import sample_random_package
-from .oracle import AxiomOracle, default_init_state, apply_sequence
-from .scorer import PackageScorer, train_scorer
+try:
+    from .env_domain import DomainPathfinderEnv, Goal
+    from .domain import get_domain_spec
+    from .sampler import sample_random_package
+    from .oracle import AxiomOracle, default_init_state, apply_sequence
+    from .scorer import PackageScorer, train_scorer
+except ImportError:
+    # 兼容直接脚本执行：将仓库根加入 sys.path 后用绝对导入
+    from pathlib import Path as _Path
+    import sys as _sys
+    _sys.path.insert(0, str(_Path(__file__).resolve().parents[5]))
+    from lbopb.src.rlsac.kernel.rlsac_pathfinder.env_domain import DomainPathfinderEnv, Goal
+    from lbopb.src.rlsac.kernel.rlsac_pathfinder.domain import get_domain_spec
+    from lbopb.src.rlsac.kernel.rlsac_pathfinder.sampler import sample_random_package
+    from lbopb.src.rlsac.kernel.rlsac_pathfinder.oracle import AxiomOracle, default_init_state, apply_sequence
+    from lbopb.src.rlsac.kernel.rlsac_pathfinder.scorer import PackageScorer, train_scorer
 from lbopb.src.rlsac.application.rlsac_nsclc.utils import select_device_from_config
 
 
@@ -142,6 +155,8 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
 
     X = torch.zeros((n_samples, feat_dim), dtype=torch.float32)
     y = torch.zeros((n_samples,), dtype=torch.float32)
+    debug_dump = bool(cfg.get("debug_dump", True))
+    dataset_dump: list[dict[str, Any]] = [] if debug_dump else []
     init_state = default_init_state(this_domain)
     for i in range(n_samples):
         seq = sample_random_package(spec, min_len=min_len, max_len=max_len, no_consecutive_duplicate=no_dup)
@@ -152,7 +167,20 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
         length = float(len(seq))
         vec = cnts + [length, float(dr), float(c)]
         X[i] = torch.tensor(vec, dtype=torch.float32)
-        y[i] = float(oracle.judge(this_domain, seq, init_state))
+        label_i = int(oracle.judge(this_domain, seq, init_state))
+        y[i] = float(label_i)
+        if debug_dump:
+            dataset_dump.append({
+                "index": int(i),
+                "sequence": list(seq),
+                "features": {
+                    "bag_of_ops": {op_names[j]: float(cnts[j]) for j in range(len(op_names))},
+                    "length": float(length),
+                    "delta_risk": float(dr),
+                    "cost": float(c)
+                },
+                "label": int(label_i)
+            })
 
     model = PackageScorer(X.shape[1]).to(device)
     train_scorer(model, X.to(device), y.to(device), epochs=epochs, batch_size=batch_size,
@@ -171,6 +199,23 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
             score = float(model(vec).item())
             scored.append((score, seq, float(dr), float(c)))
     scored.sort(key=lambda t: t[0], reverse=True)
+    if debug_dump:
+        try:
+            debug_ds_path = run_dir / "debug_dataset.json"
+            debug_cand_path = run_dir / "debug_candidates.json"
+            with open(debug_ds_path, 'w', encoding='utf-8', newline='') as f:
+                json.dump({
+                    "domain": this_domain,
+                    "op_names": op_names,
+                    "samples": dataset_dump
+                }, f, ensure_ascii=False, indent=2)
+            with open(debug_cand_path, 'w', encoding='utf-8', newline='') as f:
+                json.dump([
+                    {"score": float(s), "sequence": seq, "delta_risk": float(dr), "cost": float(c)}
+                    for (s, seq, dr, c) in scored[: int(cfg.get("debug_candidates_top", 50))]
+                ], f, ensure_ascii=False, indent=2)
+        except Exception:
+            pass
 
     # 运行目录与日志
     repo_root = Path(__file__).resolve().parents[5]
