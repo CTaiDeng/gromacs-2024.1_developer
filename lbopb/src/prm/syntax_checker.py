@@ -94,7 +94,9 @@ class RuleEngine:
 def check_sequence(seq: List[str], *, init_state: PRMState | None = None) -> Dict[str, Any]:
     engine = RuleEngine()
     state = init_state or default_init_state()
-    ok = True\r\n    errors: List[str] = []\r\n    warnings: List[str] = []
+    ok = True
+    errors: List[str] = []
+    warnings: List[str] = []
     steps: List[Dict[str, Any]] = []
     prev_name: str | None = None
     for i, name in enumerate(seq):
@@ -108,7 +110,8 @@ def check_sequence(seq: List[str], *, init_state: PRMState | None = None) -> Dic
             ok = False
             errors.append(f"Step {i}: forbidden pair ({prev_name} -> {name})")
         ok_follow, why = engine.check_followups(seq, i)
-        if not ok_follow and why:\r\n            warnings.append(f"Step {i}: {why}")
+        if not ok_follow and why:
+            warnings.append(f"Step {i}: {why}")
         prev = state
         cur = op(prev)
         db = float(cur.b - prev.b)
@@ -121,7 +124,8 @@ def check_sequence(seq: List[str], *, init_state: PRMState | None = None) -> Dic
         for k, expect in rule.items():
             if sg[k] != expect:
                 violated.append(f"{k}: expect {expect}, got {sg[k]}")
-        if violated:\r\n            warnings.append(f"Step {i}: {name} violates: " + "; ".join(violated))
+        if violated:
+            warnings.append(f"Step {i}: {name} violates: " + "; ".join(violated))
         steps.append({"op": name, "delta": {"b": db, "n": dn, "perim": dp, "f": df}, "sign": sg})
         state = cur
         prev_name = name

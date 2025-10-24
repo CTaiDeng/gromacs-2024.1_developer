@@ -39,7 +39,7 @@ def train(config_path: str | Path | None = None, data_json: str | Path | None = 
 
         def write_line(self, text: str) -> None:
             try:
-                self.f.write(text + "\r\n");
+                self.f.write(text + "\r\n")
                 self.f.flush()
             except Exception:
                 pass
