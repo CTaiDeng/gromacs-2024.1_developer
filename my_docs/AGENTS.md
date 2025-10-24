@@ -1,4 +1,4 @@
-﻿# AGENTS（my_docs 文档规范）
+# AGENTS（my_docs 文档规范）
 
 - 作者：GaoZheng
 - 日期：2025-10-13
