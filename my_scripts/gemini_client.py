@@ -32,6 +32,7 @@ import os
 import urllib.request
 import urllib.error
 from typing import Optional
+import time as _t
 
 # 默认模型（当未提供且未设置 GEMINI_MODEL 时生效）
 DEFAULT_GEMINI_MODEL = "gemini-2.5-flash"
@@ -74,8 +75,12 @@ def generate_gemini_content(
     - 失败：以 "[Gemini Error]" 或 "[Gemini HTTPError]" 开头的错误字符串。
     """
     key = api_key or os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+    verbose = bool(os.environ.get("LBOPB_GEMINI_DEBUG") or os.environ.get("GEMINI_DEBUG"))
     if not key:
-        return "[Gemini Error] missing GEMINI_API_KEY/GOOGLE_API_KEY in environment"
+        msg = "[Gemini Error] missing GEMINI_API_KEY/GOOGLE_API_KEY in environment"
+        if verbose:
+            print(f"[Gemini] {msg}")
+        return msg
 
     # 解析模型：env 优先，其次参数默认
     model = model or os.environ.get("GEMINI_MODEL") or DEFAULT_GEMINI_MODEL
@@ -87,8 +92,30 @@ def generate_gemini_content(
     body = {"contents": [{"parts": [{"text": prompt_text}]}]}
     data = json.dumps(body, ensure_ascii=False).encode("utf-8")
     req = urllib.request.Request(url, data=data, headers=headers, method="POST")
+    if verbose:
+        try:
+            print(
+                f"[Gemini] prepare: model={model} url={url} prompt_len={len(prompt_text)} bytes={len(data)} t={int(_t.time())}"
+            )
+        except Exception:
+            print("[Gemini] prepare: model/url/prompt info unavailable")
     try:
-        with urllib.request.urlopen(req, timeout=timeout_sec) as resp:
+        # 允许通过环境变量覆盖超时（优先级：参数 < 环境变量）
+        eff_timeout = timeout_sec
+        try:
+            _env_to = os.environ.get("LBOPB_GEMINI_TIMEOUT_SEC") or os.environ.get("GEMINI_TIMEOUT_SEC")
+            if _env_to:
+                eff_timeout = float(_env_to)
+        except Exception:
+            pass
+        if verbose:
+            print(f"[Gemini] sending request... timeout={eff_timeout}s")
+        with urllib.request.urlopen(req, timeout=eff_timeout) as resp:
+            if verbose:
+                try:
+                    print(f"[Gemini] response: code={resp.getcode()} t={int(_t.time())}")
+                except Exception:
+                    print("[Gemini] response: received")
             raw = resp.read().decode("utf-8", errors="replace")
             jo = json.loads(raw)
     except urllib.error.HTTPError as e:
@@ -96,15 +123,29 @@ def generate_gemini_content(
             err_text = e.read().decode("utf-8", errors="replace")
         except Exception:
             err_text = str(e)
-        return f"[Gemini HTTPError] {e.code}: {err_text}"
+        msg = f"[Gemini HTTPError] {e.code}: {err_text}"
+        if verbose:
+            print(msg)
+        return msg
     except Exception as e:
-        return f"[Gemini Error] {e}"
-
-    return _extract_texts_from_response(jo)
+        msg = f"[Gemini Error] {e}"
+        if verbose:
+            print(msg)
+        return msg
+    res = _extract_texts_from_response(jo)
+    if verbose:
+        try:
+            _h = res[:240] + ("..." if len(res) > 240 else "")
+            print(f"[Gemini] parsed: text_len={len(res)} head={_h}")
+        except Exception:
+            print("[Gemini] parsed: <unprintable>")
+    return res
 
 
 __all__ = [
     "DEFAULT_GEMINI_MODEL",
     "generate_gemini_content",
 ]
+
+
 

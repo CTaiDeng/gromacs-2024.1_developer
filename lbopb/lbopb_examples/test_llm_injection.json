@@ -1,0 +1,10 @@
+{
+  "domain": "pem",
+  "seq": [
+    "Apoptosis",
+    "Inflammation"
+  ],
+  "timeout": 180,
+  "debug": true,
+  "save": true
+}

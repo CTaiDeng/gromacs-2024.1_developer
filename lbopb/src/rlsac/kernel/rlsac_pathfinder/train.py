@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import time as _pytime
 from pathlib import Path
+import os
 from typing import Any, Dict, List
 
 import torch
@@ -96,6 +97,20 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
     log_every_step = bool(cfg.get("log_every_step", True))
     log_to_file = bool(cfg.get("log_to_file", True))
 
+    # Debug 模式下，打开 Gemini 全程调试（通过环境变量传递给 HTTP 客户端）
+    if debug:
+        try:
+            os.environ.setdefault("LBOPB_GEMINI_DEBUG", "1")
+        except Exception:
+            pass
+    # 从配置传递 LLM 超时时间（秒）给 HTTP 客户端
+    try:
+        _llm_to = cfg.get("llm_timeout_sec", None)
+        if _llm_to is not None:
+            os.environ["LBOPB_GEMINI_TIMEOUT_SEC"] = str(_llm_to)
+    except Exception:
+        pass
+
     class RunLogger:
         def __init__(self, path: Path, append: bool = False):
             self.path = path
@@ -169,8 +184,7 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
         logger.write_line(f"device={device}")
         logger.write_line(f"config={json.dumps(cfg, ensure_ascii=False)}")
 
-    X = torch.zeros((n_samples, feat_dim), dtype=torch.float32)
-    y = torch.zeros((n_samples,), dtype=torch.float32)
+    # 训练样本将按纳入规则动态收集，不再预先分配张量
     debug_dump = bool(cfg.get("debug_dump", True))
     dataset_dump: list[dict[str, Any]] = [] if debug_dump else []
     init_state = default_init_state(this_domain)
@@ -192,7 +206,7 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                 }
         except Exception:
             pass
-        # heuristics
+        # heuristics（仅用于调试观测，不作为训练标签决策依据）
         _, dr, c = apply_sequence(domain, s0, seq)
         heur_ok = bool((dr - cost_lambda * c) > 0.0)
         # LLM only when warnings present and enabled
@@ -201,37 +215,120 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
         llm_raw: str | None = None
         llm_prompt: str | None = None
         llm_status: str = "skipped_no_warn"  # used | skipped_no_warn | skipped_use_llm_false | skipped_errors | skipped_exception
+        # 训练样本纳入规则：
+        # - syntax 有 errors: 明确错误，纳入训练（负样本）
+        # - syntax 无错误但有 warnings:
+        #     - 若启用 LLM 且调用成功返回 '1'/'0'：按返回纳入训练；
+        #     - 否则（未启用或调用失败）：不纳入训练；
+        # - 无错误且无警告：明确正确，纳入训练（正样本）。
+        train_include = False
+        train_reason = ""
         if syntax["errors"]:
             label = 0
+            train_include = True
+            train_reason = "syntax_error"
             llm_status = "skipped_errors"
         else:
-            label = int(heur_ok)
             warns_present = bool(syntax.get("warnings"))
             if warns_present and bool(cfg.get("use_llm_oracle", False)):
                 try:
                     from lbopb.src.rlsac.kernel.common.llm_oracle import call_llm, build_pathfinder_prompt
                     llm_prompt = build_pathfinder_prompt(domain, list(seq))
+                    if debug:
+                        # 请求前打印
+                        _msg0 = (
+                            f"[LLM] start: provider=gemini domain={domain} seq_len={len(seq)} "
+                            f"warnings={len(syntax.get('warnings', []))} heur_ok={heur_ok}"
+                        )
+                        print(_msg0)
+                        if log_to_file and 'logger' in locals() and logger:
+                            logger.write_line(_msg0)
+                        # 提示词预览（最多 240 字符）
+                        try:
+                            _pv = str(llm_prompt)
+                            _pv2 = _pv[:240] + ("..." if len(_pv) > 240 else "")
+                            _msg1 = f"[LLM] prompt preview: {_pv2}"
+                            print(_msg1)
+                            if log_to_file and 'logger' in locals() and logger:
+                                logger.write_line(_msg1)
+                        except Exception:
+                            pass
                     llm_attempted = True
+                    _t0 = _pytime.time()
                     txt = call_llm(llm_prompt)
-                    llm_used = True
-                    llm_status = "used"
+                    _dt = _pytime.time() - _t0
                     llm_raw = str(txt) if txt is not None else None
-                    if isinstance(txt, str):
-                        label = int(heur_ok and (("1" in txt and "0" not in txt) or (txt.strip() == "1")))
-                except Exception:
+                    _is_err = isinstance(txt, str) and (txt.startswith("[Gemini Error]") or txt.startswith("[Gemini HTTPError]"))
+                    if _is_err:
+                        llm_used = False
+                        llm_status = "skipped_exception"
+                        # LLM 失败：不纳入训练
+                        train_include = False
+                        train_reason = "llm_failed"
+                    else:
+                        llm_used = True
+                        llm_status = "used"
+                        if isinstance(txt, str):
+                            _s = txt.strip()
+                            if _s == "1" or ("1" in _s and "0" not in _s):
+                                label = 1
+                                train_include = True
+                                train_reason = "llm_1"
+                            elif _s == "0" or ("0" in _s and "1" not in _s):
+                                label = 0
+                                train_include = True
+                                train_reason = "llm_0"
+                            else:
+                                # 无法解析：当作失败，不纳入
+                                train_include = False
+                                train_reason = "llm_unparsed"
+                    if debug:
+                        # 返回结果打印
+                        try:
+                            _rprev = llm_raw if isinstance(llm_raw, str) else "<None>"
+                            _rprev2 = _rprev[:240] + ("..." if isinstance(_rprev, str) and len(_rprev) > 240 else "")
+                            _msg2 = (
+                                f"[LLM] done: used={llm_used}, status={llm_status}, dt={_dt:.2f}s, "
+                                f"result_len={len(llm_raw) if isinstance(llm_raw, str) else 0}, result_preview={_rprev2}"
+                            )
+                            print(_msg2)
+                            if log_to_file and 'logger' in locals() and logger:
+                                logger.write_line(_msg2)
+                        except Exception:
+                            pass
+                except Exception as e:
                     llm_attempted = True
                     llm_used = False
                     llm_status = "skipped_exception"
                     llm_raw = None
+                    # LLM 异常：不纳入训练
+                    train_include = False
+                    train_reason = "llm_exception"
+                    if debug:
+                        try:
+                            _msgE = f"[LLM] exception: {e}"
+                            print(_msgE)
+                            if log_to_file and 'logger' in locals() and logger:
+                                logger.write_line(_msgE)
+                        except Exception:
+                            pass
             elif warns_present and not bool(cfg.get("use_llm_oracle", False)):
+                # 未启用 LLM：不纳入训练
                 llm_status = "skipped_use_llm_false"
+                train_include = False
+                train_reason = "warnings_unresolved"
             else:
+                # 无错误无警告：明确正确
                 llm_status = "skipped_no_warn"
+                label = 1
+                train_include = True
+                train_reason = "syntax_ok"
         # 控制台调试输出
         if debug:
             print(
                 "[SAMPLE] seq={seq} label={label} syntax_errors={e} warnings={w} "
-                "heur_ok={heur} llm_attempted={la} llm_used={lu} llm_status={ls}".format(
+                "heur_ok={heur} llm_attempted={la} llm_used={lu} llm_status={ls} "
+                "train_include={ti} train_reason={tr}".format(
                     seq=seq,
                     label=label,
                     e=len(syntax["errors"]),
@@ -240,6 +337,8 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                     la=llm_attempted,
                     lu=llm_used,
                     ls=llm_status,
+                    ti=train_include,
+                    tr=train_reason,
                 )
             )
         return {
@@ -253,7 +352,11 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
             "llm_prompt": llm_prompt,
             "llm_status": llm_status,
             "llm_attempted": bool(llm_attempted),
+            "train_include": bool(train_include),
+            "train_reason": train_reason,
         }
+    X_rows: list[list[float]] = []
+    y_rows: list[float] = []
     for i in range(n_samples):
         seq = sample_random_package(spec, min_len=min_len, max_len=max_len, no_consecutive_duplicate=no_dup)
         # 特征：op 计数
@@ -262,10 +365,11 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
         _, dr, c = apply_sequence(this_domain, init_state, seq)
         length = float(len(seq))
         vec = cnts + [length, float(dr), float(c)]
-        X[i] = torch.tensor(vec, dtype=torch.float32)
         judge = evaluate_with_details(this_domain, seq, init_state)
         label_i = int(judge["label"])
-        y[i] = float(label_i)
+        if bool(judge.get("train_include", False)):
+            X_rows.append([float(x) for x in vec])
+            y_rows.append(float(label_i))
         if debug_dump:
             dataset_dump.append({
                 "index": int(i),
@@ -277,28 +381,41 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                     "cost": float(c)
                 },
                 "judge": judge,
-                "label": int(label_i)
+                "label": int(label_i),
+                "train_include": bool(judge.get("train_include", False)),
+                "train_reason": str(judge.get("train_reason", ""))
             })
+    # 构造训练张量
+    if len(X_rows) > 0:
+        X_t = torch.tensor(X_rows, dtype=torch.float32)
+        y_t = torch.tensor(y_rows, dtype=torch.float32)
+    else:
+        X_t = torch.zeros((0, feat_dim), dtype=torch.float32)
+        y_t = torch.zeros((0,), dtype=torch.float32)
 
-    model = PackageScorer(X.shape[1]).to(device)
-    train_scorer(model, X.to(device), y.to(device), epochs=epochs, batch_size=batch_size,
-                 lr=float(cfg.get("learning_rate_actor", 3e-4)))
+    model = PackageScorer(feat_dim).to(device)
+    if X_t.shape[0] > 0:
+        train_scorer(model, X_t.to(device), y_t.to(device), epochs=epochs, batch_size=batch_size,
+                     lr=float(cfg.get("learning_rate_actor", 3e-4)))
 
     # 校验并可选迭代直至完美匹配
     fit_until_perfect = bool(cfg.get("fit_until_perfect", True))
     max_refit_rounds = int(cfg.get("max_refit_rounds", 10))
     refit_epochs = int(cfg.get("refit_epochs", epochs))
     rounds = 0
-    with torch.no_grad():
-        preds = (model(X.to(device)).cpu().view(-1) >= 0.5).to(torch.float32)
-        acc = float((preds == y).to(torch.float32).mean().item())
-    while fit_until_perfect and acc < 1.0 and rounds < max_refit_rounds:
-        train_scorer(model, X.to(device), y.to(device), epochs=refit_epochs, batch_size=batch_size,
-                     lr=float(cfg.get("learning_rate_actor", 3e-4)))
+    if X_t.shape[0] > 0:
         with torch.no_grad():
-            preds = (model(X.to(device)).cpu().view(-1) >= 0.5).to(torch.float32)
-            acc = float((preds == y).to(torch.float32).mean().item())
-        rounds += 1
+            preds = (model(X_t.to(device)).cpu().view(-1) >= 0.5).to(torch.float32)
+            acc = float((preds == y_t).to(torch.float32).mean().item())
+        while fit_until_perfect and acc < 1.0 and rounds < max_refit_rounds:
+            train_scorer(model, X_t.to(device), y_t.to(device), epochs=refit_epochs, batch_size=batch_size,
+                         lr=float(cfg.get("learning_rate_actor", 3e-4)))
+            with torch.no_grad():
+                preds = (model(X_t.to(device)).cpu().view(-1) >= 0.5).to(torch.float32)
+                acc = float((preds == y_t).to(torch.float32).mean().item())
+            rounds += 1
+    else:
+        acc = 1.0
 
     # 训练完生成大量候选，打分选 Top-K，写入辞海
     cand_n = int(cfg.get("candidate_generate", 1000))
@@ -315,10 +432,12 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
     scored.sort(key=lambda t: t[0], reverse=True)
     if debug_dump:
         try:
-            # 统计 warnings / llm 覆盖率
+            # 统计 warnings / llm 覆盖率与训练纳入情况
             total = len(dataset_dump)
             err_cnt = 0; warn_cnt = 0; llm_cnt = 0; syntax_ok_cnt = 0; llm_attempted_cnt = 0
             llm_used_cnt = 0; llm_skip_no_warn = 0; llm_skip_use_llm_false = 0; llm_skip_errors = 0; llm_skip_exception = 0
+            train_included_cnt = 0
+            train_reason_cnt: Dict[str, int] = {}
             for item in dataset_dump:
                 j = item.get("judge", {})
                 syn = j.get("syntax", {}) if isinstance(j, dict) else {}
@@ -346,10 +465,17 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                     llm_skip_errors += 1
                 elif ls == "skipped_exception":
                     llm_skip_exception += 1
+                # 训练纳入统计
+                if bool(item.get("train_include", False)):
+                    train_included_cnt += 1
+                tr = str(item.get("train_reason", ""))
+                if tr:
+                    train_reason_cnt[tr] = int(train_reason_cnt.get(tr, 0)) + 1
             # 控制台与日志打印
             msg_stats = (
                 f"[STATS] total={total} error_samples={err_cnt} warning_samples={warn_cnt} "
-                f"syntax_ok_samples={syntax_ok_cnt} llm_attempted_samples={llm_attempted_cnt} llm_used_samples={llm_cnt}"
+                f"syntax_ok_samples={syntax_ok_cnt} llm_attempted_samples={llm_attempted_cnt} llm_used_samples={llm_cnt} "
+                f"train_included_samples={train_included_cnt} train_excluded_samples={total-train_included_cnt}"
             )
             print(msg_stats)
             if log_to_file and 'logger' in locals() and logger:
@@ -363,6 +489,15 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
             print(msg_llm)
             if log_to_file and 'logger' in locals() and logger:
                 logger.write_line(msg_llm)
+            # 打印训练纳入原因统计
+            try:
+                _reasons = ", ".join([f"{k}={v}" for k, v in train_reason_cnt.items()])
+            except Exception:
+                _reasons = ""
+            msg_train = f"[TRAIN_STATS] included={train_included_cnt} reasons: {_reasons}"
+            print(msg_train)
+            if log_to_file and 'logger' in locals() and logger:
+                logger.write_line(msg_train)
 
             debug_ds_path = run_dir / "debug_dataset.json"
             debug_cand_path = run_dir / "debug_candidates.json"
@@ -380,6 +515,11 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                         "syntax_ok_samples": syntax_ok_cnt,
                         "llm_attempted_samples": llm_attempted_cnt,
                         "llm_used_samples": llm_cnt,
+                        "train": {
+                            "included": train_included_cnt,
+                            "excluded": total - train_included_cnt,
+                            "reasons": train_reason_cnt
+                        },
                         "llm_detail": {
                             "used": llm_used_cnt,
                             "skipped_no_warn": llm_skip_no_warn,

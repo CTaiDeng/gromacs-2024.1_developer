@@ -1,5 +1,5 @@
 {
-  "debug": false,
+  "debug": true,
   "log_every_step": true,
   "log_to_file": true,
   "use_gpu": false,
@@ -44,5 +44,6 @@
   "minibatch_floor": 1,
   "output_dir": "out_pathfinder",
   "samples": 50,
+  "llm_timeout_sec": 180,
   "use_llm_oracle": true
 }

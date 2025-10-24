@@ -4,6 +4,9 @@
 from __future__ import annotations
 
 from typing import Optional, Any, Dict, List
+from pathlib import Path
+import os
+import time as _t
 
 
 def call_llm(prompt: str, *, provider: str = "gemini", model: str | None = None, api_key: str | None = None) -> \
@@ -15,21 +18,37 @@ Optional[str]:
     返回 None 表示未调用或调用失败。
     """
     try:
+        dbg = bool(os.environ.get("LBOPB_GEMINI_DEBUG") or os.environ.get("GEMINI_DEBUG"))
         if provider.lower() == "gemini":
             import importlib
+            if dbg:
+                print(f"[LLM] call_llm enter: provider=gemini, t={int(_t.time())}")
             cli = importlib.import_module("my_scripts.gemini_client")
             for fname in ("ask", "generate", "chat", "gemini_text", "query", "run", "generate_gemini_content"):
                 fn = getattr(cli, fname, None)
                 if callable(fn):
+                    if dbg:
+                        print(f"[LLM] call_llm try func={fname}")
                     try:
                         res: Any = fn(prompt)
                         if isinstance(res, str):
+                            if dbg:
+                                _h = res[:120] + ("..." if len(res) > 120 else "")
+                                print(f"[LLM] call_llm ok via {fname}, len={len(res)}, head={_h}")
                             return res
                         if hasattr(res, "text"):
-                            return str(res.text)
-                    except Exception:
+                            s = str(res.text)
+                            if dbg:
+                                _h = s[:120] + ("..." if len(s) > 120 else "")
+                                print(f"[LLM] call_llm ok via {fname}.text, len={len(s)}, head={_h}")
+                            return s
+                    except Exception as e:
+                        if dbg:
+                            print(f"[LLM] call_llm func={fname} exception: {e}")
                         continue
-    except Exception:
+    except Exception as e:
+        if bool(os.environ.get("LBOPB_GEMINI_DEBUG") or os.environ.get("GEMINI_DEBUG")):
+            print(f"[LLM] call_llm outer exception: {e}")
         pass
     return None
 
@@ -58,12 +77,28 @@ PAIRWISE: List[tuple[str, str]] = [
 
 def build_pathfinder_prompt(domain: str, sequence: List[str]) -> str:
     d = (domain or "").lower()
-    doc = DOC_MAP.get(d, "<axiom-doc-not-found>")
+    doc_rel = DOC_MAP.get(d, "<axiom-doc-not-found>")
+    # 读取并注入公理文档内容（以仓库根为基准解析路径）
+    doc_text = "<axiom-doc-content-not-found>"
+    try:
+        repo_root = Path(__file__).resolve().parents[5]
+        doc_path = repo_root / doc_rel
+        if doc_path.exists():
+            doc_text = doc_path.read_text(encoding="utf-8")
+        else:
+            doc_text = f"<axiom-doc-content-not-found: {doc_path}>"
+    except Exception:
+        pass
+
     return (
         "你是一名严格的形式系统审查器。\n"
         f"幺半群域: {d}\n"
-        f"公理文档: {doc}\n"
-        "任务: 判断以下基本算子序列(算子包)是否严格符合该域的公理系统(所有必要约束: 方向性/不可交换/序次/阈值/停机等)。\n"
+        f"公理文档路径: {doc_rel}\n"
+        f"公理文档内容（{doc_rel} 的内容）:\n"
+        "-----BEGIN AXIOM DOC-----\n"
+        f"{doc_text}\n"
+        "-----END AXIOM DOC-----\n"
+        "任务: 严格依据以上公理文档内容, 判断以下基本算子序列(算子包)是否严格符合该域的公理系统(所有必要约束: 方向性/不可交换/序次/阈值/停机等)。\n"
         f"算子序列: {sequence}\n"
         "要求: 只返回单个字符 '1' 或 '0'。1 表示符合公理系统, 0 表示不符合。不得输出其他字符或解释。\n"
     )
