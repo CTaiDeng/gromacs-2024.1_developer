@@ -40,6 +40,108 @@
 
 > 注：如需更严谨的校验，可扩展各模块 syntax_checker.py 中的规则引擎（上下文/阈值/停机/不可交换/次序模式等）。
 
+## Network I/O And Dual Validation (可落地方案)
+
+一、网络要学什么（输出）
+
+- 输出语义：y^ = p(valid | package, domain) ∈ (0,1)，即单域“算子包是否合法/可采纳”的概率。
+- 推断：用 y^ 排序候选算子包，Top‑K 写入该域辞海；训练：BCE(y^, y) 监督。
+- 标签 y（双重判定来源）：
+  - 强规则（syntax_checker）优先：若 errors 非空 → y=0 直接否决；
+  - 轻违规（warnings）时才启用 LLM（Gemini）辅助：warnings 非空 且 use_llm_oracle=true → 要求 LLM 返回 1/0，与启发式共同决策；
+  - 启发式（路径度量）补充：Δrisk − λ·cost > 0 视为 1，否则 0；
+  - 组合逻辑：
+    - 有 errors → 返回 0（不调用 LLM）；
+    - 无 errors 且 warnings 存在 且 use_llm_oracle=true → 返回 (启发式 AND LLM)；
+    - 无 warnings → 返回 启发式。
+
+二、如何把“算子包”表达为输入（X）
+
+- 基础方案（当前已实现）：
+  - 对域内基本算子建立顺序（op2idx），长度 M；
+  - 特征 X = [bag‑of‑ops(M), len, Δrisk, cost] ∈ R^(M+3)；
+  - 模型：PackageScorer(in_dim=M+3) → y^；
+  - 优点：简单稳定、可解释，与启发式/规则引擎兼容。
+- 增强方案（可选）：
+  - 序列编码（RNN/Transformer/1D‑CNN）+ 统计特征融合；
+  - 也可输出“违规类型”多标签用于解释。
+
+三、训练数据结构（建议）
+
+```
+{
+  "domain": "pem",
+  "sequence": ["Inflammation", "Apoptosis"],
+  "x": {
+    "op_index": { "Inflammation": 0, "Apoptosis": 1, ... },
+    "bag_of_ops": [1,1,0,...],
+    "length": 2,
+    "delta_risk": 0.42,
+    "cost": 0.05
+  },
+  "oracle": {
+    "syntax": { "errors": [], "warnings": ["Step 0: ..."], "valid": true },
+    "heur": { "score": 0.42-λ·0.05, "lambda": 0.2 },
+    "llm_used": true,
+    "llm_raw": "1"
+  },
+  "y": 1
+}
+```
+
+四、训练/推理流程（伪代码）
+
+标签 y 生成（训练时）
+
+```
+for seq in candidate_sequences:
+    res = syntax_checker.check_sequence(seq, init_state)
+    if res.errors:
+        y = 0
+    else:
+        heur_ok = (delta_risk(seq) - λ*cost(seq) > 0)
+        if res.warnings and use_llm:
+            prompt = build_pathfinder_prompt(domain, seq)  // llm_oracle.py
+            llm_out = call_llm(prompt)  // '1' or '0'
+            y = int(heur_ok and (llm_out == '1'))
+        else:
+            y = int(heur_ok)
+```
+
+网络训练
+
+```
+for (X, y) in dataset:
+    y_hat = scorer(X)  // PackageScorer
+    loss = BCE(y_hat, y)
+    update(loss)
+```
+
+推理（写辞海）
+
+```
+candidates = random_generate(...)
+ranked = sort_by(scorer(X(candidate)), desc=True)
+top_k = select_top_k(ranked, K)
+write_to_<domain>_operator_packages.json(top_k)
+```
+
+五、Pathfinder 与 Connector 的 I/O 对比
+
+- Pathfinder（单域）
+  - 输入 X：基于 sequence 的向量编码（Bag‑of‑ops + 统计）；
+  - 输出 y^：是否合法 p(valid)，监督来自“syntax_checker 优先 +（仅警告启用 LLM）+ 启发式”；
+  - 产物：<domain>_operator_packages.json。
+- Connector（七域）
+  - 输入 X：7 域包长度 + 全局统计（ΣΔrisk, Σcost, consistency）→ 长度 10；
+  - 输出 y^：联络合法 p(valid)，同样遵循“显著错误→直接 0、仅警告→按配置启用 LLM”的监督生成；
+  - 产物：law_connections.json。
+
+六、与现有实现对齐
+
+- 已实现：Bag‑of‑ops + 统计特征（scorer.py），并按上面方式生成标签；双重判定逻辑在 oracle.py 中落实（errors→0，warnings→可配 LLM）。
+- 可选增强：替换为序列模型或加入不交换矩阵、位置编码等（与现框架兼容）。
+
 
 
 
