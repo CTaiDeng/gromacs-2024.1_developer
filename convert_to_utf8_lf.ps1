@@ -53,13 +53,13 @@ function Test-PathExcluded {
         [string[]]$ExcludeDirs,
         [string[]]$ExcludePatterns
     )
-    # 目录排除（匹配路径片段，避免宽泛包含误伤）
+    # 目录排除（路径包含匹配）
     foreach ($ex in $ExcludeDirs) {
         if ([string]::IsNullOrWhiteSpace($ex)) { continue }
-        $sep = [System.IO.Path]::DirectorySeparatorChar
-        $full = $Item.FullName
-        if ($full -like ("*{0}{1}{0}*" -f $sep, $ex)) { return $true }
-        if ($full -like ("*{0}{1}" -f $sep, $ex)) { return $true } # 末段恰为该目录名
+        if ($Item.FullName -like "*$([System.IO.Path]::DirectorySeparatorChar)$ex$([System.IO.Path]::DirectorySeparatorChar)*" -or
+            $Item.FullName -like "*$ex*") {
+            return $true
+        }
     }
     # 文件名通配符排除
     foreach ($pat in $ExcludePatterns) {
@@ -102,7 +102,7 @@ function Load-PartialCloneExcludeList {
         if ($obj -is [System.Collections.IEnumerable] -and -not ($obj -is [string])) {
             foreach ($i in $obj) { if ($i -is [string]) { $paths += $i } }
         } elseif ($obj -is [pscustomobject]) {
-            foreach ($key in @('exclude','exclude_files','excludeFiles','whitelist','paths','items')) {
+            foreach ($key in @('exclude','whitelist','paths','items')) {
                 if ($obj.PSObject.Properties.Name -contains $key) {
                     $val = $obj.$key
                     if ($val -is [string]) { $paths += $val }
@@ -296,11 +296,10 @@ function Convert-ToUtf8Lf {
     if ($maybeBinary) { return [pscustomobject]@{ Changed=$false; Skipped=$true } }
     if (-not $needsChange -or $DryRun) { return [pscustomobject]@{ Changed=$false; Skipped=$false } }
 
-    # 规范化为 LF，并在需要时确保结尾换行（处理 EOL=None 场景）
+    # 规范化为 LF
     if ($needsEol) {
         $text = $text -replace "`r`n", "`n"
         $text = $text -replace "`r", "`n"
-        if (-not $text.EndsWith("`n")) { $text += "`n" }
     }
 
     # 写回 UTF-8（默认无 BOM）
@@ -329,80 +328,37 @@ if (-not (Test-Path -LiteralPath $root -PathType Container)) {
     throw "Path not found or not a directory: $Path"
 }
 
+$all = Get-ChildItem -LiteralPath $root -Recurse -File -Force -ErrorAction SilentlyContinue
+
 $partialExcludeList = Load-PartialCloneExcludeList -Root $root
-
-# 以“目录级别”直接跳过：
-# - 被 Git 忽略的目录
-# - 在 partial_clone_exclude_whitelist.json 中声明的目录
-# - 在参数 ExcludeDirs 中命中的目录
-function Get-FilesWithPrune {
-    param(
-        [string]$Root,
-        [string[]]$ExcludeDirs,
-        [string[]]$ExcludePatterns,
-        [string[]]$PartialExcludeList
-    )
-
-    $stack = New-Object System.Collections.Generic.Stack[System.IO.DirectoryInfo]
-    $stack.Push((Get-Item -LiteralPath $Root))
-
-    $prunedByName = 0
-    $prunedByGit  = 0
-    $prunedByList = 0
-
-    while ($stack.Count -gt 0) {
-        $dir = $stack.Pop()
-        if (-not (Test-Path -LiteralPath $dir.FullName -PathType Container)) { continue }
-
-        $relDir = Get-RelativePath -FullPath $dir.FullName -BasePath $Root
-        if ($relDir -eq '.' -or $relDir -eq $dir.FullName) { $relDir = '' }
-
-        $shouldPrune = $false
-        $pruneReason = ''
-        if ($relDir -ne '') {
-            # 目录名/路径规则排除
-            if (Test-PathExcluded -Item $dir -ExcludeDirs $ExcludeDirs -ExcludePatterns @()) { $shouldPrune = $true; $pruneReason = '名称规则'; $prunedByName++ }
-
-            # Git 忽略目录
-            if (-not $shouldPrune) {
-                if (Test-GitIgnored -RepoRoot $Root -RelativePath $relDir) { $shouldPrune = $true; $pruneReason = 'Git 忽略'; $prunedByGit++ }
-            }
-
-            # partial_clone 白名单中的排除目录
-            if (-not $shouldPrune) {
-                if (Test-PartialCloneExcluded -RelativePath $relDir -ExcludeList $PartialExcludeList) { $shouldPrune = $true; $pruneReason = '部分克隆白名单'; $prunedByList++ }
-            }
-        }
-
-        if ($shouldPrune) { continue }
-
-        # 当前目录文件（仍应用文件级排除与通配）
-        Get-ChildItem -LiteralPath $dir.FullName -File -Force -ErrorAction SilentlyContinue |
-            Where-Object {
-                -not (Test-PathExcluded -Item $_ -ExcludeDirs $ExcludeDirs -ExcludePatterns $ExcludePatterns) -and
-                -not (Test-GitIgnored -RepoRoot $Root -RelativePath (Get-RelativePath -FullPath $_.FullName -BasePath $Root)) -and
-                -not (Test-PartialCloneExcluded -RelativePath (Get-RelativePath -FullPath $_.FullName -BasePath $Root) -ExcludeList $PartialExcludeList)
-            }
-
-        # 下探子目录（延后再判断是否需要 prune）
-        Get-ChildItem -LiteralPath $dir.FullName -Directory -Force -ErrorAction SilentlyContinue |
-            ForEach-Object { $stack.Push($_) }
-    }
-    # 不打印任何被跳过目录的信息，按要求静默处理
-}
-
-$all = @(Get-FilesWithPrune -Root $root -ExcludeDirs $ExcludeDirs -ExcludePatterns $ExcludePatterns -PartialExcludeList $partialExcludeList)
 
 $total = 0
 $converted = 0
 $ok = 0
 $tooLarge = 0
+$gitIgnored = 0
+$partialExcluded = 0
 $binary = 0
 $errors = 0
 
 foreach ($file in $all) {
-    # 额外的安全校验：单文件维度再判一次（以防目录未被 prune 的散落文件）
+    if (Test-PathExcluded -Item $file -ExcludeDirs $ExcludeDirs -ExcludePatterns $ExcludePatterns) { continue }
+
     $relp = Get-RelativePath -FullPath $file.FullName -BasePath $root
+
+    # Git 忽略
+    if (Test-GitIgnored -RepoRoot $root -RelativePath $relp) {
+        Write-Host ("{0} | Git 忽略 | 跳过" -f $relp) -ForegroundColor Red
+        $gitIgnored++
+        continue
+    }
+
+    # partial_clone 排除
+    if (Test-PartialCloneExcluded -RelativePath $relp -ExcludeList $partialExcludeList) {
+        Write-Host ("{0} | 部分克隆排除 | 跳过" -f $relp) -ForegroundColor Red
+        $partialExcluded++
+        continue
+    }
 
     if ($file.Length -gt $MaxFileBytes) {
         Write-Host ("{0} | 过大({1} 字节) | 跳过" -f $relp, $file.Length) -ForegroundColor Red
@@ -424,10 +380,7 @@ foreach ($file in $all) {
 Write-Host ("---- 汇总 ----") -ForegroundColor Cyan
 Write-Host ("根目录: {0}" -f $root) -ForegroundColor DarkCyan
 Write-Host ("处理文件数: {0}" -f $total) -ForegroundColor DarkCyan
-
-# 转换为 0 时显示绿色，否则红色
-$fgConverted = if ($converted -eq 0) { 'Green' } else { 'Red' }
-Write-Host ("转换: {0}" -f $converted) -ForegroundColor $fgConverted
+Write-Host ("转换: {0}" -f $converted) -ForegroundColor Red
 Write-Host ("已是目标: {0}" -f $ok) -ForegroundColor Green
 
 # 0 显示为绿色，否则红色
@@ -439,4 +392,6 @@ $fgErrors          = if ($errors -eq 0) { 'Green' } else { 'Red' }
 
 Write-Host ("跳过-二进制: {0}" -f $binary) -ForegroundColor $fgBinary
 Write-Host ("跳过-过大: {0}" -f $tooLarge) -ForegroundColor $fgTooLarge
+Write-Host ("跳过-Git忽略: {0}" -f $gitIgnored) -ForegroundColor $fgGitIgnored
+Write-Host ("跳过-部分克隆排除: {0}" -f $partialExcluded) -ForegroundColor $fgPartialExcluded
 Write-Host ("错误: {0}" -f $errors) -ForegroundColor $fgErrors
