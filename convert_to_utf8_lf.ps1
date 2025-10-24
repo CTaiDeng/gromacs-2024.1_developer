@@ -378,7 +378,11 @@ function Get-FilesWithPrune {
 
         # 当前目录文件（仍应用文件级排除与通配）
         Get-ChildItem -LiteralPath $dir.FullName -File -Force -ErrorAction SilentlyContinue |
-            Where-Object { -not (Test-PathExcluded -Item $_ -ExcludeDirs $ExcludeDirs -ExcludePatterns $ExcludePatterns) }
+            Where-Object {
+                -not (Test-PathExcluded -Item $_ -ExcludeDirs $ExcludeDirs -ExcludePatterns $ExcludePatterns) -and
+                -not (Test-GitIgnored -RepoRoot $Root -RelativePath (Get-RelativePath -FullPath $_.FullName -BasePath $Root)) -and
+                -not (Test-PartialCloneExcluded -RelativePath (Get-RelativePath -FullPath $_.FullName -BasePath $Root) -ExcludeList $PartialExcludeList)
+            }
 
         # 下探子目录（延后再判断是否需要 prune）
         Get-ChildItem -LiteralPath $dir.FullName -Directory -Force -ErrorAction SilentlyContinue |
@@ -393,8 +397,6 @@ $total = 0
 $converted = 0
 $ok = 0
 $tooLarge = 0
-$gitIgnored = 0
-$partialExcluded = 0
 $binary = 0
 $errors = 0
 
@@ -402,15 +404,6 @@ foreach ($file in $all) {
     # 额外的安全校验：单文件维度再判一次（以防目录未被 prune 的散落文件）
     $relp = Get-RelativePath -FullPath $file.FullName -BasePath $root
 
-    if (Test-GitIgnored -RepoRoot $root -RelativePath $relp) {
-        # 不再逐条打印，避免噪声；直接计数
-        $gitIgnored++
-        continue
-    }
-    if (Test-PartialCloneExcluded -RelativePath $relp -ExcludeList $partialExcludeList) {
-        $partialExcluded++
-        continue
-    }
     if ($file.Length -gt $MaxFileBytes) {
         Write-Host ("{0} | 过大({1} 字节) | 跳过" -f $relp, $file.Length) -ForegroundColor Red
         $tooLarge++
@@ -446,6 +439,4 @@ $fgErrors          = if ($errors -eq 0) { 'Green' } else { 'Red' }
 
 Write-Host ("跳过-二进制: {0}" -f $binary) -ForegroundColor $fgBinary
 Write-Host ("跳过-过大: {0}" -f $tooLarge) -ForegroundColor $fgTooLarge
-Write-Host ("跳过-Git忽略: {0}" -f $gitIgnored) -ForegroundColor $fgGitIgnored
-Write-Host ("跳过-部分克隆排除: {0}" -f $partialExcluded) -ForegroundColor $fgPartialExcluded
 Write-Host ("错误: {0}" -f $errors) -ForegroundColor $fgErrors
