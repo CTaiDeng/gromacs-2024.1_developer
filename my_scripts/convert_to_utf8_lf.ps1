@@ -60,7 +60,9 @@ function Write-Utf8NoBom([string]$filePath, [string]$text){
   [System.IO.File]::WriteAllText($filePath, $text, $enc)
 }
 
-$root = Resolve-Path -LiteralPath $Path
+$rootInfo = Resolve-Path -LiteralPath $Path
+$root = $rootInfo.Path
+Write-Output ("[INFO] convert_to_utf8_lf: path={0}" -f $root)
 $all = Get-ChildItem -LiteralPath $root -Recurse -File -ErrorAction SilentlyContinue
 $targets = @()
 foreach($f in $all){
@@ -74,6 +76,9 @@ foreach($f in $all){
   $targets += $f
 }
 
+if ($targets.Count -eq 0) {
+  Write-Output ("[INFO] no candidate files under {0} (Extensions filter may exclude all)" -f $root)
+}
 Write-Verbose ("[DEBUG] scan_path={0} candidates={1}" -f $root, $targets.Count)
 
 $changed = 0; $errors = 0; $preview = 0
@@ -108,17 +113,26 @@ foreach($f in $targets){
 
     # 统一 LF
     $lf = $raw -replace "`r`n","`n" -replace "`r","`n"
+    $wouldChange = -not ($lf -eq $raw)
     if ($DryRun -and -not $Force){
-      Write-Output "[DRYRUN] would convert to UTF-8+LF: $($f.FullName)"
-      $preview++
+      if ($wouldChange) {
+        Write-Output "[DRYRUN] would convert to UTF-8+LF: $($f.FullName)"
+        $preview++
+      } else {
+        Write-Verbose "[DRYRUN] already UTF-8+LF: $($f.FullName)"
+      }
       continue
     }
     if (-not $NoBackup){
       Copy-Item -LiteralPath $f.FullName -Destination ("$($f.FullName).utf8lf.bak") -ErrorAction SilentlyContinue | Out-Null
     }
-    Write-Utf8NoBom -filePath $f.FullName -text $lf
-    Write-Output "[CONVERTED] $($f.FullName)"
-    $changed++
+    if ($wouldChange) {
+      Write-Utf8NoBom -filePath $f.FullName -text $lf
+      Write-Output "[CONVERTED] $($f.FullName)"
+      $changed++
+    } else {
+      Write-Verbose "[SKIP] already UTF-8+LF: $($f.FullName)"
+    }
   } catch {
     Write-Warning "[ERROR] $($f.FullName): $($_.Exception.Message)"
     $errors++
