@@ -11,7 +11,7 @@ import torch.nn.functional as F
 import os
 import time as _pytime
 
-from .sequence_env import NSCLCSequenceEnv
+from lbopb.src.rlsac.application.common.pem_connector_env import PemConnectorEnv
 from .models import DiscretePolicy, QNetwork
 from .replay_buffer import ReplayBuffer
 from .utils import soft_update, select_device_from_config, discrete_entropy
@@ -38,13 +38,15 @@ def train(config_path: str | Path | None = None, data_json: str | Path | None = 
 
         def write_line(self, text: str) -> None:
             try:
-                self.f.write(text + "\r\n"); self.f.flush()
+                self.f.write(text + "\r\n");
+                self.f.flush()
             except Exception:
                 pass
 
         def close(self) -> None:
             try:
-                self.f.flush(); self.f.close()
+                self.f.flush();
+                self.f.close()
             except Exception:
                 pass
 
@@ -58,8 +60,14 @@ def train(config_path: str | Path | None = None, data_json: str | Path | None = 
             print(msg)
             if logger: logger.write_line(msg)
 
-    reward_lambda = float(cfg.get("reward_lambda", 0.2))
-    env = NSCLCSequenceEnv(case_json=str(mod_dir / "operator_crosswalk_train.json"), reward_lambda=reward_lambda)
+    # 使用以 PEM 为动作空间的联络打分环境（观测为整数索引）
+    packages_dir = str(Path(cfg.get("packages_dir", "lbopb/src/rlsac/kernel/rlsac_pathfinder")))
+    observation_map = str(Path(cfg.get("observation_map", "lbopb/src/rlsac/application/common/observation_map.json")))
+    cost_lambda = float(cfg.get("cost_lambda", 0.2))
+    eps_change = float(cfg.get("eps_change", 1e-3))
+    use_llm_oracle = bool(cfg.get("use_llm_oracle", False))
+    env = PemConnectorEnv(packages_dir=packages_dir, observation_map=observation_map, cost_lambda=cost_lambda,
+                          eps_change=eps_change, use_llm_oracle=use_llm_oracle)
     obs_dim = env.observation_space.shape[0]
     n_actions = env.action_space.high - env.action_space.low
     dbg(f"环境初始化: obs_dim={obs_dim}, n_actions={n_actions}")

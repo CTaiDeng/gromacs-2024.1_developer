@@ -116,7 +116,11 @@ class AxiomOracle:
             func = getattr(mod, "check_sequence", None)
             if callable(func):
                 res = func(list(op_names), init_state=s0)
-                ok_syntax = bool(res.get("valid", True))
+                fatals = res.get("errors", []) or []
+                warns = res.get("warnings", []) or []
+                if fatals:
+                    return 1 if False else 0  # 存在显著错误，直接判定为 0
+                ok_syntax = True  # 无显著错误→语法层面通过
         except Exception:
             ok_syntax = True
         # 2) 启发式度量
@@ -125,13 +129,21 @@ class AxiomOracle:
         ok_heur = bool(dr > self.min_improve and score > 0.0)
         # 3) 可选 LLM 判定（占位，不阻断）
         ok_llm = True
+        # 仅当存在“警告”时启用 LLM 辅助判定
         if self.use_llm:
             try:
-                from lbopb.src.rlsac.kernel.common.llm_oracle import call_llm
-                prompt = f"Domain={domain}; Operators={list(op_names)}; Decide if valid under axioms: 1 or 0."
+                from lbopb.src.rlsac.kernel.common.llm_oracle import call_llm, build_pathfinder_prompt
+                prompt = build_pathfinder_prompt(domain, list(op_names))
                 txt = call_llm(prompt)
                 if isinstance(txt, str):
                     ok_llm = ("1" in txt and "0" not in txt) or (txt.strip() == "1")
             except Exception:
                 ok_llm = True
-        return 1 if (ok_syntax and ok_heur and ok_llm) else 0
+        # 如果存在警告，并启用了 LLM，则需要 ok_llm 与 ok_heur 同时成立；否则仅依据启发式
+        try:
+            warns_present = bool(res.get("warnings", []))  # type: ignore[name-defined]
+        except Exception:
+            warns_present = False
+        if warns_present and self.use_llm:
+            return 1 if (ok_syntax and ok_heur and ok_llm) else 0
+        return 1 if (ok_syntax and ok_heur) else 0

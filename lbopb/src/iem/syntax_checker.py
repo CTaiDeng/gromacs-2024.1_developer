@@ -108,6 +108,7 @@ def check_sequence(seq: List[str], *, init_state: IEMState | None = None) -> Dic
     state = init_state or default_init_state()
     ok = True
     errors: List[str] = []
+    warnings: List[str] = []
     steps: List[Dict[str, Any]] = []
     halted = False
     prev_name: str | None = None
@@ -125,8 +126,7 @@ def check_sequence(seq: List[str], *, init_state: IEMState | None = None) -> Dic
         # follow-up 模式检查（上下文依赖）
         ok_follow, why = engine.check_followups(seq, i)
         if not ok_follow and why:
-            ok = False
-            errors.append(f"Step {i}: {why}")
+            warnings.append(f"Step {i}: {why}")
         prev = state
         cur = op(prev)
         db = float(cur.b - prev.b)
@@ -140,8 +140,7 @@ def check_sequence(seq: List[str], *, init_state: IEMState | None = None) -> Dic
             if sg[k] != expect:
                 violated.append(f"{k}: expect {expect}, got {sg[k]}")
         if violated:
-            ok = False
-            errors.append(f"Step {i}: {name} violates: " + "; ".join(violated))
+            warnings.append(f"Step {i}: {name} violates: " + "; ".join(violated))
         steps.append({"op": name, "delta": {"b": db, "n": dn, "perim": dp, "f": df}, "sign": sg})
         state = cur
         prev_name = name
@@ -161,7 +160,18 @@ def check_sequence(seq: List[str], *, init_state: IEMState | None = None) -> Dic
                 continue
         if halted:
             break
-    return {"valid": ok, "errors": errors, "steps": steps}
+    return {
+        "valid": ok,
+        "errors": [
+            {"index": i, "op": steps[i]["op"] if i < len(steps) else None, "message": msg, "doc": "my_docs/project_docs/1761062407_免疫效应幺半群 (IEM) 公理系统.md"}
+            for i, msg in enumerate(errors)
+        ] if errors else [],
+        "warnings": [
+            {"index": i, "op": steps[i]["op"] if i < len(steps) else None, "message": msg, "doc": "my_docs/project_docs/1761062407_免疫效应幺半群 (IEM) 公理系统.md"}
+            for i, msg in enumerate(warnings)
+        ] if warnings else [],
+        "steps": steps,
+    }
 
 
 if __name__ == "__main__":

@@ -241,7 +241,7 @@ def train_all(config_path: str | Path | None = None, domains: list[str] | None =
 
 
 def extract_operator_package(run_dir: str | Path, config_path: str | Path | None = None, max_len: int | None = None) -> \
-Dict[str, Any]:
+        Dict[str, Any]:
     """贪心解码提取算子包，写入对应域的 operator_packages.json。"""
     mod_dir = Path(__file__).resolve().parent
     cfg_path = Path(config_path) if config_path else (mod_dir / "config.json")

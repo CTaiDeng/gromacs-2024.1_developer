@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 from typing import Any, Dict, List, Tuple
+import importlib
 
 from lbopb.src.rlsac.kernel.rlsac_pathfinder.oracle import default_init_state, apply_sequence
 from lbopb.src.rlsac.kernel.common.llm_oracle import call_llm
@@ -42,24 +43,43 @@ class ConnectorAxiomOracle:
         deltas: Dict[str, float] = {}
         costs: Dict[str, float] = {}
         changes: Dict[str, float] = {}
+        fatal = False
+        warns_present = False
         for m in MODULES:
             s0 = states[m]
             seq = conn.get(m) or []
+            # 单域语法检查：若有显著错误，直接判 0；若有警告，记录以便启用 LLM 辅助
+            try:
+                mod = importlib.import_module(f"lbopb.src.{m}.syntax_checker")
+                func = getattr(mod, "check_sequence", None)
+                if callable(func):
+                    res = func(list(seq), init_state=s0)
+                    fatals = res.get("errors", []) or []
+                    warns = res.get("warnings", []) or []
+                    if fatals:
+                        fatal = True
+                    if warns:
+                        warns_present = True
+            except Exception:
+                pass
             s1, dr, c = apply_sequence(m, s0, seq)
             states[m] = s1
             deltas[m] = float(dr)
             costs[m] = float(c)
             # 变化强度：用 |Δrisk|+cost 简化度量
             changes[m] = abs(float(dr)) + float(c)
+        if fatal:
+            return 0, {"delta_risk_sum": sum(deltas.values()), "consistency": 0.0, "cost": sum(costs.values())}
         base = sum(deltas.values())
         cost = sum(costs.values())
         cons = _consistency_score(changes, eps_change=self.eps_change)
         score = base + cons - self.cost_lambda * cost
         ok = (score > 0.0)
-        if self.use_llm:
+        # 仅在存在“警告”时启用 LLM 辅助
+        if self.use_llm and warns_present:
             try:
-                prompt = f"Connection candidate across domains: { {m: conn.get(m, []) for m in MODULES} }. Decide if valid (1/0) under axioms."
-                txt = call_llm(prompt)
+                from lbopb.src.rlsac.kernel.common.llm_oracle import build_connector_prompt
+                txt = call_llm(build_connector_prompt(conn))
                 if isinstance(txt, str):
                     ok = ok and (("1" in txt and "0" not in txt) or (txt.strip() == "1"))
             except Exception:

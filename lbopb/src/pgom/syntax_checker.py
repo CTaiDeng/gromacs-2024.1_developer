@@ -99,6 +99,7 @@ def check_sequence(seq: List[str], *, init_state: PGOMState | None = None) -> Di
     state = init_state or default_init_state()
     ok = True
     errors: List[str] = []
+    warnings: List[str] = []
     steps: List[Dict[str, Any]] = []
     prev_name: str | None = None
     for i, name in enumerate(seq):
@@ -113,8 +114,7 @@ def check_sequence(seq: List[str], *, init_state: PGOMState | None = None) -> Di
             errors.append(f"Step {i}: forbidden pair ({prev_name} -> {name})")
         ok_follow, why = engine.check_followups(seq, i)
         if not ok_follow and why:
-            ok = False
-            errors.append(f"Step {i}: {why}")
+            warnings.append(f"Step {i}: {why}")
         prev = state
         cur = op(prev)
         db = float(cur.b - prev.b)
@@ -128,8 +128,7 @@ def check_sequence(seq: List[str], *, init_state: PGOMState | None = None) -> Di
             if sg[k] != expect:
                 violated.append(f"{k}: expect {expect}, got {sg[k]}")
         if violated:
-            ok = False
-            errors.append(f"Step {i}: {name} violates: " + "; ".join(violated))
+            warnings.append(f"Step {i}: {name} violates: " + "; ".join(violated))
         steps.append({"op": name, "delta": {"b": db, "n": dn, "perim": dp, "f": df}, "sign": sg})
         state = cur
         prev_name = name
@@ -137,7 +136,14 @@ def check_sequence(seq: List[str], *, init_state: PGOMState | None = None) -> Di
             ok = False
             errors.append(f"Step {i}: state out of bounds")
             break
-    return {"valid": ok, "errors": errors, "steps": steps}
+    return {
+        "valid": ok,
+        "errors": [
+            {"index": i, "op": steps[i]["op"] if i < len(steps) else None, "message": msg, "doc": "my_docs/project_docs/1761062405_药理基因组幺半群 (PGOM) 公理系统.md"}
+            for i, msg in enumerate(errors)
+        ] if errors else [],
+        "steps": steps,
+    }
 
 
 if __name__ == "__main__":
@@ -146,3 +152,4 @@ if __name__ == "__main__":
     seq = sys.argv[1:] if len(sys.argv) > 1 else ["Activate", "Repress"]
     res = check_sequence(seq)
     print(json.dumps(res, ensure_ascii=False, indent=2))
+

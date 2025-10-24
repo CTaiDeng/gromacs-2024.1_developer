@@ -1,11 +1,12 @@
-# rlsac_nsclc（NSCLC SequenceEnv 版）
+# rlsac_nsclc（PEM 联络环境训练）
 
-- 独立的离散 SAC 实现，使用 `NSCLCSequenceEnv` 将 `operator_crosswalk_train.json` 的“模块→算子序列”转为训练样本。
+- 训练目标：以整体生命体状态为输入，输出一个 PEM 域的“算子包”（来自 rlsac_pathfinder 的辞海），并以 PEM 为基底、补齐其它 6
+  域包形成联络候选体，以联络一致性评分作为奖励进行强化学习。
 - 运行：
     - `python lbopb/src/rlsac/application/rlsac_nsclc/train.py`（配置见同目录 `config.json`）
-- 产物：`out/train_*/` 下生成 `policy.pt` 等权重与日志；自动导出 `op_index.json`（op→id 对照表）。
+- 产物：`out/out_pathfinder/` 或 `out/out_connector/` 下的训练日志与权重。
 
-说明：本包不依赖 `lbopb/src/rlsac`，内部自洽（sequence_env/models/utils/replay_buffer/train）。
+说明：本包使用 PEM 联络环境，不再使用旧的 SequenceEnv/目标路径指针推进逻辑。
 
 结论（更准确的表述）：
 
@@ -16,36 +17,26 @@
 
 下面解读在 `lbopb/src/rlsac/application/rlsac_nsclc` 框架中，`operator_crosswalk_train.json` 如何被使用，以及输入/输出设计与训练数据的来源。
 
-### 1. `operator_crosswalk_train.json` 是什么？
+### 1. PEM 算子包来源
 
-- 它不是训练样本，而是“字典/指令集”。用于定义智能体可以执行的“干预算子（Operator）”全集，以及各模块的目标序列（Case Package）。
-- 本包会在初始化时读取该 JSON，构建全局“干预算子词表（vocabulary）”，并在训练目录导出 `op_index.json`（op→id 对照），用于将整数动作
-  id 反查为具体算子名。
+- 来自 `lbopb/src/rlsac/kernel/rlsac_pathfinder/pem_operator_packages.json`。
 
-### 2. 输入 Observation 代表什么？
+### 2. Observation
 
-在 rlsac_nsclc 中，Observation 被设计为一个拼接向量：
+- 7 域 [B, P, F, N, risk] 拼接，合计 35 维。
 
-- `[module_onehot(7) | per-module(B,P,F,N,risk)*7 | next_op_onehot(M) | pos]`
-    - `module_onehot(7)`: 当前正在推进的模块（pem/pdem/pktm/pgom/tem/prm/iem）。
-    - 每模块 5 维数值特征：`B、P、F、N、risk`（来自各模块 `metrics.py`）。
-    - `next_op_onehot(M)`: 在该模块目标序列中“下一应选算子”的 one-hot 提示（M 为全局干预算子个数）。
-    - `pos`: 当前指针在该模块目标序列的归一化位置。
+### 3. Action
 
-### 3. 输出 Action 代表什么？如何映射到算子？
+- 选择一个 PEM 算子包（来自辞海）作为动作输出。
 
-- 输出是一个离散动作 id（整数，范围 `0..M-1`），对应全局“干预算子词表”中的某个算子。
-- 训练开始时，系统会把 `env.op2idx` 写成 `op_index.json`（训练目录），用于把整型动作反查为算子名；在报告或推理解释时直接引用即可。
+### 4. Reward 与判定
 
-### 4. 输出对输入的“预测”含义
+- ΣΔrisk + consistency − λ·Σcost；显著错误（syntax_checker.errors）直接判 0；仅警告时可启用 LLM（Gemini）辅助判定（config:
+  use_llm_oracle）。
 
-- 策略网络输出的是 `π(a|s)`：给定当前 Observation，选择每个干预算子的概率分布。这是一种“对最优行为的预测”。
-- 当某个动作概率高时，本质上是在“预测”此动作对当前状态更可能带来长期更高的累积回报。
+### 5. 样本生成
 
-### 5. 训练数据从哪里来？
-
-- 本框架不使用离线监督样本；训练样本 `(s, a, r, s')` 在与环境交互过程中动态生成并写入回放池（ReplayBuffer）。
-- `operator_crosswalk_train.json` 提供的是“动作空间与目标序列”，不是 `(s,a,r,s')` 样本。
+- 与环境交互在线生成 `(s, a, r, s')`；PEM 包来自辞海，其它 6 域包随机补齐。
 
 ### 6. 奖励与指针推进（rlsac_nsclc 的语义）
 
@@ -57,16 +48,11 @@
 ```mermaid
 graph TD
     A[Observation 向量] --> B{策略网络 π(a|s)}
-    B --> C[动作分布 over 全局干预算子]
-    subgraph 指令集
-        D[op_index.json: id→operator]
-    end
-    C --> E[采样/选最大概率 → 动作id]
-    E --> D
-    D --> F[具体算子]
-    F --> G{环境：NSCLCSequenceEnv}
-    G --> H[下一 Observation]
-    G --> I[奖励 r = Δrisk − λ·cost]
+    B --> C[选择 PEM 算子包]
+    C --> D{环境：PEM 联络评分}
+    D --> E[随机补齐其它 6 域包 → 联络候选体]
+    E --> F[ΣΔrisk + consistency − λ·Σcost]
+    F --> G[奖励 r]
     subgraph 回放池
         J[(s, a, r, s')]
     end

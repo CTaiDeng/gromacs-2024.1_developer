@@ -43,5 +43,5 @@
   "updates_per_step": 1,
   "minibatch_floor": 1,
   "output_dir": "out_pathfinder",
-  "use_llm_oracle": false
+  "use_llm_oracle": true
 }

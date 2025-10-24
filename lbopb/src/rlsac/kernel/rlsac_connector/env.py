@@ -126,7 +126,7 @@ class LBOPBConnectorEnv:
             init_states: Optional[Mapping[str, Any]] = None,
     ) -> None:
         self.packages_dir = Path(packages_dir) if packages_dir else (
-                    Path(__file__).resolve().parents[1] / "rlsac_pathfinder")
+                Path(__file__).resolve().parents[1] / "rlsac_pathfinder")
         self.cost_lambda = float(cost_lambda)
         self.consistency_bonus = float(consistency_bonus)
         self.inconsistency_penalty = float(inconsistency_penalty)
