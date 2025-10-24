@@ -131,7 +131,7 @@ def main() -> int:
     dt = _t.time() - t0
 
     err = isinstance(res, str) and (
-        res.startswith("[Gemini Error]") or res.startswith("[Gemini HTTPError]")
+            res.startswith("[Gemini Error]") or res.startswith("[Gemini HTTPError]")
     )
     used = not err and isinstance(res, str)
     print(
@@ -170,5 +170,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
-

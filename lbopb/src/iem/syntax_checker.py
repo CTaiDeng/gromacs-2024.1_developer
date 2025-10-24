@@ -163,11 +163,13 @@ def check_sequence(seq: List[str], *, init_state: IEMState | None = None) -> Dic
     return {
         "valid": ok,
         "errors": [
-            {"index": i, "op": steps[i]["op"] if i < len(steps) else None, "message": msg, "doc": "my_docs/project_docs/1761062407_免疫效应幺半群 (IEM) 公理系统.md"}
+            {"index": i, "op": steps[i]["op"] if i < len(steps) else None, "message": msg,
+             "doc": "my_docs/project_docs/1761062407_免疫效应幺半群 (IEM) 公理系统.md"}
             for i, msg in enumerate(errors)
         ] if errors else [],
         "warnings": [
-            {"index": i, "op": steps[i]["op"] if i < len(steps) else None, "message": msg, "doc": "my_docs/project_docs/1761062407_免疫效应幺半群 (IEM) 公理系统.md"}
+            {"index": i, "op": steps[i]["op"] if i < len(steps) else None, "message": msg,
+             "doc": "my_docs/project_docs/1761062407_免疫效应幺半群 (IEM) 公理系统.md"}
             for i, msg in enumerate(warnings)
         ] if warnings else [],
         "steps": steps,

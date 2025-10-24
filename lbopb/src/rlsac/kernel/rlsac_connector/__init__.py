@@ -10,13 +10,16 @@
 
 from .env import LBOPBConnectorEnv
 
+
 def train(*args, **kwargs):
     from . import train as _train_mod
     return _train_mod.train(*args, **kwargs)
 
+
 def extract_connection(*args, **kwargs):
     from . import train as _train_mod
     return _train_mod.extract_connection(*args, **kwargs)
+
 
 __all__ = [
     "LBOPBConnectorEnv",

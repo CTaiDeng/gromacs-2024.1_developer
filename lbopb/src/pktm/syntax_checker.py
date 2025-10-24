@@ -138,7 +138,8 @@ def check_sequence(seq: List[str], *, init_state: PKTMState | None = None) -> Di
     return {
         "valid": ok,
         "errors": [
-            {"index": i, "op": steps[i]["op"] if i < len(steps) else None, "message": msg, "doc": "my_docs/project_docs/1761062404_药代转运幺半群 (PKTM) 公理系统.md"}
+            {"index": i, "op": steps[i]["op"] if i < len(steps) else None, "message": msg,
+             "doc": "my_docs/project_docs/1761062404_药代转运幺半群 (PKTM) 公理系统.md"}
             for i, msg in enumerate(errors)
         ] if errors else [],
         "steps": steps,
@@ -151,4 +152,3 @@ if __name__ == "__main__":
     seq = sys.argv[1:] if len(sys.argv) > 1 else ["Dose", "Distribute", "Metabolize"]
     res = check_sequence(seq)
     print(json.dumps(res, ensure_ascii=False, indent=2))
-

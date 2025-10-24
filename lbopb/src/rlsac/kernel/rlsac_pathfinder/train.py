@@ -7,6 +7,8 @@ import json
 import time as _pytime
 from pathlib import Path
 import os
+import re
+import re
 from typing import Any, Dict, List
 
 import torch
@@ -33,6 +35,7 @@ except ImportError:
     # 兼容直接脚本执行：将仓库根加入 sys.path 后用绝对导入
     from pathlib import Path as _Path
     import sys as _sys
+
     _sys.path.insert(0, str(_Path(__file__).resolve().parents[5]))
     from lbopb.src.rlsac.kernel.rlsac_pathfinder.env_domain import DomainPathfinderEnv, Goal
     from lbopb.src.rlsac.kernel.rlsac_pathfinder.domain import get_domain_spec
@@ -40,6 +43,11 @@ except ImportError:
     from lbopb.src.rlsac.kernel.rlsac_pathfinder.oracle import AxiomOracle, default_init_state, apply_sequence
     from lbopb.src.rlsac.kernel.rlsac_pathfinder.scorer import PackageScorer, train_scorer
 from lbopb.src.rlsac.application.rlsac_nsclc.utils import select_device_from_config
+
+try:
+    from lbopb.src.rlsac.application.rlsac_nsclc.models import DiscretePolicy  # type: ignore
+except Exception:
+    DiscretePolicy = None  # type: ignore
 
 
 def _load_config(cfg_path: Path) -> Dict[str, Any]:
@@ -142,6 +150,28 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
             if logger:
                 logger.write_line(msg)
 
+    # 控制台颜色与日志辅助（控制台彩色，日志去色）
+    ANSI_RESET = "\x1b[0m"
+    ANSI_RED = "\x1b[31;1m"
+    ANSI_GREEN = "\x1b[32;1m"
+    ANSI_YELLOW = "\x1b[33;1m"
+    ANSI_CYAN = "\x1b[36;1m"
+    ANSI_MAGENTA = "\x1b[35;1m"
+
+    _ansi_re = re.compile(r"\x1b\[[0-9;]*m")
+
+    def _strip_ansi(s: str) -> str:
+        try:
+            return _ansi_re.sub("", s)
+        except Exception:
+            return s
+
+    def logc(text: str, color: str | None = None) -> None:
+        s = f"{color}{text}{ANSI_RESET}" if (color and debug) else text
+        print(s)
+        if logger:
+            logger.write_line(_strip_ansi(text))
+
     # 环境
     # 确定本次训练的域
     this_domain = str(domain_override if domain_override is not None else cfg.get("domain", "pem")).lower()
@@ -235,22 +265,21 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                     from lbopb.src.rlsac.kernel.common.llm_oracle import call_llm, build_pathfinder_prompt
                     llm_prompt = build_pathfinder_prompt(domain, list(seq))
                     if debug:
-                        # 请求前打印
+                        # 分割线与请求前打印
+                        logc("========== LLM REQUEST BEGIN ==========", ANSI_CYAN)
                         _msg0 = (
                             f"[LLM] start: provider=gemini domain={domain} seq_len={len(seq)} "
                             f"warnings={len(syntax.get('warnings', []))} heur_ok={heur_ok}"
                         )
-                        print(_msg0)
-                        if log_to_file and 'logger' in locals() and logger:
-                            logger.write_line(_msg0)
+                        logc(_msg0, ANSI_CYAN)
+                        # 样本表达高亮
+                        logc(f"[SEQ] {seq}", ANSI_YELLOW)
                         # 提示词预览（最多 240 字符）
                         try:
                             _pv = str(llm_prompt)
                             _pv2 = _pv[:240] + ("..." if len(_pv) > 240 else "")
                             _msg1 = f"[LLM] prompt preview: {_pv2}"
-                            print(_msg1)
-                            if log_to_file and 'logger' in locals() and logger:
-                                logger.write_line(_msg1)
+                            logc(_msg1, ANSI_CYAN)
                         except Exception:
                             pass
                     llm_attempted = True
@@ -258,7 +287,8 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                     txt = call_llm(llm_prompt)
                     _dt = _pytime.time() - _t0
                     llm_raw = str(txt) if txt is not None else None
-                    _is_err = isinstance(txt, str) and (txt.startswith("[Gemini Error]") or txt.startswith("[Gemini HTTPError]"))
+                    _is_err = isinstance(txt, str) and (
+                                txt.startswith("[Gemini Error]") or txt.startswith("[Gemini HTTPError]"))
                     if _is_err:
                         llm_used = False
                         llm_status = "skipped_exception"
@@ -291,9 +321,22 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                                 f"[LLM] done: used={llm_used}, status={llm_status}, dt={_dt:.2f}s, "
                                 f"result_len={len(llm_raw) if isinstance(llm_raw, str) else 0}, result_preview={_rprev2}"
                             )
-                            print(_msg2)
-                            if log_to_file and 'logger' in locals() and logger:
-                                logger.write_line(_msg2)
+                            logc(_msg2, ANSI_CYAN)
+                            # 结果高亮（含中文解释）
+                            if _is_err:
+                                logc("[RESULT] LLM 请求失败/未解析 → 不纳入训练", ANSI_RED)
+                            else:
+                                try:
+                                    _s = (llm_raw or "").strip()
+                                except Exception:
+                                    _s = ""
+                                if _s == "1" or ("1" in _s and "0" not in _s):
+                                    logc("[RESULT] 1 → 符合公理系统（正样本，纳入训练）", ANSI_GREEN)
+                                elif _s == "0" or ("0" in _s and "1" not in _s):
+                                    logc("[RESULT] 0 → 不符合公理系统（负样本，纳入训练）", ANSI_RED)
+                                else:
+                                    logc("[RESULT] 未能解析为 1/0 → 不纳入训练", ANSI_MAGENTA)
+                            logc("========== LLM REQUEST END ==========", ANSI_CYAN)
                         except Exception:
                             pass
                 except Exception as e:
@@ -307,9 +350,9 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                     if debug:
                         try:
                             _msgE = f"[LLM] exception: {e}"
-                            print(_msgE)
-                            if log_to_file and 'logger' in locals() and logger:
-                                logger.write_line(_msgE)
+                            logc(_msgE, ANSI_RED)
+                            logc("[RESULT] LLM 异常 → 不纳入训练", ANSI_RED)
+                            logc("========== LLM REQUEST END ==========", ANSI_CYAN)
                         except Exception:
                             pass
             elif warns_present and not bool(cfg.get("use_llm_oracle", False)):
@@ -355,6 +398,7 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
             "train_include": bool(train_include),
             "train_reason": train_reason,
         }
+
     X_rows: list[list[float]] = []
     y_rows: list[float] = []
     for i in range(n_samples):
@@ -434,8 +478,16 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
         try:
             # 统计 warnings / llm 覆盖率与训练纳入情况
             total = len(dataset_dump)
-            err_cnt = 0; warn_cnt = 0; llm_cnt = 0; syntax_ok_cnt = 0; llm_attempted_cnt = 0
-            llm_used_cnt = 0; llm_skip_no_warn = 0; llm_skip_use_llm_false = 0; llm_skip_errors = 0; llm_skip_exception = 0
+            err_cnt = 0;
+            warn_cnt = 0;
+            llm_cnt = 0;
+            syntax_ok_cnt = 0;
+            llm_attempted_cnt = 0
+            llm_used_cnt = 0;
+            llm_skip_no_warn = 0;
+            llm_skip_use_llm_false = 0;
+            llm_skip_errors = 0;
+            llm_skip_exception = 0
             train_included_cnt = 0
             train_reason_cnt: Dict[str, int] = {}
             for item in dataset_dump:
@@ -475,7 +527,7 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
             msg_stats = (
                 f"[STATS] total={total} error_samples={err_cnt} warning_samples={warn_cnt} "
                 f"syntax_ok_samples={syntax_ok_cnt} llm_attempted_samples={llm_attempted_cnt} llm_used_samples={llm_cnt} "
-                f"train_included_samples={train_included_cnt} train_excluded_samples={total-train_included_cnt}"
+                f"train_included_samples={train_included_cnt} train_excluded_samples={total - train_included_cnt}"
             )
             print(msg_stats)
             if log_to_file and 'logger' in locals() and logger:
@@ -602,6 +654,28 @@ def extract_operator_package(run_dir: str | Path, config_path: str | Path | None
 
     # 加载策略
     run_dir = Path(run_dir)
+    global DiscretePolicy
+    if DiscretePolicy is None:
+        import torch.nn as nn
+        import torch.nn.functional as F  # noqa: F401
+        class _FallbackDiscretePolicy(nn.Module):
+            def __init__(self, od: int, na: int, hidden=(128, 128)):
+                super().__init__()
+                layers = []
+                last = od
+                for h in hidden:
+                    layers.append(nn.Linear(last, h))
+                    layers.append(nn.ReLU())
+                    last = h
+                layers.append(nn.Linear(last, na))
+                self.net = nn.Sequential(*layers)
+
+            def forward(self, x: torch.Tensor):
+                logits = self.net(x)
+                probs = torch.softmax(logits, dim=-1)
+                return logits, probs
+
+        DiscretePolicy = _FallbackDiscretePolicy  # type: ignore
     policy = DiscretePolicy(obs_dim, n_actions)
     policy.load_state_dict(torch.load(run_dir / "policy.pt", map_location="cpu"))
     policy.eval()

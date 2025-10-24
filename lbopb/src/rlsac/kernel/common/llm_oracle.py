@@ -10,7 +10,7 @@ import time as _t
 
 
 def call_llm(prompt: str, *, provider: str = "gemini", model: str | None = None, api_key: str | None = None) -> \
-Optional[str]:
+        Optional[str]:
     """占位封装：调用外部 LLM（如 Gemini），返回文本判定结果。
 
     出于可移植与安全考虑，本函数不内置具体 HTTP 调用逻辑；
@@ -78,23 +78,23 @@ PAIRWISE: List[tuple[str, str]] = [
 def build_pathfinder_prompt(domain: str, sequence: List[str]) -> str:
     d = (domain or "").lower()
     doc_rel = DOC_MAP.get(d, "<axiom-doc-not-found>")
-    # 读取并注入公理文档内容（以仓库根为基准解析路径）
+    # 读取并注入公理文档内容（以仓库根为基准解析路径）。不在提示词中暴露具体路径或说明性标注。
     doc_text = "<axiom-doc-content-not-found>"
     try:
-        repo_root = Path(__file__).resolve().parents[5]
+        from pathlib import Path as _Path
+        repo_root = _Path(__file__).resolve().parents[5]
         doc_path = repo_root / doc_rel
         if doc_path.exists():
             doc_text = doc_path.read_text(encoding="utf-8")
         else:
-            doc_text = f"<axiom-doc-content-not-found: {doc_path}>"
+            doc_text = "<axiom-doc-content-not-found>"
     except Exception:
         pass
 
     return (
         "你是一名严格的形式系统审查器。\n"
         f"幺半群域: {d}\n"
-        f"公理文档路径: {doc_rel}\n"
-        f"公理文档内容（{doc_rel} 的内容）:\n"
+        "以下是该域的公理文档：\n"
         "-----BEGIN AXIOM DOC-----\n"
         f"{doc_text}\n"
         "-----END AXIOM DOC-----\n"

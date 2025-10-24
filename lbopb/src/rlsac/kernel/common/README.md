@@ -1,6 +1,19 @@
-# LLM（Gemini）判定注入模板与使用说明
+﻿# LLM（Gemini）判定注入模板与使用说明
 
-本说明给出当 `use_llm_oracle=true` 时，与外部 LLM（如 Gemini）配合所需的“定义模板（prompt）”，以及接口与返回约束。模板已在 `llm_oracle.py` 中实现：
+## 开发协议（最高优先级）
+
+- 编码与换行（强制）
+    - 统一采用 UTF-8（无 BOM）+ CRLF 行尾。
+    - 提交/检出由 `.gitattributes` 管控；任何生成脚本必须显式 `encoding='utf-8'` 且写入 CRLF 行尾。
+    - 禁止在文档/代码中以字面字符串“/r/n”（或其他非标准标记）表示换行；必须写入真实的 CRLF 行尾。
+- 写入建议（脚本）
+    - Python：`open(path, 'w', encoding='utf-8', newline='')`；必要时在落盘前执行
+      `text = text.replace("\r\n", "\n").replace("\n", "\r\n")` 以统一 CRLF。
+    - PowerShell：`Set-Content -Encoding utf8`/`Out-File -Encoding utf8` 默认写入 CRLF；避免输出字面“/r/n”。
+- 适用范围：本规范适用于 `lbopb/src/rlsac/kernel/common/` 及其子目录，且在该作用域内优先级最高（更深层目录如另有
+  AGENTS/README 约定，可在其作用域内覆盖冲突条目）。
+  本说明给出当 `use_llm_oracle=true` 时，与外部 LLM（如 Gemini）配合所需的“定义模板（prompt）”，以及接口与返回约束。模板已在
+  `llm_oracle.py` 中实现：
 
 - 单域（Pathfinder）模板函数：`build_pathfinder_prompt(domain, sequence)`
 - 跨域（Connector）模板函数：`build_connector_prompt(conn)`
@@ -10,8 +23,8 @@
 ## 1) 判定约束（强制）
 
 - LLM 必须只返回单个字符：`'1'` 或 `'0'`
-  - `'1'` 表示“符合相应公理系统/联络要求”
-  - `'0'` 表示“不符合”
+    - `'1'` 表示“符合相应公理系统/联络要求”
+    - `'0'` 表示“不符合”
 - 任何其它字符、文字、解释均视为非合规输出（调用方可做兜底处理）
 - 当 `syntax_checker` 给出“显著错误（errors 非空）”时，LLM 不会被调用（直接判 0）
 - 当仅有“警告（warnings 非空）”时，才启用 LLM 辅助；若 `warnings` 为空，默认仅使用内置启发式/一致性判定
@@ -32,6 +45,7 @@
 ```
 
 说明：
+
 - `domain`: pem/pdem/pktm/pgom/tem/prm/iem
 - `公理文档`: 由 `DOC_MAP` 查表得到
 - `序列`: 由训练/评估时的候选“算子包”注入
@@ -62,6 +76,7 @@
 ```
 
 说明：
+
 - 对偶域对在 `PAIRWISE` 中定义：`[(pdem,pktm), (pgom,pem), (tem,pktm), (prm,pem), (iem,pem)]`
 - 模板会注入每个域的公理文档路径与该域的算子包序列
 - LLM 必须只返回 `1/0`
@@ -80,32 +95,34 @@ def ask(prompt: str) -> str:
 
 - 返回值应严格为 `'1'` 或 `'0'`；若返回其它内容，调用方会尝试解析（不保证可靠）
 - 为提升输出稳定性，建议：
-  - 设置较低 `temperature` 与 `top_p`（使输出更确定）
-  - 使用系统/用户指令强约束：“只返回单个字符 '1' 或 '0'，不得输出其它文本”
+    - 设置较低 `temperature` 与 `top_p`（使输出更确定）
+    - 使用系统/用户指令强约束：“只返回单个字符 '1' 或 '0'，不得输出其它文本”
 
 ## 5) 调用路径与开关
 
 - Pathfinder（单域）
-  - `lbopb/src/rlsac/kernel/rlsac_pathfinder/oracle.py` 中 `AxiomOracle`
-  - `use_llm_oracle=true` 且 syntax_checker 仅出现“警告”时，调用 `build_pathfinder_prompt()` + `call_llm()`
+    - `lbopb/src/rlsac/kernel/rlsac_pathfinder/oracle.py` 中 `AxiomOracle`
+    - `use_llm_oracle=true` 且 syntax_checker 仅出现“警告”时，调用 `build_pathfinder_prompt()` + `call_llm()`
 - Connector（跨域）
-  - `lbopb/src/rlsac/kernel/rlsac_connector/oracle.py` 中 `ConnectorAxiomOracle`
-  - `use_llm_oracle=true` 且任一域仅出现“警告”时，调用 `build_connector_prompt()` + `call_llm()`
+    - `lbopb/src/rlsac/kernel/rlsac_connector/oracle.py` 中 `ConnectorAxiomOracle`
+    - `use_llm_oracle=true` 且任一域仅出现“警告”时，调用 `build_connector_prompt()` + `call_llm()`
 
 ## 6) 与 syntax_checker 的关系（双重判定）
 
 - 显著错误（errors 非空）
-  - 直接判定为 0，**不会**调用 LLM
+    - 直接判定为 0，**不会**调用 LLM
 - 仅有警告（warnings 非空）
-  - 训练/评估时，按配置启用 LLM 辅助判定：LLM 返回 1 才与启发式/一致性判定共同决策
+    - 训练/评估时，按配置启用 LLM 辅助判定：LLM 返回 1 才与启发式/一致性判定共同决策
 - 无警告
-  - 默认仅使用内置启发式/一致性判定（不调用 LLM）
+    - 默认仅使用内置启发式/一致性判定（不调用 LLM）
 
 ## 7) 典型集成步骤
 
 1. 在 `my_scripts/gemini_client.py` 实现 `ask(prompt: str) -> str`（或 generate/chat 等之一），返回 `'1'/'0'`
 2. 在 pathfinder/connector 的配置中开启 `use_llm_oracle=true`
 3. 运行训练：
-   - 单域：`python -m lbopb.src.rlsac.kernel.rlsac_pathfinder.train`
-   - 跨域：`python -m lbopb.src.rlsac.kernel.rlsac_connector.train`
+    - 单域：`python -m lbopb.src.rlsac.kernel.rlsac_pathfinder.train`
+    - 跨域：`python -m lbopb.src.rlsac.kernel.rlsac_connector.train`
 4. 确认日志中仅在出现“警告”的样本上调用 LLM；显著错误均本地拦截
+
+- 根约束：仓库根目录的 `AGENTS.md` 为全仓库“最高宪法”，本节在本目录作用域内执行；如与根规范冲突，以根规范为准。

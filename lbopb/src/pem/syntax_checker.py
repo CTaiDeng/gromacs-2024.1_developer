@@ -130,11 +130,13 @@ def check_sequence(seq: List[str], *, init_state: PEMState | None = None) -> Dic
     return {
         "valid": ok,
         "errors": [
-            {"index": i, "op": steps[i]["op"] if i < len(steps) else None, "message": msg, "doc": "my_docs/project_docs/1761062400_病理演化幺半群 (PEM) 公理系统.md"}
+            {"index": i, "op": steps[i]["op"] if i < len(steps) else None, "message": msg,
+             "doc": "my_docs/project_docs/1761062400_病理演化幺半群 (PEM) 公理系统.md"}
             for i, msg in enumerate(errors)
         ] if errors else [],
         "warnings": [
-            {"index": i, "op": steps[i]["op"] if i < len(steps) else None, "message": msg, "doc": "my_docs/project_docs/1761062400_病理演化幺半群 (PEM) 公理系统.md"}
+            {"index": i, "op": steps[i]["op"] if i < len(steps) else None, "message": msg,
+             "doc": "my_docs/project_docs/1761062400_病理演化幺半群 (PEM) 公理系统.md"}
             for i, msg in enumerate(warnings)
         ] if warnings else [],
         "steps": steps,

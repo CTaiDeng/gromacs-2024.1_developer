@@ -44,22 +44,22 @@
 - 输出语义：y^ = p(valid | connection) ∈ (0,1)，即“七域联络是否合法/可采纳”的概率。
 - 推断：用 y^ 排序候选联络，Top‑K 写入联络辞海；训练：BCE(y^, y) 监督。
 - 标签 y（双重判定来源）：
-  - 单域显著错误（syntax_checker.errors 非空）→ 直接判 0；
-  - 仅有警告（任何域 warnings 非空）且 use_llm_oracle=true 时，调用 LLM（Gemini）两两整合模板判定，结果与启发式共同决策；
-  - 启发式一致性：ΣΔrisk + consistency − λ·Σcost > 0；
-  - 组合逻辑：
-    - 若任何域有 errors → 0（不调用 LLM）；
-    - 若存在 warnings 且启用 LLM → y = 启发式 AND LLM；
-    - 无 warnings → y = 启发式。
+    - 单域显著错误（syntax_checker.errors 非空）→ 直接判 0；
+    - 仅有警告（任何域 warnings 非空）且 use_llm_oracle=true 时，调用 LLM（Gemini）两两整合模板判定，结果与启发式共同决策；
+    - 启发式一致性：ΣΔrisk + consistency − λ·Σcost > 0；
+    - 组合逻辑：
+        - 若任何域有 errors → 0（不调用 LLM）；
+        - 若存在 warnings 且启用 LLM → y = 启发式 AND LLM；
+        - 无 warnings → y = 启发式。
 
 二、如何把“联络候选体”表达为输入（X）
 
 - 基础方案（当前已实现）：
-  - 向量 X = [len(seq_pem), len(seq_pdem), ..., len(seq_iem), ΣΔrisk, Σcost, consistency] ∈ R^10；
-  - 模型：PackageScorer(in_dim=10) → y^；
-  - 优点：结构简单稳定，适合快速验证一致性度量的效果。
+    - 向量 X = [len(seq_pem), len(seq_pdem), ..., len(seq_iem), ΣΔrisk, Σcost, consistency] ∈ R^10；
+    - 模型：PackageScorer(in_dim=10) → y^；
+    - 优点：结构简单稳定，适合快速验证一致性度量的效果。
 - 增强方案（可选）：
-  - 拼接 7 域的“序列编码”与全局统计；或加入“单域违规分布”多标签头，提升解释能力。
+    - 拼接 7 域的“序列编码”与全局统计；或加入“单域违规分布”多标签头，提升解释能力。
 
 三、训练数据结构（建议）
 

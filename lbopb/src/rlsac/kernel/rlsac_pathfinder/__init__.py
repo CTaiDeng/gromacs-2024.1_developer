@@ -10,17 +10,21 @@
 from .env_domain import DomainPathfinderEnv, Goal
 from .domain import get_domain_spec
 
+
 def train(*args, **kwargs):
     from . import train as _train_mod
     return _train_mod.train(*args, **kwargs)
+
 
 def train_all(*args, **kwargs):
     from . import train as _train_mod
     return _train_mod.train_all(*args, **kwargs)
 
+
 def extract_operator_package(*args, **kwargs):
     from . import train as _train_mod
     return _train_mod.extract_operator_package(*args, **kwargs)
+
 
 __all__ = [
     "DomainPathfinderEnv",
