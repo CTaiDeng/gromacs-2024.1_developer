@@ -59,7 +59,7 @@
 - `ensure_timestamp_doc_license_footer.py`
   - 为“10位时间戳_*.md”追加许可尾注（已声明 kernel_reference 例外）。
 - `gen_my_docs_index.py`
-  - 生成/刷新 根目录 `README.md`（UTF-8 with BOM）。
+  - 生成/刷新 根目录 `README.md`（UTF-8（无 BOM））。
 - `ensure_summaries.py`
   - 在缺失时补全 `## 摘要` 区块。
  - `align_dates_to_filename_prefix.py`
@@ -75,8 +75,8 @@
 - `my_docs/project_docs/kernel_reference`：外部参考（只读，排除写入型脚本遍历）。
 
 ## 编码规范（重点）
-- 为兼容 Windows 传统控制台编码，`my_docs/AGENTS.md` 与 根目录 `README.md` 使用 UTF-8 with BOM 保存。
-- 其他 Markdown 文件建议使用 UTF-8；如需在控制台直接阅读，也可手动转换为 UTF-8 with BOM。
+- 为兼容 Windows 传统控制台编码，`my_docs/AGENTS.md` 与 根目录 `README.md` 使用 UTF-8（无 BOM） 保存。
+- 其他 Markdown 文件建议使用 UTF-8；如需在控制台直接阅读，也可手动转换为 UTF-8（无 BOM）。
 
 ## 写入协议（重要）
 - 当遇到如下指令时：
@@ -92,6 +92,7 @@
 - [MUST] 文件名与 H1 标题不得包含“标题：/标题:”前缀；脚本自动清理，已有文件将被批量迁移与重命名。
 
 以上规范在仓库脚本持续演进下保持兼容与更新。
+
 
 
 

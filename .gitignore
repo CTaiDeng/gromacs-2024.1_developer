@@ -10,3 +10,5 @@
 
 .venv
 lbopb\src\rlsac\out
+*.crlf2lf.bak
+*.utf8lf.bak

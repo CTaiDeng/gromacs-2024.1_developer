@@ -1,15 +1,15 @@
-﻿# LLM（Gemini）判定注入模板与使用说明
+# LLM（Gemini）判定注入模板与使用说明
 
 ## 开发协议（最高优先级）
 
 - 编码与换行（强制）
-    - 统一采用 UTF-8（无 BOM）+ CRLF 行尾。
-    - 提交/检出由 `.gitattributes` 管控；任何生成脚本必须显式 `encoding='utf-8'` 且写入 CRLF 行尾。
-    - 禁止在文档/代码中以字面字符串“/r/n”（或其他非标准标记）表示换行；必须写入真实的 CRLF 行尾。
+    - 统一采用 UTF-8（无 BOM）+ LF 行尾。
+    - 提交/检出由 `.gitattributes` 管控；任何生成脚本必须显式 `encoding='utf-8'` 且写入 LF 行尾。
+    - 禁止在文档/代码中以字面字符串“/r/n”（或其他非标准标记）表示换行；必须写入真实的 LF 行尾。
 - 写入建议（脚本）
     - Python：`open(path, 'w', encoding='utf-8', newline='')`；必要时在落盘前执行
-      `text = text.replace("\r\n", "\n").replace("\n", "\r\n")` 以统一 CRLF。
-    - PowerShell：`Set-Content -Encoding utf8`/`Out-File -Encoding utf8` 默认写入 CRLF；避免输出字面“/r/n”。
+      `text = text.replace("\r\n", "\n").replace("\n", "\r\n")` 以统一 LF。
+    - PowerShell：`Set-Content -Encoding utf8`/`Out-File -Encoding utf8` 默认写入 LF；避免输出字面“/r/n”。
 - 适用范围：本规范适用于 `lbopb/src/rlsac/kernel/common/` 及其子目录，且在该作用域内优先级最高（更深层目录如另有
   AGENTS/README 约定，可在其作用域内覆盖冲突条目）。
   本说明给出当 `use_llm_oracle=true` 时，与外部 LLM（如 Gemini）配合所需的“定义模板（prompt）”，以及接口与返回约束。模板已在
