@@ -197,26 +197,51 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
         heur_ok = bool((dr - cost_lambda * c) > 0.0)
         # LLM only when warnings present and enabled
         llm_used = False
+        llm_attempted = False
         llm_raw: str | None = None
+        llm_prompt: str | None = None
+        llm_status: str = "skipped_no_warn"  # used | skipped_no_warn | skipped_use_llm_false | skipped_errors | skipped_exception
         if syntax["errors"]:
             label = 0
+            llm_status = "skipped_errors"
         else:
             label = int(heur_ok)
             warns_present = bool(syntax.get("warnings"))
-            if bool(cfg.get("use_llm_oracle", False)) and warns_present:
+            if warns_present and bool(cfg.get("use_llm_oracle", False)):
                 try:
                     from lbopb.src.rlsac.kernel.common.llm_oracle import call_llm, build_pathfinder_prompt
-                    prompt = build_pathfinder_prompt(domain, list(seq))
-                    txt = call_llm(prompt)
+                    llm_prompt = build_pathfinder_prompt(domain, list(seq))
+                    llm_attempted = True
+                    txt = call_llm(llm_prompt)
                     llm_used = True
+                    llm_status = "used"
                     llm_raw = str(txt) if txt is not None else None
                     if isinstance(txt, str):
                         label = int(heur_ok and (("1" in txt and "0" not in txt) or (txt.strip() == "1")))
                 except Exception:
-                    pass
+                    llm_attempted = True
+                    llm_used = False
+                    llm_status = "skipped_exception"
+                    llm_raw = None
+            elif warns_present and not bool(cfg.get("use_llm_oracle", False)):
+                llm_status = "skipped_use_llm_false"
+            else:
+                llm_status = "skipped_no_warn"
         # 控制台调试输出
         if debug:
-            print(f"[SAMPLE] seq={seq} label={label} syntax_errors={len(syntax['errors'])} warnings={len(syntax['warnings'])} heur_ok={heur_ok} llm_used={llm_used}")
+            print(
+                "[SAMPLE] seq={seq} label={label} syntax_errors={e} warnings={w} "
+                "heur_ok={heur} llm_attempted={la} llm_used={lu} llm_status={ls}".format(
+                    seq=seq,
+                    label=label,
+                    e=len(syntax["errors"]),
+                    w=len(syntax["warnings"]),
+                    heur=heur_ok,
+                    la=llm_attempted,
+                    lu=llm_used,
+                    ls=llm_status,
+                )
+            )
         return {
             "label": int(label),
             "syntax": syntax,
@@ -225,6 +250,9 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
             "cost": float(c),
             "llm_used": bool(llm_used),
             "llm_raw": llm_raw,
+            "llm_prompt": llm_prompt,
+            "llm_status": llm_status,
+            "llm_attempted": bool(llm_attempted),
         }
     for i in range(n_samples):
         seq = sample_random_package(spec, min_len=min_len, max_len=max_len, no_consecutive_duplicate=no_dup)
@@ -287,6 +315,55 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
     scored.sort(key=lambda t: t[0], reverse=True)
     if debug_dump:
         try:
+            # 统计 warnings / llm 覆盖率
+            total = len(dataset_dump)
+            err_cnt = 0; warn_cnt = 0; llm_cnt = 0; syntax_ok_cnt = 0; llm_attempted_cnt = 0
+            llm_used_cnt = 0; llm_skip_no_warn = 0; llm_skip_use_llm_false = 0; llm_skip_errors = 0; llm_skip_exception = 0
+            for item in dataset_dump:
+                j = item.get("judge", {})
+                syn = j.get("syntax", {}) if isinstance(j, dict) else {}
+                errors = syn.get("errors", []) or []
+                warns = syn.get("warnings", []) or []
+                if len(errors) > 0:
+                    err_cnt += 1
+                if len(warns) > 0:
+                    warn_cnt += 1
+                if len(errors) == 0 and len(warns) == 0:
+                    syntax_ok_cnt += 1
+                if bool(j.get("llm_used", False)):
+                    llm_cnt += 1
+                if bool(j.get("llm_attempted", False)):
+                    llm_attempted_cnt += 1
+                # 细分 llm 状态
+                ls = str(j.get("llm_status", ""))
+                if ls == "used":
+                    llm_used_cnt += 1
+                elif ls == "skipped_no_warn":
+                    llm_skip_no_warn += 1
+                elif ls == "skipped_use_llm_false":
+                    llm_skip_use_llm_false += 1
+                elif ls == "skipped_errors":
+                    llm_skip_errors += 1
+                elif ls == "skipped_exception":
+                    llm_skip_exception += 1
+            # 控制台与日志打印
+            msg_stats = (
+                f"[STATS] total={total} error_samples={err_cnt} warning_samples={warn_cnt} "
+                f"syntax_ok_samples={syntax_ok_cnt} llm_attempted_samples={llm_attempted_cnt} llm_used_samples={llm_cnt}"
+            )
+            print(msg_stats)
+            if log_to_file and 'logger' in locals() and logger:
+                logger.write_line(msg_stats)
+            # 打印 LLM 细分统计
+            msg_llm = (
+                f"[LLM_STATS] attempted={llm_attempted_cnt} used={llm_used_cnt} skipped_no_warn={llm_skip_no_warn} "
+                f"skipped_use_llm_false={llm_skip_use_llm_false} skipped_errors={llm_skip_errors} "
+                f"skipped_exception={llm_skip_exception}"
+            )
+            print(msg_llm)
+            if log_to_file and 'logger' in locals() and logger:
+                logger.write_line(msg_llm)
+
             debug_ds_path = run_dir / "debug_dataset.json"
             debug_cand_path = run_dir / "debug_candidates.json"
             with open(debug_ds_path, 'w', encoding='utf-8', newline='') as f:
@@ -295,7 +372,22 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                     "op_names": op_names,
                     "samples": dataset_dump,
                     "fit_rounds": rounds if fit_until_perfect else 0,
-                    "train_acc": acc
+                    "train_acc": acc,
+                    "stats": {
+                        "total": total,
+                        "error_samples": err_cnt,
+                        "warning_samples": warn_cnt,
+                        "syntax_ok_samples": syntax_ok_cnt,
+                        "llm_attempted_samples": llm_attempted_cnt,
+                        "llm_used_samples": llm_cnt,
+                        "llm_detail": {
+                            "used": llm_used_cnt,
+                            "skipped_no_warn": llm_skip_no_warn,
+                            "skipped_use_llm_false": llm_skip_use_llm_false,
+                            "skipped_errors": llm_skip_errors,
+                            "skipped_exception": llm_skip_exception
+                        }
+                    }
                 }, f, ensure_ascii=False, indent=2)
             with open(debug_cand_path, 'w', encoding='utf-8', newline='') as f:
                 json.dump([

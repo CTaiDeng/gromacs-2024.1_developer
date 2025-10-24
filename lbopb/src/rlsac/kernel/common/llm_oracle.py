@@ -18,7 +18,7 @@ Optional[str]:
         if provider.lower() == "gemini":
             import importlib
             cli = importlib.import_module("my_scripts.gemini_client")
-            for fname in ("ask", "generate", "chat", "gemini_text", "query", "run"):
+            for fname in ("ask", "generate", "chat", "gemini_text", "query", "run", "generate_gemini_content"):
                 fn = getattr(cli, fname, None)
                 if callable(fn):
                     try:
