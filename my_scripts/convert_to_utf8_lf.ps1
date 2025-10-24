@@ -35,6 +35,9 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
+# 默认开启逐行跟踪（可通过 -TraceLines:$false 关闭）
+if (-not $PSBoundParameters.ContainsKey('TraceLines')) { $TraceLines = $true }
+
 # 目录排除（正则）
 $excludeDirs = @(
   '\\.git(\\|$)',
@@ -128,4 +131,3 @@ if ($DryRun -and -not $Force){
 } else {
   Write-Output "[SUMMARY] converted=$changed errors=$errors"
 }
-
