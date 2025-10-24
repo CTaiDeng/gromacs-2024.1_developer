@@ -296,10 +296,11 @@ function Convert-ToUtf8Lf {
     if ($maybeBinary) { return [pscustomobject]@{ Changed=$false; Skipped=$true } }
     if (-not $needsChange -or $DryRun) { return [pscustomobject]@{ Changed=$false; Skipped=$false } }
 
-    # 规范化为 LF
+    # 规范化为 LF，并在需要时确保结尾换行（处理 EOL=None 场景）
     if ($needsEol) {
         $text = $text -replace "`r`n", "`n"
         $text = $text -replace "`r", "`n"
+        if (-not $text.EndsWith("`n")) { $text += "`n" }
     }
 
     # 写回 UTF-8（默认无 BOM）
@@ -380,7 +381,10 @@ foreach ($file in $all) {
 Write-Host ("---- 汇总 ----") -ForegroundColor Cyan
 Write-Host ("根目录: {0}" -f $root) -ForegroundColor DarkCyan
 Write-Host ("处理文件数: {0}" -f $total) -ForegroundColor DarkCyan
-Write-Host ("转换: {0}" -f $converted) -ForegroundColor Red
+
+# 转换为 0 时显示绿色，否则红色
+$fgConverted = if ($converted -eq 0) { 'Green' } else { 'Red' }
+Write-Host ("转换: {0}" -f $converted) -ForegroundColor $fgConverted
 Write-Host ("已是目标: {0}" -f $ok) -ForegroundColor Green
 
 # 0 显示为绿色，否则红色
