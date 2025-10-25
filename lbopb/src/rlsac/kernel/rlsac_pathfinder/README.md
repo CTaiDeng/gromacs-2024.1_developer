@@ -32,13 +32,51 @@
 - `out/out_pathfinder/train_*/`：训练产物（`scorer.pt` 权重、提取的 `<domain>_operator_packages.json`）
 - `lbopb/src/rlsac/kernel/rlsac_pathfinder/<domain>_operator_packages.json`：辞海式存储的算子包条目数组。
 
-## 配置关键项（示例）
+## 配置关键项
 
-- `initial_state/target_state/tolerance`：四个量 `b/n_comp/perim/fidelity` 的目标与容差。
+- `domain_choose` + `domain`：域选择（支持编号或名称，编号经 `domain_choose` 反查名称）。
+- `device_choose` + `device`：设备选择（支持编号或名称，GPU 不可用时回退 CPU）。
+- `initial_state/target_state/tolerance`：四维状态与容差（可省略）。
+  - 若省略，将从同目录 `config.dict.json` 中按域加载默认值。
+  - 统一状态语义：
+    - b：负荷/强度（如病灶负担、效应强度等）
+    - n_comp：组分/灶数/克隆数
+    - perim：边界复杂度/外延程度
+    - fidelity：保真/正常性指标
 - `include_identity`：是否将 `Identity` 纳入动作集合（默认 false）。
 - RL 超参：`learning_rate_* / gamma / tau / total_steps / *` 与 `out_pathfinder` 输出目录名等。
 
+> 详见：`lbopb/src/rlsac/kernel/rlsac_pathfinder/config.dict.json`（各域差异默认，含状态语义说明）。
+
 > 注：如需更严谨的校验，可扩展各模块 syntax_checker.py 中的规则引擎（上下文/阈值/停机/不可交换/次序模式等）。
+
+## 语法检查器（各幺半群）
+
+为配合“公理系统”逐行检查算子序列（算子包）是否合法，已在各模块加入 `syntax_checker.py`：
+
+- `lbopb/src/pem/syntax_checker.py`
+- `lbopb/src/pdem/syntax_checker.py`
+- `lbopb/src/pktm/syntax_checker.py`
+- `lbopb/src/pgom/syntax_checker.py`
+- `lbopb/src/tem/syntax_checker.py`
+- `lbopb/src/prm/syntax_checker.py`
+- `lbopb/src/iem/syntax_checker.py`
+
+检查规则：
+
+- 基础合法性：算子名必须属于该幺半群的“基本算子”集合。
+- 方向性约束：对常见算子定义方向性规则（例如 PEM 的 `Apoptosis` 要求 `b/n/perim` 下降、`f` 上升）。
+- 步进仿真：依次应用算子，记录每步 `Δb/Δn/Δperim/Δf`，若与方向性规则冲突则报错。
+
+调用示例：
+
+- `python lbopb/src/pem/syntax_checker.py Inflammation Apoptosis`
+- 返回 JSON：`{"valid": true/false, "errors": [...], "steps": [...]}`
+
+注意：
+
+- 默认初始状态为各域的典型起点；如需替换，可在调用前自行构造并修改脚本入口。
+- 方向性规则为“工程近似”，如需严格对齐论文/公理文档，可扩展规则集或切换至外部 Oracle（Gemini）判定。
 
 ## 调试步骤（建议）
 
@@ -175,7 +213,6 @@ write_to_<domain>_operator_packages.json(top_k)
 - 已实现：Bag‑of‑ops + 统计特征（scorer.py），并按上面方式生成标签；双重判定逻辑在 oracle.py 中落实（errors→0，warnings→可配
   LLM）。
 - 可选增强：替换为序列模型或加入不交换矩阵、位置编码等（与现框架兼容）。
-
 
 
 

@@ -87,10 +87,21 @@ def _resolve_domain(cfg: Dict[str, Any], override: str | None = None) -> str:
 def build_env_from_config(cfg_path: Path, domain_override: str | None = None) -> DomainPathfinderEnv:
     cfg = _load_config(cfg_path)
     domain = _resolve_domain(cfg, domain_override)
+    # 读取域差异配置（config.dict.json）
+    mod_dir = Path(__file__).resolve().parent
+    dict_path = mod_dir / "config.dict.json"
+    dict_cfg: Dict[str, Any] = {}
+    try:
+        if dict_path.exists():
+            dict_cfg = json.loads(dict_path.read_text(encoding="utf-8"))
+    except Exception:
+        dict_cfg = {}
+    dom_defaults = (dict_cfg.get("domains", {}) or {}).get(domain, {}) if isinstance(dict_cfg, dict) else {}
     spec = get_domain_spec(domain)
-    s0_cfg = cfg.get("initial_state", {"b": 3.0, "n_comp": 3, "perim": 5.0, "fidelity": 0.4})
-    st_cfg = cfg.get("target_state", {"b": 0.5, "n_comp": 1, "perim": 2.0, "fidelity": 0.9})
-    tol_cfg = cfg.get("tolerance", {"b": 0.1, "n": 0.5, "p": 0.2, "f": 0.05})
+    # 优先使用 config.json 中的覆盖项，否则采用 config.dict.json 的域默认
+    s0_cfg = cfg.get("initial_state", dom_defaults.get("initial_state", {"b": 3.0, "n_comp": 3, "perim": 5.0, "fidelity": 0.4}))
+    st_cfg = cfg.get("target_state", dom_defaults.get("target_state", {"b": 0.5, "n_comp": 1, "perim": 2.0, "fidelity": 0.9}))
+    tol_cfg = cfg.get("tolerance", dom_defaults.get("tolerance", {"b": 0.1, "n": 0.5, "p": 0.2, "f": 0.05}))
     init_state = spec.state_cls(
         b=float(s0_cfg.get("b", 3.0)),
         n_comp=int(s0_cfg.get("n_comp", 3)),

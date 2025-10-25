@@ -3,7 +3,8 @@
   "log_every_step": true,
   "log_to_file": true,
   "use_gpu": false,
-  "device": "cpu",
+  "device_choose": {"cpu": 1, "gpu": 2},
+  "device": 1,
   "domain_choose": {
     "pem": 1,
     "pdem": 2,
