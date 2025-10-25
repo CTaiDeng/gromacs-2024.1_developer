@@ -10,7 +10,7 @@
     "cost": 0.0,
     "score": 0.2999999999999998,
     "created_at": 1761423060,
-    "updated_at": 1761423060,
+    "updated_at": 1761424864,
     "source": "debug_dataset",
     "ops_detailed": [
       {
@@ -93,7 +93,7 @@
     "cost": 2.09,
     "score": -0.37300000000000005,
     "created_at": 1761423060,
-    "updated_at": 1761423060,
+    "updated_at": 1761424864,
     "source": "debug_dataset",
     "ops_detailed": [
       {
@@ -141,7 +141,7 @@
     "cost": 2.09,
     "score": -0.7179999999999997,
     "created_at": 1761423060,
-    "updated_at": 1761423060,
+    "updated_at": 1761424864,
     "source": "debug_dataset",
     "ops_detailed": [
       {
@@ -245,6 +245,87 @@
     "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json"
   },
   {
+    "id": "pkg_pem_8721666464",
+    "domain": "pem",
+    "sequence": [
+      "Apoptosis",
+      "Metastasis",
+      "Carcinogenesis",
+      "Apoptosis"
+    ],
+    "length": 4,
+    "delta_risk": -0.8279250000000005,
+    "cost": 1.8408499999999997,
+    "score": -1.1960950000000004,
+    "created_at": 1761424864,
+    "updated_at": 1761424864,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Apoptosis",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_n": 0.1,
+          "gamma_p": 0.15,
+          "delta_f": 0.1
+        }
+      },
+      {
+        "name": "Metastasis",
+        "grid_index": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 1.0,
+          "alpha_p": 0.1,
+          "beta_b": 0.05,
+          "beta_f": 0.1
+        }
+      },
+      {
+        "name": "Carcinogenesis",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "k_b": 0.25,
+          "k_p": 0.15,
+          "k_f": 0.1,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Apoptosis",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_n": 0.1,
+          "gamma_p": 0.15,
+          "delta_f": 0.1
+        }
+      }
+    ],
+    "op_space_id": "pem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json"
+  },
+  {
     "id": "pkg_pem_4455105206",
     "domain": "pem",
     "sequence": [
@@ -271,6 +352,55 @@
           "alpha_p": 0.1,
           "beta_b": 0.05,
           "beta_f": 0.1
+        }
+      }
+    ],
+    "op_space_id": "pem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pem_5104490149",
+    "domain": "pem",
+    "sequence": [
+      "Inflammation",
+      "Apoptosis"
+    ],
+    "length": 2,
+    "delta_risk": -1.125,
+    "cost": 0.6150000000000003,
+    "score": -1.248,
+    "created_at": 1761424864,
+    "updated_at": 1761424864,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Inflammation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "eta_b": 0.05,
+          "eta_p": 0.25,
+          "eta_f": 0.05,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Apoptosis",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_n": 0.1,
+          "gamma_p": 0.15,
+          "delta_f": 0.1
         }
       }
     ],
@@ -424,6 +554,71 @@
     "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json"
   },
   {
+    "id": "pkg_pem_5520893203",
+    "domain": "pem",
+    "sequence": [
+      "Carcinogenesis",
+      "Apoptosis",
+      "Metastasis"
+    ],
+    "length": 3,
+    "delta_risk": -1.1505,
+    "cost": 2.2451,
+    "score": -1.59952,
+    "created_at": 1761424864,
+    "updated_at": 1761424864,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Carcinogenesis",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "k_b": 0.25,
+          "k_p": 0.15,
+          "k_f": 0.1,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Apoptosis",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_n": 0.1,
+          "gamma_p": 0.15,
+          "delta_f": 0.1
+        }
+      },
+      {
+        "name": "Metastasis",
+        "grid_index": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 1.0,
+          "alpha_p": 0.1,
+          "beta_b": 0.05,
+          "beta_f": 0.1
+        }
+      }
+    ],
+    "op_space_id": "pem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json"
+  },
+  {
     "id": "pkg_pem_2044922602",
     "domain": "pem",
     "sequence": [
@@ -499,7 +694,7 @@
     "cost": 0.6150000000000003,
     "score": -1.623,
     "created_at": 1761423060,
-    "updated_at": 1761423060,
+    "updated_at": 1761424864,
     "source": "debug_dataset",
     "ops_detailed": [
       {
