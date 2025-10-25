@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import os
 import time as _t
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
@@ -115,6 +116,16 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path,
 
     req_interval = float(cfg.get("llm_request_interval_sec", 0.0))
     last = 0.0
+    # 传递 LLM 配置到环境变量，避免 HTTP 客户端阻塞无输出
+    try:
+        _llm_to = cfg.get("llm_timeout_sec", None)
+        if _llm_to is not None:
+            os.environ["LBOPB_GEMINI_TIMEOUT_SEC"] = str(_llm_to)
+        if isinstance(model, str) and model:
+            os.environ["LBOPB_GEMINI_MODEL"] = model
+            os.environ["GEMINI_MODEL"] = model
+    except Exception:
+        pass
 
     _ensure_repo_in_sys_path()
     from lbopb.src.rlsac.kernel.common.llm_oracle import build_pathfinder_prompt, call_llm  # type: ignore
@@ -129,10 +140,10 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path,
     total = len(arr)
     n_check = total if (limit is None or limit <= 0) else min(limit, total)
     proc = 0
-    if debug:
-        print(f"[VERIFY] file={pack_file} domain={domain} total={total} checking={n_check} model={model or '<default>'} interval={req_interval}s")
+    print(f"[VERIFY] file={pack_file} domain={domain} total={total} checking={n_check} model={model or '<default>'} interval={req_interval}s", flush=True)
     for idx, it in enumerate(arr[:n_check], start=1):
         seq = list(it.get("sequence", []) or [])
+        print(f"[VERIFY:{idx}/{n_check}] START seq={seq}", flush=True)
         # syntax check（优先使用参数化）
         try:
             if isinstance(it.get("ops_detailed"), list) and it.get("op_space_ref"):
@@ -184,7 +195,11 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path,
                     print(f"[VERIFY:{idx}/{n_check}] THROTTLE sleep={w:.2f}s")
                 _t.sleep(w)
         t0 = _t.time()
-        txt = call_llm(prompt, model=model)
+        try:
+            txt = call_llm(prompt, model=model)
+        except Exception as e:
+            txt = f"[LLM Exception] {e}"
+            print(f"[VERIFY:{idx}/{n_check}] LLM_EXCEPTION: {e}", flush=True)
         last = _t.time()
         if isinstance(txt, str):
             s = txt.strip()
@@ -202,10 +217,10 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path,
             "both_ok": bool(both_ok),
         }
         report_items.append(item_report)
+        _resp_prev = _oneline(str(txt) if isinstance(txt, str) else "<None>")
+        print(f"[VERIFY:{idx}/{n_check}] RESULT syntax_ok={syn_ok} llm_ok={llm_ok} both_ok={both_ok}", flush=True)
         if debug:
-            _resp_prev = _oneline(str(txt) if isinstance(txt, str) else "<None>")
             print(f"[VERIFY:{idx}/{n_check}] LLM_USED model={model or '<default>'} dt={(last-t0):.2f}s resp={_resp_prev}")
-            print(f"[VERIFY:{idx}/{n_check}] RESULT syntax_ok={syn_ok} llm_ok={llm_ok} both_ok={both_ok}")
         if both_ok or not prune:
             kept.append(it)
         proc += 1
