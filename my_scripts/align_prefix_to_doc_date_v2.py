@@ -29,6 +29,11 @@ import re
 import sys
 import time
 from pathlib import Path
+from datetime import datetime
+try:
+    from zoneinfo import ZoneInfo  # py3.9+
+except Exception:  # pragma: no cover - fallback when zoneinfo unavailable
+    ZoneInfo = None  # type: ignore
 from typing import Dict, List, Optional, Tuple
 
 REPO = Path(__file__).resolve().parents[1]
@@ -60,6 +65,17 @@ def read_date(md: Path) -> Optional[str]:
 
 
 def base_epoch(ymd: str) -> int:
+    """Return epoch seconds for local midnight of given date in Beijing time (UTC+8).
+    Prefers stdlib zoneinfo('Asia/Shanghai'); falls back to environment localtime.
+    """
+    if ZoneInfo is not None:
+        try:
+            dt = datetime.strptime(ymd, "%Y-%m-%d").replace(tzinfo=ZoneInfo("Asia/Shanghai"))
+            dt = dt.replace(hour=0, minute=0, second=0, microsecond=0)
+            return int(dt.timestamp())
+        except Exception:
+            pass
+    # Fallback: use localtime (ensure TZ=Asia/Shanghai in env for strict behavior)
     st = time.strptime(ymd, "%Y-%m-%d")
     return int(time.mktime(st))
 
