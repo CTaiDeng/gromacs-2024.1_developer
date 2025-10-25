@@ -572,7 +572,37 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
             X_rows.append([float(x) for x in vec])
             y_rows.append(float(label_i))
         if debug_dump:
-            dataset_dump.append({
+            # 参数化动作（v1 空间中位值）
+            try:
+                from lbopb.src.rlsac.kernel.rlsac_pathfinder.op_space_utils import load_op_space, param_grid_of, params_from_grid  # type: ignore
+                _mod_dir = Path(__file__).resolve().parent
+                _space_ref = _mod_dir / "operator_spaces" / f"{this_domain}_op_space.v1.json"
+                ops_det = None
+                os_meta = None
+                if _space_ref.exists():
+                    space = load_op_space(str(_space_ref))
+                    steps = []
+                    for nm in list(seq):
+                        try:
+                            names, grids = param_grid_of(space, nm)
+                        except Exception:
+                            steps.append({"name": nm})
+                            continue
+                        gi = []
+                        for g in grids:
+                            L = len(g)
+                            gi.append(max(0, (L - 1) // 2))
+                        prs = params_from_grid(space, nm, gi)
+                        steps.append({"name": nm, "grid_index": gi, "params": prs})
+                    ops_det = steps
+                    os_meta = {
+                        "op_space_id": space.get("space_id", f"{this_domain}.v1"),
+                        "op_space_ref": str(_space_ref.relative_to(Path(__file__).resolve().parents[5])).replace("\\", "/"),
+                    }
+            except Exception:
+                ops_det = None
+                os_meta = None
+            rec = {
                 "index": int(i),
                 "sequence": list(seq),
                 "features": {
@@ -585,7 +615,12 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                 "label": int(label_i),
                 "train_include": bool(judge.get("train_include", False)),
                 "train_reason": str(judge.get("train_reason", ""))
-            })
+            }
+            if ops_det:
+                rec["ops_detailed"] = ops_det
+            if os_meta:
+                rec.update(os_meta)
+            dataset_dump.append(rec)
     # 构造训练张量
     if len(X_rows) > 0:
         X_t = torch.tensor(X_rows, dtype=torch.float32)
@@ -743,6 +778,52 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                     {"score": float(s), "sequence": seq, "delta_risk": float(dr), "cost": float(c)}
                     for (s, seq, dr, c) in scored[: int(cfg.get("debug_candidates_top", 50))]
                 ], f, ensure_ascii=False, indent=2)
+            # 生成带标签的算子包文件（供训练/复核使用）
+            try:
+                import hashlib as _hashlib
+                labeled_path = run_dir / f"{this_domain}_operator_packages_labeled.json"
+                pkgs_map: dict[str, dict] = {}
+                now_ts = int(_pytime.time())
+                for srec in dataset_dump:
+                    seqv = list(srec.get("sequence", []) or [])
+                    feats = srec.get("features", {}) or {}
+                    dr_v = float(feats.get("delta_risk", 0.0))
+                    c_v = float(feats.get("cost", 0.0))
+                    len_v = int(feats.get("length", len(seqv)))
+                    sc_v = dr_v - cost_lambda * c_v
+                    steps = srec.get("ops_detailed", None)
+                    meta = {k: srec.get(k) for k in ("op_space_id", "op_space_ref") if k in srec}
+                    payload = {"sequence": seqv, "ops_detailed": steps or []}
+                    blob = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+                    hid = int(_hashlib.sha1(blob).hexdigest(), 16) % (10**10)
+                    sid = f"pkg_{this_domain}_{hid}"
+                    pkg = {
+                        "id": sid,
+                        "domain": this_domain,
+                        "sequence": seqv,
+                        "length": len_v,
+                        "delta_risk": dr_v,
+                        "cost": c_v,
+                        "score": sc_v,
+                        "created_at": now_ts,
+                        "updated_at": now_ts,
+                        "source": "training_dataset",
+                        "label": int(srec.get("label", 0)),
+                    }
+                    if steps:
+                        pkg["ops_detailed"] = steps
+                    if meta:
+                        pkg.update(meta)
+                    prev = pkgs_map.get(sid)
+                    if (prev is None) or (float(sc_v) > float(prev.get("score", -1e9))):
+                        pkgs_map[sid] = pkg
+                labeled_items = list(pkgs_map.values())
+                labeled_items.sort(key=lambda d: (-float(d.get("score", 0.0)), int(d.get("length", 0)), tuple(str(x) for x in d.get("sequence", []))))
+                labeled_path.write_text(json.dumps(labeled_items, ensure_ascii=False, indent=2), encoding='utf-8')
+                if debug:
+                    print(f"[TRAIN] labeled packages written: {labeled_path} items={len(labeled_items)}")
+            except Exception:
+                pass
             # 将正确样本（label=1）的算子包去重纳入专用目录，并按 score 重新排序
             try:
                 try:

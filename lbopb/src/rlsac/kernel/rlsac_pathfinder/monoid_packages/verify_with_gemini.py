@@ -14,7 +14,18 @@ def _load_cfg(p: Path) -> Dict[str, Any]:
 
 
 def _repo_root() -> Path:
-    return Path(__file__).resolve().parents[5]
+    """Locate repository root (directory containing .git). Fallback to higher ancestor."""
+    p = Path(__file__).resolve()
+    for anc in [p.parent] + list(p.parents):
+        try:
+            if (anc / ".git").exists():
+                return anc
+        except Exception:
+            continue
+    try:
+        return p.parents[6]
+    except Exception:
+        return p.parents[-1]
 
 
 def _read_packages(p: Path) -> List[Dict[str, Any]]:
@@ -28,6 +39,20 @@ def _domain_from_file(p: Path) -> str:
     name = p.name.split("_")[0].lower()
     return name
 
+
+def _ensure_repo_in_sys_path() -> None:
+    """确保可以导入 lbopb 包（支持直接脚本运行）。"""
+    try:
+        import lbopb  # type: ignore  # noqa: F401
+        return
+    except Exception:
+        pass
+    try:
+        import sys as _sys
+        root = _repo_root()
+        _sys.path.insert(0, str(root))
+    except Exception:
+        pass
 
 def _ops_detailed_for(seq: List[str], domain: str) -> Tuple[List[Dict[str, Any]] | None, Dict[str, Any] | None]:
     """若文件中未提供 ops_detailed，则从 v1 空间构造中位离散点。"""
@@ -81,9 +106,14 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path, debug: b
     req_interval = float(cfg.get("llm_request_interval_sec", 0.0))
     last = 0.0
 
+    _ensure_repo_in_sys_path()
     from lbopb.src.rlsac.kernel.common.llm_oracle import build_pathfinder_prompt, call_llm  # type: ignore
     import importlib
-    syn_mod = importlib.import_module(f"lbopb.src.{domain}.syntax_checker")
+    try:
+        syn_mod = importlib.import_module(f"lbopb.src.{domain}.syntax_checker")
+    except Exception:
+        _ensure_repo_in_sys_path()
+        syn_mod = importlib.import_module(f"lbopb.src.{domain}.syntax_checker")
 
     kept: List[Dict[str, Any]] = []
     for it in arr:
