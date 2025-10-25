@@ -207,12 +207,12 @@ def gen_html_report(case_name: str, cw: dict, states: Dict[str, object], seqs: D
             gemini_result = None
 
     # HTML 模板（Chart.js 通过 CDN 引入；如需离线可替换为本地文件）
-    # 统一以 CRLF 拼接（仓库最高规范）
+    # 统一以 LF 拼接（仓库最高规范）
     L: List[str] = []
     A = L.append
 
     def _j(s: str) -> None:
-        # 统一 CRLF 行尾
+        # 统一 LF 行尾
         A(s)
 
     _j("<!DOCTYPE html>")
@@ -467,7 +467,7 @@ def gen_html_report(case_name: str, cw: dict, states: Dict[str, object], seqs: D
     _j("</body>")
     _j("</html>")
 
-    # 返回统一 CRLF 的完整 HTML 文本
+    # 返回统一 LF 的完整 HTML 文本
     return ("\n").join(L) + "\n"
 
 
@@ -492,7 +492,7 @@ def run_case(case_name: str = "HIV_Therapy_Path", *, pharm_cfg_path: str | None 
     os.makedirs(out_dir, exist_ok=True)
     html_path = os.path.join(out_dir, f"{case_name}_report.html")
     html = gen_html_report(case_name, cw, states, seqs, pharm_cfg_path)
-    # 明确以 UTF-8 + CRLF 写入（仓库最高规范）
+    # 明确以 UTF-8 + LF 写入（仓库最高规范）
     with open(html_path, "w", encoding="utf-8", newline="\n") as f:
         f.write(html)
     print(f"HTML 报告已生成: {html_path}")

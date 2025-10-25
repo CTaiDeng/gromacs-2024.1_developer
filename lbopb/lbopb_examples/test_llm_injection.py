@@ -158,7 +158,7 @@ def main() -> int:
                 "latency_sec": float(dt),
             }
             text = json.dumps(obj, ensure_ascii=False, indent=2)
-            # 写入 CRLF 行尾
+            # 写入 LF 行尾
             text = text.replace("\r\n", "\n")
             fname.write_text(text, encoding="utf-8")
             print(f"[TEST] saved to {fname}")

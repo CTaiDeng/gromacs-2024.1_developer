@@ -87,7 +87,7 @@ def translate_text(
 def build_markdown_with_translation(original_json_text: str, translated_text: str, *, title: str = "LLM 评价（英文/中文）") -> str:
     """\r
     生成包含“原始 JSON（英文）”与“中文翻译（Gemini）”两段的 Markdown 字符串。
-    调用方负责写入文件（UTF-8 + CRLF）。
+    调用方负责写入文件（UTF-8 + LF）。
     """
     lines: list[str] = []
     lines.append(f"# {title}\n\n")

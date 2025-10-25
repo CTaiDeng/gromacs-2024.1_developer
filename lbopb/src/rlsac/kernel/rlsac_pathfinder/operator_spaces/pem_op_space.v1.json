@@ -1,0 +1,41 @@
+{
+  "space_id": "pem.v1",
+  "version": 1,
+  "domain": "pem",
+  "operators": {
+    "Apoptosis": {
+      "params": {
+        "gamma_b": [0.1, 0.2, 0.3],
+        "gamma_n": [0.0, 0.1, 0.2],
+        "gamma_p": [0.1, 0.15, 0.2],
+        "delta_f": [0.05, 0.1, 0.2]
+      }
+    },
+    "Carcinogenesis": {
+      "params": {
+        "k_b": [0.15, 0.25, 0.35],
+        "k_p": [0.1, 0.15, 0.2],
+        "k_f": [0.05, 0.1, 0.15],
+        "dn": [0, 1]
+      }
+    },
+    "Inflammation": {
+      "params": {
+        "eta_b": [0.03, 0.05, 0.08],
+        "eta_p": [0.15, 0.25, 0.35],
+        "eta_f": [0.03, 0.05, 0.08],
+        "dn": [0, 1]
+      }
+    },
+    "Metastasis": {
+      "params": {
+        "alpha_n": [1.0, 2.0],
+        "alpha_p": [0.05, 0.1, 0.2],
+        "beta_b": [0.0, 0.05, 0.1],
+        "beta_f": [0.05, 0.1, 0.2]
+      }
+    }
+  },
+  "notes": "Discrete grids for each operator. Indices map to ops_detailed.grid_index in monoid packages. Values are interpreted by lbopb.src.pem.operators.*."
+}
+

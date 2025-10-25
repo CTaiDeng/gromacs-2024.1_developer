@@ -8,3 +8,57 @@
 
 写入方式：
 - 由 `lbopb.src.rlsac.kernel.rlsac_pathfinder.package_store.ingest_from_debug_dataset()` 自动创建/更新。
+
+扩展字段（可选，向后兼容）：
+- 背景：基础 JSON 仅记录算子名称序列与聚合指标，无法复现“参数化动作”。为确保可操作性、可复现与可审计，允许追加以下字段（不影响既有消费者）：
+- `op_space_id`：算子空间版本号，如 `pem.v1`。
+- `op_space_ref`：空间定义文件相对路径，如 `lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json`。
+- `ops_detailed`：逐步细化序列（与 `sequence` 一一对应），每步项包含：
+  - `name`：算子名。
+  - `params`：该步使用的离散化参数取值（显式数值）。
+  - `grid_index`：可选；在空间网格中的索引（例如 `[i0, i1, ...]`）。
+  - `op_idx`：可选；当前环境内的动作索引（便于对齐 `env_pem.op2idx`）。
+- 轻量别名（可选）：
+  - `op_index_seq`：动作索引序列（整型，与 `sequence` 对齐）。
+  - `op_param_seq`：参数字典序列（与 `sequence` 对齐）。
+- 复现实验上下文（可选）：
+  - `env_state`：`init_state`、`goal`（含容差）、`max_steps`、`seed`、`code_commit`。
+  - `trace`：逐步 `PEMState` 快照与每步指标（如 `reward`/`dist`）。
+
+最小示例（节选）：
+
+```json
+{
+  "id": "pkg_pem_6590899514",
+  "domain": "pem",
+  "sequence": ["Apoptosis", "Carcinogenesis"],
+  "length": 2,
+  "delta_risk": 0.045,
+  "cost": 1.686,
+  "score": -0.2922,
+  "created_at": 1761348557,
+  "updated_at": 1761348557,
+  "source": "debug_dataset",
+
+  "op_space_id": "pem.v1",
+  "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json",
+  "ops_detailed": [
+    {
+      "name": "Apoptosis",
+      "params": { "gamma_b": 0.2, "gamma_n": 0.1, "gamma_p": 0.15, "delta_f": 0.1 },
+      "grid_index": [1,1,1,1],
+      "op_idx": 0
+    },
+    {
+      "name": "Carcinogenesis",
+      "params": { "k_b": 0.25, "k_p": 0.15, "k_f": 0.1, "dn": 0 },
+      "grid_index": [1,1,1,0],
+      "op_idx": 3
+    }
+  ]
+}
+```
+
+算子空间定义（建议）：
+- 文件：`lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json`
+- 内容：对每个基本算子的参数提供有限离散网格；消费者可据此用 `grid_index` 反查数值或校验 `params` 合法性。

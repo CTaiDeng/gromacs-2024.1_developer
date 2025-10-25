@@ -22,7 +22,7 @@
 - 提供简单的一次性文本生成接口 `generate_gemini_content(text)`；
 - 失败时返回错误字符串（前缀含 [Gemini Error]/[Gemini HTTPError]）。
 
-注意：本模块不自动写入文件；调用方如需落盘，应以 encoding='utf-8' 且 CRLF 行尾写入。
+注意：本模块不自动写入文件；调用方如需落盘，应以 encoding='utf-8' 且 LF 行尾写入。
 """
 
 from __future__ import annotations

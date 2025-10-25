@@ -33,7 +33,7 @@ def load_message(msg_path: Path) -> str:
         text = msg_path.read_text(encoding="utf-8", errors="ignore")
     except Exception:
         text = msg_path.read_text(errors="ignore")
-    # strip comment lines and CRLF
+    # strip comment lines and LF
     lines: list[str] = []
     for ln in text.splitlines():
         if ln.lstrip().startswith("#"):
