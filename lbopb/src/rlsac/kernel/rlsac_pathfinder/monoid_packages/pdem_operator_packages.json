@@ -1,0 +1,1285 @@
+[
+  {
+    "id": "pkg_pdem_1701970187",
+    "domain": "pdem",
+    "sequence": [
+      "Antagonist",
+      "Desensitization",
+      "Potentiation",
+      "InverseAgonist"
+    ],
+    "length": 4,
+    "delta_risk": 0.4749991999999996,
+    "cost": 0.2116208000000001,
+    "score": 0.43267503999999957,
+    "created_at": 1761425608,
+    "updated_at": 1761425608,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Antagonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "k_b": 0.2,
+          "k_p": 0.1,
+          "k_f": 0.12
+        }
+      },
+      {
+        "name": "Desensitization",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.1,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      },
+      {
+        "name": "Potentiation",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.05,
+          "delta_f": 0.1
+        }
+      },
+      {
+        "name": "InverseAgonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.05,
+          "rho_f": 0.08
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_9672222027",
+    "domain": "pdem",
+    "sequence": [
+      "Desensitization",
+      "Antagonist"
+    ],
+    "length": 2,
+    "delta_risk": 0.36575999999999986,
+    "cost": 0.11423999999999995,
+    "score": 0.3429119999999999,
+    "created_at": 1761425644,
+    "updated_at": 1761425644,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Desensitization",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.1,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      },
+      {
+        "name": "Antagonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "k_b": 0.2,
+          "k_p": 0.1,
+          "k_f": 0.12
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_6611030296",
+    "domain": "pdem",
+    "sequence": [
+      "Antagonist",
+      "Signal",
+      "InverseAgonist",
+      "Antagonist"
+    ],
+    "length": 4,
+    "delta_risk": 0.2960447999999998,
+    "cost": 0.4455552,
+    "score": 0.20693375999999977,
+    "created_at": 1761425644,
+    "updated_at": 1761425644,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Antagonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "k_b": 0.2,
+          "k_p": 0.1,
+          "k_f": 0.12
+        }
+      },
+      {
+        "name": "Signal",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "beta_b": 0.25,
+          "beta_p": 0.1,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "InverseAgonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.05,
+          "rho_f": 0.08
+        }
+      },
+      {
+        "name": "Antagonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "k_b": 0.2,
+          "k_p": 0.1,
+          "k_f": 0.12
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_7551093370",
+    "domain": "pdem",
+    "sequence": [
+      "Desensitization",
+      "Bind",
+      "InverseAgonist",
+      "Antagonist"
+    ],
+    "length": 4,
+    "delta_risk": 0.27768320000000024,
+    "cost": 0.3755167999999998,
+    "score": 0.2025798400000003,
+    "created_at": 1761425644,
+    "updated_at": 1761425644,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Desensitization",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.1,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      },
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.04,
+          "dn": 0
+        }
+      },
+      {
+        "name": "InverseAgonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.05,
+          "rho_f": 0.08
+        }
+      },
+      {
+        "name": "Antagonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "k_b": 0.2,
+          "k_p": 0.1,
+          "k_f": 0.12
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_9512658276",
+    "domain": "pdem",
+    "sequence": [
+      "InverseAgonist",
+      "Potentiation"
+    ],
+    "length": 2,
+    "delta_risk": 0.13449999999999962,
+    "cost": 0.11340000000000004,
+    "score": 0.11181999999999961,
+    "created_at": 1761425644,
+    "updated_at": 1761425644,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "InverseAgonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.05,
+          "rho_f": 0.08
+        }
+      },
+      {
+        "name": "Potentiation",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.05,
+          "delta_f": 0.1
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_5687410486",
+    "domain": "pdem",
+    "sequence": [
+      "Desensitization",
+      "Antagonist",
+      "Signal"
+    ],
+    "length": 3,
+    "delta_risk": 0.17076000000000002,
+    "cost": 0.33767999999999987,
+    "score": 0.10322400000000005,
+    "created_at": 1761425644,
+    "updated_at": 1761425644,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Desensitization",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.1,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      },
+      {
+        "name": "Antagonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "k_b": 0.2,
+          "k_p": 0.1,
+          "k_f": 0.12
+        }
+      },
+      {
+        "name": "Signal",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "beta_b": 0.25,
+          "beta_p": 0.1,
+          "delta_f": 0.06
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_3988024746",
+    "domain": "pdem",
+    "sequence": [
+      "Potentiation",
+      "InverseAgonist"
+    ],
+    "length": 2,
+    "delta_risk": 0.1264999999999996,
+    "cost": 0.12800000000000009,
+    "score": 0.1008999999999996,
+    "created_at": 1761425644,
+    "updated_at": 1761425644,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Potentiation",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.05,
+          "delta_f": 0.1
+        }
+      },
+      {
+        "name": "InverseAgonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.05,
+          "rho_f": 0.08
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_5422678336",
+    "domain": "pdem",
+    "sequence": [
+      "Potentiation",
+      "Signal",
+      "Antagonist",
+      "Desensitization"
+    ],
+    "length": 4,
+    "delta_risk": 0.17654599999999987,
+    "cost": 0.5569040000000002,
+    "score": 0.06516519999999983,
+    "created_at": 1761425608,
+    "updated_at": 1761425608,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Potentiation",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.05,
+          "delta_f": 0.1
+        }
+      },
+      {
+        "name": "Signal",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "beta_b": 0.25,
+          "beta_p": 0.1,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "Antagonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "k_b": 0.2,
+          "k_p": 0.1,
+          "k_f": 0.12
+        }
+      },
+      {
+        "name": "Desensitization",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.1,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_9910022931",
+    "domain": "pdem",
+    "sequence": [
+      "Bind",
+      "InverseAgonist",
+      "Antagonist"
+    ],
+    "length": 3,
+    "delta_risk": 0.12214400000000003,
+    "cost": 0.37385599999999986,
+    "score": 0.04737280000000006,
+    "created_at": 1761425608,
+    "updated_at": 1761425608,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.04,
+          "dn": 0
+        }
+      },
+      {
+        "name": "InverseAgonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.05,
+          "rho_f": 0.08
+        }
+      },
+      {
+        "name": "Antagonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "k_b": 0.2,
+          "k_p": 0.1,
+          "k_f": 0.12
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_7886880931",
+    "domain": "pdem",
+    "sequence": [
+      "Desensitization",
+      "Potentiation",
+      "InverseAgonist",
+      "Bind"
+    ],
+    "length": 4,
+    "delta_risk": 0.09399000000000024,
+    "cost": 0.36551299999999987,
+    "score": 0.020887400000000264,
+    "created_at": 1761425644,
+    "updated_at": 1761425644,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Desensitization",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.1,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      },
+      {
+        "name": "Potentiation",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.05,
+          "delta_f": 0.1
+        }
+      },
+      {
+        "name": "InverseAgonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.05,
+          "rho_f": 0.08
+        }
+      },
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.04,
+          "dn": 0
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_5175427381",
+    "domain": "pdem",
+    "sequence": [
+      "Potentiation"
+    ],
+    "length": 1,
+    "delta_risk": 0.02499999999999969,
+    "cost": 0.07200000000000015,
+    "score": 0.010599999999999658,
+    "created_at": 1761425644,
+    "updated_at": 1761425644,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Potentiation",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.05,
+          "delta_f": 0.1
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_6310028281",
+    "domain": "pdem",
+    "sequence": [
+      "Signal",
+      "Antagonist"
+    ],
+    "length": 2,
+    "delta_risk": -0.019200000000000106,
+    "cost": 0.4032,
+    "score": -0.09984000000000011,
+    "created_at": 1761425608,
+    "updated_at": 1761425608,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Signal",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "beta_b": 0.25,
+          "beta_p": 0.1,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "Antagonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "k_b": 0.2,
+          "k_p": 0.1,
+          "k_f": 0.12
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_7442035695",
+    "domain": "pdem",
+    "sequence": [
+      "InverseAgonist",
+      "Potentiation",
+      "Signal",
+      "InverseAgonist"
+    ],
+    "length": 4,
+    "delta_risk": -0.0396475000000005,
+    "cost": 0.47780000000000017,
+    "score": -0.13520750000000054,
+    "created_at": 1761425644,
+    "updated_at": 1761425644,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "InverseAgonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.05,
+          "rho_f": 0.08
+        }
+      },
+      {
+        "name": "Potentiation",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.05,
+          "delta_f": 0.1
+        }
+      },
+      {
+        "name": "Signal",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "beta_b": 0.25,
+          "beta_p": 0.1,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "InverseAgonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.05,
+          "rho_f": 0.08
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_9872690916",
+    "domain": "pdem",
+    "sequence": [
+      "InverseAgonist",
+      "Bind"
+    ],
+    "length": 2,
+    "delta_risk": -0.1280000000000001,
+    "cost": 0.2754,
+    "score": -0.1830800000000001,
+    "created_at": 1761425644,
+    "updated_at": 1761425644,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "InverseAgonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.05,
+          "rho_f": 0.08
+        }
+      },
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.04,
+          "dn": 0
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_5222163602",
+    "domain": "pdem",
+    "sequence": [
+      "Bind",
+      "InverseAgonist"
+    ],
+    "length": 2,
+    "delta_risk": -0.1312000000000002,
+    "cost": 0.3031999999999999,
+    "score": -0.19184000000000018,
+    "created_at": 1761425644,
+    "updated_at": 1761425644,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.04,
+          "dn": 0
+        }
+      },
+      {
+        "name": "InverseAgonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.05,
+          "rho_f": 0.08
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_2259242088",
+    "domain": "pdem",
+    "sequence": [
+      "Antagonist",
+      "Bind",
+      "Signal",
+      "InverseAgonist"
+    ],
+    "length": 4,
+    "delta_risk": -0.14224000000000014,
+    "cost": 0.63572,
+    "score": -0.2693840000000002,
+    "created_at": 1761425644,
+    "updated_at": 1761425644,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Antagonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "k_b": 0.2,
+          "k_p": 0.1,
+          "k_f": 0.12
+        }
+      },
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.04,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Signal",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "beta_b": 0.25,
+          "beta_p": 0.1,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "InverseAgonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.05,
+          "rho_f": 0.08
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_4443639236",
+    "domain": "pdem",
+    "sequence": [
+      "Bind"
+    ],
+    "length": 1,
+    "delta_risk": -0.2599999999999998,
+    "cost": 0.2519999999999999,
+    "score": -0.3103999999999998,
+    "created_at": 1761425608,
+    "updated_at": 1761425608,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.04,
+          "dn": 0
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_8026430941",
+    "domain": "pdem",
+    "sequence": [
+      "Potentiation",
+      "Bind"
+    ],
+    "length": 2,
+    "delta_risk": -0.25000000000000044,
+    "cost": 0.3366000000000001,
+    "score": -0.3173200000000005,
+    "created_at": 1761425644,
+    "updated_at": 1761425644,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Potentiation",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.05,
+          "delta_f": 0.1
+        }
+      },
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.04,
+          "dn": 0
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_5752905428",
+    "domain": "pdem",
+    "sequence": [
+      "Signal"
+    ],
+    "length": 1,
+    "delta_risk": -0.31499999999999995,
+    "cost": 0.32400000000000007,
+    "score": -0.37979999999999997,
+    "created_at": 1761425608,
+    "updated_at": 1761425644,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Signal",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "beta_b": 0.25,
+          "beta_p": 0.1,
+          "delta_f": 0.06
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_3011933588",
+    "domain": "pdem",
+    "sequence": [
+      "Signal",
+      "Potentiation"
+    ],
+    "length": 2,
+    "delta_risk": -0.3087500000000003,
+    "cost": 0.4122000000000001,
+    "score": -0.3911900000000003,
+    "created_at": 1761425644,
+    "updated_at": 1761425644,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Signal",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "beta_b": 0.25,
+          "beta_p": 0.1,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "Potentiation",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.05,
+          "delta_f": 0.1
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_6574405975",
+    "domain": "pdem",
+    "sequence": [
+      "Desensitization",
+      "Bind",
+      "Signal"
+    ],
+    "length": 3,
+    "delta_risk": -0.3604999999999996,
+    "cost": 0.5914799999999998,
+    "score": -0.47879599999999956,
+    "created_at": 1761425608,
+    "updated_at": 1761425608,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Desensitization",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.1,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      },
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.04,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Signal",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "beta_b": 0.25,
+          "beta_p": 0.1,
+          "delta_f": 0.06
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_7435290460",
+    "domain": "pdem",
+    "sequence": [
+      "Bind",
+      "Signal",
+      "Desensitization"
+    ],
+    "length": 3,
+    "delta_risk": -0.36850000000000005,
+    "cost": 0.6931999999999999,
+    "score": -0.50714,
+    "created_at": 1761425644,
+    "updated_at": 1761425644,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.04,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Signal",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "beta_b": 0.25,
+          "beta_p": 0.1,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "Desensitization",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.1,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_3418472831",
+    "domain": "pdem",
+    "sequence": [
+      "Signal",
+      "Bind"
+    ],
+    "length": 2,
+    "delta_risk": -0.6499999999999999,
+    "cost": 0.6372000000000001,
+    "score": -0.7774399999999999,
+    "created_at": 1761425608,
+    "updated_at": 1761425608,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Signal",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "beta_b": 0.25,
+          "beta_p": 0.1,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.04,
+          "dn": 0
+        }
+      }
+    ],
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  }
+]

@@ -1,0 +1,1043 @@
+[
+  {
+    "id": "pkg_pgom_8434795916",
+    "domain": "pgom",
+    "sequence": [
+      "Repress",
+      "EpigeneticMod",
+      "RepairGenome",
+      "Repress"
+    ],
+    "length": 4,
+    "delta_risk": 0.34931250000000036,
+    "cost": 0.024404800000000004,
+    "score": 0.34443154000000037,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Repress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.05,
+          "gamma_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "EpigeneticMod",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "RepairGenome",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.05,
+          "rho_p": 0.15,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "Repress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.05,
+          "gamma_f": 0.05,
+          "dn": 1
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_3224849863",
+    "domain": "pgom",
+    "sequence": [
+      "PathwayInhibition",
+      "Repress",
+      "RepairGenome"
+    ],
+    "length": 3,
+    "delta_risk": 0.3493124999999999,
+    "cost": 0.04412800000000006,
+    "score": 0.3404868999999999,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "PathwayInhibition",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.1,
+          "gamma_p": 0.05,
+          "gamma_f": 0.06
+        }
+      },
+      {
+        "name": "Repress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.05,
+          "gamma_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "RepairGenome",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.05,
+          "rho_p": 0.15,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_5289802383",
+    "domain": "pgom",
+    "sequence": [
+      "EpigeneticMod",
+      "RepairGenome"
+    ],
+    "length": 2,
+    "delta_risk": 0.2250000000000001,
+    "cost": 0.0,
+    "score": 0.2250000000000001,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "EpigeneticMod",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "RepairGenome",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.05,
+          "rho_p": 0.15,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_2624010601",
+    "domain": "pgom",
+    "sequence": [
+      "Activate",
+      "RepairGenome",
+      "Repress"
+    ],
+    "length": 3,
+    "delta_risk": 0.22818749999999977,
+    "cost": 0.3287199999999999,
+    "score": 0.1624434999999998,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Activate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.06,
+          "dn": 0
+        }
+      },
+      {
+        "name": "RepairGenome",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.05,
+          "rho_p": 0.15,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "Repress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.05,
+          "gamma_f": 0.05,
+          "dn": 1
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_4605077901",
+    "domain": "pgom",
+    "sequence": [
+      "RepairGenome",
+      "EpigeneticMod",
+      "PathwayInduction",
+      "EpigeneticMod"
+    ],
+    "length": 4,
+    "delta_risk": 0.1612499999999999,
+    "cost": 0.15525000000000005,
+    "score": 0.13019999999999987,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "RepairGenome",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.05,
+          "rho_p": 0.15,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "EpigeneticMod",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "PathwayInduction",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.1,
+          "alpha_p": 0.05,
+          "delta_f": 0.08
+        }
+      },
+      {
+        "name": "EpigeneticMod",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.05,
+          "dn": 1
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_4012747440",
+    "domain": "pgom",
+    "sequence": [
+      "Activate",
+      "RepairGenome"
+    ],
+    "length": 2,
+    "delta_risk": 0.1612499999999999,
+    "cost": 0.31499999999999984,
+    "score": 0.09824999999999992,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Activate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.06,
+          "dn": 0
+        }
+      },
+      {
+        "name": "RepairGenome",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.05,
+          "rho_p": 0.15,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_7729000522",
+    "domain": "pgom",
+    "sequence": [
+      "Repress"
+    ],
+    "length": 1,
+    "delta_risk": 0.07500000000000018,
+    "cost": 0.011200000000000009,
+    "score": 0.07276000000000017,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Repress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.05,
+          "gamma_f": 0.05,
+          "dn": 1
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_2486810255",
+    "domain": "pgom",
+    "sequence": [
+      "Repress",
+      "EpigeneticMod"
+    ],
+    "length": 2,
+    "delta_risk": 0.07500000000000018,
+    "cost": 0.011200000000000009,
+    "score": 0.07276000000000017,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Repress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.05,
+          "gamma_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "EpigeneticMod",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.05,
+          "dn": 1
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_8629241393",
+    "domain": "pgom",
+    "sequence": [
+      "EpigeneticMod"
+    ],
+    "length": 1,
+    "delta_risk": 0.0,
+    "cost": 0.0,
+    "score": 0.0,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "EpigeneticMod",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.05,
+          "dn": 1
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_1212330398",
+    "domain": "pgom",
+    "sequence": [
+      "Repress",
+      "PathwayInduction"
+    ],
+    "length": 2,
+    "delta_risk": 0.003750000000000142,
+    "cost": 0.1529500000000002,
+    "score": -0.0268399999999999,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Repress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.05,
+          "gamma_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "PathwayInduction",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.1,
+          "alpha_p": 0.05,
+          "delta_f": 0.08
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_4493903519",
+    "domain": "pgom",
+    "sequence": [
+      "Repress",
+      "Activate"
+    ],
+    "length": 2,
+    "delta_risk": 0.003750000000000142,
+    "cost": 0.28044999999999987,
+    "score": -0.05233999999999983,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Repress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.05,
+          "gamma_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Activate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.06,
+          "dn": 0
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_9067528261",
+    "domain": "pgom",
+    "sequence": [
+      "PathwayInhibition",
+      "Activate"
+    ],
+    "length": 2,
+    "delta_risk": 0.003750000000000142,
+    "cost": 0.31785,
+    "score": -0.05981999999999986,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "PathwayInhibition",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.1,
+          "gamma_p": 0.05,
+          "gamma_f": 0.06
+        }
+      },
+      {
+        "name": "Activate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.06,
+          "dn": 0
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_2389893230",
+    "domain": "pgom",
+    "sequence": [
+      "PathwayInduction",
+      "EpigeneticMod"
+    ],
+    "length": 2,
+    "delta_risk": -0.07500000000000018,
+    "cost": 0.16500000000000017,
+    "score": -0.10800000000000021,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "PathwayInduction",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.1,
+          "alpha_p": 0.05,
+          "delta_f": 0.08
+        }
+      },
+      {
+        "name": "EpigeneticMod",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.05,
+          "dn": 1
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_1648527619",
+    "domain": "pgom",
+    "sequence": [
+      "Activate"
+    ],
+    "length": 1,
+    "delta_risk": -0.07500000000000018,
+    "cost": 0.31499999999999984,
+    "score": -0.13800000000000015,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Activate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.06,
+          "dn": 0
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_191110385",
+    "domain": "pgom",
+    "sequence": [
+      "Mutation",
+      "RepairGenome",
+      "EpigeneticMod"
+    ],
+    "length": 3,
+    "delta_risk": -0.9024999999999999,
+    "cost": 0.17479999999999998,
+    "score": -0.9374599999999998,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Mutation",
+        "grid_index": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 1.0,
+          "alpha_p": 0.1,
+          "beta_b": 0.1,
+          "beta_f": 0.08
+        }
+      },
+      {
+        "name": "RepairGenome",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.05,
+          "rho_p": 0.15,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "EpigeneticMod",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.05,
+          "dn": 1
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_7441534033",
+    "domain": "pgom",
+    "sequence": [
+      "PathwayInduction",
+      "RepairGenome",
+      "PathwayInduction",
+      "Mutation"
+    ],
+    "length": 4,
+    "delta_risk": -1.0462562500000008,
+    "cost": 0.5192512500000004,
+    "score": -1.1501065000000008,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "PathwayInduction",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.1,
+          "alpha_p": 0.05,
+          "delta_f": 0.08
+        }
+      },
+      {
+        "name": "RepairGenome",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.05,
+          "rho_p": 0.15,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "PathwayInduction",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.1,
+          "alpha_p": 0.05,
+          "delta_f": 0.08
+        }
+      },
+      {
+        "name": "Mutation",
+        "grid_index": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 1.0,
+          "alpha_p": 0.1,
+          "beta_b": 0.1,
+          "beta_f": 0.08
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_4904401146",
+    "domain": "pgom",
+    "sequence": [
+      "Mutation"
+    ],
+    "length": 1,
+    "delta_risk": -1.1500000000000004,
+    "cost": 0.17479999999999998,
+    "score": -1.1849600000000005,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Mutation",
+        "grid_index": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 1.0,
+          "alpha_p": 0.1,
+          "beta_b": 0.1,
+          "beta_f": 0.08
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_9493316762",
+    "domain": "pgom",
+    "sequence": [
+      "Mutation",
+      "PathwayInduction",
+      "Repress",
+      "EpigeneticMod"
+    ],
+    "length": 4,
+    "delta_risk": -1.1458750000000002,
+    "cost": 0.35272400000000015,
+    "score": -1.2164198000000002,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Mutation",
+        "grid_index": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 1.0,
+          "alpha_p": 0.1,
+          "beta_b": 0.1,
+          "beta_f": 0.08
+        }
+      },
+      {
+        "name": "PathwayInduction",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.1,
+          "alpha_p": 0.05,
+          "delta_f": 0.08
+        }
+      },
+      {
+        "name": "Repress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.05,
+          "gamma_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "EpigeneticMod",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.05,
+          "dn": 1
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_6743019961",
+    "domain": "pgom",
+    "sequence": [
+      "Mutation",
+      "EpigeneticMod",
+      "PathwayInduction"
+    ],
+    "length": 3,
+    "delta_risk": -1.2325,
+    "cost": 0.34130000000000016,
+    "score": -1.30076,
+    "created_at": 1761425689,
+    "updated_at": 1761425689,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Mutation",
+        "grid_index": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 1.0,
+          "alpha_p": 0.1,
+          "beta_b": 0.1,
+          "beta_f": 0.08
+        }
+      },
+      {
+        "name": "EpigeneticMod",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "PathwayInduction",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.1,
+          "alpha_p": 0.05,
+          "delta_f": 0.08
+        }
+      }
+    ],
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  }
+]

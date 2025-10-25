@@ -1,0 +1,979 @@
+[
+  {
+    "id": "pkg_tem_227667715",
+    "domain": "tem",
+    "sequence": [
+      "Detox"
+    ],
+    "length": 1,
+    "delta_risk": 1.3299999999999996,
+    "cost": 0.0,
+    "score": 1.3299999999999996,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Detox",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.25,
+          "gamma_p": 0.2,
+          "gamma_n": 0.1,
+          "delta_f": 0.08
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_9129601760",
+    "domain": "tem",
+    "sequence": [
+      "Repair"
+    ],
+    "length": 1,
+    "delta_risk": 0.8499999999999996,
+    "cost": 0.0,
+    "score": 0.8499999999999996,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Repair",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.15,
+          "rho_p": 0.25,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_6018108417",
+    "domain": "tem",
+    "sequence": [
+      "Distribution",
+      "Absorption",
+      "Repair",
+      "Detox"
+    ],
+    "length": 4,
+    "delta_risk": 1.0837500000000002,
+    "cost": 1.82192,
+    "score": 0.7193660000000002,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Distribution",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.05,
+          "alpha_f": 0.04
+        }
+      },
+      {
+        "name": "Absorption",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "beta_b": 0.2,
+          "beta_p": 0.05,
+          "beta_f": 0.03,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Repair",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.15,
+          "rho_p": 0.25,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "Detox",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.25,
+          "gamma_p": 0.2,
+          "gamma_n": 0.1,
+          "delta_f": 0.08
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_3156073890",
+    "domain": "tem",
+    "sequence": [
+      "Repair",
+      "Inflammation"
+    ],
+    "length": 2,
+    "delta_risk": 0.36499999999999844,
+    "cost": 0.8725000000000007,
+    "score": 0.19049999999999828,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Repair",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.15,
+          "rho_p": 0.25,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "Inflammation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "eta_b": 0.1,
+          "eta_p": 0.25,
+          "eta_f": 0.06,
+          "dn": 0
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_9879384524",
+    "domain": "tem",
+    "sequence": [
+      "Detox",
+      "Exposure"
+    ],
+    "length": 2,
+    "delta_risk": 0.1559999999999997,
+    "cost": 1.294,
+    "score": -0.10280000000000034,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Detox",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.25,
+          "gamma_p": 0.2,
+          "gamma_n": 0.1,
+          "delta_f": 0.08
+        }
+      },
+      {
+        "name": "Exposure",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.3,
+          "alpha_p": 0.15,
+          "alpha_f": 0.05,
+          "dn": 1
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_7449256564",
+    "domain": "tem",
+    "sequence": [
+      "Absorption",
+      "Repair"
+    ],
+    "length": 2,
+    "delta_risk": -0.006999999999999673,
+    "cost": 1.077,
+    "score": -0.22239999999999968,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Absorption",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "beta_b": 0.2,
+          "beta_p": 0.05,
+          "beta_f": 0.03,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Repair",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.15,
+          "rho_p": 0.25,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_1010206033",
+    "domain": "tem",
+    "sequence": [
+      "Detox",
+      "Inflammation",
+      "Absorption"
+    ],
+    "length": 3,
+    "delta_risk": 0.04356399999999905,
+    "cost": 1.7364360000000003,
+    "score": -0.303723200000001,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Detox",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.25,
+          "gamma_p": 0.2,
+          "gamma_n": 0.1,
+          "delta_f": 0.08
+        }
+      },
+      {
+        "name": "Inflammation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "eta_b": 0.1,
+          "eta_p": 0.25,
+          "eta_f": 0.06,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Absorption",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "beta_b": 0.2,
+          "beta_p": 0.05,
+          "beta_f": 0.03,
+          "dn": 0
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_5845793015",
+    "domain": "tem",
+    "sequence": [
+      "Distribution"
+    ],
+    "length": 1,
+    "delta_risk": -0.2860000000000005,
+    "cost": 0.6859999999999999,
+    "score": -0.42320000000000046,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Distribution",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.05,
+          "alpha_f": 0.04
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_4004443972",
+    "domain": "tem",
+    "sequence": [
+      "Inflammation"
+    ],
+    "length": 1,
+    "delta_risk": -0.5540000000000003,
+    "cost": 1.004,
+    "score": -0.7548000000000002,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Inflammation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "eta_b": 0.1,
+          "eta_p": 0.25,
+          "eta_f": 0.06,
+          "dn": 0
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_4432709696",
+    "domain": "tem",
+    "sequence": [
+      "Exposure",
+      "Inflammation",
+      "Repair"
+    ],
+    "length": 3,
+    "delta_risk": -1.0538000000000007,
+    "cost": 2.8838000000000004,
+    "score": -1.630560000000001,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Exposure",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.3,
+          "alpha_p": 0.15,
+          "alpha_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Inflammation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "eta_b": 0.1,
+          "eta_p": 0.25,
+          "eta_f": 0.06,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Repair",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.15,
+          "rho_p": 0.25,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_8191231431",
+    "domain": "tem",
+    "sequence": [
+      "Absorption",
+      "Repair",
+      "Exposure"
+    ],
+    "length": 3,
+    "delta_risk": -1.5866500000000006,
+    "cost": 2.7747750000000004,
+    "score": -2.1416050000000006,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Absorption",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "beta_b": 0.2,
+          "beta_p": 0.05,
+          "beta_f": 0.03,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Repair",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.15,
+          "rho_p": 0.25,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "Exposure",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.3,
+          "alpha_p": 0.15,
+          "alpha_f": 0.05,
+          "dn": 1
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_931144586",
+    "domain": "tem",
+    "sequence": [
+      "Absorption",
+      "Repair",
+      "Distribution",
+      "Exposure"
+    ],
+    "length": 4,
+    "delta_risk": -1.9558840000000002,
+    "cost": 3.525134,
+    "score": -2.6609108000000004,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Absorption",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "beta_b": 0.2,
+          "beta_p": 0.05,
+          "beta_f": 0.03,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Repair",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.15,
+          "rho_p": 0.25,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "Distribution",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.05,
+          "alpha_f": 0.04
+        }
+      },
+      {
+        "name": "Exposure",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.3,
+          "alpha_p": 0.15,
+          "alpha_f": 0.05,
+          "dn": 1
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_8377480497",
+    "domain": "tem",
+    "sequence": [
+      "Inflammation",
+      "Lesion"
+    ],
+    "length": 2,
+    "delta_risk": -2.3055200000000005,
+    "cost": 3.3930200000000004,
+    "score": -2.9841240000000004,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Inflammation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "eta_b": 0.1,
+          "eta_p": 0.25,
+          "eta_f": 0.06,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Lesion",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "k_b": 0.3,
+          "k_p": 0.35,
+          "k_f": 0.12,
+          "dn": 1
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_8409010734",
+    "domain": "tem",
+    "sequence": [
+      "Lesion",
+      "Absorption"
+    ],
+    "length": 2,
+    "delta_risk": -2.9317600000000006,
+    "cost": 3.5492600000000003,
+    "score": -3.6416120000000007,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Lesion",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "k_b": 0.3,
+          "k_p": 0.35,
+          "k_f": 0.12,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Absorption",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "beta_b": 0.2,
+          "beta_p": 0.05,
+          "beta_f": 0.03,
+          "dn": 0
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_8166099330",
+    "domain": "tem",
+    "sequence": [
+      "Absorption",
+      "Inflammation",
+      "Distribution",
+      "Absorption"
+    ],
+    "length": 4,
+    "delta_risk": -3.4518386560000014,
+    "cost": 4.5055886560000005,
+    "score": -4.352956387200002,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Absorption",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "beta_b": 0.2,
+          "beta_p": 0.05,
+          "beta_f": 0.03,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Inflammation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "eta_b": 0.1,
+          "eta_p": 0.25,
+          "eta_f": 0.06,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Distribution",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.05,
+          "alpha_f": 0.04
+        }
+      },
+      {
+        "name": "Absorption",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "beta_b": 0.2,
+          "beta_p": 0.05,
+          "beta_f": 0.03,
+          "dn": 0
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_8752075486",
+    "domain": "tem",
+    "sequence": [
+      "Distribution",
+      "Absorption",
+      "Lesion",
+      "Distribution"
+    ],
+    "length": 4,
+    "delta_risk": -3.791490015999999,
+    "cost": 5.432690015999999,
+    "score": -4.8780280191999985,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Distribution",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.05,
+          "alpha_f": 0.04
+        }
+      },
+      {
+        "name": "Absorption",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "beta_b": 0.2,
+          "beta_p": 0.05,
+          "beta_f": 0.03,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Lesion",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "k_b": 0.3,
+          "k_p": 0.35,
+          "k_f": 0.12,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Distribution",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.05,
+          "alpha_f": 0.04
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_143414031",
+    "domain": "tem",
+    "sequence": [
+      "Absorption",
+      "Lesion",
+      "Absorption",
+      "Distribution"
+    ],
+    "length": 4,
+    "delta_risk": -5.012614912000002,
+    "cost": 6.198664912000002,
+    "score": -6.252347894400002,
+    "created_at": 1761425733,
+    "updated_at": 1761425733,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Absorption",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "beta_b": 0.2,
+          "beta_p": 0.05,
+          "beta_f": 0.03,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Lesion",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "k_b": 0.3,
+          "k_p": 0.35,
+          "k_f": 0.12,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Absorption",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "beta_b": 0.2,
+          "beta_p": 0.05,
+          "beta_f": 0.03,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Distribution",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.05,
+          "alpha_f": 0.04
+        }
+      }
+    ],
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  }
+]

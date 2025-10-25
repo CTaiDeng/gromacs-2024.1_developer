@@ -333,7 +333,8 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
             llm_status = "skipped_errors"
         else:
             warns_present = bool(syntax.get("warnings"))
-            if warns_present and bool(cfg.get("use_llm_oracle", False)):
+            llm_force = bool(cfg.get("llm_force_dual_validation", False))
+            if (warns_present or llm_force) and bool(cfg.get("use_llm_oracle", False)):
                 try:
                     from lbopb.src.rlsac.kernel.common.llm_oracle import call_llm, build_pathfinder_prompt
                     # 可选: 将算子参数化与取值一并提交给 LLM

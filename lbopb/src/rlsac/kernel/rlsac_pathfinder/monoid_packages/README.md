@@ -57,3 +57,22 @@
     }
   ]
 }
+
+双重验证（syntax_checker + Gemini）
+- 配置：
+  - `config.json` 中设置：
+    - `use_llm_oracle: true`（启用 LLM）
+    - `llm_include_params: true`（提示携带参数化动作）
+    - `llm_force_dual_validation: true`（即使无 warnings 也提交 LLM 复核）
+    - `llm_request_interval_sec`（请求间隔秒，用于配额节流）
+    - `gemini_model_choose` + `GEMINI_MODEL`（模型选择）
+- 独立验证脚本：`verify_with_gemini.py`
+  - 位置：本目录下。
+  - 功能：对七个 `*_operator_packages.json` 逐条执行“语法检查 + LLM 校验”，输出 `verify_<domain>.json` 与 `verify_summary.json`。
+  - 规则：
+    - 语法检查：若条目含 `ops_detailed`，调用 `check_package(pkg)`；否则调用 `check_sequence(sequence)`。
+    - LLM 校验：使用 `build_pathfinder_prompt(domain, sequence, ops_detailed, {op_space_id/op_space_ref})` 并调用 `call_llm`，返回 `1/0`。
+    - 双重通过：两者均通过才计入 `both_ok`。
+  - 用法：
+    - `python lbopb/src/rlsac/kernel/rlsac_pathfinder/monoid_packages/verify_with_gemini.py`
+    - 依赖 `config.json` 的 LLM 配置与请求间隔；若条目未含 `ops_detailed`，脚本将按 v1 空间自动补全中位参数进行提示。

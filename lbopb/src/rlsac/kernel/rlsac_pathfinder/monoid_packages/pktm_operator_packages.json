@@ -1,0 +1,809 @@
+[
+  {
+    "id": "pkg_pktm_552834203",
+    "domain": "pktm",
+    "sequence": [
+      "Excrete"
+    ],
+    "length": 1,
+    "delta_risk": 0.10000000000000009,
+    "cost": 0.0,
+    "score": 0.10000000000000009,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Excrete",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.2,
+          "rho_p": 0.2,
+          "delta_f": 0.06
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_3393345863",
+    "domain": "pktm",
+    "sequence": [
+      "Metabolize",
+      "Bind"
+    ],
+    "length": 2,
+    "delta_risk": 0.07499999999999996,
+    "cost": 0.0,
+    "score": 0.07499999999999996,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Metabolize",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.25,
+          "gamma_p": 0.15,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.0
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_4162280310",
+    "domain": "pktm",
+    "sequence": [
+      "Absorb",
+      "Excrete"
+    ],
+    "length": 2,
+    "delta_risk": 0.06000000000000005,
+    "cost": 0.13140000000000002,
+    "score": 0.03372000000000005,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Absorb",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.1,
+          "alpha_f": 0.02
+        }
+      },
+      {
+        "name": "Excrete",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.2,
+          "rho_p": 0.2,
+          "delta_f": 0.06
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_8250383338",
+    "domain": "pktm",
+    "sequence": [
+      "Bind"
+    ],
+    "length": 1,
+    "delta_risk": 0.0,
+    "cost": 0.0,
+    "score": 0.0,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.0
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_4357210753",
+    "domain": "pktm",
+    "sequence": [
+      "Transport"
+    ],
+    "length": 1,
+    "delta_risk": -0.050000000000000044,
+    "cost": 0.04500000000000004,
+    "score": -0.05900000000000005,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Transport",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.1,
+          "xi_f": 0.0
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_5665566447",
+    "domain": "pktm",
+    "sequence": [
+      "Excrete",
+      "Dose",
+      "Metabolize"
+    ],
+    "length": 3,
+    "delta_risk": 0.14300000000000002,
+    "cost": 1.01394,
+    "score": -0.05978800000000001,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Excrete",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.2,
+          "rho_p": 0.2,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "Dose",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "delta_b": 1.0,
+          "alpha_p": 0.05,
+          "alpha_f": 0.02
+        }
+      },
+      {
+        "name": "Metabolize",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.25,
+          "gamma_p": 0.15,
+          "delta_f": 0.06
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_5635042027",
+    "domain": "pktm",
+    "sequence": [
+      "Absorb"
+    ],
+    "length": 1,
+    "delta_risk": -0.050000000000000044,
+    "cost": 0.13140000000000002,
+    "score": -0.07628000000000004,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Absorb",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.1,
+          "alpha_f": 0.02
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_4346802824",
+    "domain": "pktm",
+    "sequence": [
+      "Excrete",
+      "Dose"
+    ],
+    "length": 2,
+    "delta_risk": 0.08000000000000007,
+    "cost": 1.01394,
+    "score": -0.12278799999999995,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Excrete",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.2,
+          "rho_p": 0.2,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "Dose",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "delta_b": 1.0,
+          "alpha_p": 0.05,
+          "alpha_f": 0.02
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_5730396947",
+    "domain": "pktm",
+    "sequence": [
+      "Transport",
+      "Bind",
+      "Transport"
+    ],
+    "length": 3,
+    "delta_risk": -0.10499999999999998,
+    "cost": 0.09325000000000006,
+    "score": -0.12365,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Transport",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.1,
+          "xi_f": 0.0
+        }
+      },
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.0
+        }
+      },
+      {
+        "name": "Transport",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.1,
+          "xi_f": 0.0
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_6787334823",
+    "domain": "pktm",
+    "sequence": [
+      "Transport",
+      "Dose",
+      "Metabolize"
+    ],
+    "length": 3,
+    "delta_risk": 0.009124999999999828,
+    "cost": 1.0617,
+    "score": -0.2032150000000002,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Transport",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.1,
+          "xi_f": 0.0
+        }
+      },
+      {
+        "name": "Dose",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "delta_b": 1.0,
+          "alpha_p": 0.05,
+          "alpha_f": 0.02
+        }
+      },
+      {
+        "name": "Metabolize",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.25,
+          "gamma_p": 0.15,
+          "delta_f": 0.06
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_6887940028",
+    "domain": "pktm",
+    "sequence": [
+      "Bind",
+      "Dose"
+    ],
+    "length": 2,
+    "delta_risk": -0.02499999999999991,
+    "cost": 1.0157,
+    "score": -0.22813999999999993,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.0
+        }
+      },
+      {
+        "name": "Dose",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "delta_b": 1.0,
+          "alpha_p": 0.05,
+          "alpha_f": 0.02
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_6820637491",
+    "domain": "pktm",
+    "sequence": [
+      "Dose",
+      "Transport"
+    ],
+    "length": 2,
+    "delta_risk": -0.07750000000000012,
+    "cost": 1.1117000000000004,
+    "score": -0.2998400000000002,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Dose",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "delta_b": 1.0,
+          "alpha_p": 0.05,
+          "alpha_f": 0.02
+        }
+      },
+      {
+        "name": "Transport",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.1,
+          "xi_f": 0.0
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_3251342587",
+    "domain": "pktm",
+    "sequence": [
+      "Transport",
+      "Absorb",
+      "Dose"
+    ],
+    "length": 3,
+    "delta_risk": -0.1352500000000001,
+    "cost": 1.2010859999999999,
+    "score": -0.3754672000000001,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Transport",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.1,
+          "xi_f": 0.0
+        }
+      },
+      {
+        "name": "Absorb",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.1,
+          "alpha_f": 0.02
+        }
+      },
+      {
+        "name": "Dose",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "delta_b": 1.0,
+          "alpha_p": 0.05,
+          "alpha_f": 0.02
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_9577692185",
+    "domain": "pktm",
+    "sequence": [
+      "Distribute"
+    ],
+    "length": 1,
+    "delta_risk": -1.0750000000000002,
+    "cost": 0.255,
+    "score": -1.1260000000000001,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Distribute",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.15,
+          "alpha_b": 0.05
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_8572129288",
+    "domain": "pktm",
+    "sequence": [
+      "Absorb",
+      "Distribute"
+    ],
+    "length": 2,
+    "delta_risk": -1.1324999999999998,
+    "cost": 0.39440000000000003,
+    "score": -1.21138,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Absorb",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.1,
+          "alpha_f": 0.02
+        }
+      },
+      {
+        "name": "Distribute",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.15,
+          "alpha_b": 0.05
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_8210624931",
+    "domain": "pktm",
+    "sequence": [
+      "Distribute",
+      "Absorb",
+      "Excrete",
+      "Dose"
+    ],
+    "length": 4,
+    "delta_risk": -1.0312999999999999,
+    "cost": 1.410346,
+    "score": -1.3133692,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Distribute",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.15,
+          "alpha_b": 0.05
+        }
+      },
+      {
+        "name": "Absorb",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.1,
+          "alpha_f": 0.02
+        }
+      },
+      {
+        "name": "Excrete",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.2,
+          "rho_p": 0.2,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "Dose",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "delta_b": 1.0,
+          "alpha_p": 0.05,
+          "alpha_f": 0.02
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_8043774828",
+    "domain": "pktm",
+    "sequence": [
+      "Transport",
+      "Dose",
+      "Distribute",
+      "Dose"
+    ],
+    "length": 4,
+    "delta_risk": -1.19733125,
+    "cost": 2.3915255000000006,
+    "score": -1.67563635,
+    "created_at": 1761425663,
+    "updated_at": 1761425663,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Transport",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.1,
+          "xi_f": 0.0
+        }
+      },
+      {
+        "name": "Dose",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "delta_b": 1.0,
+          "alpha_p": 0.05,
+          "alpha_f": 0.02
+        }
+      },
+      {
+        "name": "Distribute",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.15,
+          "alpha_b": 0.05
+        }
+      },
+      {
+        "name": "Dose",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "delta_b": 1.0,
+          "alpha_p": 0.05,
+          "alpha_f": 0.02
+        }
+      }
+    ],
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  }
+]

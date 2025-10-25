@@ -1,0 +1,638 @@
+[
+  {
+    "id": "pkg_iem_4645410100",
+    "domain": "iem",
+    "sequence": [
+      "Memory"
+    ],
+    "length": 1,
+    "delta_risk": 0.34999999999999964,
+    "cost": 0.0,
+    "score": 0.34999999999999964,
+    "created_at": 1761426135,
+    "updated_at": 1761426135,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Memory",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.15,
+          "rho_n": 0.05,
+          "delta_f": 0.15
+        }
+      }
+    ],
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_748674755",
+    "domain": "iem",
+    "sequence": [
+      "Differentiate"
+    ],
+    "length": 1,
+    "delta_risk": 0.11999999999999966,
+    "cost": 0.008000000000000007,
+    "score": 0.11839999999999966,
+    "created_at": 1761426135,
+    "updated_at": 1761426135,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Differentiate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "delta_f": 0.12,
+          "theta_p": 0.02,
+          "theta_b": 0.0,
+          "dn": 0
+        }
+      }
+    ],
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_7256029018",
+    "domain": "iem",
+    "sequence": [
+      "Activate",
+      "Suppress"
+    ],
+    "length": 2,
+    "delta_risk": 0.07920000000000016,
+    "cost": 0.41279999999999994,
+    "score": -0.0033599999999998353,
+    "created_at": 1761426135,
+    "updated_at": 1761426135,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Activate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.08,
+          "delta_f": 0.06,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Suppress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_p": 0.15,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      }
+    ],
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_1984665632",
+    "domain": "iem",
+    "sequence": [
+      "Proliferate",
+      "Memory",
+      "Proliferate",
+      "Suppress"
+    ],
+    "length": 4,
+    "delta_risk": 0.17759999999999998,
+    "cost": 1.1179999999999994,
+    "score": -0.04599999999999993,
+    "created_at": 1761426135,
+    "updated_at": 1761426135,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Proliferate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.15,
+          "theta_f": 0.05
+        }
+      },
+      {
+        "name": "Memory",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.15,
+          "rho_n": 0.05,
+          "delta_f": 0.15
+        }
+      },
+      {
+        "name": "Proliferate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.15,
+          "theta_f": 0.05
+        }
+      },
+      {
+        "name": "Suppress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_p": 0.15,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      }
+    ],
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_1411632441",
+    "domain": "iem",
+    "sequence": [
+      "Differentiate",
+      "Proliferate"
+    ],
+    "length": 2,
+    "delta_risk": -0.18000000000000016,
+    "cost": 0.5295999999999998,
+    "score": -0.2859200000000001,
+    "created_at": 1761426135,
+    "updated_at": 1761426135,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Differentiate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "delta_f": 0.12,
+          "theta_p": 0.02,
+          "theta_b": 0.0,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Proliferate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.15,
+          "theta_f": 0.05
+        }
+      }
+    ],
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_5609621362",
+    "domain": "iem",
+    "sequence": [
+      "Differentiate",
+      "CytokineRelease",
+      "Memory"
+    ],
+    "length": 3,
+    "delta_risk": -0.1930000000000005,
+    "cost": 0.9538000000000002,
+    "score": -0.38376000000000055,
+    "created_at": 1761426135,
+    "updated_at": 1761426135,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Differentiate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "delta_f": 0.12,
+          "theta_p": 0.02,
+          "theta_b": 0.0,
+          "dn": 0
+        }
+      },
+      {
+        "name": "CytokineRelease",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "xi_b": 0.3,
+          "xi_p": 0.35,
+          "xi_f": 0.15,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Memory",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.15,
+          "rho_n": 0.05,
+          "delta_f": 0.15
+        }
+      }
+    ],
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_155978865",
+    "domain": "iem",
+    "sequence": [
+      "Proliferate"
+    ],
+    "length": 1,
+    "delta_risk": -0.2999999999999998,
+    "cost": 0.5199999999999998,
+    "score": -0.4039999999999998,
+    "created_at": 1761426135,
+    "updated_at": 1761426135,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Proliferate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.15,
+          "theta_f": 0.05
+        }
+      }
+    ],
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_1712886017",
+    "domain": "iem",
+    "sequence": [
+      "Differentiate",
+      "CytokineRelease",
+      "Differentiate"
+    ],
+    "length": 3,
+    "delta_risk": -0.48300000000000054,
+    "cost": 0.9648160000000002,
+    "score": -0.6759632000000007,
+    "created_at": 1761426135,
+    "updated_at": 1761426135,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Differentiate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "delta_f": 0.12,
+          "theta_p": 0.02,
+          "theta_b": 0.0,
+          "dn": 0
+        }
+      },
+      {
+        "name": "CytokineRelease",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "xi_b": 0.3,
+          "xi_p": 0.35,
+          "xi_f": 0.15,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Differentiate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "delta_f": 0.12,
+          "theta_p": 0.02,
+          "theta_b": 0.0,
+          "dn": 0
+        }
+      }
+    ],
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_211069105",
+    "domain": "iem",
+    "sequence": [
+      "Proliferate",
+      "Differentiate",
+      "Proliferate"
+    ],
+    "length": 3,
+    "delta_risk": -0.5249999999999999,
+    "cost": 1.1035199999999996,
+    "score": -0.7457039999999998,
+    "created_at": 1761426135,
+    "updated_at": 1761426135,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Proliferate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.15,
+          "theta_f": 0.05
+        }
+      },
+      {
+        "name": "Differentiate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "delta_f": 0.12,
+          "theta_p": 0.02,
+          "theta_b": 0.0,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Proliferate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.15,
+          "theta_f": 0.05
+        }
+      }
+    ],
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_2996113289",
+    "domain": "iem",
+    "sequence": [
+      "CytokineRelease"
+    ],
+    "length": 1,
+    "delta_risk": -0.7050000000000001,
+    "cost": 0.925,
+    "score": -0.8900000000000001,
+    "created_at": 1761426135,
+    "updated_at": 1761426135,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "CytokineRelease",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "xi_b": 0.3,
+          "xi_p": 0.35,
+          "xi_f": 0.15,
+          "dn": 1
+        }
+      }
+    ],
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_8970114520",
+    "domain": "iem",
+    "sequence": [
+      "CytokineRelease",
+      "Differentiate",
+      "Proliferate"
+    ],
+    "length": 3,
+    "delta_risk": -0.9750000000000001,
+    "cost": 1.55796,
+    "score": -1.2865920000000002,
+    "created_at": 1761426135,
+    "updated_at": 1761426135,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "CytokineRelease",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "xi_b": 0.3,
+          "xi_p": 0.35,
+          "xi_f": 0.15,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Differentiate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "delta_f": 0.12,
+          "theta_p": 0.02,
+          "theta_b": 0.0,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Proliferate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.15,
+          "theta_f": 0.05
+        }
+      }
+    ],
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_4071389404",
+    "domain": "iem",
+    "sequence": [
+      "Activate",
+      "Differentiate",
+      "CytokineRelease"
+    ],
+    "length": 3,
+    "delta_risk": -1.072,
+    "cost": 1.4228640000000001,
+    "score": -1.3565728000000001,
+    "created_at": 1761426135,
+    "updated_at": 1761426135,
+    "source": "debug_dataset",
+    "ops_detailed": [
+      {
+        "name": "Activate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.08,
+          "delta_f": 0.06,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Differentiate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "delta_f": 0.12,
+          "theta_p": 0.02,
+          "theta_b": 0.0,
+          "dn": 0
+        }
+      },
+      {
+        "name": "CytokineRelease",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "xi_b": 0.3,
+          "xi_p": 0.35,
+          "xi_f": 0.15,
+          "dn": 1
+        }
+      }
+    ],
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  }
+]
