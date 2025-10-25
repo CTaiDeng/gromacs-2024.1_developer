@@ -1,12 +1,12 @@
-# 文档编码与换行规范（强制）：UTF-8 + CRLF
-# 说明：仅对“文档类”文件强制 CRLF 与 UTF-8；避免影响源码构建。
+# 文档与换行规范：统一 UTF-8 + LF
+# 说明：含文档与源码文件一律 LF 行尾与 UTF-8（无 BOM）编码
 
-# 顶层通用文档
+# 常用顶层文档
 README text eol=lf working-tree-encoding=UTF-8
 README.md text eol=lf working-tree-encoding=UTF-8
 CITATION.cff text eol=lf working-tree-encoding=UTF-8
 
-# Markdown/纯文本文档（全仓库范围）
+# Markdown/文本/配置类
 *.md text eol=lf working-tree-encoding=UTF-8
 *.txt text eol=lf working-tree-encoding=UTF-8
 *.json text eol=lf working-tree-encoding=UTF-8
@@ -15,11 +15,11 @@ CITATION.cff text eol=lf working-tree-encoding=UTF-8
 *.toml text eol=lf working-tree-encoding=UTF-8
 *.ini text eol=lf working-tree-encoding=UTF-8
 
-# 项目知识库与文档目录（非递归规则已由上面通配覆盖，此处再次明确）
+# 项目知识库与文档（非递归说明以各自脚本为准，这里统一 LF）
 my_docs/project_docs/** text eol=lf working-tree-encoding=UTF-8
 my_project/gmx_split_20250924_011827/docs/** text eol=lf working-tree-encoding=UTF-8
 
-# 源代码（统一 UTF-8 + CRLF）
+# 源代码（统一 UTF-8 + LF）
 *.py text eol=lf working-tree-encoding=UTF-8
 *.c  text eol=lf working-tree-encoding=UTF-8
 *.h  text eol=lf working-tree-encoding=UTF-8
@@ -37,7 +37,7 @@ CMakeLists.txt text eol=lf working-tree-encoding=UTF-8
 *.cmd text eol=lf working-tree-encoding=UTF-8
 *.sh  text eol=lf working-tree-encoding=UTF-8
 
-# 常见二进制（显式标记，防止任何换行处理）
+# 二进制与归档（禁止文本归一化）
 *.png binary
 *.jpg binary
 *.jpeg binary
@@ -55,4 +55,3 @@ CMakeLists.txt text eol=lf working-tree-encoding=UTF-8
 *.lib binary
 *.a binary
 *.pdb binary
-

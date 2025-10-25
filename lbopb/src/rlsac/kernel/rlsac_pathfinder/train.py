@@ -586,6 +586,15 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                     {"score": float(s), "sequence": seq, "delta_risk": float(dr), "cost": float(c)}
                     for (s, seq, dr, c) in scored[: int(cfg.get("debug_candidates_top", 50))]
                 ], f, ensure_ascii=False, indent=2)
+            # 将正确样本（label=1）的算子包去重纳入专用目录，并按 score 重新排序
+            try:
+                try:
+                    from .package_store import ingest_from_debug_dataset  # type: ignore
+                except Exception:
+                    from lbopb.src.rlsac.kernel.rlsac_pathfinder.package_store import ingest_from_debug_dataset  # type: ignore
+                ingest_from_debug_dataset(debug_ds_path, domain=this_domain, cost_lambda=cost_lambda)
+            except Exception:
+                pass
         except Exception:
             pass
 
@@ -616,7 +625,7 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                 arr = []
         arr.append(pkg)
         text = json.dumps(arr, ensure_ascii=False, indent=2)
-        text = text.replace("\r\n", "\n").replace("\n", "\r\n")
+        text = text.replace("\r\n", "\n")
         run_dict_path.write_text(text, encoding="utf-8")
     except Exception:
         pass
@@ -727,7 +736,7 @@ def extract_operator_package(run_dir: str | Path, config_path: str | Path | None
             arr = []
     arr.append(pkg)
     text = json.dumps(arr, ensure_ascii=False, indent=2)
-    text = text.replace("\r\n", "\n").replace("\n", "\r\n")
+    text = text.replace("\r\n", "\n")
     dict_path.write_text(text, encoding="utf-8")
     return pkg
 

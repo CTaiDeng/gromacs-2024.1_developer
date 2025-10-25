@@ -1,0 +1,19 @@
+{
+  "__comment": "convert_to_utf8_lf.ps1 的白名单配置：仅转换这些目录/文件为 UTF-8+LF。目录为递归遍历；文件为精确路径。可按需增删。",
+  "include": [
+    "lbopb/src/rlsac/kernel/rlsac_pathfinder/monoid_packages"
+  ],
+  "include_files": [
+    "lbopb/src/rlsac/kernel/rlsac_pathfinder/monoid_packages/pem_operator_packages.json"
+  ],
+  "text_extensions": [
+    ".md", ".txt", ".json", ".yml", ".yaml", ".toml", ".ini",
+    ".py", ".c", ".h", ".hpp", ".cc", ".cpp", ".cu", ".cl",
+    ".cmake", ".ps1", ".psm1", ".psd1", ".bat", ".cmd", ".sh"
+  ],
+  "binary_extensions": [
+    ".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip", ".gz", ".bz2", ".7z", ".xz",
+    ".exe", ".dll", ".so", ".dylib", ".lib", ".a", ".pdb"
+  ]
+}
+

@@ -9,6 +9,7 @@
 
 from .env_domain import DomainPathfinderEnv, Goal
 from .domain import get_domain_spec
+from .package_store import ensure_store_dir, ingest_from_debug_dataset
 
 
 def train(*args, **kwargs):
@@ -33,4 +34,6 @@ __all__ = [
     "train_all",
     "extract_operator_package",
     "get_domain_spec",
+    "ensure_store_dir",
+    "ingest_from_debug_dataset",
 ]
