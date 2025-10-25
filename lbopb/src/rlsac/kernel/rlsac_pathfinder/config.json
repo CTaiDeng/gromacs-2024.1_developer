@@ -4,7 +4,16 @@
   "log_to_file": true,
   "use_gpu": false,
   "device": "cpu",
-  "domain": "pem",
+  "domain_choose": {
+    "pem": 1,
+    "pdem": 2,
+    "pktm": 3,
+    "pgom": 4,
+    "tem": 5,
+    "prm": 6,
+    "iem": 7
+  },
+  "domain": 1,
   "initial_state": {
     "b": 3.0,
     "n_comp": 3,

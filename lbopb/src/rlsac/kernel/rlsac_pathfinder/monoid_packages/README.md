@@ -57,8 +57,3 @@
     }
   ]
 }
-```
-
-算子空间定义（建议）：
-- 文件：`lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json`
-- 内容：对每个基本算子的参数提供有限离散网格；消费者可据此用 `grid_index` 反查数值或校验 `params` 合法性。

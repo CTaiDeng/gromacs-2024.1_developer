@@ -54,9 +54,39 @@ def _load_config(cfg_path: Path) -> Dict[str, Any]:
     return json.loads(cfg_path.read_text(encoding="utf-8"))
 
 
+def _resolve_domain(cfg: Dict[str, Any], override: str | None = None) -> str:
+    """解析域标识：
+    - 若提供 override（字符串），优先返回其小写；
+    - 若 cfg["domain"] 为字符串，直接返回其小写；
+    - 若 cfg["domain"] 为数字，则在 cfg["domain_choose"] 中按值反查对应 key；
+    - 兜底返回 "pem"。
+    """
+    if override is not None:
+        try:
+            return str(override).strip().lower()
+        except Exception:
+            pass
+    dom = cfg.get("domain", None)
+    if isinstance(dom, str):
+        return dom.strip().lower()
+    try:
+        dom_num = int(dom)  # type: ignore[arg-type]
+        mapping = cfg.get("domain_choose", {}) or {}
+        if isinstance(mapping, dict):
+            for k, v in mapping.items():
+                try:
+                    if int(v) == dom_num:
+                        return str(k).strip().lower()
+                except Exception:
+                    continue
+    except Exception:
+        pass
+    return "pem"
+
+
 def build_env_from_config(cfg_path: Path, domain_override: str | None = None) -> DomainPathfinderEnv:
     cfg = _load_config(cfg_path)
-    domain = str(domain_override if domain_override is not None else cfg.get("domain", "pem")).lower()
+    domain = _resolve_domain(cfg, domain_override)
     spec = get_domain_spec(domain)
     s0_cfg = cfg.get("initial_state", {"b": 3.0, "n_comp": 3, "perim": 5.0, "fidelity": 0.4})
     st_cfg = cfg.get("target_state", {"b": 0.5, "n_comp": 1, "perim": 2.0, "fidelity": 0.9})
@@ -174,7 +204,7 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
 
     # 环境
     # 确定本次训练的域
-    this_domain = str(domain_override if domain_override is not None else cfg.get("domain", "pem")).lower()
+    this_domain = _resolve_domain(cfg, domain_override)
 
     # 采样-监督：随机生成算子包 → 公理系统打分(0/1) → 训练打分网络
     min_len = int(cfg.get("min_len", 1))
@@ -656,8 +686,8 @@ def extract_operator_package(run_dir: str | Path, config_path: str | Path | None
     mod_dir = Path(__file__).resolve().parent
     cfg_path = Path(config_path) if config_path else (mod_dir / "config.json")
     cfg = _load_config(cfg_path)
-    domain = str(cfg.get("domain", "pem")).lower()
-    env = build_env_from_config(cfg_path)
+    domain = _resolve_domain(cfg, None)
+    env = build_env_from_config(cfg_path, domain_override=domain)
     obs_dim = env.observation_space.shape[0]
     n_actions = env.action_space.high - env.action_space.low
 
