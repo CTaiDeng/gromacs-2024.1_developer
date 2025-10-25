@@ -13,6 +13,15 @@ def _load_cfg(p: Path) -> Dict[str, Any]:
     return json.loads(p.read_text(encoding="utf-8"))
 
 
+def _oneline(s: str, max_len: int = 240) -> str:
+    """压缩为单行并截断，便于 Debug 打印。"""
+    try:
+        t = s.replace("\r\n", "\n").replace("\r", "\n").replace("\t", " ").replace("\n", "\\n")
+        return t[:max_len] + ("..." if len(t) > max_len else "")
+    except Exception:
+        return s
+
+
 def _repo_root() -> Path:
     """Locate repository root (directory containing .git). Fallback to higher ancestor."""
     p = Path(__file__).resolve()
@@ -85,7 +94,8 @@ def _ops_detailed_for(seq: List[str], domain: str) -> Tuple[List[Dict[str, Any]]
         return None, None
 
 
-def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path, debug: bool = False, prune: bool = False) -> Dict[str, Any]:
+def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path,
+                debug: bool = False, prune: bool = False, limit: int | None = None) -> Dict[str, Any]:
     domain = _domain_from_file(pack_file)
     arr = _read_packages(pack_file)
     report_items: List[Dict[str, Any]] = []
@@ -116,7 +126,12 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path, debug: b
         syn_mod = importlib.import_module(f"lbopb.src.{domain}.syntax_checker")
 
     kept: List[Dict[str, Any]] = []
-    for it in arr:
+    total = len(arr)
+    n_check = total if (limit is None or limit <= 0) else min(limit, total)
+    proc = 0
+    if debug:
+        print(f"[VERIFY] file={pack_file} domain={domain} total={total} checking={n_check} model={model or '<default>'} interval={req_interval}s")
+    for idx, it in enumerate(arr[:n_check], start=1):
         seq = list(it.get("sequence", []) or [])
         # syntax check（优先使用参数化）
         try:
@@ -137,10 +152,36 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path, debug: b
             extra = {k: it.get(k) for k in ("op_space_id", "op_space_ref") if k in it}
 
         prompt = build_pathfinder_prompt(domain, seq, ops_det, extra)
+        if debug:
+            try:
+                import json as _json
+                _ops_prev = _oneline(_json.dumps(ops_det, ensure_ascii=False)) if ops_det else "<none>"
+            except Exception:
+                _ops_prev = "<err>"
+            print(f"[VERIFY:{idx}/{n_check}] SEQ={seq}")
+            print(f"[VERIFY:{idx}/{n_check}] PARAMS={_ops_prev}")
+            try:
+                _pv = _oneline(str(prompt))
+            except Exception:
+                _pv = "<prompt>"
+            print(f"[VERIFY:{idx}/{n_check}] PROMPT_PREVIEW={_pv}")
+            if syn_res:
+                try:
+                    _errs = list(syn_res.get("errors", []) or [])
+                    _warn = list(syn_res.get("warnings", []) or [])
+                    print(f"[VERIFY:{idx}/{n_check}] SYNTAX valid={bool(syn_res.get('valid', True))} errors={len(_errs)} warnings={len(_warn)}")
+                    if _errs:
+                        print(f"[VERIFY:{idx}/{n_check}] SYNTAX_ERRORS={_oneline(str(_errs), 400)}")
+                    if _warn:
+                        print(f"[VERIFY:{idx}/{n_check}] SYNTAX_WARNINGS={_oneline(str(_warn), 400)}")
+                except Exception:
+                    pass
         # throttle
         if req_interval > 0 and last > 0:
             w = (last + req_interval) - _t.time()
             if w > 0:
+                if debug:
+                    print(f"[VERIFY:{idx}/{n_check}] THROTTLE sleep={w:.2f}s")
                 _t.sleep(w)
         t0 = _t.time()
         txt = call_llm(prompt, model=model)
@@ -162,15 +203,20 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path, debug: b
         }
         report_items.append(item_report)
         if debug:
-            print(f"[VERIFY] domain={domain} seq={seq} syntax_ok={syn_ok} llm_ok={llm_ok} both_ok={both_ok}")
+            _resp_prev = _oneline(str(txt) if isinstance(txt, str) else "<None>")
+            print(f"[VERIFY:{idx}/{n_check}] LLM_USED model={model or '<default>'} dt={(last-t0):.2f}s resp={_resp_prev}")
+            print(f"[VERIFY:{idx}/{n_check}] RESULT syntax_ok={syn_ok} llm_ok={llm_ok} both_ok={both_ok}")
         if both_ok or not prune:
             kept.append(it)
-    # 如果开启了 prune，则将通过的条目回写到原文件
+        proc += 1
+    # 如果开启了 prune，则将通过的条目回写到原文件；未处理的尾部条目保持原样
     if prune:
         try:
+            if n_check < total:
+                kept.extend(arr[n_check:])
             pack_file.write_text(json.dumps(kept, ensure_ascii=False, indent=2), encoding="utf-8")
             if debug:
-                print(f"[VERIFY] pruned file written: {pack_file} kept={len(kept)}/{len(arr)}")
+                print(f"[VERIFY] pruned file written: {pack_file} kept={len(kept)}/{len(arr)} (checked={n_check})")
         except Exception as e:
             print(f"[VERIFY] prune write failed: {e}")
 
@@ -178,6 +224,7 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path, debug: b
         "file": str(pack_file.relative_to(_repo_root())).replace("\\", "/"),
         "domain": domain,
         "count": len(arr),
+        "checked": int(n_check),
         "ok_both": sum(1 for x in report_items if x["both_ok"]),
         "ok_syntax": sum(1 for x in report_items if x["syntax_ok"]),
         "ok_llm": sum(1 for x in report_items if x["llm_ok"]),
@@ -202,22 +249,32 @@ def main() -> None:
         base / "prm_operator_packages.json",
         base / "iem_operator_packages.json",
     ]
-    # 简易参数：--debug / --prune
+    # 简易参数：--debug / --prune / [limit]
     import sys
     args = sys.argv[1:]
     debug = ("--debug" in args) or ("-d" in args)
     prune = ("--prune" in args) or ("-p" in args)
+    # 可选的首个非短横线参数作为本次检查的数量上限
+    limit: int | None = None
+    for a in args:
+        if not a.startswith('-'):
+            try:
+                limit = int(a)
+                break
+            except Exception:
+                continue
 
     summary: Dict[str, Any] = {"reports": []}
     for f in files:
         if not f.exists():
             continue
-        rep = verify_file(f, cfg, out_dir=out_dir, debug=debug, prune=prune)
+        rep = verify_file(f, cfg, out_dir=out_dir, debug=debug, prune=prune, limit=limit)
         summary["reports"].append(rep)
     (out_dir / "verify_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps({
         "ok_both_total": sum(r["ok_both"] for r in summary["reports"]),
         "count_total": sum(r["count"] for r in summary["reports"]),
+        "checked_total": sum(r.get("checked", r.get("count", 0)) for r in summary["reports"]),
     }, ensure_ascii=False, indent=2))
 
 

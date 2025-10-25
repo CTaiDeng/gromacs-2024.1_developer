@@ -85,6 +85,7 @@ def main() -> None:
     # 聚合：按 (domain + 序列 + 参数化取值) 去重，保留 score 更高
     by_key: Dict[Tuple[str, str], Dict[str, Any]] = {}
     now = int(_t.time())
+    # 1) 汇总 train_*/debug_dataset.json
     for p in out_root.glob("train_*/debug_dataset.json"):
         data = _load_json(p)
         domain = str(data.get("domain", "")).lower() or "pem"
@@ -136,6 +137,52 @@ def main() -> None:
                 }
                 # 始终写入 ops_detailed（若无参数网格则用仅 name 的占位）
                 item["ops_detailed"] = steps or [{"name": nm} for nm in seq]
+                if meta:
+                    item.update(meta)
+                prev = by_key.get(key)
+                if (prev is None) or (float(score) > float(prev.get("score", -1e9))):
+                    by_key[key] = item
+            except Exception:
+                continue
+
+    # 2) 汇总各次训练产出的 *_operator_packages_labeled.json（项目根 out/out_pathfinder 下）
+    for p in out_root.rglob("*_operator_packages_labeled.json"):
+        try:
+            arr = json.loads(p.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for it in (arr or []):
+            try:
+                domain = str(it.get("domain", "")).lower() or p.name.split("_")[0].lower()
+                seq = list(it.get("sequence", []) or [])
+                steps = it.get("ops_detailed") if isinstance(it.get("ops_detailed"), list) else []
+                payload = {"sequence": list(seq), "ops_detailed": steps or []}
+                sblob = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+                h = hashlib.sha1(sblob).hexdigest()
+                num = int(h, 16) % (10**10)
+                sid = f"pkg_{domain}_{num}"
+                key = (domain, sid)
+                dr = float(it.get("delta_risk", 0.0))
+                c = float(it.get("cost", 0.0))
+                length = int(it.get("length", len(seq)))
+                score = float(it.get("score", dr - cost_lambda * c))
+                now2 = int(it.get("updated_at", now))
+                label = int(it.get("label", 0))
+                meta = {k: it.get(k) for k in ("op_space_id", "op_space_ref") if k in it}
+                item = {
+                    "id": sid,
+                    "domain": domain,
+                    "sequence": seq,
+                    "length": length,
+                    "delta_risk": dr,
+                    "cost": c,
+                    "score": score,
+                    "created_at": int(it.get("created_at", now2)),
+                    "updated_at": now2,
+                    "source": "labeled_operator_packages",
+                    "label": label,
+                    "ops_detailed": steps or [{"name": nm} for nm in seq],
+                }
                 if meta:
                     item.update(meta)
                 prev = by_key.get(key)
