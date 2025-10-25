@@ -141,6 +141,34 @@ def ingest_from_debug_dataset(debug_dataset_path: str | Path, *, domain: str | N
                     if warns:
                         ext.setdefault("syntax_warnings", [])
                         ext["syntax_warnings"].extend([f"ops_detailed: {m}" for m in warns])
+                # 若样本未提供 ops_detailed，则按域默认空间（v1）生成“中位值”参数并补全
+                if not ext.get("ops_detailed"):
+                    try:
+                        from .op_space_utils import load_op_space, param_grid_of, params_from_grid  # type: ignore
+                        mod_dir = Path(__file__).resolve().parent
+                        space_ref = mod_dir / "operator_spaces" / f"{ds_domain}_op_space.v1.json"
+                        if space_ref.exists():
+                            space = load_op_space(str(space_ref))
+                            steps = []
+                            for nm in seq:
+                                try:
+                                    names, grids = param_grid_of(space, nm)
+                                except Exception:
+                                    steps.append({"name": nm})
+                                    continue
+                                gi = []
+                                for g in grids:
+                                    L = len(g)
+                                    gi.append(max(0, (L - 1) // 2))
+                                prs = params_from_grid(space, nm, gi)
+                                steps.append({"name": nm, "grid_index": gi, "params": prs})
+                            if steps:
+                                ext["ops_detailed"] = steps
+                                ext["op_space_id"] = space.get("space_id", f"{ds_domain}.v1")
+                                # 统一相对路径分隔符
+                                ext["op_space_ref"] = str(space_ref).replace("\\", "/")
+                    except Exception:
+                        pass
             except Exception as _e:
                 # 忽略规范异常，继续透传原始字段
                 ext.setdefault("syntax_warnings", [])
@@ -189,6 +217,39 @@ def ingest_from_debug_dataset(debug_dataset_path: str | Path, *, domain: str | N
         int(d.get("length", 0)),
         tuple(str(x) for x in d.get("sequence", []))
     ))
+
+    # 写盘前的最后补全：为缺少参数细化信息的条目补齐默认 ops_detailed（不覆盖已有）
+    try:
+        from .op_space_utils import load_op_space, param_grid_of, params_from_grid  # type: ignore
+        mod_dir2 = Path(__file__).resolve().parent
+        space_ref2 = mod_dir2 / "operator_spaces" / f"{ds_domain}_op_space.v1.json"
+        space2 = None
+        if space_ref2.exists():
+            space2 = load_op_space(str(space_ref2))
+        if space2 is not None:
+            for d in items:
+                if d.get("ops_detailed"):
+                    continue
+                seq2 = list(d.get("sequence", []) or [])
+                steps2 = []
+                for nm in seq2:
+                    try:
+                        names2, grids2 = param_grid_of(space2, nm)
+                    except Exception:
+                        steps2.append({"name": nm})
+                        continue
+                    gi2 = []
+                    for g in grids2:
+                        L2 = len(g)
+                        gi2.append(max(0, (L2 - 1) // 2))
+                    prs2 = params_from_grid(space2, nm, gi2)
+                    steps2.append({"name": nm, "grid_index": gi2, "params": prs2})
+                if steps2:
+                    d["ops_detailed"] = steps2
+                    d.setdefault("op_space_id", space2.get("space_id", f"{ds_domain}.v1"))
+                    d.setdefault("op_space_ref", str(space_ref2).replace("\\", "/"))
+    except Exception:
+        pass
 
     text = json.dumps(items, ensure_ascii=False, indent=2)
     text = _normalize_lf(text)

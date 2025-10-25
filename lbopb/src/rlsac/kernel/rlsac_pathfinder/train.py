@@ -186,6 +186,10 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
     except Exception:
         pass
 
+    # LLM 请求节流（秒）
+    llm_req_interval = float(cfg.get("llm_request_interval_sec", 0.0))
+    last_llm_time: float = 0.0
+
     class RunLogger:
         def __init__(self, path: Path, append: bool = False):
             self.path = path
@@ -320,6 +324,8 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
         # - 无错误且无警告：明确正确，纳入训练（正样本）。
         train_include = False
         train_reason = ""
+        # 确保任何路径下都有 label 初值，避免未绑定错误
+        label = 0
         if syntax["errors"]:
             label = 0
             train_include = True
@@ -393,10 +399,20 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                             logc(_msg1, ANSI_CYAN)
                         except Exception:
                             pass
+                    # 节流：若设置了请求间隔，则在两次请求之间等待
+                    nonlocal last_llm_time
+                    if llm_req_interval > 0.0 and last_llm_time > 0.0:
+                        now = _pytime.time()
+                        wait = (last_llm_time + llm_req_interval) - now
+                        if wait > 0:
+                            if debug:
+                                logc(f"[LLM] throttle: sleep {wait:.2f}s", ANSI_CYAN)
+                            _pytime.sleep(wait)
                     llm_attempted = True
                     _t0 = _pytime.time()
                     txt = call_llm(llm_prompt, model=gemini_model)
                     _dt = _pytime.time() - _t0
+                    last_llm_time = _pytime.time()
                     llm_raw = str(txt) if txt is not None else None
                     _is_err = isinstance(txt, str) and (
                         txt.startswith("[Gemini Error]") or txt.startswith("[Gemini HTTPError]")
@@ -407,6 +423,8 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                         # LLM 失败：不纳入训练
                         train_include = False
                         train_reason = "llm_failed"
+                        # 回退使用启发式作为标签占位
+                        label = int(bool(heur_ok))
                     else:
                         llm_used = True
                         llm_status = "used"
@@ -424,6 +442,8 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                                 # 无法解析：当作失败，不纳入
                                 train_include = False
                                 train_reason = "llm_unparsed"
+                                # 回退使用启发式作为标签占位
+                                label = int(bool(heur_ok))
                     if debug:
                         # 返回结果打印
                         try:
@@ -470,10 +490,11 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                         except Exception:
                             pass
             elif warns_present and not bool(cfg.get("use_llm_oracle", False)):
-                # 未启用 LLM：不纳入训练
+                # 未启用 LLM：不纳入训练；标签回退为启发式
                 llm_status = "skipped_use_llm_false"
                 train_include = False
                 train_reason = "warnings_unresolved"
+                label = int(bool(heur_ok))
             else:
                 # 无错误无警告：明确正确
                 llm_status = "skipped_no_warn"
