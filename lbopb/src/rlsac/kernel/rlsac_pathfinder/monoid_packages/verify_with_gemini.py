@@ -60,7 +60,7 @@ def _ops_detailed_for(seq: List[str], domain: str) -> Tuple[List[Dict[str, Any]]
         return None, None
 
 
-def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path) -> Dict[str, Any]:
+def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path, debug: bool = False, prune: bool = False) -> Dict[str, Any]:
     domain = _domain_from_file(pack_file)
     arr = _read_packages(pack_file)
     report_items: List[Dict[str, Any]] = []
@@ -85,6 +85,7 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path) -> Dict[
     import importlib
     syn_mod = importlib.import_module(f"lbopb.src.{domain}.syntax_checker")
 
+    kept: List[Dict[str, Any]] = []
     for it in arr:
         seq = list(it.get("sequence", []) or [])
         # syntax check（优先使用参数化）
@@ -121,14 +122,27 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path) -> Dict[
             llm_ok = True  # 如果不可用，则不阻断
 
         both_ok = bool(syn_ok and llm_ok)
-        report_items.append({
+        item_report = {
             "id": it.get("id"),
             "domain": domain,
             "sequence": seq,
             "syntax_ok": bool(syn_ok),
             "llm_ok": bool(llm_ok),
             "both_ok": bool(both_ok),
-        })
+        }
+        report_items.append(item_report)
+        if debug:
+            print(f"[VERIFY] domain={domain} seq={seq} syntax_ok={syn_ok} llm_ok={llm_ok} both_ok={both_ok}")
+        if both_ok or not prune:
+            kept.append(it)
+    # 如果开启了 prune，则将通过的条目回写到原文件
+    if prune:
+        try:
+            pack_file.write_text(json.dumps(kept, ensure_ascii=False, indent=2), encoding="utf-8")
+            if debug:
+                print(f"[VERIFY] pruned file written: {pack_file} kept={len(kept)}/{len(arr)}")
+        except Exception as e:
+            print(f"[VERIFY] prune write failed: {e}")
 
     out = {
         "file": str(pack_file.relative_to(_repo_root())).replace("\\", "/"),
@@ -158,11 +172,17 @@ def main() -> None:
         base / "prm_operator_packages.json",
         base / "iem_operator_packages.json",
     ]
+    # 简易参数：--debug / --prune
+    import sys
+    args = sys.argv[1:]
+    debug = ("--debug" in args) or ("-d" in args)
+    prune = ("--prune" in args) or ("-p" in args)
+
     summary: Dict[str, Any] = {"reports": []}
     for f in files:
         if not f.exists():
             continue
-        rep = verify_file(f, cfg, out_dir=out_dir)
+        rep = verify_file(f, cfg, out_dir=out_dir, debug=debug, prune=prune)
         summary["reports"].append(rep)
     (out_dir / "verify_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps({
@@ -173,4 +193,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
