@@ -165,8 +165,13 @@ def ingest_from_debug_dataset(debug_dataset_path: str | Path, *, domain: str | N
                             if steps:
                                 ext["ops_detailed"] = steps
                                 ext["op_space_id"] = space.get("space_id", f"{ds_domain}.v1")
-                                # 统一相对路径分隔符
-                                ext["op_space_ref"] = str(space_ref).replace("\\", "/")
+                                # 统一相对路径（相对于仓库根）与分隔符
+                                try:
+                                    repo_root = Path(__file__).resolve().parents[5]
+                                    rel = space_ref.relative_to(repo_root)
+                                    ext["op_space_ref"] = str(rel).replace("\\", "/")
+                                except Exception:
+                                    ext["op_space_ref"] = str(space_ref).replace("\\", "/")
                     except Exception:
                         pass
             except Exception as _e:
@@ -229,6 +234,15 @@ def ingest_from_debug_dataset(debug_dataset_path: str | Path, *, domain: str | N
         if space2 is not None:
             for d in items:
                 if d.get("ops_detailed"):
+                    # 标准化已有的 op_space_ref 为相对路径（如必要）
+                    try:
+                        if isinstance(d.get("op_space_ref"), str):
+                            repo_root = Path(__file__).resolve().parents[5]
+                            p = Path(d["op_space_ref"]).resolve()
+                            relp = str(p.relative_to(repo_root)).replace("\\", "/")
+                            d["op_space_ref"] = relp
+                    except Exception:
+                        pass
                     continue
                 seq2 = list(d.get("sequence", []) or [])
                 steps2 = []
@@ -247,7 +261,12 @@ def ingest_from_debug_dataset(debug_dataset_path: str | Path, *, domain: str | N
                 if steps2:
                     d["ops_detailed"] = steps2
                     d.setdefault("op_space_id", space2.get("space_id", f"{ds_domain}.v1"))
-                    d.setdefault("op_space_ref", str(space_ref2).replace("\\", "/"))
+                    try:
+                        repo_root2 = Path(__file__).resolve().parents[5]
+                        rel2 = space_ref2.relative_to(repo_root2)
+                        d.setdefault("op_space_ref", str(rel2).replace("\\", "/"))
+                    except Exception:
+                        d.setdefault("op_space_ref", str(space_ref2).replace("\\", "/"))
     except Exception:
         pass
 
