@@ -1,0 +1,53 @@
+{
+  "space_id": "pdem.v1",
+  "version": 1,
+  "domain": "pdem",
+  "operators": {
+    "Bind": {
+      "params": {
+        "alpha_b": [0.1, 0.2, 0.3],
+        "alpha_p": [0.03, 0.05, 0.08],
+        "delta_f": [0.02, 0.04, 0.06],
+        "dn": [0, 1]
+      }
+    },
+    "Signal": {
+      "params": {
+        "beta_b": [0.15, 0.25, 0.35],
+        "beta_p": [0.05, 0.1, 0.2],
+        "delta_f": [0.04, 0.06, 0.1]
+      }
+    },
+    "Desensitization": {
+      "params": {
+        "gamma_b": [0.1, 0.15, 0.3],
+        "gamma_p": [0.05, 0.1, 0.2],
+        "gamma_n": [0.02, 0.05, 0.1],
+        "gamma_f": [0.04, 0.08, 0.12]
+      }
+    },
+    "Antagonist": {
+      "params": {
+        "k_b": [0.1, 0.2, 0.3],
+        "k_p": [0.05, 0.1, 0.2],
+        "k_f": [0.06, 0.12, 0.2]
+      }
+    },
+    "Potentiation": {
+      "params": {
+        "xi_b": [0.03, 0.05, 0.1],
+        "xi_p": [0.03, 0.05, 0.1],
+        "delta_f": [0.05, 0.1, 0.15]
+      }
+    },
+    "InverseAgonist": {
+      "params": {
+        "rho_b": [0.05, 0.1, 0.2],
+        "rho_p": [0.03, 0.05, 0.1],
+        "rho_f": [0.04, 0.08, 0.12]
+      }
+    }
+  },
+  "notes": "Discrete grids for PDEM operators. Indices map to ops_detailed.grid_index."
+}
+

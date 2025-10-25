@@ -110,6 +110,42 @@ def ingest_from_debug_dataset(debug_dataset_path: str | Path, *, domain: str | N
             length = int(feats.get("length", len(seq)))
             score = _compute_score(dr, cost, cost_lambda)
 
+            # 透传可选的“细化算子/空间”字段（若存在），以增强可复现性
+            _ext_keys = (
+                "op_space_id",
+                "op_space_ref",
+                "ops_detailed",
+                "op_index_seq",
+                # 注意：不要提交数值序列，故不透传 op_param_seq
+                # "op_param_seq",
+                "env_state",
+                "trace",
+            )
+            ext: Dict[str, Any] = {}
+            for k in _ext_keys:
+                if k in it and it.get(k) is not None:
+                    ext[k] = it.get(k)
+
+            # 若提供了 ops_detailed + op_space_ref，则依据空间反查并规范化 params
+            try:
+                if isinstance(ext.get("ops_detailed"), list) and ext.get("op_space_ref"):
+                    from .op_space_utils import load_op_space, normalize_ops_detailed  # type: ignore
+                    space = load_op_space(str(ext["op_space_ref"]))
+                    norm_steps, warns, errs = normalize_ops_detailed(ext["ops_detailed"], space)
+                    if errs:
+                        # 规范失败不终止，仅记录在扩展的 warnings 中
+                        ext.setdefault("syntax_warnings", [])
+                        ext["syntax_warnings"].extend([f"ops_detailed: {m}" for m in errs])
+                    else:
+                        ext["ops_detailed"] = norm_steps
+                    if warns:
+                        ext.setdefault("syntax_warnings", [])
+                        ext["syntax_warnings"].extend([f"ops_detailed: {m}" for m in warns])
+            except Exception as _e:
+                # 忽略规范异常，继续透传原始字段
+                ext.setdefault("syntax_warnings", [])
+                ext["syntax_warnings"].append(f"ops_detailed normalization error: {_e}")
+
             key = _seq_key(seq)
             prev = by_seq.get(key)
             if prev is None:
@@ -125,6 +161,9 @@ def ingest_from_debug_dataset(debug_dataset_path: str | Path, *, domain: str | N
                     "updated_at": ts_now,
                     "source": "debug_dataset",
                 }
+                # 合并扩展字段
+                if ext:
+                    by_seq[key].update(ext)
             else:
                 # 若重复，则保留分数更高的一条，并更新统计时间
                 try:
@@ -136,6 +175,9 @@ def ingest_from_debug_dataset(debug_dataset_path: str | Path, *, domain: str | N
                 except Exception:
                     pass
                 prev["updated_at"] = ts_now
+                # 合并/刷新扩展字段（若提供）
+                if ext:
+                    prev.update(ext)
         except Exception:
             # 忽略异常样本，继续处理
             continue

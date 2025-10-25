@@ -1,0 +1,57 @@
+{
+  "space_id": "prm.v1",
+  "version": 1,
+  "domain": "prm",
+  "operators": {
+    "Ingest": {
+      "params": {
+        "alpha_b": [0.1, 0.25, 0.4],
+        "alpha_p": [0.03, 0.05, 0.1],
+        "delta_f": [0.01, 0.02, 0.05],
+        "dn": [0, 1]
+      }
+    },
+    "Exercise": {
+      "params": {
+        "gamma_b": [0.1, 0.2, 0.4],
+        "gamma_p": [0.05, 0.1, 0.2],
+        "delta_f": [0.03, 0.05, 0.1],
+        "dn": [0, 1]
+      }
+    },
+    "Hormone": {
+      "params": {
+        "theta_b": [-0.05, 0.0, 0.05],
+        "theta_p": [-0.05, 0.0, 0.05],
+        "theta_f": [0.0, 0.05, 0.1],
+        "dn": [0, 1]
+      }
+    },
+    "Proliferation": {
+      "params": {
+        "alpha_n": [1.0, 2.0, 3.0],
+        "alpha_p": [0.05, 0.1, 0.2],
+        "beta_b": [0.02, 0.05, 0.1],
+        "beta_f": [0.02, 0.05, 0.1]
+      }
+    },
+    "Adaptation": {
+      "params": {
+        "eta_b": [0.05, 0.1, 0.2],
+        "eta_p": [0.02, 0.05, 0.1],
+        "eta_n": [0.0, 0.05, 0.1],
+        "delta_f": [0.06, 0.08, 0.12]
+      }
+    },
+    "Stimulus": {
+      "params": {
+        "xi_b": [0.05, 0.1, 0.2],
+        "xi_p": [0.1, 0.2, 0.3],
+        "xi_f": [0.03, 0.05, 0.1],
+        "dn": [0, 1, 2]
+      }
+    }
+  },
+  "notes": "Discrete grids for PRM operators."
+}
+

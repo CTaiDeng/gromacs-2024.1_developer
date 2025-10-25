@@ -37,7 +37,7 @@ RULES: Dict[str, Dict[str, str]] = {
 }
 
 
-def _instantiate(name: str) -> PDEMOperator:
+def _instantiate(name: str, params: Dict[str, Any] | None = None) -> PDEMOperator:
     mapping = {
         "Identity": Identity,
         "Bind": Bind,
@@ -49,7 +49,8 @@ def _instantiate(name: str) -> PDEMOperator:
     }
     if name not in mapping:
         raise KeyError(f"Unknown operator: {name}")
-    return mapping[name]()
+    cls = mapping[name]
+    return cls(**(params or {}))
 
 
 class RuleEngine:
@@ -142,6 +143,75 @@ def check_sequence(seq: List[str], *, init_state: PDEMState | None = None) -> Di
         ] if errors else [],
         "steps": steps,
     }
+
+
+def check_package(pkg: Dict[str, Any]) -> Dict[str, Any]:
+    seq: List[str] = list(pkg.get("sequence", []) or [])
+    warnings: List[str] = []
+    errors: List[str] = []
+    params_list: List[Dict[str, Any]] = [dict() for _ in seq]
+
+    if "op_param_seq" in pkg:
+        warnings.append("op_param_seq is discouraged; use ops_detailed.grid_index with op_space_ref")
+
+    ops_detailed = pkg.get("ops_detailed")
+    op_space_ref = pkg.get("op_space_ref")
+    if isinstance(ops_detailed, list) and op_space_ref:
+        try:
+            from lbopb.src.rlsac.kernel.rlsac_pathfinder.op_space_utils import load_op_space, normalize_ops_detailed
+            space = load_op_space(str(op_space_ref))
+            norm_steps, warns, errs = normalize_ops_detailed(ops_detailed, space)
+            warnings.extend([f"ops_detailed: {m}" for m in warns])
+            errors.extend([f"ops_detailed: {m}" for m in errs])
+            for i, st in enumerate(norm_steps):
+                if i < len(params_list):
+                    params_list[i] = dict(st.get("params", {}))
+                if i < len(seq) and st.get("name") and seq[i] != st.get("name"):
+                    warnings.append(f"step {i}: sequence name '{seq[i]}' != ops_detailed name '{st.get('name')}'")
+        except Exception as e:
+            warnings.append(f"ops_detailed check failed: {e}")
+
+    engine = RuleEngine()
+    state = default_init_state()
+    ok = True
+    steps: List[Dict[str, Any]] = []
+    prev_name: str | None = None
+    for i, name in enumerate(seq):
+        try:
+            op = _instantiate(name, params=params_list[i] if i < len(params_list) else None)
+        except KeyError as e:
+            ok = False
+            errors.append(str(e))
+            break
+        if not engine.check_forbidden_pair(prev_name, name):
+            ok = False
+            errors.append(f"Step {i}: forbidden pair ({prev_name} -> {name})")
+        ok_follow, why = engine.check_followups(seq, i)
+        if not ok_follow and why:
+            warnings.append(f"Step {i}: {why}")
+        prev = state
+        cur = op(prev)
+        db = float(cur.b - prev.b)
+        dn = float(cur.n_comp - prev.n_comp)
+        dp = float(cur.perim - prev.perim)
+        df = float(cur.fidelity - prev.fidelity)
+        sg = {"b": _sign(db), "n": _sign(dn), "perim": _sign(dp), "f": _sign(df)}
+        rule = RULES.get(name, {})
+        violated = []
+        for k, expect in rule.items():
+            if sg[k] != expect:
+                violated.append(f"{k}: expect {expect}, got {sg[k]}")
+        if violated:
+            warnings.append(f"Step {i}: {name} violates: " + "; ".join(violated))
+        steps.append({"op": name, "delta": {"b": db, "n": dn, "perim": dp, "f": df}, "sign": sg})
+        state = cur
+        prev_name = name
+        if not engine.within_bounds(state):
+            ok = False
+            errors.append(f"Step {i}: state out of bounds")
+            break
+
+    return {"valid": ok and not errors, "errors": errors, "warnings": warnings, "steps": steps}
 
 
 if __name__ == "__main__":

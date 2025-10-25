@@ -1,0 +1,57 @@
+{
+  "space_id": "iem.v1",
+  "version": 1,
+  "domain": "iem",
+  "operators": {
+    "Activate": {
+      "params": {
+        "alpha_b": [0.1, 0.2, 0.3],
+        "alpha_p": [0.05, 0.08, 0.12],
+        "delta_f": [0.04, 0.06, 0.1],
+        "dn": [0, 1, 2]
+      }
+    },
+    "Suppress": {
+      "params": {
+        "gamma_b": [0.1, 0.2, 0.3],
+        "gamma_p": [0.1, 0.15, 0.25],
+        "gamma_n": [0.02, 0.05, 0.1],
+        "gamma_f": [0.04, 0.08, 0.12]
+      }
+    },
+    "Proliferate": {
+      "params": {
+        "alpha_n": [1.0, 2.0, 3.0],
+        "alpha_p": [0.1, 0.2, 0.3],
+        "alpha_b": [0.1, 0.15, 0.25],
+        "theta_f": [0.0, 0.05, 0.1]
+      }
+    },
+    "Differentiate": {
+      "params": {
+        "delta_f": [0.08, 0.12, 0.2],
+        "theta_p": [0.0, 0.02, 0.05],
+        "theta_b": [-0.02, 0.0, 0.05],
+        "dn": [0, 1]
+      }
+    },
+    "CytokineRelease": {
+      "params": {
+        "xi_b": [0.2, 0.3, 0.5],
+        "xi_p": [0.25, 0.35, 0.5],
+        "xi_f": [0.1, 0.15, 0.25],
+        "dn": [1, 2]
+      }
+    },
+    "Memory": {
+      "params": {
+        "rho_b": [0.05, 0.1, 0.2],
+        "rho_p": [0.1, 0.15, 0.25],
+        "rho_n": [0.02, 0.05, 0.1],
+        "delta_f": [0.1, 0.15, 0.25]
+      }
+    }
+  },
+  "notes": "Discrete grids for IEM operators."
+}
+

@@ -20,7 +20,7 @@
   - `op_idx`：可选；当前环境内的动作索引（便于对齐 `env_pem.op2idx`）。
 - 轻量别名（可选）：
   - `op_index_seq`：动作索引序列（整型，与 `sequence` 对齐）。
-  - `op_param_seq`：参数字典序列（与 `sequence` 对齐）。
+  - 注意：不建议提交 `op_param_seq`（数值序列）；应以 `grid_index` + `op_space_ref` 表达参数，服务端可据此反查并填充 `params`。
 - 复现实验上下文（可选）：
   - `env_state`：`init_state`、`goal`（含容差）、`max_steps`、`seed`、`code_commit`。
   - `trace`：逐步 `PEMState` 快照与每步指标（如 `reward`/`dist`）。
@@ -46,13 +46,13 @@
     {
       "name": "Apoptosis",
       "params": { "gamma_b": 0.2, "gamma_n": 0.1, "gamma_p": 0.15, "delta_f": 0.1 },
-      "grid_index": [1,1,1,1],
+      "grid_index": [1,1,1,2],
       "op_idx": 0
     },
     {
       "name": "Carcinogenesis",
       "params": { "k_b": 0.25, "k_p": 0.15, "k_f": 0.1, "dn": 0 },
-      "grid_index": [1,1,1,0],
+      "grid_index": [2,1,1,0],
       "op_idx": 3
     }
   ]

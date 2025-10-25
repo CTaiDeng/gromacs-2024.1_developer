@@ -1,0 +1,58 @@
+{
+  "space_id": "pktm.v1",
+  "version": 1,
+  "domain": "pktm",
+  "operators": {
+    "Dose": {
+      "params": {
+        "delta_b": [0.5, 1.0, 2.0],
+        "alpha_p": [0.03, 0.05, 0.1],
+        "alpha_f": [0.01, 0.02, 0.05]
+      }
+    },
+    "Absorb": {
+      "params": {
+        "alpha_b": [0.1, 0.2, 0.3],
+        "alpha_p": [0.05, 0.1, 0.2],
+        "alpha_f": [0.01, 0.02, 0.05]
+      }
+    },
+    "Distribute": {
+      "params": {
+        "alpha_n": [1.0, 2.0, 3.0],
+        "alpha_p": [0.1, 0.15, 0.25],
+        "alpha_b": [0.02, 0.05, 0.1]
+      }
+    },
+    "Metabolize": {
+      "params": {
+        "gamma_b": [0.15, 0.25, 0.35],
+        "gamma_p": [0.1, 0.15, 0.25],
+        "delta_f": [0.04, 0.06, 0.1]
+      }
+    },
+    "Excrete": {
+      "params": {
+        "rho_b": [0.1, 0.2, 0.3],
+        "rho_p": [0.1, 0.2, 0.3],
+        "delta_f": [0.04, 0.06, 0.1]
+      }
+    },
+    "Bind": {
+      "params": {
+        "theta_b": [-0.05, 0.0, 0.05],
+        "theta_p": [-0.05, 0.0, 0.05],
+        "theta_f": [-0.05, 0.0, 0.05]
+      }
+    },
+    "Transport": {
+      "params": {
+        "xi_b": [0.03, 0.05, 0.1],
+        "xi_p": [0.05, 0.1, 0.2],
+        "xi_f": [-0.02, 0.0, 0.05]
+      }
+    }
+  },
+  "notes": "Discrete grids for PKTM operators."
+}
+

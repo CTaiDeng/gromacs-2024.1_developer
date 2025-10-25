@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 from typing import Any, Dict, List, Tuple, Callable
+from pathlib import Path
 
 from .state import PEMState
 from .operators import (
@@ -33,7 +34,7 @@ RULES: Dict[str, Dict[str, str]] = {
 }
 
 
-def _instantiate(name: str) -> PEMOperator:
+def _instantiate(name: str, params: Dict[str, Any] | None = None) -> PEMOperator:
     mapping = {
         "Identity": Identity,
         "Apoptosis": Apoptosis,
@@ -43,7 +44,8 @@ def _instantiate(name: str) -> PEMOperator:
     }
     if name not in mapping:
         raise KeyError(f"Unknown operator: {name}")
-    return mapping[name]()
+    cls = mapping[name]
+    return cls(**(params or {}))
 
 
 class RuleEngine:
@@ -139,6 +141,87 @@ def check_sequence(seq: List[str], *, init_state: PEMState | None = None) -> Dic
              "doc": "my_docs/project_docs/1761062400_病理演化幺半群 (PEM) 公理系统.md"}
             for i, msg in enumerate(warnings)
         ] if warnings else [],
+        "steps": steps,
+    }
+
+
+def check_package(pkg: Dict[str, Any]) -> Dict[str, Any]:
+    """对包含 ops_detailed/op_space_ref 的算子包进行结构与参数网格校验；
+    若可用，使用反查得到的 params 进行动态规则检查。
+    """
+    seq: List[str] = list(pkg.get("sequence", []) or [])
+    warnings: List[str] = []
+    errors: List[str] = []
+    params_list: List[Dict[str, Any]] = [dict() for _ in seq]
+
+    # 不建议提交数值的序列（op_param_seq）
+    if "op_param_seq" in pkg:
+        warnings.append("op_param_seq is discouraged; use ops_detailed.grid_index with op_space_ref")
+
+    ops_detailed = pkg.get("ops_detailed")
+    op_space_ref = pkg.get("op_space_ref")
+    if isinstance(ops_detailed, list) and op_space_ref:
+        try:
+            from lbopb.src.rlsac.kernel.rlsac_pathfinder.op_space_utils import load_op_space, normalize_ops_detailed
+            space = load_op_space(str(op_space_ref))
+            norm_steps, warns, errs = normalize_ops_detailed(ops_detailed, space)
+            warnings.extend([f"ops_detailed: {m}" for m in warns])
+            errors.extend([f"ops_detailed: {m}" for m in errs])
+            # 将反查到的 params 注入用于后续动态检查
+            for i, st in enumerate(norm_steps):
+                if i < len(params_list):
+                    params_list[i] = dict(st.get("params", {}))
+                # 一致性提醒：名称与序列不同步
+                if i < len(seq) and st.get("name") and seq[i] != st.get("name"):
+                    warnings.append(f"step {i}: sequence name '{seq[i]}' != ops_detailed name '{st.get('name')}'")
+        except Exception as e:
+            warnings.append(f"ops_detailed check failed: {e}")
+
+    # 使用（可能为空的）params 参与动态检查
+    engine = RuleEngine()
+    state = default_init_state()
+    ok = True
+    steps: List[Dict[str, Any]] = []
+    prev_name: str | None = None
+    for i, name in enumerate(seq):
+        try:
+            op = _instantiate(name, params=params_list[i] if i < len(params_list) else None)
+        except KeyError as e:
+            ok = False
+            errors.append(str(e))
+            break
+        if not engine.check_forbidden_pair(prev_name, name):
+            ok = False
+            errors.append(f"Step {i}: forbidden pair ({prev_name} -> {name})")
+        ok_follow, why = engine.check_followups(seq, i)
+        if not ok_follow and why:
+            warnings.append(f"Step {i}: {why}")
+        prev = state
+        cur = op(prev)
+        db = float(cur.b - prev.b)
+        dn = float(cur.n_comp - prev.n_comp)
+        dp = float(cur.perim - prev.perim)
+        df = float(cur.fidelity - prev.fidelity)
+        sg = {"b": _sign(db), "n": _sign(dn), "perim": _sign(dp), "f": _sign(df)}
+        rule = RULES.get(name, {})
+        violated = []
+        for k, expect in rule.items():
+            if sg[k] != expect:
+                violated.append(f"{k}: expect {expect}, got {sg[k]}")
+        if violated:
+            warnings.append(f"Step {i}: {name} violates: " + "; ".join(violated))
+        steps.append({"op": name, "delta": {"b": db, "n": dn, "perim": dp, "f": df}, "sign": sg})
+        state = cur
+        prev_name = name
+        if not engine.within_bounds(state):
+            ok = False
+            errors.append(f"Step {i}: state out of bounds")
+            break
+
+    return {
+        "valid": ok and not errors,
+        "errors": errors,
+        "warnings": warnings,
         "steps": steps,
     }
 

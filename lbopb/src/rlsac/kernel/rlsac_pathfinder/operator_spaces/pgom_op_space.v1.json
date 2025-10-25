@@ -1,0 +1,63 @@
+{
+  "space_id": "pgom.v1",
+  "version": 1,
+  "domain": "pgom",
+  "operators": {
+    "Activate": {
+      "params": {
+        "alpha_b": [0.1, 0.2, 0.3],
+        "alpha_p": [0.03, 0.05, 0.1],
+        "delta_f": [0.04, 0.06, 0.1],
+        "dn": [0, 1]
+      }
+    },
+    "Repress": {
+      "params": {
+        "gamma_b": [0.05, 0.15, 0.3],
+        "gamma_p": [0.02, 0.05, 0.1],
+        "gamma_f": [0.02, 0.05, 0.08],
+        "dn": [0, 1, 2]
+      }
+    },
+    "Mutation": {
+      "params": {
+        "alpha_n": [1.0, 2.0],
+        "alpha_p": [0.05, 0.1, 0.2],
+        "beta_b": [0.0, 0.1, 0.2],
+        "beta_f": [0.05, 0.08, 0.15]
+      }
+    },
+    "RepairGenome": {
+      "params": {
+        "rho_b": [0.02, 0.05, 0.1],
+        "rho_p": [0.05, 0.15, 0.25],
+        "rho_n": [0.05, 0.1, 0.2],
+        "delta_f": [0.08, 0.12, 0.2]
+      }
+    },
+    "EpigeneticMod": {
+      "params": {
+        "theta_b": [-0.05, 0.0, 0.05],
+        "theta_p": [-0.05, 0.0, 0.05],
+        "theta_f": [0.0, 0.05, 0.1],
+        "dn": [0, 1, 2]
+      }
+    },
+    "PathwayInduction": {
+      "params": {
+        "alpha_b": [0.05, 0.1, 0.2],
+        "alpha_p": [0.02, 0.05, 0.1],
+        "delta_f": [0.04, 0.08, 0.12]
+      }
+    },
+    "PathwayInhibition": {
+      "params": {
+        "gamma_b": [0.05, 0.1, 0.2],
+        "gamma_p": [0.02, 0.05, 0.1],
+        "gamma_f": [0.03, 0.06, 0.1]
+      }
+    }
+  },
+  "notes": "Discrete grids for PGOM operators."
+}
+
