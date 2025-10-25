@@ -1,6 +1,8 @@
 {
   "__comment": "convert_to_utf8_lf.ps1 的白名单配置：仅转换这些目录/文件为 UTF-8+LF。目录为递归遍历；文件为精确路径。可按需增删。",
   "include": [
+    "res",
+    "out",
     ".vscode",
     ".githooks",
     "admin",
