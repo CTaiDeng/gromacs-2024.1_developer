@@ -425,6 +425,27 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                         train_reason = "llm_failed"
                         # 回退使用启发式作为标签占位
                         label = int(bool(heur_ok))
+                        # 若为 429 (RESOURCE_EXHAUSTED)，解析建议的 Retry-After 并休眠以缓解配额限制
+                        try:
+                            import re as _re
+                            s = llm_raw or ""
+                            # 方式1：从错误提示文本中提取 "Please retry in Xs."
+                            m1 = _re.search(r"Please retry in\s+([0-9.]+)s", s)
+                            # 方式2：从 JSON 字段提取 \"retryDelay\": \"Xs\"
+                            m2 = _re.search(r"\"retryDelay\"\s*:\s*\"([0-9.]+)s\"", s)
+                            sec = None
+                            if m1:
+                                sec = float(m1.group(1))
+                            elif m2:
+                                sec = float(m2.group(1))
+                            if sec and sec > 0:
+                                if debug:
+                                    logc(f"[LLM] 429 quota: retry-after {sec:.2f}s -> sleeping", ANSI_CYAN)
+                                _pytime.sleep(sec)
+                                # 更新节流时间基准，避免紧接着再次触发
+                                last_llm_time = _pytime.time()
+                        except Exception:
+                            pass
                     else:
                         llm_used = True
                         llm_status = "used"
