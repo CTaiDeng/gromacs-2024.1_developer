@@ -468,7 +468,7 @@ def gen_html_report(case_name: str, cw: dict, states: Dict[str, object], seqs: D
     _j("</html>")
 
     # 返回统一 CRLF 的完整 HTML 文本
-    return ("\r\n").join(L) + "\r\n"
+    return ("\n").join(L) + "\n"
 
 
 def run_case(case_name: str = "HIV_Therapy_Path", *, pharm_cfg_path: str | None = None) -> None:
@@ -493,7 +493,7 @@ def run_case(case_name: str = "HIV_Therapy_Path", *, pharm_cfg_path: str | None 
     html_path = os.path.join(out_dir, f"{case_name}_report.html")
     html = gen_html_report(case_name, cw, states, seqs, pharm_cfg_path)
     # 明确以 UTF-8 + CRLF 写入（仓库最高规范）
-    with open(html_path, "w", encoding="utf-8", newline="\r\n") as f:
+    with open(html_path, "w", encoding="utf-8", newline="\n") as f:
         f.write(html)
     print(f"HTML 报告已生成: {html_path}")
 

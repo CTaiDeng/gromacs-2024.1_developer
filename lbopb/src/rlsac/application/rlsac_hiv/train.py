@@ -39,7 +39,7 @@ def train(config_path: str | Path | None = None, data_json: str | Path | None = 
 
         def write_line(self, text: str) -> None:
             try:
-                self.f.write(text + "\r\n")
+                self.f.write(text + "\n")
                 self.f.flush()
             except Exception:
                 pass
@@ -130,7 +130,7 @@ def train(config_path: str | Path | None = None, data_json: str | Path | None = 
         if hasattr(env, "op2idx"):
             mapping = getattr(env, "op2idx")
             text = json.dumps(mapping, ensure_ascii=False, indent=2)
-            text = text.replace("\r\n", "\n").replace("\n", "\r\n")
+            text = text.replace("\r\n", "\n")
             (run_dir / "op_index.json").write_text(text, encoding="utf-8")
     except Exception:
         pass

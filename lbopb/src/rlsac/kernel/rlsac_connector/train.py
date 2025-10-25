@@ -46,7 +46,7 @@ def train(config_path: str | Path | None = None) -> Path:
 
         def write_line(self, text: str) -> None:
             try:
-                self.f.write(text + "\r\n")
+                self.f.write(text + "\n")
                 self.f.flush()
             except Exception:
                 pass
@@ -151,7 +151,7 @@ def train(config_path: str | Path | None = None) -> Path:
             mod_arr = []
     mod_arr.extend(law_entries)
     text = json.dumps(mod_arr, ensure_ascii=False, indent=2)
-    text = text.replace("\r\n", "\n").replace("\n", "\r\n")
+    text = text.replace("\r\n", "\n")
     mod_law.write_text(text, encoding='utf-8')
 
     # 写入运行目录 law_connections.json
@@ -164,7 +164,7 @@ def train(config_path: str | Path | None = None) -> Path:
             run_arr = []
     run_arr.extend(law_entries)
     text2 = json.dumps(run_arr, ensure_ascii=False, indent=2)
-    text2 = text2.replace("\r\n", "\n").replace("\n", "\r\n")
+    text2 = text2.replace("\r\n", "\n")
     run_law.write_text(text2, encoding='utf-8')
 
     print(f"Training finished. Artifacts at: {run_dir}")
@@ -223,7 +223,7 @@ def extract_connection(run_dir: str | Path, config_path: str | Path | None = Non
             arr = []
     arr.append(conn)
     text = json.dumps(arr, ensure_ascii=False, indent=2)
-    text = text.replace("\r\n", "\n").replace("\n", "\r\n")
+    text = text.replace("\r\n", "\n")
     law_path.write_text(text, encoding="utf-8")
     return conn
 

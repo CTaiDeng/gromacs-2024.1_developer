@@ -1,9 +1,82 @@
 #!/usr/bin/env sh
-# Pre-commit hook (no-op by policy)
+# UTF-8 (no BOM) + LF checker based on .gitattributes
+# - Read-only validation; never modifies files.
+# - Blocks commit if staged files that should be text/UTF-8/LF violate policy.
 
 set -eu
 
-# Per project policy, hooks must not modify or lint docs/code automatically.
-# All compliance and formatting steps are manual via scripts under my_scripts/**.
+# Allow skipping with env var when needed (CI override, etc.)
+if [ "${LBOPB_SKIP_EOL_CHECK:-}" = "1" ]; then
+  exit 0
+fi
+
+if ! command -v git >/dev/null 2>&1; then
+  exit 0
+fi
+
+# Pick a python interpreter
+pycmd=""
+for c in python3 python; do
+  if command -v "$c" >/dev/null 2>&1; then pycmd="$c"; break; fi
+done
+if [ -z "$pycmd" ]; then
+  # No Python available; skip check rather than blocking developers
+  exit 0
+fi
+
+# List staged files (added/copied/modified/renamed/typechanged)
+violations=$(
+git diff --cached --name-only --diff-filter=ACMRT -z | while IFS= read -r -d '' f; do
+  # Skip if the path no longer exists in index (deleted)
+  if ! git ls-files --error-unmatch -- "$f" >/dev/null 2>&1; then
+    continue
+  fi
+
+  # Query attributes for this path
+  attrs=$(git check-attr eol working-tree-encoding text -- "$f" 2>/dev/null || true)
+  eol=$(printf "%s\n" "$attrs" | awk -F': ' '/: eol:/{print $3; exit}')
+  enc=$(printf "%s\n" "$attrs" | awk -F': ' '/: working-tree-encoding:/{print $3; exit}')
+  txt=$(printf "%s\n" "$attrs" | awk -F': ' '/: text:/{print $3; exit}')
+
+  need_check=0
+  [ "$eol" = "lf" ] && need_check=1
+  [ "$enc" = "UTF-8" ] && need_check=1
+  [ "$txt" = "set" ] && need_check=1
+  [ "$need_check" -eq 1 ] || continue
+
+  # Validate staged blob bytes: UTF-8 decodable, no BOM, no CR (\r)
+  reason=$(
+    git show ":$f" 2>/dev/null | "$pycmd" - <<'PY'
+import sys
+data = sys.stdin.buffer.read()
+try:
+    s = data.decode('utf-8')
+except Exception:
+    print('NOT_UTF8', end='')
+    sys.exit(2)
+if data.startswith(b'\xef\xbb\xbf'):
+    print('BOM', end='')
+    sys.exit(3)
+if '\r' in s:
+    print('CR_PRESENT', end='')
+    sys.exit(4)
+sys.exit(0)
+PY
+  ) || true
+
+  # python exit code is the pipeline exit code; capture with `set -e` disabled in subshell
+  if [ -n "$reason" ]; then
+    printf "%s\t%s\n" "$f" "$reason"
+  fi
+done
+)
+
+if [ -n "$violations" ]; then
+  echo "Commit aborted: files must be UTF-8 (no BOM) with LF line endings, per .gitattributes." >&2
+  echo "Violations:" >&2
+  printf "  %s\n" "$violations" >&2
+  echo "Set LBOPB_SKIP_EOL_CHECK=1 to bypass (not recommended)." >&2
+  exit 1
+fi
 
 exit 0

@@ -55,7 +55,7 @@ def sync_file(p: pathlib.Path) -> bool:
     ensure_at_top(SPDX)
     if changed:
         # 强制使用 UTF-8（无 BOM）+ CRLF
-        with p.open("w", encoding="utf-8", newline="\r\n") as fh:
+        with p.open("w", encoding="utf-8", newline="\n") as fh:
             fh.write("\n".join(lines) + "\n")
     return changed
 

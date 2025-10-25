@@ -124,7 +124,7 @@ def main() -> int:
         f"[TEST] domain={domain} seq={seq} prompt_len={len(prompt)} bytes={prompt_bytes}"
     )
     pv = prompt[:600] + ("..." if len(prompt) > 600 else "")
-    print(f"[TEST] prompt preview:\r\n{pv}")
+    print(f"[TEST] prompt preview:\n{pv}")
 
     t0 = _t.time()
     res = call_llm(prompt)
@@ -159,7 +159,7 @@ def main() -> int:
             }
             text = json.dumps(obj, ensure_ascii=False, indent=2)
             # 写入 CRLF 行尾
-            text = text.replace("\r\n", "\n").replace("\n", "\r\n")
+            text = text.replace("\r\n", "\n")
             fname.write_text(text, encoding="utf-8")
             print(f"[TEST] saved to {fname}")
         except Exception as e:

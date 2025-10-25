@@ -90,14 +90,14 @@ def build_markdown_with_translation(original_json_text: str, translated_text: st
     调用方负责写入文件（UTF-8 + CRLF）。
     """
     lines: list[str] = []
-    lines.append(f"# {title}\r\n\r\n")
-    lines.append("## 英文原始结果 (JSON)\r\n\r\n")
+    lines.append(f"# {title}\n\n")
+    lines.append("## 英文原始结果 (JSON)\n\n")
     # 直接包裹为代码块，避免渲染歧义
-    lines.append("```json\r\n")
-    lines.append(original_json_text.rstrip("\r\n") + "\r\n")
-    lines.append("```\r\n\r\n")
-    lines.append("## 中文翻译 (Gemini)\r\n\r\n")
-    lines.append(translated_text.rstrip("\r\n") + "\r\n")
+    lines.append("```json\n")
+    lines.append(original_json_text.rstrip("\n") + "\n")
+    lines.append("```\n\n")
+    lines.append("## 中文翻译 (Gemini)\n\n")
+    lines.append(translated_text.rstrip("\n") + "\n")
     return "".join(lines)
 
 
