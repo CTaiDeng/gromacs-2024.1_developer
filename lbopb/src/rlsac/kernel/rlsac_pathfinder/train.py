@@ -162,6 +162,7 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
     except Exception:
         pass
     # 从配置解析 Gemini 模型选择（名称或编号），并下发给环境变量
+    gemini_model: str | None = None
     try:
         gm = cfg.get("GEMINI_MODEL", None)
         name = None
@@ -179,7 +180,9 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                         continue
         if name:
             os.environ["LBOPB_GEMINI_MODEL"] = name
-            os.environ.setdefault("GEMINI_MODEL", name)
+            # 强制覆盖以避免外部默认值干扰
+            os.environ["GEMINI_MODEL"] = name
+            gemini_model = name
     except Exception:
         pass
 
@@ -332,8 +335,7 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                     extra_meta = None
                     try:
                         if bool(cfg.get("llm_include_params", False)):
-                            from lbopb.src.rlsac.kernel.rlsac_pathfinder.op_space_utils import load_op_space, \
-                                param_grid_of, params_from_grid  # type: ignore
+                            from lbopb.src.rlsac.kernel.rlsac_pathfinder.op_space_utils import load_op_space, param_grid_of, params_from_grid  # type: ignore
                             # 推导该域的空间定义文件（v1）
                             _mod_dir = Path(__file__).resolve().parent
                             _space_ref = _mod_dir / "operator_spaces" / f"{domain}_op_space.v1.json"
@@ -366,28 +368,38 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                     if debug:
                         # 分割线与请求前打印
                         logc("========== LLM REQUEST BEGIN ==========", ANSI_CYAN)
+                        # 优先打印序列与参数段，便于快速定位关键信息
+                        logc(f"[SEQ] {seq}", ANSI_YELLOW)
+                        if ops_det:
+                            try:
+                                import json as _json
+                                _ops_preview = _json.dumps(ops_det, ensure_ascii=False)[:240]
+                                logc(f"[PARAMS] {_ops_preview}", ANSI_YELLOW)
+                            except Exception:
+                                pass
+                        # 其后再打印 LLM 启动信息与提示词预览
                         _msg0 = (
                             f"[LLM] start: provider=gemini domain={domain} seq_len={len(seq)} "
                             f"warnings={len(syntax.get('warnings', []))} heur_ok={heur_ok}"
                         )
                         logc(_msg0, ANSI_CYAN)
-                        # 样本表达高亮
-                        logc(f"[SEQ] {seq}", ANSI_YELLOW)
-                        # 提示词预览（最多 240 字符）
                         try:
                             _pv = str(llm_prompt)
-                            _pv2 = _pv[:240] + ("..." if len(_pv) > 240 else "")
+                            # 打印预览时压成单行：换行→\n，制表→空格，连续空白压缩
+                            _pv_oneline = _pv.replace("\r\n", "\n").replace("\r", "\n").replace("\t", " ").replace("\n", "\\n")
+                            # 适当截断，避免刷屏
+                            _pv2 = _pv_oneline[:240] + ("..." if len(_pv_oneline) > 240 else "")
                             _msg1 = f"[LLM] prompt preview: {_pv2}"
                             logc(_msg1, ANSI_CYAN)
                         except Exception:
                             pass
                     llm_attempted = True
                     _t0 = _pytime.time()
-                    txt = call_llm(llm_prompt)
+                    txt = call_llm(llm_prompt, model=gemini_model)
                     _dt = _pytime.time() - _t0
                     llm_raw = str(txt) if txt is not None else None
                     _is_err = isinstance(txt, str) and (
-                            txt.startswith("[Gemini Error]") or txt.startswith("[Gemini HTTPError]")
+                        txt.startswith("[Gemini Error]") or txt.startswith("[Gemini HTTPError]")
                     )
                     if _is_err:
                         llm_used = False
