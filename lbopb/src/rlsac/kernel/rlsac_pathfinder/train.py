@@ -159,6 +159,27 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
             os.environ["LBOPB_GEMINI_TIMEOUT_SEC"] = str(_llm_to)
     except Exception:
         pass
+    # 从配置解析 Gemini 模型选择（名称或编号），并下发给环境变量
+    try:
+        gm = cfg.get("GEMINI_MODEL", None)
+        name = None
+        if isinstance(gm, str):
+            name = gm.strip()
+        elif isinstance(gm, int):
+            mp = cfg.get("gemini_model_choose", {}) or cfg.get("GEMINI_MODEL_CHOOSE", {}) or {}
+            if isinstance(mp, dict):
+                for k, v in mp.items():
+                    try:
+                        if int(v) == gm:
+                            name = str(k)
+                            break
+                    except Exception:
+                        continue
+        if name:
+            os.environ["LBOPB_GEMINI_MODEL"] = name
+            os.environ.setdefault("GEMINI_MODEL", name)
+    except Exception:
+        pass
 
     class RunLogger:
         def __init__(self, path: Path, append: bool = False):
@@ -302,14 +323,48 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
         else:
             warns_present = bool(syntax.get("warnings"))
             if warns_present and bool(cfg.get("use_llm_oracle", False)):
+            try:
+                from lbopb.src.rlsac.kernel.common.llm_oracle import call_llm, build_pathfinder_prompt
+                # 可选: 将算子参数化与取值一并提交给 LLM
+                ops_det = None
+                extra_meta = None
                 try:
-                    from lbopb.src.rlsac.kernel.common.llm_oracle import call_llm, build_pathfinder_prompt
-                    llm_prompt = build_pathfinder_prompt(domain, list(seq))
-                    if debug:
-                        # 分割线与请求前打印
-                        logc("========== LLM REQUEST BEGIN ==========", ANSI_CYAN)
-                        _msg0 = (
-                            f"[LLM] start: provider=gemini domain={domain} seq_len={len(seq)} "
+                    if bool(cfg.get("llm_include_params", False)):
+                        from lbopb.src.rlsac.kernel.rlsac_pathfinder.op_space_utils import load_op_space, param_grid_of, params_from_grid  # type: ignore
+                        # 推导该域的空间定义文件（v1）
+                        _mod_dir = Path(__file__).resolve().parent
+                        _space_ref = _mod_dir / "operator_spaces" / f"{domain}_op_space.v1.json"
+                        if _space_ref.exists():
+                            _space = load_op_space(str(_space_ref))
+                            # 为每个算子选择一个“默认”索引（网格中位数），反查 params
+                            steps = []
+                            for nm in list(seq):
+                                try:
+                                    names, grids = param_grid_of(_space, nm)
+                                except Exception:
+                                    # 无参数定义则跳过参数化
+                                    steps.append({"name": nm})
+                                    continue
+                                gi = []
+                                for g in grids:
+                                    L = len(g)
+                                    gi.append(max(0, (L - 1) // 2))
+                                prs = params_from_grid(_space, nm, gi)
+                                steps.append({"name": nm, "grid_index": gi, "params": prs})
+                            ops_det = steps
+                            extra_meta = {
+                                "op_space_id": _space.get("space_id", None),
+                                "op_space_ref": str(_space_ref).replace("\\", "/"),
+                            }
+                except Exception:
+                    ops_det = None
+                    extra_meta = None
+                llm_prompt = build_pathfinder_prompt(domain, list(seq), ops_det, extra_meta)
+                if debug:
+                    # 分割线与请求前打印
+                    logc("========== LLM REQUEST BEGIN ==========", ANSI_CYAN)
+                    _msg0 = (
+                        f"[LLM] start: provider=gemini domain={domain} seq_len={len(seq)} "
                             f"warnings={len(syntax.get('warnings', []))} heur_ok={heur_ok}"
                         )
                         logc(_msg0, ANSI_CYAN)

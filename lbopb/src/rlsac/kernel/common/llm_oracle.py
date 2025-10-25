@@ -24,13 +24,24 @@ def call_llm(prompt: str, *, provider: str = "gemini", model: str | None = None,
             if dbg:
                 print(f"[LLM] call_llm enter: provider=gemini, t={int(_t.time())}")
             cli = importlib.import_module("my_scripts.gemini_client")
+            # 将模型名下发给环境变量，便于客户端读取
+            try:
+                if model:
+                    os.environ["LBOPB_GEMINI_MODEL"] = str(model)
+                    os.environ.setdefault("GEMINI_MODEL", str(model))
+            except Exception:
+                pass
             for fname in ("ask", "generate", "chat", "gemini_text", "query", "run", "generate_gemini_content"):
                 fn = getattr(cli, fname, None)
                 if callable(fn):
                     if dbg:
                         print(f"[LLM] call_llm try func={fname}")
                     try:
-                        res: Any = fn(prompt)
+                        # 优先尝试带 model 的关键字调用，失败再退化
+                        try:
+                            res: Any = fn(prompt, model=model)  # type: ignore[call-arg]
+                        except TypeError:
+                            res = fn(prompt)
                         if isinstance(res, str):
                             if dbg:
                                 _h = res[:120] + ("..." if len(res) > 120 else "")
@@ -75,7 +86,9 @@ PAIRWISE: List[tuple[str, str]] = [
 ]
 
 
-def build_pathfinder_prompt(domain: str, sequence: List[str]) -> str:
+def build_pathfinder_prompt(domain: str, sequence: List[str],
+                            ops_detailed: Optional[List[Dict[str, Any]]] = None,
+                            extra: Optional[Dict[str, Any]] = None) -> str:
     d = (domain or "").lower()
     doc_rel = DOC_MAP.get(d, "<axiom-doc-not-found>")
     # 读取并注入公理文档内容（以仓库根为基准解析路径）。不在提示词中暴露具体路径或说明性标注。
@@ -91,6 +104,31 @@ def build_pathfinder_prompt(domain: str, sequence: List[str]) -> str:
     except Exception:
         pass
 
+    # 可选参数化动作描述（如提供）。为减少长度，仅包含 name + params (+ grid_index 可选)。
+    param_block = ""
+    if isinstance(ops_detailed, list) and len(ops_detailed) > 0:
+        try:
+            import json as _json
+            simplified: List[Dict[str, Any]] = []
+            for st in ops_detailed:
+                simplified.append({
+                    "name": st.get("name"),
+                    "params": st.get("params"),
+                    **({"grid_index": st.get("grid_index")} if st.get("grid_index") is not None else {})
+                })
+            meta = {}
+            if isinstance(extra, dict):
+                for k in ("op_space_id", "op_space_ref"):
+                    if k in extra:
+                        meta[k] = extra[k]
+            param_block = (
+                "\n参数化动作（如提供）:\n"
+                + (f"meta={_json.dumps(meta, ensure_ascii=False)}\n" if meta else "")
+                + f"steps={_json.dumps(simplified, ensure_ascii=False)}\n"
+            )
+        except Exception:
+            param_block = ""
+
     return (
         "你是一名严格的形式系统审查器。\n"
         f"幺半群域: {d}\n"
@@ -100,6 +138,7 @@ def build_pathfinder_prompt(domain: str, sequence: List[str]) -> str:
         "-----END AXIOM DOC-----\n"
         "任务: 严格依据以上公理文档内容, 判断以下基本算子序列(算子包)是否严格符合该域的公理系统(所有必要约束: 方向性/不可交换/序次/阈值/停机等)。\n"
         f"算子序列: {sequence}\n"
+        f"{param_block}"
         "要求: 只返回单个字符 '1' 或 '0'。1 表示符合公理系统, 0 表示不符合。不得输出其他字符或解释。\n"
     )
 
