@@ -169,6 +169,10 @@ def main() -> None:
                 now2 = int(it.get("updated_at", now))
                 label = int(it.get("label", 0))
                 meta = {k: it.get(k) for k in ("op_space_id", "op_space_ref") if k in it}
+                # 透传标注文件中的校验摘要（若存在）
+                validation = it.get("validation", None)
+                if not isinstance(validation, dict):
+                    validation = None
                 item = {
                     "id": sid,
                     "domain": domain,
@@ -183,6 +187,8 @@ def main() -> None:
                     "label": label,
                     "ops_detailed": steps or [{"name": nm} for nm in seq],
                 }
+                if validation:
+                    item["validation"] = validation
                 if meta:
                     item.update(meta)
                 prev = by_key.get(key)
