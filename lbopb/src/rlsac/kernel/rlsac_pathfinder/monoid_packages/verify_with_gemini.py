@@ -269,6 +269,9 @@ def main() -> None:
     args = sys.argv[1:]
     debug = ("--debug" in args) or ("-d" in args)
     prune = ("--prune" in args) or ("-p" in args)
+    # 默认行为：等价于 --debug --prune（即使未显式传入标志）
+    debug = True
+    prune = True
     # 可选的首个非短横线参数作为本次检查的数量上限
     limit: int | None = None
     for a in args:
