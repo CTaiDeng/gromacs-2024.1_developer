@@ -97,6 +97,23 @@ def _ops_detailed_for(seq: List[str], domain: str) -> Tuple[List[Dict[str, Any]]
 
 def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path,
                 debug: bool = False, prune: bool = False, limit: int | None = None) -> Dict[str, Any]:
+    # ANSI color scheme (consistent with train.py)
+    ANSI_RESET = "\x1b[0m"
+    ANSI_RED = "\x1b[31;1m"
+    ANSI_GREEN = "\x1b[32;1m"
+    ANSI_YELLOW = "\x1b[33;1m"
+    ANSI_CYAN = "\x1b[36;1m"
+    ANSI_MAGENTA = "\x1b[35;1m"
+
+    def _cprint(txt: str, color: str | None = None, always: bool = False) -> None:
+        try:
+            if color and (debug or always):
+                print(f"{color}{txt}{ANSI_RESET}")
+            else:
+                print(txt)
+        except Exception:
+            print(txt)
+
     domain = _domain_from_file(pack_file)
     arr = _read_packages(pack_file)
     report_items: List[Dict[str, Any]] = []
@@ -129,12 +146,7 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path,
 
     _ensure_repo_in_sys_path()
     from lbopb.src.rlsac.kernel.common.llm_oracle import build_pathfinder_prompt, call_llm  # type: ignore
-    import importlib
-    try:
-        syn_mod = importlib.import_module(f"lbopb.src.{domain}.syntax_checker")
-    except Exception:
-        _ensure_repo_in_sys_path()
-        syn_mod = importlib.import_module(f"lbopb.src.{domain}.syntax_checker")
+    # 按要求：不进行 syntax_checker 检查，仅进行 Gemini 检查
 
     kept: List[Dict[str, Any]] = []
     total = len(arr)
