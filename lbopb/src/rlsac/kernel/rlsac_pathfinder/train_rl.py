@@ -197,6 +197,62 @@ def train_from_debug_dataset(config_path: str | Path | None = None, domain_overr
     }
     (run_dir / "train_meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"{ANSI_GREEN}[train_rl] saved scorer to: {run_dir / 'scorer.pt'}{ANSI_RESET}")
+    # 不再生成内嵌 apply_model.py；请使用 CLI：
+    # python lbopb/src/rlsac/kernel/rlsac_pathfinder/apply_model_cli.py <run_dir> [infile] [outfile]
+    # 自动生成 demo 样本（含参数），便于后续使用 CLI 推理
+    try:
+        ops = meta.get("op_names", []) or []
+        doms = meta.get("domains", []) or []
+        d0 = (doms[0] if doms else "pem")
+        try:
+            spec0 = get_domain_spec(d0)
+            dom_ops = []
+            for cls in spec0.op_classes:
+                try:
+                    nm = cls().name
+                except Exception:
+                    nm = cls.__name__
+                dom_ops.append(str(nm))
+        except Exception:
+            dom_ops = ops
+        seq1 = [dom_ops[0]] if len(dom_ops) > 0 else []
+        seq2 = [dom_ops[1], dom_ops[2]] if len(dom_ops) > 2 else seq1
+        steps1 = []
+        steps2 = []
+        try:
+            from lbopb.src.rlsac.kernel.rlsac_pathfinder.op_space_utils import load_op_space, param_grid_of, params_from_grid  # type: ignore
+            space_ref = mod_dir / "operator_spaces" / f"{d0}_op_space.v1.json"
+            if space_ref.exists():
+                space = load_op_space(str(space_ref))
+                def _synth(seq):
+                    steps = []
+                    for nm in seq:
+                        try:
+                            _, grids = param_grid_of(space, nm)
+                            gi = [max(0, (len(g) - 1) // 2) for g in grids]
+                            prs = params_from_grid(space, nm, gi)
+                            steps.append({"name": nm, "grid_index": gi, "params": prs})
+                        except Exception:
+                            steps.append({"name": nm})
+                    return steps
+                steps1 = _synth(seq1)
+                steps2 = _synth(seq2)
+        except Exception:
+            pass
+        if not steps1:
+            steps1 = [{"name": nm} for nm in seq1]
+        if not steps2:
+            steps2 = [{"name": nm} for nm in seq2]
+        samples = [
+            {"id": "demo_1", "domain": d0, "sequence": seq1, "ops_detailed": steps1},
+            {"id": "demo_2", "domain": d0, "sequence": seq2, "ops_detailed": steps2},
+        ]
+        (run_dir / "samples.input.json").write_text(json.dumps(samples, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"{ANSI_YELLOW}[train_rl] sample written: {run_dir / 'samples.input.json'}")
+        print("使用 CLI 推理: python lbopb/src/rlsac/kernel/rlsac_pathfinder/apply_model_cli.py <run_dir> [infile] [outfile]")
+    except Exception:
+        pass
+    return run_dir
 
     # 生成应用脚本与样本输入
     try:

@@ -33,28 +33,81 @@ def _truth_from_item(it: Dict[str, Any]) -> str | None:
 
 def main() -> None:
     # usage:
-    #   python apply_model_cli.py <run_dir> [infile] [outfile]
-    #   python apply_model_cli.py <infile.json> [outfile]
+    #   python apply_model_cli.py <run_dir> [infile] [outfile] [--model <model.pt>]
+    #   python apply_model_cli.py <infile.json> [outfile] [--model <model.pt>]
     import sys
     args = sys.argv[1:]
     if not args:
-        print("usage: python apply_model_cli.py <run_dir>|<infile.json> [infile|outfile] [outfile]")
+        print(
+            "usage: python apply_model_cli.py <run_dir>|<infile.json> [infile|outfile] [outfile] [--model <model.pt>] [--out <outfile>]")
         return
-    first = Path(args[0]).resolve()
-    # 兼容：若第一个参数是文件，则将其父目录视为 run_dir
+
+    # parse flags
+    model_override: str | None = None
+    out_override: str | None = None
+    pos: list[str] = []
+    i = 0
+    while i < len(args):
+        a = args[i]
+        if a.startswith("--model"):
+            val = None
+            if a == "--model" and i + 1 < len(args):
+                val = args[i + 1];
+                i += 2
+            elif "=" in a:
+                val = a.split("=", 1)[1];
+                i += 1
+            else:
+                val = a[len("--model"):];
+                i += 1
+            if val:
+                model_override = str(Path(val))
+            continue
+        if a.startswith("--out"):
+            val = None
+            if a == "--out" and i + 1 < len(args):
+                val = args[i + 1];
+                i += 2
+            elif "=" in a:
+                val = a.split("=", 1)[1];
+                i += 1
+            else:
+                val = a[len("--out"):];
+                i += 1
+            if val:
+                out_override = str(Path(val))
+            continue
+        pos.append(a);
+        i += 1
+
+    if not pos:
+        print("[apply_cli] missing run_dir or infile.json")
+        return
+
+    first = Path(pos[0]).resolve()
+    # run_dir vs infile mode
     if first.is_file() and first.suffix.lower() == ".json":
         run_dir = first.parent
         in_path = first
-        out_path = run_dir / (args[1] if len(args) > 1 else "samples.output.json")
+        out_path = Path(out_override) if out_override else (
+                    run_dir / (pos[1] if len(pos) > 1 else "samples.output.json"))
     else:
         run_dir = first
         if not run_dir.exists():
             print(f"[apply_cli] run_dir not found: {run_dir}")
             return
-        in_path = run_dir / (args[1] if len(args) > 1 else "samples.input.json")
-        out_path = run_dir / (args[2] if len(args) > 2 else "samples.output.json")
+        in_path = run_dir / (pos[1] if len(pos) > 1 else "samples.input.json")
+        out_path = Path(out_override) if out_override else (
+                    run_dir / (pos[2] if len(pos) > 2 else "samples.output.json"))
 
-    meta_path = run_dir / "train_meta.json"
+    # choose model dir (override or run_dir)
+    if model_override:
+        model_path = Path(model_override).resolve()
+        model_dir = model_path.parent
+    else:
+        model_dir = run_dir
+        model_path = model_dir / "scorer.pt"
+    meta_path = model_dir / "train_meta.json"
     try:
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
     except Exception as e:
@@ -93,6 +146,7 @@ def main() -> None:
                     nn.Linear(h1, h2), nn.ReLU(),
                     nn.Linear(h2, 1)
                 )
+
             def forward(self, x: torch.Tensor) -> torch.Tensor:
                 return torch.sigmoid(self.net(x)).view(-1)
 
@@ -101,7 +155,7 @@ def main() -> None:
     ops: List[str] = list(meta.get("op_names", []))
 
     model = PackageScorer(feat_dim)
-    model.load_state_dict(torch.load(run_dir / "scorer.pt", map_location="cpu"))
+    model.load_state_dict(torch.load(model_path, map_location="cpu"))
     model.eval()
 
     try:
@@ -132,11 +186,8 @@ def main() -> None:
             x = _feat_of(it)
             with torch.no_grad():
                 s = float(model(x).item())
-            # tri discretization + reward
-            s3 = round(s * 2.0) / 2.0
-            label3 = ("正确" if s3 >= 0.75 else ("警告" if s3 >= 0.25 else "错误"))
-            reward = 1.0 if label3 == "正确" else (0.5 if label3 == "警告" else 0.0)
             pred = "正确" if s >= 0.5 else "错误"
+            reward = 1.0 if pred == "正确" else 0.0
             truth = _truth_from_item(it)
             corr = (pred == truth) if truth in ("正确", "错误") else None
             out.append({
@@ -145,8 +196,7 @@ def main() -> None:
                 "sequence": it.get("sequence"),
                 "ops_detailed": it.get("ops_detailed"),
                 "score": s,
-                "score_tri": s3,
-                "label3": label3,
+                "model_output": round(s, 4),
                 "pred": pred,
                 "reward": reward,
                 **({"truth": truth} if truth is not None else {}),
