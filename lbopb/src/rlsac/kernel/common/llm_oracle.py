@@ -1,82 +1,21 @@
-# SPDX-License-Identifier: GPL-3.0-only
-# Copyright (C) 2025 GaoZheng
-
-from __future__ import annotations
-
-from typing import Optional, Any, Dict, List
-from pathlib import Path
-import os
-import time as _t
-
-
-def call_llm(prompt: str, *, provider: str = "gemini", model: str | None = None, api_key: str | None = None) -> \
-        Optional[str]:
-    """占位封装：调用外部 LLM（如 Gemini），返回文本判定结果。
-
-    出于可移植与安全考虑，本函数不内置具体 HTTP 调用逻辑；
-    项目集成时可按运行环境在此处接入实际 API 调用并返回字符串结果。
-    返回 None 表示未调用或调用失败。
-    """
+# 使用 axiom_docs.json 作为权威映射，内置 DOC_MAP 为兜底\r\n
+def _load_doc_map() -> Dict[str, str]:
+    m = dict(DOC_MAP)
     try:
-        dbg = bool(os.environ.get("LBOPB_GEMINI_DEBUG") or os.environ.get("GEMINI_DEBUG"))
-        if provider.lower() == "gemini":
-            import importlib
-            if dbg:
-                print(f"[LLM] call_llm enter: provider=gemini, t={int(_t.time())}")
-            cli = importlib.import_module("my_scripts.gemini_client")
-            # 将模型名下发给环境变量，便于客户端读取
-            try:
-                if model:
-                    os.environ["LBOPB_GEMINI_MODEL"] = str(model)
-                    os.environ.setdefault("GEMINI_MODEL", str(model))
-            except Exception:
-                pass
-            for fname in ("ask", "generate", "chat", "gemini_text", "query", "run", "generate_gemini_content"):
-                fn = getattr(cli, fname, None)
-                if callable(fn):
-                    if dbg:
-                        print(f"[LLM] call_llm try func={fname}")
+        here = Path(__file__).resolve().parent
+        cfg = here / "axiom_docs.json"
+        if cfg.exists():
+            data = json.loads(cfg.read_text(encoding="utf-8"))
+            if isinstance(data, dict):
+                for k, v in data.items():
                     try:
-                        # 优先尝试带 model 的关键字调用，失败再退化
-                        try:
-                            res: Any = fn(prompt, model=model)  # type: ignore[call-arg]
-                        except TypeError:
-                            res = fn(prompt)
-                        if isinstance(res, str):
-                            if dbg:
-                                _h = res[:120] + ("..." if len(res) > 120 else "")
-                                print(f"[LLM] call_llm ok via {fname}, len={len(res)}, head={_h}")
-                            return res
-                        if hasattr(res, "text"):
-                            s = str(res.text)
-                            if dbg:
-                                _h = s[:120] + ("..." if len(s) > 120 else "")
-                                print(f"[LLM] call_llm ok via {fname}.text, len={len(s)}, head={_h}")
-                            return s
-                    except Exception as e:
-                        if dbg:
-                            print(f"[LLM] call_llm func={fname} exception: {e}")
+                        m[str(k).strip().lower()] = str(v)
+                    except Exception:
                         continue
-    except Exception as e:
-        if bool(os.environ.get("LBOPB_GEMINI_DEBUG") or os.environ.get("GEMINI_DEBUG")):
-            print(f"[LLM] call_llm outer exception: {e}")
+    except Exception:
         pass
-    return None
+    return m
 
-
-# ---- Axiom prompt templates ----
-
-DOC_MAP: Dict[str, str] = {
-    "pem": "my_docs/project_docs/1761062400_病理演化幺半群 (PEM) 公理系统.md",
-    "prm": "my_docs/project_docs/1761062401_生理调控幺半群 (PRM) 公理系统.md",
-    "tem": "my_docs/project_docs/1761062403_毒理学效应幺半群 (TEM) 公理系统.md",
-    "pktm": "my_docs/project_docs/1761062404_药代转运幺半群 (PKTM) 公理系统.md",
-    "pgom": "my_docs/project_docs/1761062405_药理基因组幺半群 (PGOM) 公理系统.md",
-    "pdem": "my_docs/project_docs/1761062406_药效效应幺半群 (PDEM) 公理系统.md",
-    "iem": "my_docs/project_docs/1761062407_免疫效应幺半群 (IEM) 公理系统.md",
-}
-
-# 在联络一致性中使用的“对偶域”检查对
 PAIRWISE: List[tuple[str, str]] = [
     ("pdem", "pktm"),
     ("pgom", "pem"),
@@ -90,7 +29,7 @@ def build_pathfinder_prompt(domain: str, sequence: List[str],
                             ops_detailed: Optional[List[Dict[str, Any]]] = None,
                             extra: Optional[Dict[str, Any]] = None) -> str:
     d = (domain or "").lower()
-    doc_rel = DOC_MAP.get(d, "<axiom-doc-not-found>")
+    doc_rel = _load_doc_map().get(d, "<axiom-doc-not-found>")
     # 读取并注入公理文档内容（以仓库根为基准解析路径）。不在提示词中暴露具体路径或说明性标注。
     doc_text = "<axiom-doc-content-not-found>"
     try:
@@ -179,3 +118,4 @@ def build_connector_prompt(conn: Dict[str, List[str]]) -> str:
         "只返回单个字符 '1' 或 '0'。不得输出其他文本。\n"
     )
     return header + body + "\n" + tail
+
