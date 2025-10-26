@@ -11,14 +11,19 @@ import hashlib
 
 
 def _repo_root() -> Path:
-    """Locate repository root by walking up to find .git."""
+    """Return the project root (directory that contains .git),
+    falling back to a reasonable ancestor if not found.
+    This ensures out/out_pathfinder resolves to the repo-root/out/out_pathfinder.
+    """
     p = Path(__file__).resolve()
+    # Walk up to locate a .git directory which marks repo root
     for anc in [p.parent] + list(p.parents):
         try:
             if (anc / ".git").exists():
                 return anc
         except Exception:
             continue
+    # Fallback: go up a fixed number of levels to approximate repo root
     try:
         return p.parents[6]
     except Exception:
@@ -33,11 +38,8 @@ def _load_json(p: Path) -> Dict[str, Any]:
 
 
 def _space_steps(domain: str, seq: List[str]) -> Tuple[List[Dict[str, Any]] | None, Dict[str, Any] | None]:
-    """Fill ops_detailed using v1 operator space with median grid, repo-relative ref."""
     try:
-        from lbopb.src.rlsac.kernel.rlsac_pathfinder.op_space_utils import (  # type: ignore
-            load_op_space, param_grid_of, params_from_grid,
-        )
+        from lbopb.src.rlsac.kernel.rlsac_pathfinder.op_space_utils import load_op_space, param_grid_of, params_from_grid  # type: ignore
         base = Path(__file__).resolve().parents[1]
         space_ref = base / "operator_spaces" / f"{domain}_op_space.v1.json"
         if not space_ref.exists():
@@ -67,6 +69,7 @@ def _space_steps(domain: str, seq: List[str]) -> Tuple[List[Dict[str, Any]] | No
 
 def main() -> None:
     repo = _repo_root()
+    # Always resolve out/out_pathfinder under the repository root
     out_root = (repo / "out" / "out_pathfinder").resolve()
     print(f"[collect] repo_root={repo}")
     print(f"[collect] scan dir={out_root}")
@@ -74,16 +77,15 @@ def main() -> None:
         print(f"[collect] out root not found: {out_root}")
         return
 
-    # load cost_lambda
+    # 读取 config 以获取 cost_lambda（若需要）
     cfg_path = Path(__file__).resolve().parents[1] / "config.json"
     cfg = _load_json(cfg_path)
     cost_lambda = float(cfg.get("cost_lambda", 0.2))
 
-    # merge key: (domain, sid) where sid uses sha1(domain+sequence+ops_detailed)
+    # 聚合：按 (domain + 序列 + 参数化取值) 去重，保留 score 更高
     by_key: Dict[Tuple[str, str], Dict[str, Any]] = {}
     now = int(_t.time())
-
-    # 1) collect from dataset_*_<domain>/debug_dataset.json
+    # 1) 汇总 train_*/debug_dataset.json
     for p in out_root.glob("dataset_*_*/debug_dataset.json"):
         data = _load_json(p)
         domain = str(data.get("domain", "")).lower() or "pem"
@@ -97,10 +99,9 @@ def main() -> None:
                 length = int(feats.get("length", len(seq)))
                 score = dr - cost_lambda * c
                 label = int(s.get("label", 0))
-
-                # prefer provided ops_detailed; else synthesize from v1
-                steps: List[Dict[str, Any]] | None = None
-                meta: Dict[str, Any] | None = None
+                # 优先从样本中提取参数化步骤（如存在），否则按 v1 空间补全中位参数
+                steps = None
+                meta = None
                 try:
                     cand = s.get("ops_detailed") or (s.get("judge", {}) or {}).get("ops_detailed")
                     if isinstance(cand, list) and len(cand) > 0:
@@ -111,55 +112,15 @@ def main() -> None:
                     meta = None
                 if not steps:
                     steps, meta = _space_steps(domain, seq)
-
-                payload = {"domain": domain, "sequence": list(seq), "ops_detailed": steps or []}
+                # 生成稳定 ID：基于序列+参数化取值的哈希
+                payload = {"domain": domain, "sequence": list(seq),
+                    "ops_detailed": steps or [],
+                }
                 sblob = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
-                # 使用十六进制哈希（SHA-256），不再转为十进制
-                h = hashlib.sha256(sblob).hexdigest()
-                sid = f"pkg_{domain}_{h}"
+                h = hashlib.sha1(sblob).hexdigest()
+                num = int(h, 16) % (10**10)
+                sid = f"pkg_{domain}_{num}"
                 key = (domain, sid)
-
-                # 可用 judge 结构构造 validation（若存在）
-                validation = None
-                try:
-                    j = s.get("judge", {}) or {}
-                    syn = j.get("syntax", {}) or {}
-                    syn_errs = list(syn.get("errors", []) or [])
-                    syn_warns = list(syn.get("warnings", []) or [])
-                    if syn_errs:
-                        _syn_res_cn = "错误"
-                    elif syn_warns:
-                        _syn_res_cn = "警告"
-                    else:
-                        _syn_res_cn = "正确"
-                    _llm_attempted = bool(j.get("llm_attempted", False))
-                    _gem_res_cn = None
-                    try:
-                        _used = bool(j.get("llm_used", False)) and str(j.get("llm_status", "")) == "used"
-                        _raw = j.get("llm_raw", None)
-                        if _llm_attempted and _used and isinstance(_raw, str):
-                            _s = _raw.strip()
-                            if (_s == "1") or ("1" in _s and "0" not in _s):
-                                _gem_res_cn = "正确"
-                            elif (_s == "0") or ("0" in _s and "1" not in _s):
-                                _gem_res_cn = "错误"
-                    except Exception:
-                        _gem_res_cn = None
-                    validation = {
-                        "mode": "dual" if _llm_attempted else "syntax_only",
-                        "syntax": {
-                            "result": _syn_res_cn,
-                            "errors": len(syn_errs),
-                            "warnings": len(syn_warns),
-                        },
-                        "gemini": ({
-                            "used": True,
-                            **({"result": _gem_res_cn} if _gem_res_cn is not None else {}),
-                        } if _llm_attempted else {"used": False}),
-                    }
-                except Exception:
-                    validation = None
-
                 item = {
                     "id": sid,
                     "domain": domain,
@@ -172,10 +133,9 @@ def main() -> None:
                     "updated_at": now,
                     "source": "debug_dataset",
                     "label": int(label),
-                    "ops_detailed": steps or [{"name": nm} for nm in seq],
                 }
-                if validation:
-                    item["validation"] = validation
+                # 始终写入 ops_detailed（若无参数网格则用仅 name 的占位）
+                item["ops_detailed"] = steps or [{"name": nm} for nm in seq]
                 if meta:
                     item.update(meta)
                 prev = by_key.get(key)
@@ -184,7 +144,7 @@ def main() -> None:
             except Exception:
                 continue
 
-    # 2) merge labeled operator packages within dataset_*_<domain> subtrees
+    '# 2) 仅遍历各 dataset_*_<domain> 目录下的 *_operator_packages_labeled.json（不扫描其它路径）
     for ds in out_root.glob("dataset_*_*"):
         for p in ds.rglob("*_operator_packages_labeled.json"):
             try:
@@ -198,8 +158,62 @@ def main() -> None:
                     steps = it.get("ops_detailed") if isinstance(it.get("ops_detailed"), list) else []
                     payload = {"domain": domain, "sequence": list(seq), "ops_detailed": steps or []}
                     sblob = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
-                    h = hashlib.sha256(sblob).hexdigest()
-                    sid = f"pkg_{domain}_{h}"
+                    h = hashlib.sha1(sblob).hexdigest()
+                    num = int(h, 16) % (10**10)
+                    sid = f"pkg_{domain}_{num}"
+                    key = (domain, sid)
+                    dr = float(it.get("delta_risk", 0.0))
+                    c = float(it.get("cost", 0.0))
+                    length = int(it.get("length", len(seq)))
+                    score = float(it.get("score", dr - cost_lambda * c))
+                    now2 = int(it.get("updated_at", now))
+                    label = int(it.get("label", 0))
+                    meta = {k: it.get(k) for k in ("op_space_id", "op_space_ref") if k in it}
+                    validation = it.get("validation", None)
+                    if not isinstance(validation, dict):
+                        validation = None
+                    item = {
+                        "id": sid,
+                        "domain": domain,
+                        "sequence": seq,
+                        "length": length,
+                        "delta_risk": dr,
+                        "cost": c,
+                        "score": score,
+                        "created_at": int(it.get("created_at", now2)),
+                        "updated_at": now2,
+                        "source": "labeled_operator_packages",
+                        "label": label,
+                        "ops_detailed": steps or [{"name": nm} for nm in seq],
+                    }
+                    if validation:
+                        item["validation"] = validation
+                    if meta:
+                        item.update(meta)
+                    prev = by_key.get(key)
+                    if (prev is None) or (float(score) > float(prev.get("score", -1e9))):
+                        by_key[key] = item
+                except Exception:
+                    continue'
+
+    # 排序并写入 train_datas/debug_dataset.json
+    # 2) 合并 dataset_*_<domain> 目录内的 *_operator_packages_labeled.json（追加本轮采集）
+    for ds in out_root.glob("dataset_*_*"):
+        for p in ds.rglob("*_operator_packages_labeled.json"):
+            try:
+                arr = json.loads(p.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            for it in (arr or []):
+                try:
+                    domain = str(it.get("domain", "")).lower() or ds.name.split("_")[-1].lower()
+                    seq = list(it.get("sequence", []) or [])
+                    steps = it.get("ops_detailed") if isinstance(it.get("ops_detailed"), list) else []
+                    payload = {"domain": domain, "sequence": list(seq), "ops_detailed": steps or []}
+                    sblob = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+                    h = hashlib.sha1(sblob).hexdigest()
+                    num = int(h, 16) % (10**10)
+                    sid = f"pkg_{domain}_{num}"
                     key = (domain, sid)
                     dr = float(it.get("delta_risk", 0.0))
                     c = float(it.get("cost", 0.0))
@@ -235,7 +249,6 @@ def main() -> None:
                 except Exception:
                     continue
 
-    # write merged dataset
     items = list(by_key.values())
     items.sort(key=lambda d: (
         -float(d.get("score", 0.0)),
@@ -248,7 +261,7 @@ def main() -> None:
     out_path.write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[collect] written: {out_path} items={len(items)}")
 
-    # write stats (json + md)
+    # 同步生成配套统计：debug_dataset.stats.json（针对上述 debug_dataset.json）
     try:
         total = len(items)
         by_domain: Dict[str, int] = {}
@@ -262,6 +275,7 @@ def main() -> None:
         for d in items:
             dom = str(d.get("domain", "")).lower() or "unknown"
             by_domain[dom] = int(by_domain.get(dom, 0)) + 1
+            # label 统计
             lv = d.get("label", None)
             if lv is None:
                 by_label["unknown"] += 1
@@ -270,6 +284,7 @@ def main() -> None:
                     by_label[str(int(lv))] = int(by_label.get(str(int(lv)), 0)) + 1
                 except Exception:
                     by_label["unknown"] += 1
+            # 累计标量
             try:
                 lengths.append(int(d.get("length", 0)))
             except Exception:
@@ -287,6 +302,7 @@ def main() -> None:
             except Exception:
                 pass
 
+            # 域内统计
             st = per_domain.setdefault(dom, {
                 "count": 0,
                 "labels": {"1": 0, "0": 0, "unknown": 0},
@@ -295,60 +311,64 @@ def main() -> None:
                 "cost_sum": 0.0,
                 "len_sum": 0,
             })
-            st["count"] = int(st.get("count", 0)) + 1
+            st["count"] += 1
             try:
-                st["score_sum"] = float(st.get("score_sum", 0.0)) + float(d.get("score", 0.0))
+                st["labels"][str(int(lv))] += 1  # type: ignore[index]
+            except Exception:
+                st["labels"]["unknown"] += 1
+            try:
+                st["score_sum"] += float(d.get("score", 0.0))
             except Exception:
                 pass
             try:
-                st["risk_sum"] = float(st.get("risk_sum", 0.0)) + float(d.get("delta_risk", 0.0))
+                st["risk_sum"] += float(d.get("delta_risk", 0.0))
             except Exception:
                 pass
             try:
-                st["cost_sum"] = float(st.get("cost_sum", 0.0)) + float(d.get("cost", 0.0))
+                st["cost_sum"] += float(d.get("cost", 0.0))
             except Exception:
                 pass
             try:
-                st["len_sum"] = int(st.get("len_sum", 0)) + int(d.get("length", 0))
+                st["len_sum"] += int(d.get("length", 0))
             except Exception:
                 pass
 
-        def _stat(vals: List[float]) -> Dict[str, float]:
-            if not vals:
+        def _summary(nums: List[float | int]) -> Dict[str, float]:
+            if not nums:
                 return {"min": 0.0, "max": 0.0, "avg": 0.0}
-            return {
-                "min": float(min(vals)),
-                "max": float(max(vals)),
-                "avg": float(sum(vals) / max(1, len(vals)))
-            }
+            vals = [float(x) for x in nums]
+            return {"min": min(vals), "max": max(vals), "avg": (sum(vals) / len(vals))}
 
-        stats = {
-            "updated_at": int(_t.time()),
+        # 整体统计
+        stats: Dict[str, Any] = {
             "total": total,
             "domains": by_domain,
             "labels": by_label,
-            "length": _stat([float(x) for x in lengths]),
-            "score": _stat([float(x) for x in scores]),
-            "delta_risk": _stat([float(x) for x in risks]),
-            "cost": _stat([float(x) for x in costs]),
-            "per_domain": {},
+            "length": _summary(lengths),
+            "score": _summary(scores),
+            "delta_risk": _summary(risks),
+            "cost": _summary(costs),
+            "updated_at": int(_t.time()),
         }
-        for k, st in per_domain.items():
-            cnt = int(st.get("count", 0))
-            stats["per_domain"][k] = {
-                "count": cnt,
+        # 分域平均
+        stats_domain: Dict[str, Any] = {}
+        for dom, st in per_domain.items():
+            c = max(int(st.get("count", 0)), 1)
+            stats_domain[dom] = {
+                "count": int(st.get("count", 0)),
                 "labels": st.get("labels", {}),
-                "avg_score": float(st.get("score_sum", 0.0)) / max(1, cnt),
-                "avg_delta_risk": float(st.get("risk_sum", 0.0)) / max(1, cnt),
-                "avg_cost": float(st.get("cost_sum", 0.0)) / max(1, cnt),
-                "avg_length": float(st.get("len_sum", 0)) / max(1, cnt),
+                "avg_score": float(st.get("score_sum", 0.0)) / c,
+                "avg_delta_risk": float(st.get("risk_sum", 0.0)) / c,
+                "avg_cost": float(st.get("cost_sum", 0.0)) / c,
+                "avg_length": float(st.get("len_sum", 0)) / c,
             }
+        stats["per_domain"] = stats_domain
 
-        out_stats = out_dir / "debug_dataset.stats.json"
-        out_stats.write_text(json.dumps(stats, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"[collect] written: {out_stats}")
+        stats_path = out_dir / "debug_dataset.stats.json"
+        stats_path.write_text(json.dumps(stats, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"[collect] written: {stats_path}")
 
-        # also write human-readable markdown
+        # 生成 Markdown 配套说明（动态）并在每次运行时覆盖：debug_dataset.stats.md
         def _fmt_num(x: float | int) -> str:
             try:
                 return f"{float(x):.3f}"
@@ -357,12 +377,12 @@ def main() -> None:
 
         ts_local = _t.strftime('%Y-%m-%d %H:%M:%S', _t.localtime(stats.get('updated_at', int(_t.time()))))
         md_lines: List[str] = []
-        md_lines.append("# debug_dataset.stats.json 说明（自动生成）")
+        md_lines.append("# debug_dataset.stats.json 配套说明（自动生成）")
         md_lines.append("")
         md_lines.append(f"- 生成时间：{ts_local}")
         md_lines.append(f"- 样本总数：{int(stats.get('total', 0))}")
         md_lines.append("")
-        md_lines.append("## 分布（domains）")
+        md_lines.append("## 域分布（domains）")
         doms = stats.get('domains', {}) or {}
         if isinstance(doms, dict) and doms:
             for k, v in doms.items():
@@ -372,37 +392,41 @@ def main() -> None:
         md_lines.append("")
         md_lines.append("## 标签统计（labels）")
         labs = stats.get('labels', {}) or {}
-        md_lines.append(f"- 正确(1)：{int(labs.get('1', 0))}")
-        md_lines.append(f"- 错误(0)：{int(labs.get('0', 0))}")
+        md_lines.append(f"- 正样本(1)：{int(labs.get('1', 0))}")
+        md_lines.append(f"- 负样本(0)：{int(labs.get('0', 0))}")
         md_lines.append(f"- 未知(unknown)：{int(labs.get('unknown', 0))}")
         md_lines.append("")
-        md_lines.append("## 数值概览（min / max / avg）")
+        md_lines.append("## 数值汇总（min / max / avg）")
         for key in ("length", "score", "delta_risk", "cost"):
             sec = stats.get(key, {}) or {}
             md_lines.append(f"- {key}: min={_fmt_num(sec.get('min', 0))} max={_fmt_num(sec.get('max', 0))} avg={_fmt_num(sec.get('avg', 0))}")
         md_lines.append("")
-        md_lines.append("## 指标解读与示例")
-        md_lines.append("- length：算子包序列长度。一般越短越优，但需综合评分考量。")
-        md_lines.append(f"- score：综合评分，当前筛选规则为 score = delta_risk − cost_lambda × cost（cost_lambda={_fmt_num(cost_lambda)}）。")
-        md_lines.append("- delta_risk：收益指标，越大越好。可理解为病灶负担下降/疗效提升等抽象。")
-        md_lines.append("- cost：成本（越小越好），综合抽象了时间、药物毒性/不良反应、价格、操作难度或临床风险等。")
+        # 指标解读与举例
+        md_lines.append("## 指标解读（含举例）")
+        md_lines.append("- length：算子包序列的长度（操作步数）。一般越短越精简，但需结合得分与收益综合评估。")
+        md_lines.append(
+            f"- score：综合得分，用于训练与筛选。定义为 score = delta_risk − cost_lambda × cost（当前 cost_lambda={_fmt_num(cost_lambda)}）。"
+        )
+        md_lines.append("- delta_risk：收益项（越大越好），可理解为风险下降/效用提升的度量；为负表示变差。")
+        md_lines.append("- cost：代价/资源消耗项（越小越好），是多因素的抽象，例如时间、药物毒性/不良反应、价格、操作难度或临床风险等。")
+        # 一行校核（用均值做近似校核）
         try:
             dr_avg = float((stats.get('delta_risk', {}) or {}).get('avg', 0.0))
             c_avg = float((stats.get('cost', {}) or {}).get('avg', 0.0))
             sc_avg_est = dr_avg - float(cost_lambda) * c_avg
             sc_avg = float((stats.get('score', {}) or {}).get('avg', 0.0))
             md_lines.append(
-                f"- 校验：约有 avg_score ≈ avg_delta_risk − cost_lambda × avg_cost = {_fmt_num(dr_avg)} − {_fmt_num(cost_lambda)} × {_fmt_num(c_avg)} = {_fmt_num(sc_avg_est)}；当前统计 avg_score={_fmt_num(sc_avg)}。"
+                f"- 校核：约有 avg_score ≈ avg_delta_risk − cost_lambda × avg_cost ≈ {_fmt_num(dr_avg)} − {_fmt_num(cost_lambda)} × {_fmt_num(c_avg)} ≈ {_fmt_num(sc_avg_est)}（当前统计 avg_score={_fmt_num(sc_avg)}）"
             )
         except Exception:
             pass
         md_lines.append("")
-        md_lines.append("## 分域统计（per_domain）")
+        md_lines.append("## 按域统计（per_domain）")
         per = stats.get('per_domain', {}) or {}
         if isinstance(per, dict) and per:
             for k, st in per.items():
                 try:
-                    md_lines.append(f"### 域 {k}")
+                    md_lines.append(f"### 域：{k}")
                     md_lines.append(f"- 样本数：{int(st.get('count', 0))}")
                     ls = st.get('labels', {}) or {}
                     md_lines.append(f"- 标签：1={int(ls.get('1', 0))} 0={int(ls.get('0', 0))} unknown={int(ls.get('unknown', 0))}")
@@ -422,7 +446,7 @@ def main() -> None:
             md_lines.append("- <空>")
 
         md_lines.append("")
-        md_lines.append("> 本文件由 collect_debug_dataset.py 每次运行自动覆盖生成，配合 debug_dataset.json 的可读呈现。")
+        md_lines.append("> 本文件由 collect_debug_dataset.py 每次运行自动覆盖生成，用于配合 debug_dataset.stats.json 的可读化展示。")
         md_path = out_dir / "debug_dataset.stats.md"
         md_path.write_text("\n".join(md_lines), encoding="utf-8")
         print(f"[collect] written: {md_path}")
@@ -432,3 +456,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+

@@ -275,7 +275,9 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
     base_out = out_root / Path(cfg.get("output_dir", "out_pathfinder"))
     base_out.mkdir(parents=True, exist_ok=True)
     _stamp = str(int(_pytime.time()))
-    run_name = "train_" + _stamp + (f"_{this_domain}" if this_domain else "")
+    explore_only = bool(cfg.get("explore_only", True))
+    run_prefix = "dataset_" if explore_only else "train_"
+    run_name = run_prefix + _stamp + (f"_{this_domain}" if this_domain else "")
     run_dir = base_out / run_name
     run_dir.mkdir(parents=True, exist_ok=True)
     log_path = run_dir / "train.log"
@@ -629,17 +631,20 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
         X_t = torch.zeros((0, feat_dim), dtype=torch.float32)
         y_t = torch.zeros((0,), dtype=torch.float32)
 
-    model = PackageScorer(feat_dim).to(device)
-    if X_t.shape[0] > 0:
-        train_scorer(model, X_t.to(device), y_t.to(device), epochs=epochs, batch_size=batch_size,
-                     lr=float(cfg.get("learning_rate_actor", 3e-4)))
+    # 在 explore_only 模式下，不进行任何模型训练（仅生成探索样本）
+    model = None
+    if not explore_only:
+        model = PackageScorer(feat_dim).to(device)
+        if X_t.shape[0] > 0:
+            train_scorer(model, X_t.to(device), y_t.to(device), epochs=epochs, batch_size=batch_size,
+                         lr=float(cfg.get("learning_rate_actor", 3e-4)))
 
     # 校验并可选迭代直至完美匹配
     fit_until_perfect = bool(cfg.get("fit_until_perfect", True))
     max_refit_rounds = int(cfg.get("max_refit_rounds", 10))
     refit_epochs = int(cfg.get("refit_epochs", epochs))
     rounds = 0
-    if X_t.shape[0] > 0:
+    if not explore_only and X_t.shape[0] > 0 and model is not None:
         with torch.no_grad():
             preds = (model(X_t.to(device)).cpu().view(-1) >= 0.5).to(torch.float32)
             acc = float((preds == y_t).to(torch.float32).mean().item())
@@ -656,15 +661,27 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
     # 训练完生成大量候选，打分选 Top-K，写入辞海
     cand_n = int(cfg.get("candidate_generate", 1000))
     scored: list[tuple[float, List[str], float, float]] = []
-    with torch.no_grad():
+    if explore_only:
+        # 探索模式下不依赖模型，以启发式分数排序（delta_risk - lambda*cost）
         for _ in range(cand_n):
             seq = sample_random_package(spec, min_len=min_len, max_len=max_len, no_consecutive_duplicate=no_dup)
-            cnts = [float(seq.count(nm)) for nm in op_names]
             _, dr, c = apply_sequence(this_domain, init_state, seq)
-            length = float(len(seq))
-            vec = torch.tensor([*(cnts), length, float(dr), float(c)], dtype=torch.float32).unsqueeze(0).to(device)
-            score = float(model(vec).item())
+            score = float(dr) - cost_lambda * float(c)
             scored.append((score, seq, float(dr), float(c)))
+    else:
+        with torch.no_grad():
+            for _ in range(cand_n):
+                seq = sample_random_package(spec, min_len=min_len, max_len=max_len, no_consecutive_duplicate=no_dup)
+                cnts = [float(seq.count(nm)) for nm in op_names]
+                _, dr, c = apply_sequence(this_domain, init_state, seq)
+                length = float(len(seq))
+                if model is None:
+                    # 理论上 explore_only=False 时才会走到这里；兜底防御
+                    score = float(dr) - cost_lambda * float(c)
+                else:
+                    vec = torch.tensor([*(cnts), length, float(dr), float(c)], dtype=torch.float32).unsqueeze(0).to(device)
+                    score = float(model(vec).item())
+                scored.append((score, seq, float(dr), float(c)))
     scored.sort(key=lambda t: t[0], reverse=True)
     if debug_dump:
         try:
@@ -829,7 +846,8 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                             **({"result": _gem_res_cn} if _gem_res_cn is not None else {}),
                         } if _llm_attempted else {"used": False}),
                     }
-                    payload = {"sequence": seqv, "ops_detailed": steps or []}
+                    # 使用与聚合器一致的去重键：domain + sequence + ops_detailed
+                    payload = {"domain": this_domain, "sequence": seqv, "ops_detailed": steps or []}
                     blob = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
                     hid = int(_hashlib.sha1(blob).hexdigest(), 16) % (10**10)
                     sid = f"pkg_{this_domain}_{hid}"
@@ -888,24 +906,26 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
             break
 
     # 保存模型权重（可选）
-    torch.save(model.state_dict(), run_dir / "scorer.pt")
+    if not explore_only:
+        torch.save(model.state_dict(), run_dir / "scorer.pt")
 
     # 训练结束后，自动提取算子包并写入训练目录
-    try:
-        pkg = extract_operator_package(run_dir, cfg_path, domain_override=this_domain)
-        run_dict_path = run_dir / f"{this_domain}_operator_packages.json"
-        arr: List[Dict[str, Any]] = []
-        if run_dict_path.exists():
-            try:
-                arr = json.loads(run_dict_path.read_text(encoding="utf-8"))
-            except Exception:
-                arr = []
-        arr.append(pkg)
-        text = json.dumps(arr, ensure_ascii=False, indent=2)
-        text = text.replace("\r\n", "\n")
-        run_dict_path.write_text(text, encoding="utf-8")
-    except Exception:
-        pass
+    if not explore_only:
+        try:
+            pkg = extract_operator_package(run_dir, cfg_path, domain_override=this_domain)
+            run_dict_path = run_dir / f"{this_domain}_operator_packages.json"
+            arr: List[Dict[str, Any]] = []
+            if run_dict_path.exists():
+                try:
+                    arr = json.loads(run_dict_path.read_text(encoding="utf-8"))
+                except Exception:
+                    arr = []
+            arr.append(pkg)
+            text = json.dumps(arr, ensure_ascii=False, indent=2)
+            text = text.replace("\r\n", "\n")
+            run_dict_path.write_text(text, encoding="utf-8")
+        except Exception:
+            pass
 
     print(f"Training finished. Artifacts at: {run_dir}")
     return run_dir
