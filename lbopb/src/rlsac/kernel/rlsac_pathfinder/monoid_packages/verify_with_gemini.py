@@ -307,12 +307,25 @@ def main() -> None:
             except Exception:
                 continue
 
+    # 每次运行先清空 PEM 专用输出文件，确保只存本次
+    pem_out = base / "verify_pem.json"
+    try:
+        pem_out.write_text("{}", encoding="utf-8")
+    except Exception:
+        pass
+
     summary: Dict[str, Any] = {"reports": []}
     for f in files:
         if not f.exists():
             continue
         rep = verify_file(f, cfg, out_dir=out_dir, debug=debug, prune=prune, limit=limit)
         summary["reports"].append(rep)
+        # 若为 PEM 域，单独写入 verify_pem.json（仅保存本次）
+        try:
+            if str(rep.get("domain","")) == "pem":
+                pem_out.write_text(json.dumps(rep, ensure_ascii=False, indent=2), encoding="utf-8")
+        except Exception:
+            pass
     (out_dir / "verify_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps({
         "ok_both_total": sum(r["ok_both"] for r in summary["reports"]),
