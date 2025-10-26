@@ -15,7 +15,6 @@ def _load_cfg(p: Path) -> Dict[str, Any]:
 
 
 def _oneline(s: str, max_len: int = 240) -> str:
-    """压缩为单行并截断，便于 Debug 打印。"""
     try:
         t = s.replace("\r\n", "\n").replace("\r", "\n").replace("\t", " ").replace("\n", "\\n")
         return t[:max_len] + ("..." if len(t) > max_len else "")
@@ -24,7 +23,6 @@ def _oneline(s: str, max_len: int = 240) -> str:
 
 
 def _repo_root() -> Path:
-    """Locate repository root (directory containing .git). Fallback to higher ancestor."""
     p = Path(__file__).resolve()
     for anc in [p.parent] + list(p.parents):
         try:
@@ -46,12 +44,10 @@ def _read_packages(p: Path) -> List[Dict[str, Any]]:
 
 
 def _domain_from_file(p: Path) -> str:
-    name = p.name.split("_")[0].lower()
-    return name
+    return p.name.split("_")[0].lower()
 
 
 def _ensure_repo_in_sys_path() -> None:
-    """确保可以导入 lbopb 包（支持直接脚本运行）。"""
     try:
         import lbopb  # type: ignore  # noqa: F401
         return
@@ -64,8 +60,8 @@ def _ensure_repo_in_sys_path() -> None:
     except Exception:
         pass
 
+
 def _ops_detailed_for(seq: List[str], domain: str) -> Tuple[List[Dict[str, Any]] | None, Dict[str, Any] | None]:
-    """若文件中未提供 ops_detailed，则从 v1 空间构造中位离散点。"""
     try:
         from lbopb.src.rlsac.kernel.rlsac_pathfinder.op_space_utils import load_op_space, param_grid_of, params_from_grid  # type: ignore
         mod_dir = Path(__file__).resolve().parents[1]
@@ -96,7 +92,7 @@ def _ops_detailed_for(seq: List[str], domain: str) -> Tuple[List[Dict[str, Any]]
 
 
 def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path,
-                debug: bool = False, prune: bool = False, limit: int | None = None) -> Dict[str, Any]:
+                debug: bool = True, prune: bool = True, limit: int | None = None) -> Dict[str, Any]:
     # ANSI color scheme (consistent with train.py)
     ANSI_RESET = "\x1b[0m"
     ANSI_RED = "\x1b[31;1m"
@@ -122,18 +118,17 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path,
     model_map = cfg.get("gemini_model_choose", {}) or {}
     gm = cfg.get("GEMINI_MODEL", None)
     if isinstance(gm, int):
+        model = None
         for k, v in model_map.items():
             if int(v) == gm:
                 model = str(k)
                 break
-        else:
-            model = None
     else:
         model = str(gm) if isinstance(gm, str) else None
 
     req_interval = float(cfg.get("llm_request_interval_sec", 0.0))
     last = 0.0
-    # 传递 LLM 配置到环境变量，避免 HTTP 客户端阻塞无输出
+    # propagate LLM timeout and model to env (for HTTP client)
     try:
         _llm_to = cfg.get("llm_timeout_sec", None)
         if _llm_to is not None:
@@ -146,29 +141,22 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path,
 
     _ensure_repo_in_sys_path()
     from lbopb.src.rlsac.kernel.common.llm_oracle import build_pathfinder_prompt, call_llm  # type: ignore
-    # 按要求：不进行 syntax_checker 检查，仅进行 Gemini 检查
 
     kept: List[Dict[str, Any]] = []
     total = len(arr)
     n_check = total if (limit is None or limit <= 0) else min(limit, total)
-    proc = 0
-    print(f"[VERIFY] file={pack_file} domain={domain} total={total} checking={n_check} model={model or '<default>'} interval={req_interval}s", flush=True)
+    _cprint(f"[校验] 文件={pack_file} 域={domain} 总数={total} 检查={n_check} 模型={model or '<default>'} 间隔={req_interval}s", ANSI_CYAN, always=True)
+
+    consecutive_unparsed = 0
     for idx, it in enumerate(arr[:n_check], start=1):
         seq = list(it.get("sequence", []) or [])
-        print(f"[VERIFY:{idx}/{n_check}] START seq={seq}", flush=True)
-        # syntax check（优先使用参数化）
-        try:
-            if isinstance(it.get("ops_detailed"), list) and it.get("op_space_ref"):
-                syn_res = getattr(syn_mod, "check_package")(it)
-            else:
-                syn_res = getattr(syn_mod, "check_sequence")(seq)
-        except Exception:
-            syn_res = {"valid": True, "errors": [], "warnings": []}
-        syn_ok = bool(syn_res.get("valid", True)) and not bool(syn_res.get("errors"))
+        _cprint(f"[校验:{idx}/{n_check}] 开始 序列={seq}", ANSI_YELLOW, always=True)
 
-        # prepare LLM prompt
+        # 不进行 syntax_checker，固定视为 True（仅 LLM 判定）
+        syn_ok = True
+
+        # Prepare ops_detailed/meta
         ops_det = it.get("ops_detailed") if isinstance(it.get("ops_detailed"), list) else None
-        extra = None
         if not ops_det:
             ops_det, extra = _ops_detailed_for(seq, domain)
         else:
@@ -181,43 +169,57 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path,
                 _ops_prev = _oneline(_json.dumps(ops_det, ensure_ascii=False)) if ops_det else "<none>"
             except Exception:
                 _ops_prev = "<err>"
-            print(f"[VERIFY:{idx}/{n_check}] SEQ={seq}")
-            print(f"[VERIFY:{idx}/{n_check}] PARAMS={_ops_prev}")
-            try:
-                _pv = _oneline(str(prompt))
-            except Exception:
-                _pv = "<prompt>"
-            print(f"[VERIFY:{idx}/{n_check}] PROMPT_PREVIEW={_pv}")
-            if syn_res:
-                try:
-                    _errs = list(syn_res.get("errors", []) or [])
-                    _warn = list(syn_res.get("warnings", []) or [])
-                    print(f"[VERIFY:{idx}/{n_check}] SYNTAX valid={bool(syn_res.get('valid', True))} errors={len(_errs)} warnings={len(_warn)}")
-                    if _errs:
-                        print(f"[VERIFY:{idx}/{n_check}] SYNTAX_ERRORS={_oneline(str(_errs), 400)}")
-                    if _warn:
-                        print(f"[VERIFY:{idx}/{n_check}] SYNTAX_WARNINGS={_oneline(str(_warn), 400)}")
-                except Exception:
-                    pass
+            _cprint(f"[校验:{idx}/{n_check}] 参数={_ops_prev}", ANSI_YELLOW)
+            _cprint(f"[校验:{idx}/{n_check}] 提示词预览={_oneline(str(prompt))}", ANSI_CYAN)
+
         # throttle
         if req_interval > 0 and last > 0:
             w = (last + req_interval) - _t.time()
             if w > 0:
-                if debug:
-                    print(f"[VERIFY:{idx}/{n_check}] THROTTLE sleep={w:.2f}s")
+                _cprint(f"[校验:{idx}/{n_check}] 限流 等待={w:.2f}s", ANSI_CYAN)
                 _t.sleep(w)
+
+        # LLM 调用：失败/不可解析重试 3 次；连续失败 3 条则退出
+        max_attempts = 3
+        attempt = 0
+        llm_ok = False
+        llm_raw: str | None = None
         t0 = _t.time()
-        try:
-            txt = call_llm(prompt, model=model)
-        except Exception as e:
-            txt = f"[LLM Exception] {e}"
-            print(f"[VERIFY:{idx}/{n_check}] LLM_EXCEPTION: {e}", flush=True)
+        parsed = False
+        while attempt < max_attempts:
+            attempt += 1
+            try:
+                txt = call_llm(prompt, model=model)
+            except Exception as e:
+                txt = f"[Gemini Exception] {e}"
+            llm_raw = str(txt) if txt is not None else None
+            s = (llm_raw or "").strip()
+            if s:
+                if s == "1" or ("1" in s and "0" not in s):
+                    llm_ok = True
+                    parsed = True
+                elif s == "0" or ("0" in s and "1" not in s):
+                    llm_ok = False
+                    parsed = True
+            if parsed:
+                break
+            # 未解析或 HTTP 错误：读取 429 的 retry 提示或使用配置间隔
+            wait_sec = 0.0
+            try:
+                import re as _re
+                m1 = _re.search(r"Please retry in\s*([0-9.]+)s", s)
+                m2 = _re.search(r"\"retryDelay\"\s*:\s*\"([0-9.]+)s\"", s)
+                if m1:
+                    wait_sec = float(m1.group(1))
+                elif m2:
+                    wait_sec = float(m2.group(1))
+            except Exception:
+                wait_sec = 0.0
+            if wait_sec <= 0.0:
+                wait_sec = max(1.0, float(req_interval or 0.0))
+            _cprint(f"[校验:{idx}/{n_check}] 重试 次数={attempt}/{max_attempts} 等待={wait_sec:.2f}s", ANSI_CYAN)
+            _t.sleep(wait_sec)
         last = _t.time()
-        if isinstance(txt, str):
-            s = txt.strip()
-            llm_ok = (s == "1") or ("1" in s and "0" not in s)
-        else:
-            llm_ok = True  # 如果不可用，则不阻断
 
         both_ok = bool(syn_ok and llm_ok)
         item_report = {
@@ -229,23 +231,35 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path,
             "both_ok": bool(both_ok),
         }
         report_items.append(item_report)
-        _resp_prev = _oneline(str(txt) if isinstance(txt, str) else "<None>")
-        print(f"[VERIFY:{idx}/{n_check}] RESULT syntax_ok={syn_ok} llm_ok={llm_ok} both_ok={both_ok}", flush=True)
+        _resp_prev = _oneline(llm_raw or "<None>")
+        if both_ok:
+            _cprint(f"[校验:{idx}/{n_check}] 结果 通过 (LLM=1)", ANSI_GREEN, always=True)
+        else:
+            _cprint(f"[校验:{idx}/{n_check}] 结果 不通过 (LLM=0 或未解析)", ANSI_RED, always=True)
         if debug:
-            print(f"[VERIFY:{idx}/{n_check}] LLM_USED model={model or '<default>'} dt={(last-t0):.2f}s resp={_resp_prev}")
+            _cprint(f"[校验:{idx}/{n_check}] LLM调用 模型={model or '<default>'} 用时={(last-t0):.2f}s 响应预览={_resp_prev}", ANSI_MAGENTA)
+
+        # 记录“请求失败/未解析”的连续次数；若本条已解析（无论 1/0）则清零
+        if not parsed:
+            consecutive_unparsed += 1
+        else:
+            consecutive_unparsed = 0
+        if consecutive_unparsed >= 3:
+            raise SystemExit(f"[校验] 终止：连续失败条目达到 {consecutive_unparsed}")
+
         if both_ok or not prune:
             kept.append(it)
-        proc += 1
-    # 如果开启了 prune，则将通过的条目回写到原文件；未处理的尾部条目保持原样
+
+    # 写回（剪除失败项）
     if prune:
         try:
             if n_check < total:
                 kept.extend(arr[n_check:])
             pack_file.write_text(json.dumps(kept, ensure_ascii=False, indent=2), encoding="utf-8")
             if debug:
-                print(f"[VERIFY] pruned file written: {pack_file} kept={len(kept)}/{len(arr)} (checked={n_check})")
+                _cprint(f"[校验] 已写回：{pack_file} 保留={len(kept)}/{len(arr)} (已检={n_check})", ANSI_CYAN)
         except Exception as e:
-            print(f"[VERIFY] prune write failed: {e}")
+            print(f"[校验] 剪除写回失败: {e}")
 
     out = {
         "file": str(pack_file.relative_to(_repo_root())).replace("\\", "/"),
@@ -276,21 +290,20 @@ def main() -> None:
         base / "prm_operator_packages.json",
         base / "iem_operator_packages.json",
     ]
-    # 简易参数：--debug / --prune / [limit]
+    # 默认等价于 --debug --prune；可附加整数 N 只检查前 N 条
     import sys
     args = sys.argv[1:]
-    debug = ("--debug" in args) or ("-d" in args)
-    prune = ("--prune" in args) or ("-p" in args)
-    # 默认行为：等价于 --debug --prune（即使未显式传入标志）
     debug = True
     prune = True
-    # 可选的首个非短横线参数作为本次检查的数量上限
     limit: int | None = None
     for a in args:
-        if not a.startswith('-'):
+        if a in ("--debug", "-d"):
+            debug = True
+        elif a in ("--prune", "-p"):
+            prune = True
+        elif not a.startswith('-'):
             try:
                 limit = int(a)
-                break
             except Exception:
                 continue
 
