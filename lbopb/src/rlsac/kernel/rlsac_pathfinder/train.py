@@ -793,6 +793,42 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                     sc_v = dr_v - cost_lambda * c_v
                     steps = srec.get("ops_detailed", None)
                     meta = {k: srec.get(k) for k in ("op_space_id", "op_space_ref") if k in srec}
+                    # 汇总校验（syntax_checker 或 syntax+Gemini）的结果为中文描述
+                    j = srec.get("judge", {}) or {}
+                    syn = j.get("syntax", {}) or {}
+                    syn_errs = list(syn.get("errors", []) or [])
+                    syn_warns = list(syn.get("warnings", []) or [])
+                    if syn_errs:
+                        _syn_res_cn = "错误"
+                    elif syn_warns:
+                        _syn_res_cn = "警告"
+                    else:
+                        _syn_res_cn = "正确"
+                    _llm_attempted = bool(j.get("llm_attempted", False))
+                    _llm_used = bool(j.get("llm_used", False)) and str(j.get("llm_status", "")) == "used"
+                    _gem_res_cn = None
+                    try:
+                        _raw = j.get("llm_raw", None)
+                        if _llm_used and isinstance(_raw, str):
+                            _s = _raw.strip()
+                            if (_s == "1") or ("1" in _s and "0" not in _s):
+                                _gem_res_cn = "正确"
+                            elif (_s == "0") or ("0" in _s and "1" not in _s):
+                                _gem_res_cn = "错误"
+                    except Exception:
+                        _gem_res_cn = None
+                    _validation = {
+                        "mode": "dual" if _llm_attempted else "syntax_only",
+                        "syntax": {
+                            "result": _syn_res_cn,
+                            "errors": len(syn_errs),
+                            "warnings": len(syn_warns),
+                        },
+                        "gemini": ({
+                            "used": True,
+                            **({"result": _gem_res_cn} if _gem_res_cn is not None else {}),
+                        } if _llm_attempted else {"used": False}),
+                    }
                     payload = {"sequence": seqv, "ops_detailed": steps or []}
                     blob = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
                     hid = int(_hashlib.sha1(blob).hexdigest(), 16) % (10**10)
@@ -810,6 +846,8 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                         "source": "training_dataset",
                         "label": int(srec.get("label", 0)),
                     }
+                    # 写入校验摘要
+                    pkg["validation"] = _validation
                     if steps:
                         pkg["ops_detailed"] = steps
                     if meta:

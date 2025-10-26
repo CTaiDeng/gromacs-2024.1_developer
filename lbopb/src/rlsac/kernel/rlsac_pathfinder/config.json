@@ -42,7 +42,7 @@
   "llm_timeout_sec": 180,
   "use_llm_oracle": true,
   "llm_include_params": true,
-  "llm_force_dual_validation": true,
+  "llm_force_dual_validation": false,
   "llm_request_interval_sec": 5,
   "gemini_model_choose": {
     "gemini-2.5-flash": 1,

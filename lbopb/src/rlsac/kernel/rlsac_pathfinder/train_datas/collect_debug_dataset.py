@@ -204,6 +204,198 @@ def main() -> None:
     out_path.write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[collect] written: {out_path} items={len(items)}")
 
+    # 同步生成配套统计：debug_dataset.stats.json（针对上述 debug_dataset.json）
+    try:
+        total = len(items)
+        by_domain: Dict[str, int] = {}
+        by_label: Dict[str, int] = {"1": 0, "0": 0, "unknown": 0}
+        lengths: List[int] = []
+        scores: List[float] = []
+        risks: List[float] = []
+        costs: List[float] = []
+        per_domain: Dict[str, Dict[str, Any]] = {}
+
+        for d in items:
+            dom = str(d.get("domain", "")).lower() or "unknown"
+            by_domain[dom] = int(by_domain.get(dom, 0)) + 1
+            # label 统计
+            lv = d.get("label", None)
+            if lv is None:
+                by_label["unknown"] += 1
+            else:
+                try:
+                    by_label[str(int(lv))] = int(by_label.get(str(int(lv)), 0)) + 1
+                except Exception:
+                    by_label["unknown"] += 1
+            # 累计标量
+            try:
+                lengths.append(int(d.get("length", 0)))
+            except Exception:
+                pass
+            try:
+                scores.append(float(d.get("score", 0.0)))
+            except Exception:
+                pass
+            try:
+                risks.append(float(d.get("delta_risk", 0.0)))
+            except Exception:
+                pass
+            try:
+                costs.append(float(d.get("cost", 0.0)))
+            except Exception:
+                pass
+
+            # 域内统计
+            st = per_domain.setdefault(dom, {
+                "count": 0,
+                "labels": {"1": 0, "0": 0, "unknown": 0},
+                "score_sum": 0.0,
+                "risk_sum": 0.0,
+                "cost_sum": 0.0,
+                "len_sum": 0,
+            })
+            st["count"] += 1
+            try:
+                st["labels"][str(int(lv))] += 1  # type: ignore[index]
+            except Exception:
+                st["labels"]["unknown"] += 1
+            try:
+                st["score_sum"] += float(d.get("score", 0.0))
+            except Exception:
+                pass
+            try:
+                st["risk_sum"] += float(d.get("delta_risk", 0.0))
+            except Exception:
+                pass
+            try:
+                st["cost_sum"] += float(d.get("cost", 0.0))
+            except Exception:
+                pass
+            try:
+                st["len_sum"] += int(d.get("length", 0))
+            except Exception:
+                pass
+
+        def _summary(nums: List[float | int]) -> Dict[str, float]:
+            if not nums:
+                return {"min": 0.0, "max": 0.0, "avg": 0.0}
+            vals = [float(x) for x in nums]
+            return {"min": min(vals), "max": max(vals), "avg": (sum(vals) / len(vals))}
+
+        # 整体统计
+        stats: Dict[str, Any] = {
+            "total": total,
+            "domains": by_domain,
+            "labels": by_label,
+            "length": _summary(lengths),
+            "score": _summary(scores),
+            "delta_risk": _summary(risks),
+            "cost": _summary(costs),
+            "updated_at": int(_t.time()),
+        }
+        # 分域平均
+        stats_domain: Dict[str, Any] = {}
+        for dom, st in per_domain.items():
+            c = max(int(st.get("count", 0)), 1)
+            stats_domain[dom] = {
+                "count": int(st.get("count", 0)),
+                "labels": st.get("labels", {}),
+                "avg_score": float(st.get("score_sum", 0.0)) / c,
+                "avg_delta_risk": float(st.get("risk_sum", 0.0)) / c,
+                "avg_cost": float(st.get("cost_sum", 0.0)) / c,
+                "avg_length": float(st.get("len_sum", 0)) / c,
+            }
+        stats["per_domain"] = stats_domain
+
+        stats_path = out_dir / "debug_dataset.stats.json"
+        stats_path.write_text(json.dumps(stats, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"[collect] written: {stats_path}")
+
+        # 生成 Markdown 配套说明（动态）并在每次运行时覆盖：debug_dataset.stats.md
+        def _fmt_num(x: float | int) -> str:
+            try:
+                return f"{float(x):.3f}"
+            except Exception:
+                return str(x)
+
+        ts_local = _t.strftime('%Y-%m-%d %H:%M:%S', _t.localtime(stats.get('updated_at', int(_t.time()))))
+        md_lines: List[str] = []
+        md_lines.append("# debug_dataset.stats.json 配套说明（自动生成）")
+        md_lines.append("")
+        md_lines.append(f"- 生成时间：{ts_local}")
+        md_lines.append(f"- 样本总数：{int(stats.get('total', 0))}")
+        md_lines.append("")
+        md_lines.append("## 域分布（domains）")
+        doms = stats.get('domains', {}) or {}
+        if isinstance(doms, dict) and doms:
+            for k, v in doms.items():
+                md_lines.append(f"- {k}: {int(v)}")
+        else:
+            md_lines.append("- <空>")
+        md_lines.append("")
+        md_lines.append("## 标签统计（labels）")
+        labs = stats.get('labels', {}) or {}
+        md_lines.append(f"- 正样本(1)：{int(labs.get('1', 0))}")
+        md_lines.append(f"- 负样本(0)：{int(labs.get('0', 0))}")
+        md_lines.append(f"- 未知(unknown)：{int(labs.get('unknown', 0))}")
+        md_lines.append("")
+        md_lines.append("## 数值汇总（min / max / avg）")
+        for key in ("length", "score", "delta_risk", "cost"):
+            sec = stats.get(key, {}) or {}
+            md_lines.append(f"- {key}: min={_fmt_num(sec.get('min', 0))} max={_fmt_num(sec.get('max', 0))} avg={_fmt_num(sec.get('avg', 0))}")
+        md_lines.append("")
+        # 指标解读与举例
+        md_lines.append("## 指标解读（含举例）")
+        md_lines.append("- length：算子包序列的长度（操作步数）。一般越短越精简，但需结合得分与收益综合评估。")
+        md_lines.append(
+            f"- score：综合得分，用于训练与筛选。定义为 score = delta_risk − cost_lambda × cost（当前 cost_lambda={_fmt_num(cost_lambda)}）。"
+        )
+        md_lines.append("- delta_risk：收益项（越大越好），可理解为风险下降/效用提升的度量；为负表示变差。")
+        md_lines.append("- cost：代价/资源消耗项（越小越好），是多因素的抽象，例如时间、药物毒性/不良反应、价格、操作难度或临床风险等。")
+        # 一行校核（用均值做近似校核）
+        try:
+            dr_avg = float((stats.get('delta_risk', {}) or {}).get('avg', 0.0))
+            c_avg = float((stats.get('cost', {}) or {}).get('avg', 0.0))
+            sc_avg_est = dr_avg - float(cost_lambda) * c_avg
+            sc_avg = float((stats.get('score', {}) or {}).get('avg', 0.0))
+            md_lines.append(
+                f"- 校核：约有 avg_score ≈ avg_delta_risk − cost_lambda × avg_cost ≈ {_fmt_num(dr_avg)} − {_fmt_num(cost_lambda)} × {_fmt_num(c_avg)} ≈ {_fmt_num(sc_avg_est)}（当前统计 avg_score={_fmt_num(sc_avg)}）"
+            )
+        except Exception:
+            pass
+        md_lines.append("")
+        md_lines.append("## 按域统计（per_domain）")
+        per = stats.get('per_domain', {}) or {}
+        if isinstance(per, dict) and per:
+            for k, st in per.items():
+                try:
+                    md_lines.append(f"### 域：{k}")
+                    md_lines.append(f"- 样本数：{int(st.get('count', 0))}")
+                    ls = st.get('labels', {}) or {}
+                    md_lines.append(f"- 标签：1={int(ls.get('1', 0))} 0={int(ls.get('0', 0))} unknown={int(ls.get('unknown', 0))}")
+                    md_lines.append(
+                        "- 均值：score="
+                        + _fmt_num(st.get('avg_score', 0))
+                        + ", delta_risk="
+                        + _fmt_num(st.get('avg_delta_risk', 0))
+                        + ", cost="
+                        + _fmt_num(st.get('avg_cost', 0))
+                        + ", length="
+                        + _fmt_num(st.get('avg_length', 0))
+                    )
+                except Exception:
+                    continue
+        else:
+            md_lines.append("- <空>")
+
+        md_lines.append("")
+        md_lines.append("> 本文件由 collect_debug_dataset.py 每次运行自动覆盖生成，用于配合 debug_dataset.stats.json 的可读化展示。")
+        md_path = out_dir / "debug_dataset.stats.md"
+        md_path.write_text("\n".join(md_lines), encoding="utf-8")
+        print(f"[collect] written: {md_path}")
+    except Exception as e:
+        print(f"[collect] stats failed: {e}")
+
 
 if __name__ == "__main__":
     main()

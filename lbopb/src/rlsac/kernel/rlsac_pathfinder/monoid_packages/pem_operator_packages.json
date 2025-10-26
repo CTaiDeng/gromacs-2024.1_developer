@@ -59,7 +59,7 @@
     "cost": 2.09,
     "score": -0.7179999999999997,
     "created_at": 1761423060,
-    "updated_at": 1761424864,
+    "updated_at": 1761450450,
     "source": "debug_dataset",
     "ops_detailed": [
       {
@@ -338,7 +338,7 @@
     "cost": 0.7792500000000003,
     "score": -1.4933500000000004,
     "created_at": 1761423060,
-    "updated_at": 1761423060,
+    "updated_at": 1761450450,
     "source": "debug_dataset",
     "ops_detailed": [
       {

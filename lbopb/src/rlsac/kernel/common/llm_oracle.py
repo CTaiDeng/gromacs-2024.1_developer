@@ -100,9 +100,11 @@ def build_pathfinder_prompt(domain: str, sequence: List[str],
         if doc_path.exists():
             doc_text = doc_path.read_text(encoding="utf-8")
         else:
-            doc_text = "<axiom-doc-content-not-found>"
+            # 未找到公理文档，抛出致命错误以便上层退出
+            raise FileNotFoundError(f"Axiom document not found for domain '{d}': {doc_path}")
     except Exception:
-        pass
+        # 显式升级为错误：确保调用方感知并中止
+        raise
 
     # 可选参数化动作描述（如提供）。为减少长度，仅包含 name + params (+ grid_index 可选)。
     param_block = ""
