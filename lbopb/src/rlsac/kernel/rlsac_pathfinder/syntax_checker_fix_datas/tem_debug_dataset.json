@@ -1,0 +1,374 @@
+[
+  {
+    "id": "pkg_tem_3196fa291bcd91431ed0988e6c050fc0e573b47dceb089c5ab0b6cd0aeac5ca6",
+    "domain": "tem",
+    "sequence": [
+      "Detox",
+      "Distribution"
+    ],
+    "length": 2,
+    "delta_risk": 1.1032999999999995,
+    "cost": 0.5866999999999999,
+    "score": 0.9859599999999995,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Detox",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.25,
+          "gamma_p": 0.2,
+          "gamma_n": 0.1,
+          "delta_f": 0.08
+        }
+      },
+      {
+        "name": "Distribution",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.05,
+          "alpha_f": 0.04
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_5f93fadf655d3ae02b75997feecce9d9762cf79442a151454f17f966c40280f2",
+    "domain": "tem",
+    "sequence": [
+      "Repair",
+      "Absorption"
+    ],
+    "length": 2,
+    "delta_risk": -0.03000000000000025,
+    "cost": 0.9174999999999998,
+    "score": -0.21350000000000022,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Repair",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.15,
+          "rho_p": 0.25,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "Absorption",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "beta_b": 0.2,
+          "beta_p": 0.05,
+          "beta_f": 0.03,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true
+      }
+    },
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_be08fa15cac620ed12c11a0c4a0debf915fbc6b83d15b4613e2d20910f539394",
+    "domain": "tem",
+    "sequence": [
+      "Repair",
+      "Lesion"
+    ],
+    "length": 2,
+    "delta_risk": -0.5450000000000008,
+    "cost": 1.8575000000000004,
+    "score": -0.916500000000001,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Repair",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.15,
+          "rho_p": 0.25,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "Lesion",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "k_b": 0.3,
+          "k_p": 0.35,
+          "k_f": 0.12,
+          "dn": 1
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_c7e5fd07edcbe8bfc427179ac3beb26706a449e833a84104299fde1c7aa3276c",
+    "domain": "tem",
+    "sequence": [
+      "Distribution",
+      "Inflammation",
+      "Distribution",
+      "Inflammation"
+    ],
+    "length": 4,
+    "delta_risk": -1.8372318160000018,
+    "cost": 3.8872318160000012,
+    "score": -2.614678179200002,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Distribution",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.05,
+          "alpha_f": 0.04
+        }
+      },
+      {
+        "name": "Inflammation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "eta_b": 0.1,
+          "eta_p": 0.25,
+          "eta_f": 0.06,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Distribution",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.05,
+          "alpha_f": 0.04
+        }
+      },
+      {
+        "name": "Inflammation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "eta_b": 0.1,
+          "eta_p": 0.25,
+          "eta_f": 0.06,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true
+      }
+    },
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_5caca38e82974b56528afea63d21b4fe414bdc8b7df91ea26cccd1b7ce6d7c3c",
+    "domain": "tem",
+    "sequence": [
+      "Absorption",
+      "Repair",
+      "Exposure",
+      "Distribution"
+    ],
+    "length": 4,
+    "delta_risk": -1.9558840000000002,
+    "cost": 3.5251340000000004,
+    "score": -2.6609108000000004,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Absorption",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "beta_b": 0.2,
+          "beta_p": 0.05,
+          "beta_f": 0.03,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Repair",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.15,
+          "rho_p": 0.25,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "Exposure",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.3,
+          "alpha_p": 0.15,
+          "alpha_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Distribution",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.05,
+          "alpha_f": 0.04
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "错误"
+      }
+    },
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  }
+]

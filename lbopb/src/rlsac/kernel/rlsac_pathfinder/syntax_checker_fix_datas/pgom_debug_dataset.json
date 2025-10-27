@@ -1,0 +1,288 @@
+[
+  {
+    "id": "pkg_pgom_9db95f76f1b97044006c75c1826b6b979084da0e5fee4d682f4567f339ff4fea",
+    "domain": "pgom",
+    "sequence": [
+      "PathwayInhibition",
+      "RepairGenome",
+      "PathwayInhibition"
+    ],
+    "length": 3,
+    "delta_risk": 0.34931250000000036,
+    "cost": 0.07022400000000004,
+    "score": 0.33526770000000033,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "PathwayInhibition",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.1,
+          "gamma_p": 0.05,
+          "gamma_f": 0.06
+        }
+      },
+      {
+        "name": "RepairGenome",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.05,
+          "rho_p": 0.15,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "PathwayInhibition",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.1,
+          "gamma_p": 0.05,
+          "gamma_f": 0.06
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "错误"
+      }
+    },
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_c4b3ad997c28dff65096ef5149eb0deef8316021696b1e77d2dfbb3d7e171872",
+    "domain": "pgom",
+    "sequence": [
+      "Repress"
+    ],
+    "length": 1,
+    "delta_risk": 0.07500000000000018,
+    "cost": 0.011200000000000009,
+    "score": 0.07276000000000017,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Repress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.05,
+          "gamma_f": 0.05,
+          "dn": 1
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_42440f508f7c92965400bd4c16f99bed7debaa652b5496873165acbf48f8b45f",
+    "domain": "pgom",
+    "sequence": [
+      "PathwayInhibition"
+    ],
+    "length": 1,
+    "delta_risk": 0.07500000000000018,
+    "cost": 0.033600000000000026,
+    "score": 0.06828000000000017,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "PathwayInhibition",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.1,
+          "gamma_p": 0.05,
+          "gamma_f": 0.06
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_33d77b0a0c6cff835c9777ecc60607dde5afa24c6d67713e278dc518f4e5f458",
+    "domain": "pgom",
+    "sequence": [
+      "Repress",
+      "Activate"
+    ],
+    "length": 2,
+    "delta_risk": 0.003750000000000142,
+    "cost": 0.28044999999999987,
+    "score": -0.05233999999999983,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Repress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.05,
+          "gamma_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Activate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.06,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_31804159b01ba6e31ca77b628e1e54c5b217bcc9db957aec04f11159d54eab23",
+    "domain": "pgom",
+    "sequence": [
+      "PathwayInduction",
+      "EpigeneticMod"
+    ],
+    "length": 2,
+    "delta_risk": -0.07500000000000018,
+    "cost": 0.16500000000000017,
+    "score": -0.10800000000000021,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "PathwayInduction",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.1,
+          "alpha_p": 0.05,
+          "delta_f": 0.08
+        }
+      },
+      {
+        "name": "EpigeneticMod",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.05,
+          "dn": 1
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  }
+]

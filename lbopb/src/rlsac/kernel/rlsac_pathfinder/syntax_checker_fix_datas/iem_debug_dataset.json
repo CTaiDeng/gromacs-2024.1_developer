@@ -1,0 +1,408 @@
+[
+  {
+    "id": "pkg_iem_4c66fcbdebb93428cc7f3a40b56bf150490b65ec02736cc89b96afd652076035",
+    "domain": "iem",
+    "sequence": [
+      "Differentiate"
+    ],
+    "length": 1,
+    "delta_risk": 0.11999999999999966,
+    "cost": 0.008000000000000007,
+    "score": 0.11839999999999966,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Differentiate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "delta_f": 0.12,
+          "theta_p": 0.02,
+          "theta_b": 0.0,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_968ed4f13d6412f26141f0c53469768b5786323fe8cc9054ac8be7eb1186e77b",
+    "domain": "iem",
+    "sequence": [
+      "Proliferate",
+      "Differentiate",
+      "Activate",
+      "Memory"
+    ],
+    "length": 4,
+    "delta_risk": -0.18400000000000016,
+    "cost": 0.9367679999999998,
+    "score": -0.3713536000000002,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Proliferate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.15,
+          "theta_f": 0.05
+        }
+      },
+      {
+        "name": "Differentiate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "delta_f": 0.12,
+          "theta_p": 0.02,
+          "theta_b": 0.0,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Activate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.08,
+          "delta_f": 0.06,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Memory",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.15,
+          "rho_n": 0.05,
+          "delta_f": 0.15
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "警告",
+        "errors": 0,
+        "warnings": 2
+      },
+      "gemini": {
+        "used": true,
+        "result": "错误"
+      }
+    },
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_c806747739faba35ac3840146ef5db59f7121c3a53448dbd3362d0009eca1f8b",
+    "domain": "iem",
+    "sequence": [
+      "Memory",
+      "Differentiate",
+      "CytokineRelease"
+    ],
+    "length": 3,
+    "delta_risk": -0.21550000000000047,
+    "cost": 0.9056800000000002,
+    "score": -0.39663600000000054,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Memory",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.15,
+          "rho_n": 0.05,
+          "delta_f": 0.15
+        }
+      },
+      {
+        "name": "Differentiate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "delta_f": 0.12,
+          "theta_p": 0.02,
+          "theta_b": 0.0,
+          "dn": 0
+        }
+      },
+      {
+        "name": "CytokineRelease",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "xi_b": 0.3,
+          "xi_p": 0.35,
+          "xi_f": 0.15,
+          "dn": 1
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "警告",
+        "errors": 0,
+        "warnings": 2
+      },
+      "gemini": {
+        "used": true,
+        "result": "错误"
+      }
+    },
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_d1cd1d411080528be908cf8f3593276b2345c185f255bf7290a480b0f7370ee7",
+    "domain": "iem",
+    "sequence": [
+      "Memory",
+      "Proliferate",
+      "CytokineRelease",
+      "Suppress"
+    ],
+    "length": 4,
+    "delta_risk": -0.18810000000000038,
+    "cost": 1.5089000000000001,
+    "score": -0.4898800000000004,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Memory",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.15,
+          "rho_n": 0.05,
+          "delta_f": 0.15
+        }
+      },
+      {
+        "name": "Proliferate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.15,
+          "theta_f": 0.05
+        }
+      },
+      {
+        "name": "CytokineRelease",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "xi_b": 0.3,
+          "xi_p": 0.35,
+          "xi_f": 0.15,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Suppress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_p": 0.15,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "警告",
+        "errors": 0,
+        "warnings": 2
+      },
+      "gemini": {
+        "used": true,
+        "result": "错误"
+      }
+    },
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_d09e02f62d300a805d60994b25d83a8c13528dd0d55335ce737632295cfa6e50",
+    "domain": "iem",
+    "sequence": [
+      "Activate",
+      "Proliferate",
+      "Activate",
+      "Proliferate"
+    ],
+    "length": 4,
+    "delta_risk": -1.6887999999999996,
+    "cost": 2.1188863999999996,
+    "score": -2.1125772799999996,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Activate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.08,
+          "delta_f": 0.06,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Proliferate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.15,
+          "theta_f": 0.05
+        }
+      },
+      {
+        "name": "Activate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.08,
+          "delta_f": 0.06,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Proliferate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.15,
+          "theta_f": 0.05
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "警告",
+        "errors": 0,
+        "warnings": 2
+      },
+      "gemini": {
+        "used": true,
+        "result": "错误"
+      }
+    },
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  }
+]

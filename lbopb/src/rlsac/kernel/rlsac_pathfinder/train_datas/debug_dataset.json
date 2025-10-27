@@ -1,5 +1,247 @@
 [
   {
+    "id": "pkg_tem_3196fa291bcd91431ed0988e6c050fc0e573b47dceb089c5ab0b6cd0aeac5ca6",
+    "domain": "tem",
+    "sequence": [
+      "Detox",
+      "Distribution"
+    ],
+    "length": 2,
+    "delta_risk": 1.1032999999999995,
+    "cost": 0.5866999999999999,
+    "score": 0.9859599999999995,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Detox",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.25,
+          "gamma_p": 0.2,
+          "gamma_n": 0.1,
+          "delta_f": 0.08
+        }
+      },
+      {
+        "name": "Distribution",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.05,
+          "alpha_f": 0.04
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_prm_c1e95ea6b6b9b86553491af8c751a6dac5f91be91c6d7bfd10ea24866255490c",
+    "domain": "prm",
+    "sequence": [
+      "Exercise"
+    ],
+    "length": 1,
+    "delta_risk": 0.5,
+    "cost": 0.0,
+    "score": 0.5,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Exercise",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_p": 0.1,
+          "delta_f": 0.05,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "prm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/prm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_e5e9a5b0922b8af45f29e728e7a570163337bd293d151577448957ea58411fb7",
+    "domain": "pdem",
+    "sequence": [
+      "Desensitization",
+      "Antagonist"
+    ],
+    "length": 2,
+    "delta_risk": 0.36575999999999986,
+    "cost": 0.11423999999999995,
+    "score": 0.3429119999999999,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Desensitization",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.1,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      },
+      {
+        "name": "Antagonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "k_b": 0.2,
+          "k_p": 0.1,
+          "k_f": 0.12
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_9db95f76f1b97044006c75c1826b6b979084da0e5fee4d682f4567f339ff4fea",
+    "domain": "pgom",
+    "sequence": [
+      "PathwayInhibition",
+      "RepairGenome",
+      "PathwayInhibition"
+    ],
+    "length": 3,
+    "delta_risk": 0.34931250000000036,
+    "cost": 0.07022400000000004,
+    "score": 0.33526770000000033,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "PathwayInhibition",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.1,
+          "gamma_p": 0.05,
+          "gamma_f": 0.06
+        }
+      },
+      {
+        "name": "RepairGenome",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.05,
+          "rho_p": 0.15,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "PathwayInhibition",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.1,
+          "gamma_p": 0.05,
+          "gamma_f": 0.06
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "错误"
+      }
+    },
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
     "id": "pkg_pem_90219391adf5eea831743001f29e9f2430d7c43385537bdacae5aca4f6c35528",
     "domain": "pem",
     "sequence": [
@@ -9,8 +251,8 @@
     "delta_risk": 0.2999999999999998,
     "cost": 0.0,
     "score": 0.2999999999999998,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 1,
     "ops_detailed": [
@@ -46,6 +288,1719 @@
     "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json"
   },
   {
+    "id": "pkg_pdem_b7d6305de4b5c67733868602115aa21e067af11da0a766768c8245f5f1552c48",
+    "domain": "pdem",
+    "sequence": [
+      "Desensitization",
+      "InverseAgonist"
+    ],
+    "length": 2,
+    "delta_risk": 0.26034,
+    "cost": 0.09215999999999991,
+    "score": 0.24190800000000004,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Desensitization",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.1,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      },
+      {
+        "name": "InverseAgonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.05,
+          "rho_f": 0.08
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_b85cc83fb934dd09ec0a999c53dbc7bb02517d0bbdc2fb6b842adcc7dd155311",
+    "domain": "pdem",
+    "sequence": [
+      "Antagonist",
+      "Potentiation"
+    ],
+    "length": 2,
+    "delta_risk": 0.2679999999999998,
+    "cost": 0.1308,
+    "score": 0.24183999999999978,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Antagonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "k_b": 0.2,
+          "k_p": 0.1,
+          "k_f": 0.12
+        }
+      },
+      {
+        "name": "Potentiation",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.05,
+          "delta_f": 0.1
+        }
+      }
+    ],
+    "validation": {
+      "mode": "syntax_only",
+      "syntax": {
+        "result": "错误",
+        "errors": 1,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false
+      }
+    },
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_4c66fcbdebb93428cc7f3a40b56bf150490b65ec02736cc89b96afd652076035",
+    "domain": "iem",
+    "sequence": [
+      "Differentiate"
+    ],
+    "length": 1,
+    "delta_risk": 0.11999999999999966,
+    "cost": 0.008000000000000007,
+    "score": 0.11839999999999966,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Differentiate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "delta_f": 0.12,
+          "theta_p": 0.02,
+          "theta_b": 0.0,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_prm_ceb91d3eba1459795100d70ae4b27531df347ded7df977c5a0d7b5085129b20a",
+    "domain": "prm",
+    "sequence": [
+      "Exercise",
+      "Ingest",
+      "Adaptation"
+    ],
+    "length": 3,
+    "delta_risk": 0.5112499999999995,
+    "cost": 2.045,
+    "score": 0.10224999999999951,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Exercise",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_p": 0.1,
+          "delta_f": 0.05,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Ingest",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.25,
+          "alpha_p": 0.05,
+          "delta_f": 0.02,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Adaptation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "eta_b": 0.1,
+          "eta_p": 0.05,
+          "eta_n": 0.05,
+          "delta_f": 0.08
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "prm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/prm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_5a670f74ff8878c110b4575aef5d064b042d63b14d02ab25ddfc6ca7afa441be",
+    "domain": "pdem",
+    "sequence": [
+      "Potentiation",
+      "InverseAgonist"
+    ],
+    "length": 2,
+    "delta_risk": 0.1264999999999996,
+    "cost": 0.12800000000000009,
+    "score": 0.1008999999999996,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Potentiation",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.05,
+          "delta_f": 0.1
+        }
+      },
+      {
+        "name": "InverseAgonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.05,
+          "rho_f": 0.08
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_d7a4fc788c5078a8fa7e0ec79ac52fb9aa64f9b08e7ed313a00fb479700c04aa",
+    "domain": "pktm",
+    "sequence": [
+      "Excrete"
+    ],
+    "length": 1,
+    "delta_risk": 0.10000000000000009,
+    "cost": 0.0,
+    "score": 0.10000000000000009,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Excrete",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.2,
+          "rho_p": 0.2,
+          "delta_f": 0.06
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_367a7337b7b6d9ef0f112d2bf403af22b93225ca200d78965b02ffef02642780",
+    "domain": "pktm",
+    "sequence": [
+      "Bind",
+      "Metabolize"
+    ],
+    "length": 2,
+    "delta_risk": 0.07499999999999996,
+    "cost": 0.0,
+    "score": 0.07499999999999996,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.0
+        }
+      },
+      {
+        "name": "Metabolize",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.25,
+          "gamma_p": 0.15,
+          "delta_f": 0.06
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_c4b3ad997c28dff65096ef5149eb0deef8316021696b1e77d2dfbb3d7e171872",
+    "domain": "pgom",
+    "sequence": [
+      "Repress"
+    ],
+    "length": 1,
+    "delta_risk": 0.07500000000000018,
+    "cost": 0.011200000000000009,
+    "score": 0.07276000000000017,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Repress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.05,
+          "gamma_f": 0.05,
+          "dn": 1
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_42440f508f7c92965400bd4c16f99bed7debaa652b5496873165acbf48f8b45f",
+    "domain": "pgom",
+    "sequence": [
+      "PathwayInhibition"
+    ],
+    "length": 1,
+    "delta_risk": 0.07500000000000018,
+    "cost": 0.033600000000000026,
+    "score": 0.06828000000000017,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "PathwayInhibition",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.1,
+          "gamma_p": 0.05,
+          "gamma_f": 0.06
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_550fb4bba61742f0c9efb9fda721ac3dc773d41ed10b5b31a0b4bc67a0caed03",
+    "domain": "pdem",
+    "sequence": [
+      "Desensitization",
+      "Signal",
+      "Desensitization"
+    ],
+    "length": 3,
+    "delta_risk": 0.10835250000000007,
+    "cost": 0.37356,
+    "score": 0.03364050000000007,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Desensitization",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.1,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      },
+      {
+        "name": "Signal",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "beta_b": 0.25,
+          "beta_p": 0.1,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "Desensitization",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.1,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_f4bb43096554d5de55159e49a219f9404b82443b9d4c08580e57ab3dcbd758ff",
+    "domain": "pktm",
+    "sequence": [
+      "Bind"
+    ],
+    "length": 1,
+    "delta_risk": 0.0,
+    "cost": 0.0,
+    "score": 0.0,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_33d77b0a0c6cff835c9777ecc60607dde5afa24c6d67713e278dc518f4e5f458",
+    "domain": "pgom",
+    "sequence": [
+      "Repress",
+      "Activate"
+    ],
+    "length": 2,
+    "delta_risk": 0.003750000000000142,
+    "cost": 0.28044999999999987,
+    "score": -0.05233999999999983,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Repress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.05,
+          "gamma_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Activate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.06,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_31804159b01ba6e31ca77b628e1e54c5b217bcc9db957aec04f11159d54eab23",
+    "domain": "pgom",
+    "sequence": [
+      "PathwayInduction",
+      "EpigeneticMod"
+    ],
+    "length": 2,
+    "delta_risk": -0.07500000000000018,
+    "cost": 0.16500000000000017,
+    "score": -0.10800000000000021,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "PathwayInduction",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.1,
+          "alpha_p": 0.05,
+          "delta_f": 0.08
+        }
+      },
+      {
+        "name": "EpigeneticMod",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.05,
+          "dn": 1
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_25f9e5beafb77a7d2ed85557834ea10098e0fbafad416a7be743875f8d4b312f",
+    "domain": "pdem",
+    "sequence": [
+      "Potentiation",
+      "Desensitization",
+      "Signal"
+    ],
+    "length": 3,
+    "delta_risk": -0.06943750000000026,
+    "cost": 0.4184300000000002,
+    "score": -0.1531235000000003,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Potentiation",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.05,
+          "delta_f": 0.1
+        }
+      },
+      {
+        "name": "Desensitization",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.1,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      },
+      {
+        "name": "Signal",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "beta_b": 0.25,
+          "beta_p": 0.1,
+          "delta_f": 0.06
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "错误"
+      }
+    },
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_632ceb6ccca4db3b4d80c072ff98f493bf06e25a91d22718c990460eba3e3607",
+    "domain": "pdem",
+    "sequence": [
+      "Antagonist",
+      "Signal",
+      "Bind",
+      "Desensitization"
+    ],
+    "length": 4,
+    "delta_risk": -0.052240000000000286,
+    "cost": 0.63572,
+    "score": -0.1793840000000003,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Antagonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "k_b": 0.2,
+          "k_p": 0.1,
+          "k_f": 0.12
+        }
+      },
+      {
+        "name": "Signal",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "beta_b": 0.25,
+          "beta_p": 0.1,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.04,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Desensitization",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.15,
+          "gamma_p": 0.1,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true
+      }
+    },
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_5f93fadf655d3ae02b75997feecce9d9762cf79442a151454f17f966c40280f2",
+    "domain": "tem",
+    "sequence": [
+      "Repair",
+      "Absorption"
+    ],
+    "length": 2,
+    "delta_risk": -0.03000000000000025,
+    "cost": 0.9174999999999998,
+    "score": -0.21350000000000022,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Repair",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.15,
+          "rho_p": 0.25,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "Absorption",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "beta_b": 0.2,
+          "beta_p": 0.05,
+          "beta_f": 0.03,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true
+      }
+    },
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_prm_9cc9d7c820994818a18530658310b11a6864799936218984b382c84c03b3b994",
+    "domain": "prm",
+    "sequence": [
+      "Ingest",
+      "Exercise"
+    ],
+    "length": 2,
+    "delta_risk": 0.27499999999999947,
+    "cost": 2.55,
+    "score": -0.23500000000000054,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Ingest",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.25,
+          "alpha_p": 0.05,
+          "delta_f": 0.02,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Exercise",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_p": 0.1,
+          "delta_f": 0.05,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "prm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/prm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_49f04e6c959d7d218369cd4752f1508786724c50f7693cf9942da28c42af133c",
+    "domain": "pdem",
+    "sequence": [
+      "Potentiation",
+      "Bind"
+    ],
+    "length": 2,
+    "delta_risk": -0.25000000000000044,
+    "cost": 0.3366000000000001,
+    "score": -0.3173200000000005,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Potentiation",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.05,
+          "delta_f": 0.1
+        }
+      },
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.04,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_968ed4f13d6412f26141f0c53469768b5786323fe8cc9054ac8be7eb1186e77b",
+    "domain": "iem",
+    "sequence": [
+      "Proliferate",
+      "Differentiate",
+      "Activate",
+      "Memory"
+    ],
+    "length": 4,
+    "delta_risk": -0.18400000000000016,
+    "cost": 0.9367679999999998,
+    "score": -0.3713536000000002,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Proliferate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.15,
+          "theta_f": 0.05
+        }
+      },
+      {
+        "name": "Differentiate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "delta_f": 0.12,
+          "theta_p": 0.02,
+          "theta_b": 0.0,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Activate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.08,
+          "delta_f": 0.06,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Memory",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.15,
+          "rho_n": 0.05,
+          "delta_f": 0.15
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "警告",
+        "errors": 0,
+        "warnings": 2
+      },
+      "gemini": {
+        "used": true,
+        "result": "错误"
+      }
+    },
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_c806747739faba35ac3840146ef5db59f7121c3a53448dbd3362d0009eca1f8b",
+    "domain": "iem",
+    "sequence": [
+      "Memory",
+      "Differentiate",
+      "CytokineRelease"
+    ],
+    "length": 3,
+    "delta_risk": -0.21550000000000047,
+    "cost": 0.9056800000000002,
+    "score": -0.39663600000000054,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Memory",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.15,
+          "rho_n": 0.05,
+          "delta_f": 0.15
+        }
+      },
+      {
+        "name": "Differentiate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "delta_f": 0.12,
+          "theta_p": 0.02,
+          "theta_b": 0.0,
+          "dn": 0
+        }
+      },
+      {
+        "name": "CytokineRelease",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "xi_b": 0.3,
+          "xi_p": 0.35,
+          "xi_f": 0.15,
+          "dn": 1
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "警告",
+        "errors": 0,
+        "warnings": 2
+      },
+      "gemini": {
+        "used": true,
+        "result": "错误"
+      }
+    },
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_5e2dc0444172ba488804d5859f9ba658e6d1707cf4730027ba81adfef25ecb81",
+    "domain": "pdem",
+    "sequence": [
+      "Bind",
+      "Signal",
+      "Antagonist"
+    ],
+    "length": 3,
+    "delta_risk": -0.28400000000000025,
+    "cost": 0.7212,
+    "score": -0.4282400000000003,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.04,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Signal",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "beta_b": 0.25,
+          "beta_p": 0.1,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "Antagonist",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "k_b": 0.2,
+          "k_p": 0.1,
+          "k_f": 0.12
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "错误"
+      }
+    },
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_iem_d1cd1d411080528be908cf8f3593276b2345c185f255bf7290a480b0f7370ee7",
+    "domain": "iem",
+    "sequence": [
+      "Memory",
+      "Proliferate",
+      "CytokineRelease",
+      "Suppress"
+    ],
+    "length": 4,
+    "delta_risk": -0.18810000000000038,
+    "cost": 1.5089000000000001,
+    "score": -0.4898800000000004,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Memory",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.1,
+          "rho_p": 0.15,
+          "rho_n": 0.05,
+          "delta_f": 0.15
+        }
+      },
+      {
+        "name": "Proliferate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.15,
+          "theta_f": 0.05
+        }
+      },
+      {
+        "name": "CytokineRelease",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "xi_b": 0.3,
+          "xi_p": 0.35,
+          "xi_f": 0.15,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Suppress",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_p": 0.15,
+          "gamma_n": 0.05,
+          "gamma_f": 0.08
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "警告",
+        "errors": 0,
+        "warnings": 2
+      },
+      "gemini": {
+        "used": true,
+        "result": "错误"
+      }
+    },
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_386276af5bdcaf2dbe8af47573d6ed79d603adcc716709024a1fd5747c18e1f9",
+    "domain": "pktm",
+    "sequence": [
+      "Dose",
+      "Transport",
+      "Dose",
+      "Transport"
+    ],
+    "length": 4,
+    "delta_risk": -0.16701250000000023,
+    "cost": 2.281898000000001,
+    "score": -0.6233921000000004,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Dose",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "delta_b": 1.0,
+          "alpha_p": 0.05,
+          "alpha_f": 0.02
+        }
+      },
+      {
+        "name": "Transport",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.1,
+          "xi_f": 0.0
+        }
+      },
+      {
+        "name": "Dose",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "delta_b": 1.0,
+          "alpha_p": 0.05,
+          "alpha_f": 0.02
+        }
+      },
+      {
+        "name": "Transport",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.1,
+          "xi_f": 0.0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pdem_433ae313b4f16b65f0318da44ce52d990e79427e7905de76c2d3a5b74a5bcc9f",
+    "domain": "pdem",
+    "sequence": [
+      "Signal",
+      "Bind"
+    ],
+    "length": 2,
+    "delta_risk": -0.6499999999999999,
+    "cost": 0.6372000000000001,
+    "score": -0.7774399999999999,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Signal",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "beta_b": 0.25,
+          "beta_p": 0.1,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.05,
+          "delta_f": 0.04,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "错误"
+      }
+    },
+    "op_space_id": "pdem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pdem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_be08fa15cac620ed12c11a0c4a0debf915fbc6b83d15b4613e2d20910f539394",
+    "domain": "tem",
+    "sequence": [
+      "Repair",
+      "Lesion"
+    ],
+    "length": 2,
+    "delta_risk": -0.5450000000000008,
+    "cost": 1.8575000000000004,
+    "score": -0.916500000000001,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Repair",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.15,
+          "rho_p": 0.25,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "Lesion",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "k_b": 0.3,
+          "k_p": 0.35,
+          "k_f": 0.12,
+          "dn": 1
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_926108ccabf2e80b070fee549e7c1f22d24345e4ef8c12fb12015d7bd80a38fe",
+    "domain": "pktm",
+    "sequence": [
+      "Excrete",
+      "Transport",
+      "Distribute",
+      "Excrete"
+    ],
+    "length": 4,
+    "delta_risk": -0.9047999999999998,
+    "cost": 0.28340000000000004,
+    "score": -0.9614799999999999,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Excrete",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.2,
+          "rho_p": 0.2,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "Transport",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.1,
+          "xi_f": 0.0
+        }
+      },
+      {
+        "name": "Distribute",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.15,
+          "alpha_b": 0.05
+        }
+      },
+      {
+        "name": "Excrete",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.2,
+          "rho_p": 0.2,
+          "delta_f": 0.06
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
     "id": "pkg_pem_19c8564ce6414373974314d182e262c522668698bccfaf179c510626ad2acac3",
     "domain": "pem",
     "sequence": [
@@ -58,8 +2013,8 @@
     "delta_risk": -0.8279250000000005,
     "cost": 1.8374849999999996,
     "score": -1.1954220000000004,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 1,
     "ops_detailed": [
@@ -150,8 +2105,8 @@
     "delta_risk": -1.125,
     "cost": 0.5225000000000004,
     "score": -1.2295,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 1,
     "ops_detailed": [
@@ -211,8 +2166,8 @@
     "delta_risk": -1.2000000000000002,
     "cost": 0.15500000000000005,
     "score": -1.231,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 1,
     "ops_detailed": [
@@ -248,6 +2203,68 @@
     "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json"
   },
   {
+    "id": "pkg_prm_e2f94988a75cf686f67f55e84cb73e3009cbdfe50a77960e47efac2154e39bbd",
+    "domain": "prm",
+    "sequence": [
+      "Stimulus",
+      "Hormone"
+    ],
+    "length": 2,
+    "delta_risk": -1.0,
+    "cost": 1.22,
+    "score": -1.244,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Stimulus",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.1,
+          "xi_p": 0.2,
+          "xi_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Hormone",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.05,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "prm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/prm_op_space.v1.json"
+  },
+  {
     "id": "pkg_pem_14aaa11a4d7c2a573bc6c030d97fd26bb90857d28a330d67066000f5856de828",
     "domain": "pem",
     "sequence": [
@@ -259,8 +2276,8 @@
     "delta_risk": -1.3375000000000004,
     "cost": 0.7792500000000003,
     "score": -1.4933500000000004,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 1,
     "ops_detailed": [
@@ -336,8 +2353,8 @@
     "delta_risk": -1.3375000000000004,
     "cost": 0.7792500000000003,
     "score": -1.4933500000000004,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 1,
     "ops_detailed": [
@@ -414,8 +2431,8 @@
     "delta_risk": -1.077187499999999,
     "cost": 2.2995,
     "score": -1.537087499999999,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 1,
     "ops_detailed": [
@@ -508,8 +2525,8 @@
     "delta_risk": -1.077187499999999,
     "cost": 2.2995,
     "score": -1.537087499999999,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 0,
     "ops_detailed": [
@@ -598,8 +2615,8 @@
     "delta_risk": -1.5,
     "cost": 0.6150000000000003,
     "score": -1.623,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 1,
     "ops_detailed": [
@@ -635,6 +2652,100 @@
     "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json"
   },
   {
+    "id": "pkg_prm_30b90baa7f25e5494b011c15afa5634f2e8b186b5f37a91bae511c70d51673ba",
+    "domain": "prm",
+    "sequence": [
+      "Hormone",
+      "Proliferation",
+      "Ingest",
+      "Exercise"
+    ],
+    "length": 4,
+    "delta_risk": -1.1975000000000007,
+    "cost": 3.3385000000000002,
+    "score": -1.8652000000000006,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Hormone",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.05,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Proliferation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.1,
+          "beta_b": 0.05,
+          "beta_f": 0.05
+        }
+      },
+      {
+        "name": "Ingest",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.25,
+          "alpha_p": 0.05,
+          "delta_f": 0.02,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Exercise",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_p": 0.1,
+          "delta_f": 0.05,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "prm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/prm_op_space.v1.json"
+  },
+  {
     "id": "pkg_pem_be4b7ccc55c6eda0ed2608f877b01cd1df81297d12d5995102b8dc0da3dc495b",
     "domain": "pem",
     "sequence": [
@@ -646,8 +2757,8 @@
     "delta_risk": -1.4437499999999996,
     "cost": 2.2995,
     "score": -1.9036499999999996,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 0,
     "ops_detailed": [
@@ -723,8 +2834,8 @@
     "delta_risk": -1.4437499999999996,
     "cost": 2.3922499999999998,
     "score": -1.9221999999999997,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 1,
     "ops_detailed": [
@@ -800,8 +2911,8 @@
     "delta_risk": -1.5299999999999994,
     "cost": 2.2495,
     "score": -1.9798999999999993,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 1,
     "ops_detailed": [
@@ -863,8 +2974,8 @@
     "delta_risk": -1.4437499999999996,
     "cost": 2.8185000000000002,
     "score": -2.0074499999999995,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 0,
     "ops_detailed": [
@@ -929,6 +3040,162 @@
     "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json"
   },
   {
+    "id": "pkg_iem_d09e02f62d300a805d60994b25d83a8c13528dd0d55335ce737632295cfa6e50",
+    "domain": "iem",
+    "sequence": [
+      "Activate",
+      "Proliferate",
+      "Activate",
+      "Proliferate"
+    ],
+    "length": 4,
+    "delta_risk": -1.6887999999999996,
+    "cost": 2.1188863999999996,
+    "score": -2.1125772799999996,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Activate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.08,
+          "delta_f": 0.06,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Proliferate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.15,
+          "theta_f": 0.05
+        }
+      },
+      {
+        "name": "Activate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.2,
+          "alpha_p": 0.08,
+          "delta_f": 0.06,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Proliferate",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.15,
+          "theta_f": 0.05
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "警告",
+        "errors": 0,
+        "warnings": 2
+      },
+      "gemini": {
+        "used": true,
+        "result": "错误"
+      }
+    },
+    "op_space_id": "iem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/iem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pem_4a8e326a9d44ade30aae98f3b060a75d2db4a15fd4d0c22ec4fb755892c56104",
+    "domain": "pem",
+    "sequence": [
+      "Carcinogenesis",
+      "Inflammation"
+    ],
+    "length": 2,
+    "delta_risk": -1.875,
+    "cost": 2.8185,
+    "score": -2.4387,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Carcinogenesis",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "k_b": 0.25,
+          "k_p": 0.15,
+          "k_f": 0.1,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Inflammation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "eta_b": 0.05,
+          "eta_p": 0.25,
+          "eta_f": 0.05,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "警告",
+        "errors": 0,
+        "warnings": 1
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json"
+  },
+  {
     "id": "pkg_pem_0c5401b24b338a34528512c2dc3447a933c78680c3b3114eadb117aecc972f92",
     "domain": "pem",
     "sequence": [
@@ -940,8 +3207,8 @@
     "delta_risk": -2.3375000000000004,
     "cost": 0.6816250000000004,
     "score": -2.4738250000000006,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 1,
     "ops_detailed": [
@@ -1007,6 +3274,271 @@
     "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json"
   },
   {
+    "id": "pkg_pem_9fd4edc755531575a077e132d6ea203c6fa0ed74d089c15f6b4ba812ae5ef387",
+    "domain": "pem",
+    "sequence": [
+      "Metastasis",
+      "Apoptosis",
+      "Inflammation"
+    ],
+    "length": 3,
+    "delta_risk": -2.3375000000000004,
+    "cost": 0.6852500000000004,
+    "score": -2.4745500000000002,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Metastasis",
+        "grid_index": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 1.0,
+          "alpha_p": 0.1,
+          "beta_b": 0.05,
+          "beta_f": 0.1
+        }
+      },
+      {
+        "name": "Apoptosis",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_n": 0.1,
+          "gamma_p": 0.15,
+          "delta_f": 0.1
+        }
+      },
+      {
+        "name": "Inflammation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "eta_b": 0.05,
+          "eta_p": 0.25,
+          "eta_f": 0.05,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "警告",
+        "errors": 0,
+        "warnings": 2
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_c7e5fd07edcbe8bfc427179ac3beb26706a449e833a84104299fde1c7aa3276c",
+    "domain": "tem",
+    "sequence": [
+      "Distribution",
+      "Inflammation",
+      "Distribution",
+      "Inflammation"
+    ],
+    "length": 4,
+    "delta_risk": -1.8372318160000018,
+    "cost": 3.8872318160000012,
+    "score": -2.614678179200002,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Distribution",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.05,
+          "alpha_f": 0.04
+        }
+      },
+      {
+        "name": "Inflammation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "eta_b": 0.1,
+          "eta_p": 0.25,
+          "eta_f": 0.06,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Distribution",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.05,
+          "alpha_f": 0.04
+        }
+      },
+      {
+        "name": "Inflammation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "eta_b": 0.1,
+          "eta_p": 0.25,
+          "eta_f": 0.06,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true
+      }
+    },
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_tem_5caca38e82974b56528afea63d21b4fe414bdc8b7df91ea26cccd1b7ce6d7c3c",
+    "domain": "tem",
+    "sequence": [
+      "Absorption",
+      "Repair",
+      "Exposure",
+      "Distribution"
+    ],
+    "length": 4,
+    "delta_risk": -1.9558840000000002,
+    "cost": 3.5251340000000004,
+    "score": -2.6609108000000004,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 0,
+    "ops_detailed": [
+      {
+        "name": "Absorption",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "beta_b": 0.2,
+          "beta_p": 0.05,
+          "beta_f": 0.03,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Repair",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.15,
+          "rho_p": 0.25,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "Exposure",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_b": 0.3,
+          "alpha_p": 0.15,
+          "alpha_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Distribution",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.05,
+          "alpha_f": 0.04
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "错误"
+      }
+    },
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json"
+  },
+  {
     "id": "pkg_pem_955dd5b92027bae3ec83a833492697331056ceeb0e1affef65cb059e05cd38cd",
     "domain": "pem",
     "sequence": [
@@ -1019,8 +3551,8 @@
     "delta_risk": -2.57125,
     "cost": 0.9420375000000004,
     "score": -2.7596575000000003,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 1,
     "ops_detailed": [
@@ -1111,8 +3643,8 @@
     "delta_risk": -2.75,
     "cost": 0.7792500000000003,
     "score": -2.90585,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 1,
     "ops_detailed": [
@@ -1163,6 +3695,100 @@
     "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json"
   },
   {
+    "id": "pkg_pem_950eb6e79061f924f5cea4e8b2172b1d7dac00a4edb3d8a16a28b6713eb421d5",
+    "domain": "pem",
+    "sequence": [
+      "Metastasis",
+      "Inflammation",
+      "Apoptosis",
+      "Inflammation"
+    ],
+    "length": 4,
+    "delta_risk": -2.921875,
+    "cost": 1.3481625000000008,
+    "score": -3.1915075,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Metastasis",
+        "grid_index": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 1.0,
+          "alpha_p": 0.1,
+          "beta_b": 0.05,
+          "beta_f": 0.1
+        }
+      },
+      {
+        "name": "Inflammation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "eta_b": 0.05,
+          "eta_p": 0.25,
+          "eta_f": 0.05,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Apoptosis",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_n": 0.1,
+          "gamma_p": 0.15,
+          "delta_f": 0.1
+        }
+      },
+      {
+        "name": "Inflammation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "eta_b": 0.05,
+          "eta_p": 0.25,
+          "eta_f": 0.05,
+          "dn": 0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "警告",
+        "errors": 0,
+        "warnings": 1
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json"
+  },
+  {
     "id": "pkg_pem_391f164bb7dd0e45ae98d7b93fa4a946f4dfe1d484a242677246395c6c93badb",
     "domain": "pem",
     "sequence": [
@@ -1175,8 +3801,8 @@
     "delta_risk": -3.921875,
     "cost": 1.343037500000001,
     "score": -4.1904825,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 1,
     "ops_detailed": [
@@ -1269,8 +3895,8 @@
     "delta_risk": -3.20045,
     "cost": 5.0207825,
     "score": -4.204606500000001,
-    "created_at": 1761467256,
-    "updated_at": 1761467256,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
     "source": "debug_dataset",
     "label": 1,
     "ops_detailed": [
@@ -1332,6 +3958,100 @@
           "alpha_p": 0.1,
           "beta_b": 0.05,
           "beta_f": 0.1
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "警告",
+        "errors": 0,
+        "warnings": 2
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pem_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pem_50a1f3cf3cbe75e0729cb83d10aa44013f096005688aaad3fc4db5434a466d08",
+    "domain": "pem",
+    "sequence": [
+      "Carcinogenesis",
+      "Inflammation",
+      "Metastasis",
+      "Carcinogenesis"
+    ],
+    "length": 4,
+    "delta_risk": -3.636875,
+    "cost": 5.7330675,
+    "score": -4.7834885,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Carcinogenesis",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "k_b": 0.25,
+          "k_p": 0.15,
+          "k_f": 0.1,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Inflammation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "eta_b": 0.05,
+          "eta_p": 0.25,
+          "eta_f": 0.05,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Metastasis",
+        "grid_index": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 1.0,
+          "alpha_p": 0.1,
+          "beta_b": 0.05,
+          "beta_f": 0.1
+        }
+      },
+      {
+        "name": "Carcinogenesis",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "k_b": 0.25,
+          "k_p": 0.15,
+          "k_f": 0.1,
+          "dn": 0
         }
       }
     ],

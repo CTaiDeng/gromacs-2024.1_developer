@@ -1,0 +1,320 @@
+[
+  {
+    "id": "pkg_pktm_d7a4fc788c5078a8fa7e0ec79ac52fb9aa64f9b08e7ed313a00fb479700c04aa",
+    "domain": "pktm",
+    "sequence": [
+      "Excrete"
+    ],
+    "length": 1,
+    "delta_risk": 0.10000000000000009,
+    "cost": 0.0,
+    "score": 0.10000000000000009,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Excrete",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.2,
+          "rho_p": 0.2,
+          "delta_f": 0.06
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_367a7337b7b6d9ef0f112d2bf403af22b93225ca200d78965b02ffef02642780",
+    "domain": "pktm",
+    "sequence": [
+      "Bind",
+      "Metabolize"
+    ],
+    "length": 2,
+    "delta_risk": 0.07499999999999996,
+    "cost": 0.0,
+    "score": 0.07499999999999996,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.0
+        }
+      },
+      {
+        "name": "Metabolize",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.25,
+          "gamma_p": 0.15,
+          "delta_f": 0.06
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_f4bb43096554d5de55159e49a219f9404b82443b9d4c08580e57ab3dcbd758ff",
+    "domain": "pktm",
+    "sequence": [
+      "Bind"
+    ],
+    "length": 1,
+    "delta_risk": 0.0,
+    "cost": 0.0,
+    "score": 0.0,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Bind",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_386276af5bdcaf2dbe8af47573d6ed79d603adcc716709024a1fd5747c18e1f9",
+    "domain": "pktm",
+    "sequence": [
+      "Dose",
+      "Transport",
+      "Dose",
+      "Transport"
+    ],
+    "length": 4,
+    "delta_risk": -0.16701250000000023,
+    "cost": 2.281898000000001,
+    "score": -0.6233921000000004,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Dose",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "delta_b": 1.0,
+          "alpha_p": 0.05,
+          "alpha_f": 0.02
+        }
+      },
+      {
+        "name": "Transport",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.1,
+          "xi_f": 0.0
+        }
+      },
+      {
+        "name": "Dose",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "delta_b": 1.0,
+          "alpha_p": 0.05,
+          "alpha_f": 0.02
+        }
+      },
+      {
+        "name": "Transport",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.1,
+          "xi_f": 0.0
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pktm_926108ccabf2e80b070fee549e7c1f22d24345e4ef8c12fb12015d7bd80a38fe",
+    "domain": "pktm",
+    "sequence": [
+      "Excrete",
+      "Transport",
+      "Distribute",
+      "Excrete"
+    ],
+    "length": 4,
+    "delta_risk": -0.9047999999999998,
+    "cost": 0.28340000000000004,
+    "score": -0.9614799999999999,
+    "created_at": 1761584296,
+    "updated_at": 1761584296,
+    "source": "debug_dataset",
+    "label": 1,
+    "ops_detailed": [
+      {
+        "name": "Excrete",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.2,
+          "rho_p": 0.2,
+          "delta_f": 0.06
+        }
+      },
+      {
+        "name": "Transport",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.05,
+          "xi_p": 0.1,
+          "xi_f": 0.0
+        }
+      },
+      {
+        "name": "Distribute",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.15,
+          "alpha_b": 0.05
+        }
+      },
+      {
+        "name": "Excrete",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.2,
+          "rho_p": 0.2,
+          "delta_f": 0.06
+        }
+      }
+    ],
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "正确",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": true,
+        "result": "正确"
+      }
+    },
+    "op_space_id": "pktm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pktm_op_space.v1.json"
+  }
+]
