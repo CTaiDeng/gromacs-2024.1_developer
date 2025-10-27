@@ -1,0 +1,1239 @@
+{
+  "reports": [
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/pdem_iem_operator_packages.json",
+      "pair": "pdem_iem",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_pdem_iem_fa122ee800f3887696ed3e8eff5333abb2e4d7cb1ee2390360205152cb7bb9b2",
+          "pair": "pdem_iem",
+          "sequences": {
+            "pdem": [
+              "Antagonist",
+              "Desensitization"
+            ],
+            "iem": [
+              "Memory",
+              "Activate"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pdem_iem_6261ed1aa41ee4a8d653a7cc8991a868a1f16e2ef21f4034c1956967100809f5",
+          "pair": "pdem_iem",
+          "sequences": {
+            "pdem": [
+              "Bind",
+              "Potentiation"
+            ],
+            "iem": [
+              "Differentiate"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pdem_iem_d044e726f795d5a6f631e17124dbc54eedc5b215563dc025185f570d5d32fce8",
+          "pair": "pdem_iem",
+          "sequences": {
+            "pdem": [
+              "InverseAgonist"
+            ],
+            "iem": [
+              "Suppress"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/pem_iem_operator_packages.json",
+      "pair": "pem_iem",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_pem_iem_e840c93ef8a7c025ea26b282b942f809ba689b6b9b1ba903f983c21de704dbd1",
+          "pair": "pem_iem",
+          "sequences": {
+            "pem": [
+              "Metastasis",
+              "Apoptosis"
+            ],
+            "iem": [
+              "CytokineRelease",
+              "Proliferate"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pem_iem_096d2855d11ed85e6a4da2ac9cf180254df1be1a9a28302286d1267f0a60efc5",
+          "pair": "pem_iem",
+          "sequences": {
+            "pem": [
+              "Apoptosis"
+            ],
+            "iem": [
+              "Differentiate",
+              "Suppress"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pem_iem_58bfe96ba1939256963303c5ee6f4444f11d8237998f3f0a7d7c808bad992399",
+          "pair": "pem_iem",
+          "sequences": {
+            "pem": [
+              "Inflammation",
+              "Carcinogenesis"
+            ],
+            "iem": [
+              "Proliferate"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/pem_pdem_operator_packages.json",
+      "pair": "pem_pdem",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_pem_pdem_611053b9d05d87fa6d5dc977079fdb8a39ff1519fd1ebd1e4b43a00f96299807",
+          "pair": "pem_pdem",
+          "sequences": {
+            "pem": [
+              "Inflammation"
+            ],
+            "pdem": [
+              "Bind"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pem_pdem_cc0b6741978b7daf2a563dfdd2feecd26206c1a3bf42d5e7dfb50e83ffe64369",
+          "pair": "pem_pdem",
+          "sequences": {
+            "pem": [
+              "Carcinogenesis",
+              "Metastasis"
+            ],
+            "pdem": [
+              "Antagonist",
+              "Signal"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pem_pdem_96b1e304fee5de949e706d67b709df37c8a8579226c03398fbfad971641760f6",
+          "pair": "pem_pdem",
+          "sequences": {
+            "pem": [
+              "Metastasis"
+            ],
+            "pdem": [
+              "Desensitization"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/pem_pgom_operator_packages.json",
+      "pair": "pem_pgom",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_pem_pgom_dbfe1d6cb9c98aa10d1290a4abe38aa92d18b12fc0181392eb68f8eb83295cb6",
+          "pair": "pem_pgom",
+          "sequences": {
+            "pem": [
+              "Carcinogenesis",
+              "Inflammation"
+            ],
+            "pgom": [
+              "Activate"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pem_pgom_7c7452ed9c3a6fbf2e8498b42353ea1e6cb515b5da3cefdc7025a121fb688cbd",
+          "pair": "pem_pgom",
+          "sequences": {
+            "pem": [
+              "Inflammation",
+              "Apoptosis"
+            ],
+            "pgom": [
+              "Repress"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pem_pgom_f15c290035902f55a3443692d07f3b89d1144acd3db8dc20c9823e6cb1f01e8f",
+          "pair": "pem_pgom",
+          "sequences": {
+            "pem": [
+              "Inflammation"
+            ],
+            "pgom": [
+              "Mutation"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/pem_pktm_operator_packages.json",
+      "pair": "pem_pktm",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_pem_pktm_04d5aedbf92f438922ae5294903712da5bb39976d9f0836b5a37c58728794e79",
+          "pair": "pem_pktm",
+          "sequences": {
+            "pem": [
+              "Inflammation"
+            ],
+            "pktm": [
+              "Bind"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pem_pktm_6a4adfc9da4453979a50eb337c8602d533be37eae7ee38b8715457e8e1f1f0be",
+          "pair": "pem_pktm",
+          "sequences": {
+            "pem": [
+              "Metastasis",
+              "Inflammation"
+            ],
+            "pktm": [
+              "Absorb",
+              "Distribute"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pem_pktm_f682922c41d0b7434850e6d51eeaeeffb7be9febe1ed62a6b9ffe89e4bf22f10",
+          "pair": "pem_pktm",
+          "sequences": {
+            "pem": [
+              "Apoptosis",
+              "Metastasis"
+            ],
+            "pktm": [
+              "Bind"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/pem_prm_operator_packages.json",
+      "pair": "pem_prm",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_pem_prm_3d6ca3d2fc70895a3841ccd2d3e93492afc8253e10ba2a4e1ecb2df14fcf67c0",
+          "pair": "pem_prm",
+          "sequences": {
+            "pem": [
+              "Metastasis"
+            ],
+            "prm": [
+              "Exercise"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pem_prm_ab4cf206561db6f3e964a9f59137136831403db662bc9620e31104eb063f8623",
+          "pair": "pem_prm",
+          "sequences": {
+            "pem": [
+              "Inflammation"
+            ],
+            "prm": [
+              "Hormone"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pem_prm_6f5ae2aee87f73d862c88dfa769be6c852a566dd78b902bd903098c0df1672de",
+          "pair": "pem_prm",
+          "sequences": {
+            "pem": [
+              "Apoptosis",
+              "Carcinogenesis"
+            ],
+            "prm": [
+              "Proliferation"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/pem_tem_operator_packages.json",
+      "pair": "pem_tem",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_pem_tem_212dafad75d70719c1a29d7376aab0c5a4f413d7e93b240597c3391092c3d710",
+          "pair": "pem_tem",
+          "sequences": {
+            "pem": [
+              "Carcinogenesis"
+            ],
+            "tem": [
+              "Repair"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pem_tem_50bc9bd1d7be80125ce1b315b8653e955764376678d40a20a971720b8e409187",
+          "pair": "pem_tem",
+          "sequences": {
+            "pem": [
+              "Metastasis"
+            ],
+            "tem": [
+              "Distribution"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pem_tem_635f9011cb02ba76b869edbf377ff565569bcbdf01afa6d725a8c8e36acabb1e",
+          "pair": "pem_tem",
+          "sequences": {
+            "pem": [
+              "Metastasis",
+              "Inflammation"
+            ],
+            "tem": [
+              "Detox",
+              "Distribution"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/pgom_iem_operator_packages.json",
+      "pair": "pgom_iem",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_pgom_iem_25f591ef9ef343ec9db8bfb0d53f54b7c329600d51733c30eee46d71287a5aaa",
+          "pair": "pgom_iem",
+          "sequences": {
+            "pgom": [
+              "EpigeneticMod",
+              "PathwayInduction"
+            ],
+            "iem": [
+              "CytokineRelease",
+              "Suppress"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pgom_iem_575cba1e2402c196d4df9212aca9fb42759cb4d7dc9e9a8701a82c61c702ab1b",
+          "pair": "pgom_iem",
+          "sequences": {
+            "pgom": [
+              "Repress",
+              "Mutation"
+            ],
+            "iem": [
+              "Memory"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pgom_iem_a700c092af9f43b94e40bb1c98022426fc1711ec3524635ee07ce4079dd1bb41",
+          "pair": "pgom_iem",
+          "sequences": {
+            "pgom": [
+              "PathwayInhibition",
+              "PathwayInduction"
+            ],
+            "iem": [
+              "Proliferate",
+              "Memory"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/pgom_pdem_operator_packages.json",
+      "pair": "pgom_pdem",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_pgom_pdem_2d8e949343bbc24aad5dced04f56a63ef7a8c91692ef7aae715e3cb29b93eeb6",
+          "pair": "pgom_pdem",
+          "sequences": {
+            "pgom": [
+              "PathwayInhibition",
+              "Repress"
+            ],
+            "pdem": [
+              "Desensitization"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pgom_pdem_41e28496f68f4c2af5cb34bb500610f3fdb58707d24150d1b7ec8e5d2e07af09",
+          "pair": "pgom_pdem",
+          "sequences": {
+            "pgom": [
+              "EpigeneticMod",
+              "Mutation"
+            ],
+            "pdem": [
+              "Signal"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pgom_pdem_f74043fb056218e3c5be7a6361c2208683889066fa0fd2a179a9696d6a6009b6",
+          "pair": "pgom_pdem",
+          "sequences": {
+            "pgom": [
+              "EpigeneticMod"
+            ],
+            "pdem": [
+              "Signal"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/pktm_iem_operator_packages.json",
+      "pair": "pktm_iem",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_pktm_iem_d248e875d7783990c77b34c5ba91ec1f69cff8b799edc9f14e29e681e9d2318f",
+          "pair": "pktm_iem",
+          "sequences": {
+            "pktm": [
+              "Absorb"
+            ],
+            "iem": [
+              "Activate"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pktm_iem_6c6ca512c75c441d3b55cc3f328ef5e0bda0382ee888c22c096ae282f44b6e22",
+          "pair": "pktm_iem",
+          "sequences": {
+            "pktm": [
+              "Absorb",
+              "Distribute"
+            ],
+            "iem": [
+              "Memory"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pktm_iem_2fa73e36576580293d11385604666b28aab07eb417aa3066a87139d490a543fd",
+          "pair": "pktm_iem",
+          "sequences": {
+            "pktm": [
+              "Dose",
+              "Excrete"
+            ],
+            "iem": [
+              "Memory",
+              "CytokineRelease"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/pktm_pdem_operator_packages.json",
+      "pair": "pktm_pdem",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_pktm_pdem_2ade76b1c2523bc16edfb2b03ddc4281f81a669b7c5c33fb7d3d078926e11a4b",
+          "pair": "pktm_pdem",
+          "sequences": {
+            "pktm": [
+              "Excrete"
+            ],
+            "pdem": [
+              "Desensitization",
+              "Antagonist"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pktm_pdem_4580552f52101261bf65c04bf1141fe3e54eb4210072f008bf2bb2f3310d5a3c",
+          "pair": "pktm_pdem",
+          "sequences": {
+            "pktm": [
+              "Bind"
+            ],
+            "pdem": [
+              "Antagonist",
+              "Desensitization"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pktm_pdem_e96d1f103c84a139444039da786ea73b7855e9d51709f1f217617c58e73d925d",
+          "pair": "pktm_pdem",
+          "sequences": {
+            "pktm": [
+              "Absorb"
+            ],
+            "pdem": [
+              "Desensitization"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/pktm_pgom_operator_packages.json",
+      "pair": "pktm_pgom",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_pktm_pgom_14d6e4c0c0ed238b5757ddde5fa49d0df07de0e813cbee8f9d52655170794792",
+          "pair": "pktm_pgom",
+          "sequences": {
+            "pktm": [
+              "Bind"
+            ],
+            "pgom": [
+              "RepairGenome",
+              "Activate"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pktm_pgom_5c97af638ee2573dc0d568f6d97578f4aecf34ce840172d9653b7381e1849b9e",
+          "pair": "pktm_pgom",
+          "sequences": {
+            "pktm": [
+              "Absorb",
+              "Bind"
+            ],
+            "pgom": [
+              "PathwayInhibition"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_pktm_pgom_33c31c2a25d8ee0b3f7ee96c31ee5265fdd37dc2ccef531ce0a7c0b4040454e9",
+          "pair": "pktm_pgom",
+          "sequences": {
+            "pktm": [
+              "Absorb",
+              "Dose"
+            ],
+            "pgom": [
+              "Mutation",
+              "PathwayInduction"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/prm_iem_operator_packages.json",
+      "pair": "prm_iem",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_prm_iem_7ca4fe32b060a2f48e3f49b3fe154fbc01f57a454591c141e34c04f08216f8af",
+          "pair": "prm_iem",
+          "sequences": {
+            "prm": [
+              "Stimulus"
+            ],
+            "iem": [
+              "Proliferate"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_prm_iem_80b634a4abbae8fdb06b0d7c5ba9276b58f8e65d0abc80cb6b8ae22acfb07592",
+          "pair": "prm_iem",
+          "sequences": {
+            "prm": [
+              "Proliferation",
+              "Hormone"
+            ],
+            "iem": [
+              "CytokineRelease",
+              "Memory"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_prm_iem_be8489f6b832e709dd70bb7858fc138b82e1b97843668cbab21f2be39132ba14",
+          "pair": "prm_iem",
+          "sequences": {
+            "prm": [
+              "Stimulus"
+            ],
+            "iem": [
+              "Differentiate"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/prm_pdem_operator_packages.json",
+      "pair": "prm_pdem",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_prm_pdem_07bbe84a0104cf9096e3895d5378e73e1ccdf6597e42f3184a5dac9513ba808d",
+          "pair": "prm_pdem",
+          "sequences": {
+            "prm": [
+              "Adaptation"
+            ],
+            "pdem": [
+              "InverseAgonist",
+              "Potentiation"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_prm_pdem_a7765ebd38e810722b4fd138dcd95c10ff79eed23b76dd3175ad6705bffd1a3d",
+          "pair": "prm_pdem",
+          "sequences": {
+            "prm": [
+              "Adaptation"
+            ],
+            "pdem": [
+              "Antagonist",
+              "Bind"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_prm_pdem_3a7bb7ea3101aca3285bb2ab948152c0bd7c6e51be0586bd0822f710f32c82d4",
+          "pair": "prm_pdem",
+          "sequences": {
+            "prm": [
+              "Stimulus"
+            ],
+            "pdem": [
+              "Desensitization"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/prm_pgom_operator_packages.json",
+      "pair": "prm_pgom",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_prm_pgom_4506ba619105285946acc0996f58c89587e94f23ccb535de024e41d6b933dae8",
+          "pair": "prm_pgom",
+          "sequences": {
+            "prm": [
+              "Proliferation",
+              "Hormone"
+            ],
+            "pgom": [
+              "RepairGenome"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_prm_pgom_9de3da872caa77174dad48ef3b444a18601357e4894c0f0479d6aeb62423bc80",
+          "pair": "prm_pgom",
+          "sequences": {
+            "prm": [
+              "Adaptation",
+              "Proliferation"
+            ],
+            "pgom": [
+              "Repress",
+              "RepairGenome"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_prm_pgom_b043ae005a229815476894546ea581ba39b1c3cb9f5a5c215011d2170dcf1429",
+          "pair": "prm_pgom",
+          "sequences": {
+            "prm": [
+              "Stimulus",
+              "Hormone"
+            ],
+            "pgom": [
+              "PathwayInhibition"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/prm_pktm_operator_packages.json",
+      "pair": "prm_pktm",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_prm_pktm_1de2c8921e59c9a7a2d8c4f825eb02ddaa6029c6b8a54ebdc11fb0a1ccf6c1a9",
+          "pair": "prm_pktm",
+          "sequences": {
+            "prm": [
+              "Adaptation"
+            ],
+            "pktm": [
+              "Excrete"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_prm_pktm_111c216e7ec61d6d9ea3d9dec1e857b87318e1781e7a6d2b4c285e7509168cc9",
+          "pair": "prm_pktm",
+          "sequences": {
+            "prm": [
+              "Adaptation"
+            ],
+            "pktm": [
+              "Excrete",
+              "Bind"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_prm_pktm_61383a36e9c089cdfc03ad19a35939a5ca28e5779d8f84ce705e6584c245d421",
+          "pair": "prm_pktm",
+          "sequences": {
+            "prm": [
+              "Adaptation",
+              "Stimulus"
+            ],
+            "pktm": [
+              "Absorb",
+              "Transport"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/prm_tem_operator_packages.json",
+      "pair": "prm_tem",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_prm_tem_32e225a1f10d9cb7443ada62c9deddad6f8c40584cf34451d655e80f00441751",
+          "pair": "prm_tem",
+          "sequences": {
+            "prm": [
+              "Exercise"
+            ],
+            "tem": [
+              "Distribution"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_prm_tem_0ee94de70164cbcc040e8e34198bd9420b0c0ef9a6f91916ed32bb2299c99a5f",
+          "pair": "prm_tem",
+          "sequences": {
+            "prm": [
+              "Ingest",
+              "Hormone"
+            ],
+            "tem": [
+              "Repair"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_prm_tem_2cde982052a84bc1da697a6375c63e99862a37418bd708917c7d668f3fdaad93",
+          "pair": "prm_tem",
+          "sequences": {
+            "prm": [
+              "Stimulus"
+            ],
+            "tem": [
+              "Detox",
+              "Repair"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/tem_iem_operator_packages.json",
+      "pair": "tem_iem",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_tem_iem_4f1ca6bdaf9bdc08e2b65eb2de8aa9659cce01e38f3aa2319b91cd3ee51c1074",
+          "pair": "tem_iem",
+          "sequences": {
+            "tem": [
+              "Distribution",
+              "Repair"
+            ],
+            "iem": [
+              "Proliferate",
+              "Differentiate"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_tem_iem_a29b71dc2e177cd545d21df3816c19243a9ec202fed33968d0e8fb6a851cd377",
+          "pair": "tem_iem",
+          "sequences": {
+            "tem": [
+              "Detox"
+            ],
+            "iem": [
+              "Suppress"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_tem_iem_bd83c5dcdd32a522bfe5e4550f7559028a7a8aa39e68fe76c17ed3a51ba358c8",
+          "pair": "tem_iem",
+          "sequences": {
+            "tem": [
+              "Lesion"
+            ],
+            "iem": [
+              "Suppress",
+              "Differentiate"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/tem_pdem_operator_packages.json",
+      "pair": "tem_pdem",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_tem_pdem_6bc2007e61a702f187e0501f79ad7caec4730b0acdff88301d9cdf7b24f955b7",
+          "pair": "tem_pdem",
+          "sequences": {
+            "tem": [
+              "Repair",
+              "Lesion"
+            ],
+            "pdem": [
+              "Bind"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_tem_pdem_1d7318586027491dea8cf358513985040e2ef104f2d5cdd360aba5c406b4d0f1",
+          "pair": "tem_pdem",
+          "sequences": {
+            "tem": [
+              "Detox",
+              "Repair"
+            ],
+            "pdem": [
+              "Antagonist",
+              "Desensitization"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_tem_pdem_e0590f871bee3b94215984a526c74f04dc6d813f669aa7dd81c3680a189b9d62",
+          "pair": "tem_pdem",
+          "sequences": {
+            "tem": [
+              "Repair",
+              "Lesion"
+            ],
+            "pdem": [
+              "Antagonist"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/tem_pgom_operator_packages.json",
+      "pair": "tem_pgom",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_tem_pgom_5a02aecebd8d773dae1773e9793408272214cbae4430d3a7759d7486018b53a5",
+          "pair": "tem_pgom",
+          "sequences": {
+            "tem": [
+              "Detox",
+              "Lesion"
+            ],
+            "pgom": [
+              "Mutation"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_tem_pgom_cc0056e297209814715f28bf80224680dbdbb46fa7c13455c147dd8723e3b857",
+          "pair": "tem_pgom",
+          "sequences": {
+            "tem": [
+              "Lesion"
+            ],
+            "pgom": [
+              "PathwayInduction"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_tem_pgom_8972eb836273b7b3a78df5a8c2c47c93f075f87280e1226b1fc24fb12d5b8cc6",
+          "pair": "tem_pgom",
+          "sequences": {
+            "tem": [
+              "Repair",
+              "Detox"
+            ],
+            "pgom": [
+              "Activate"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    },
+    {
+      "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/tem_pktm_operator_packages.json",
+      "pair": "tem_pktm",
+      "count": 10,
+      "checked": 3,
+      "ok_both": 3,
+      "ok_syntax": 3,
+      "ok_llm": 3,
+      "items": [
+        {
+          "id": "pkg_tem_pktm_027a575c4705615afed1d9f25676dbf87fa65656e3a89f3f05a239b8ad4ce2fb",
+          "pair": "tem_pktm",
+          "sequences": {
+            "tem": [
+              "Distribution"
+            ],
+            "pktm": [
+              "Excrete",
+              "Absorb"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_tem_pktm_74f61acfcfc76d80dc7cdb52f6aac42bbae4b561cc5823716833a757dcab7625",
+          "pair": "tem_pktm",
+          "sequences": {
+            "tem": [
+              "Repair"
+            ],
+            "pktm": [
+              "Metabolize",
+              "Absorb"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        },
+        {
+          "id": "pkg_tem_pktm_e80ce455656a1e7f31417f8713924a5ee6af3f66491674fcd5d827b6a0b12d81",
+          "pair": "tem_pktm",
+          "sequences": {
+            "tem": [
+              "Distribution",
+              "Detox"
+            ],
+            "pktm": [
+              "Dose",
+              "Metabolize"
+            ]
+          },
+          "syntax_ok": true,
+          "llm_ok": true,
+          "both_ok": true
+        }
+      ]
+    }
+  ]
+}

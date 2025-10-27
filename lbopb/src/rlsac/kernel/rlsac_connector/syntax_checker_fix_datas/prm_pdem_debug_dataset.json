@@ -1,0 +1,320 @@
+[
+  {
+    "id": "pkg_prm_pdem_3a7bb7ea3101aca3285bb2ab948152c0bd7c6e51be0586bd0822f710f32c82d4",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_049d3edb7d7679cac71b9ff0036a2234288e0df295821269de9b68c7777388e0",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pdem": [
+        "Antagonist"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_2fec53ece2745894842dce113a0766efd26f3385d12067ecb9f10e079ede133c",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Hormone"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_07bbe84a0104cf9096e3895d5378e73e1ccdf6597e42f3184a5dac9513ba808d",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Potentiation"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_a7765ebd38e810722b4fd138dcd95c10ff79eed23b76dd3175ad6705bffd1a3d",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Bind"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_bb1fce7710391a8d7f6c0beda734cd2e5756964fbb74961a20e4874684ecc814",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pdem": [
+        "Bind",
+        "Signal"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_146f1a7f324c05e192b4b0c93c63bb202e007948a0db83a0144fc79a1c529620",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pdem": [
+        "Signal",
+        "Bind"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_8f1a1086ad0e31a005fd962923e7f2445eb953546f132d07f084103d471d43aa",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "pdem": [
+        "Potentiation",
+        "Desensitization"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_d7e2f8367c03e376edd816dc5cdd3a0d42855523b0a08eff0c5167e8cc5c7462",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pdem": [
+        "Bind",
+        "Antagonist"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_1933eb8763a7baf10203c9bba85e945823cd501edd82037aa19006c52c6e0c21",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Ingest",
+        "Stimulus"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Signal"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

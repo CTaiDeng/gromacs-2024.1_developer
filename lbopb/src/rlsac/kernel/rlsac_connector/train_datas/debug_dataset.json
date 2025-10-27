@@ -1,0 +1,6705 @@
+[
+  {
+    "id": "pkg_pdem_iem_d044e726f795d5a6f631e17124dbc54eedc5b215563dc025185f570d5d32fce8",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "InverseAgonist"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_a0f9f0035cdd553416f2226db7e7074b525aac8191e94562a8d87074d536a079",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Antagonist"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_1b2730114f601bf882067df1bfb91d3a2adb71f48b7ede57001d8b98caf9079b",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Antagonist"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_6261ed1aa41ee4a8d653a7cc8991a868a1f16e2ef21f4034c1956967100809f5",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Bind",
+        "Potentiation"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_864778b3f470d7a844e57739db2682de277e8c0df019a7388c4b8cc3d3571d99",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Potentiation"
+      ],
+      "iem": [
+        "Differentiate",
+        "Memory"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_da1cdfbaa59584bced16d91d966d3731717aec24c89a84b6b024b99fb4e7bc3d",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Antagonist",
+        "Bind"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_11bee0e6a275335f87426b6f6c6d44f91e8c153cebb11bfd5a1dafa4d4499aee",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Potentiation",
+        "Desensitization"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_4d68ca7ae2ab6abac88fd7673522bd549e48db0e775fffb8d29d637ae30b7e20",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Antagonist",
+        "Potentiation"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_fa122ee800f3887696ed3e8eff5333abb2e4d7cb1ee2390360205152cb7bb9b2",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Antagonist",
+        "Desensitization"
+      ],
+      "iem": [
+        "Memory",
+        "Activate"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_144f884ec9fbe5d7ed62888860050205d90af34beae24d94af3afdf2674b4df9",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Signal",
+        "Desensitization"
+      ],
+      "iem": [
+        "Activate",
+        "Memory"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_f893b856281afa31bfbad433f818c55bdb54cd4f106b57bd3ed1dce8a85b8d44",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_096d2855d11ed85e6a4da2ac9cf180254df1be1a9a28302286d1267f0a60efc5",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "iem": [
+        "Differentiate",
+        "Suppress"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_58bfe96ba1939256963303c5ee6f4444f11d8237998f3f0a7d7c808bad992399",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Carcinogenesis"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_fe2da25b5a41dd1397e18fb25eed82a03fced4a66eed22b61ee1b73a5b27c21f",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "iem": [
+        "Differentiate",
+        "CytokineRelease"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_0ee3bed3b326b1a9f785af3c616828b4ac3e6aa23671e5f5687e44ed87a456ec",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_9c2c99875bd76177053940378ebc9bb04e0917ec4379293069539283ef5ca497",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Carcinogenesis"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_55d0d0610c3d5e13f39cfa92904686924a55357d1b53089f90e792e7f68c96f7",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Inflammation"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_47c3c20421ee427ed260be317d28ee5ceb03b0c02e2630135cffa8ea40914efd",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "iem": [
+        "Differentiate",
+        "Activate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_e840c93ef8a7c025ea26b282b942f809ba689b6b9b1ba903f983c21de704dbd1",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Proliferate"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_6bdf2709661a3fc934ecc0953f1a2ff7326108a24550965bc365581688b60a79",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Inflammation"
+      ],
+      "iem": [
+        "Suppress",
+        "Activate"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pdem_611053b9d05d87fa6d5dc977079fdb8a39ff1519fd1ebd1e4b43a00f96299807",
+    "pair": "pem_pdem",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pdem": [
+        "Bind"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pdem_96b1e304fee5de949e706d67b709df37c8a8579226c03398fbfad971641760f6",
+    "pair": "pem_pdem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pdem_77a217314957092177f73acd3f052f81b7464d2a43d82cad130473c67c48614e",
+    "pair": "pem_pdem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pdem_ce6e8396159624e58c998970495053e93870c23c4fd3b2e4a7a780edaa633916",
+    "pair": "pem_pdem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Potentiation"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pdem_88fdb27513777cd7fa6e1d20f06084f9bc6bdec87c555540e65703179f91a951",
+    "pair": "pem_pdem",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pdem_f16efb0268b2b08db9e1f9e23d105a0a63b7fc85ba01a99be38fd72127505f66",
+    "pair": "pem_pdem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Bind"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pdem_468275faaa3b52b758f7688e28c66859ecb225f75f381655ca1f1af7d16d58e4",
+    "pair": "pem_pdem",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "pdem": [
+        "Antagonist"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pdem_cc0b6741978b7daf2a563dfdd2feecd26206c1a3bf42d5e7dfb50e83ffe64369",
+    "pair": "pem_pdem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Metastasis"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Signal"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pdem_2c08dbcc32b798ab03390415242a544ea4729e852a30cc5ca9189b8dbdc2b263",
+    "pair": "pem_pdem",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Inflammation"
+      ],
+      "pdem": [
+        "Bind",
+        "Potentiation"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pdem_010c3e84fbae4ef9c40be71d8731515f473dc91e9b605e2144f3381447259510",
+    "pair": "pem_pdem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Apoptosis"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Bind"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_f15c290035902f55a3443692d07f3b89d1144acd3db8dc20c9823e6cb1f01e8f",
+    "pair": "pem_pgom",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_91c8c94b0d12f40a7384733d493c4406ed6fba468553c382603be54fea1268d2",
+    "pair": "pem_pgom",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_09ea75fd3eb1d459c3084d9628ffcb089f4b1187d79074c4e5c4fa50476b3baa",
+    "pair": "pem_pgom",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_9e4a7605a509ba20928e9fcd478b07baf2d1befd766a564d26da6a2e57ca7940",
+    "pair": "pem_pgom",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_dbfe1d6cb9c98aa10d1290a4abe38aa92d18b12fc0181392eb68f8eb83295cb6",
+    "pair": "pem_pgom",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Inflammation"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_7c7452ed9c3a6fbf2e8498b42353ea1e6cb515b5da3cefdc7025a121fb688cbd",
+    "pair": "pem_pgom",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Apoptosis"
+      ],
+      "pgom": [
+        "Repress"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_bb32d0747d87a509e0ac5688dfe70494faba93bad37aa285025b6c4e53feceac",
+    "pair": "pem_pgom",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "PathwayInduction"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_48ca4499981598ae2792b9a612386d464585f29548cb7c4f2af12802e8f67f6f",
+    "pair": "pem_pgom",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Carcinogenesis"
+      ],
+      "pgom": [
+        "PathwayInhibition"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_72d9cb7941800c9d5b8efb29f3748671512ab7c0e6574a3692c03a2263ab725a",
+    "pair": "pem_pgom",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Carcinogenesis"
+      ],
+      "pgom": [
+        "Activate",
+        "PathwayInhibition"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_3e89a4d3cb42e2d2b7846180ed00d43ce1bd636e799482d11440beab303ab5e9",
+    "pair": "pem_pgom",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Inflammation"
+      ],
+      "pgom": [
+        "Mutation",
+        "EpigeneticMod"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_04d5aedbf92f438922ae5294903712da5bb39976d9f0836b5a37c58728794e79",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pktm": [
+        "Bind"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_2432f74fff5fdf2daa05c02914460e5592374e96c0f2062cc50fbb39c225f17c",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "pktm": [
+        "Absorb"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_e2c832c225bc41f17331183be0e75767cba24c14690ef28beb24d18557f5692b",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pktm": [
+        "Excrete"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_f682922c41d0b7434850e6d51eeaeeffb7be9febe1ed62a6b9ffe89e4bf22f10",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "pktm": [
+        "Bind"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_0cd0764a12fe8fbf4a0d49034197208c195029742995449aaded5f0687a788b5",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Apoptosis"
+      ],
+      "pktm": [
+        "Transport"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_428a13cb2c307b43eb9c1440b6b18bf7fb29b6b1dfe9f5a922a11f61affd3cac",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "pktm": [
+        "Absorb"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_7d55f0a8837b70b53e4580789beb06b30b545db3350616902378b5d16134d706",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "pktm": [
+        "Excrete",
+        "Absorb"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_6a4adfc9da4453979a50eb337c8602d533be37eae7ee38b8715457e8e1f1f0be",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Inflammation"
+      ],
+      "pktm": [
+        "Absorb",
+        "Distribute"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_2dc69fe5bd14a3205c02774abd897539b6a138e788c0313101c26be47c6bfb30",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Metastasis"
+      ],
+      "pktm": [
+        "Transport",
+        "Distribute"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_b3618da893b2756207289a63813834e8ec7374a59c279542a3180b26197a3c92",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Inflammation"
+      ],
+      "pktm": [
+        "Metabolize",
+        "Distribute"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_3d6ca3d2fc70895a3841ccd2d3e93492afc8253e10ba2a4e1ecb2df14fcf67c0",
+    "pair": "pem_prm",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "prm": [
+        "Exercise"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_ab4cf206561db6f3e964a9f59137136831403db662bc9620e31104eb063f8623",
+    "pair": "pem_prm",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "prm": [
+        "Hormone"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_03a9db0cbcc5d7dc8cf22e4df5fc7e63df934ee6d8503d3c7371701cae3610e6",
+    "pair": "pem_prm",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "prm": [
+        "Adaptation"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_6f5ae2aee87f73d862c88dfa769be6c852a566dd78b902bd903098c0df1672de",
+    "pair": "pem_prm",
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Carcinogenesis"
+      ],
+      "prm": [
+        "Proliferation"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_81867aa64ae662e17d25173d3f5b0324fe8d2aa392b647ca0310cc573ec87a32",
+    "pair": "pem_prm",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "prm": [
+        "Ingest"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_5dc4958da2ad82b706af89ade0345a34c21e69991e58e1548152e469666242d0",
+    "pair": "pem_prm",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "prm": [
+        "Hormone"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_702d0b23736c1ce269f8a1202b5dc8bc6a4ba5d5c064ce4fd3dbfc6b107a144a",
+    "pair": "pem_prm",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "prm": [
+        "Proliferation",
+        "Ingest"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_2c6a69e42c298be0d908a80ecee44e4ed9336a8461bf40262e1e1acd4d0f4c2f",
+    "pair": "pem_prm",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "prm": [
+        "Exercise",
+        "Proliferation"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_52b4cd55b3b9b6b3ed92ba3b694490c205797b3b33b0c54963ec27e1c9d6833f",
+    "pair": "pem_prm",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "prm": [
+        "Adaptation",
+        "Proliferation"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_28120d3a7f3a372140cccedd06d8417a7484642a6da5c679b026417c5825d1d1",
+    "pair": "pem_prm",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Inflammation"
+      ],
+      "prm": [
+        "Ingest",
+        "Adaptation"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_212dafad75d70719c1a29d7376aab0c5a4f413d7e93b240597c3391092c3d710",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "tem": [
+        "Repair"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_50bc9bd1d7be80125ce1b315b8653e955764376678d40a20a971720b8e409187",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "tem": [
+        "Distribution"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_9c0348834cdf4780e92af3e3247764ce502d285cd0d302b534fb39333fd3f50a",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "tem": [
+        "Lesion"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_3e89f7af5b9a5ddae2a7b48fb219392e3867fac852f1cd2d5b535ab139f8e361",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "tem": [
+        "Distribution",
+        "Lesion"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_998ed4adf04783f7dcd985196fb05c84b5f571a78ea595cdfa0e616f82d93d6f",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "tem": [
+        "Distribution",
+        "Lesion"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_214b96d2f184abab18103bb2b782e41d0062aae65bfee75f763391457e710376",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "tem": [
+        "Repair",
+        "Lesion"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_48f03c2c2e747a0a73f7953f2a4cb24d2b879b5b829027622d6806f4fb27c28e",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "tem": [
+        "Repair",
+        "Lesion"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_f6eb9a2b2fcb6dda32c89ef732e1398ed8757d5e07d04ad76ebbeaeed7ab95c1",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "tem": [
+        "Repair",
+        "Distribution"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_793bf1bbc271b2729a35f13b8d1f31921a11fdc1f44ff9a1c530b6c3404ae21f",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "tem": [
+        "Lesion",
+        "Repair"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_635f9011cb02ba76b869edbf377ff565569bcbdf01afa6d725a8c8e36acabb1e",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Inflammation"
+      ],
+      "tem": [
+        "Detox",
+        "Distribution"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_iem_4e1becddb1bd6fc3c25cbc6dfe5abd5255ff697a09830f5ed31f462fe62b37ab",
+    "pair": "pgom_iem",
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_iem_65c1cc37487d68f6be39504e561fb4dee8e3a40e6151992fb16f43843faa0b2c",
+    "pair": "pgom_iem",
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_iem_deb46981780f20a8227110f2c0b89a1133fa69119a2540af8d7cfd587212fffe",
+    "pair": "pgom_iem",
+    "sequences": {
+      "pgom": [
+        "PathwayInhibition"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_iem_581e182bf49e3a837c99a7ed5dd9e831b1da8926b4c107b42eb201120f17d2ae",
+    "pair": "pgom_iem",
+    "sequences": {
+      "pgom": [
+        "PathwayInduction"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_iem_575cba1e2402c196d4df9212aca9fb42759cb4d7dc9e9a8701a82c61c702ab1b",
+    "pair": "pgom_iem",
+    "sequences": {
+      "pgom": [
+        "Repress",
+        "Mutation"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_iem_cd883b88d4b41c01e13bf5f3ae736ac37d715794e9cc8a1f0012cc624b6900e1",
+    "pair": "pgom_iem",
+    "sequences": {
+      "pgom": [
+        "RepairGenome"
+      ],
+      "iem": [
+        "Differentiate",
+        "Activate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_iem_25f591ef9ef343ec9db8bfb0d53f54b7c329600d51733c30eee46d71287a5aaa",
+    "pair": "pgom_iem",
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod",
+        "PathwayInduction"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Suppress"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_iem_a700c092af9f43b94e40bb1c98022426fc1711ec3524635ee07ce4079dd1bb41",
+    "pair": "pgom_iem",
+    "sequences": {
+      "pgom": [
+        "PathwayInhibition",
+        "PathwayInduction"
+      ],
+      "iem": [
+        "Proliferate",
+        "Memory"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_iem_92c39723844b053ef3b035cf9afc0cfcd687ef14028ffb844e8d06b671db9207",
+    "pair": "pgom_iem",
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod",
+        "RepairGenome"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Activate"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_iem_7afb31f511c0355890d5c2b2365685ed1ae47812a5176b6c9994feb1653cc21e",
+    "pair": "pgom_iem",
+    "sequences": {
+      "pgom": [
+        "Repress",
+        "PathwayInhibition"
+      ],
+      "iem": [
+        "Activate",
+        "CytokineRelease"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_f74043fb056218e3c5be7a6361c2208683889066fa0fd2a179a9696d6a6009b6",
+    "pair": "pgom_pdem",
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod"
+      ],
+      "pdem": [
+        "Signal"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_57df5791451c2261b058b6bdaf20cd67e62ef5bfd49f1877f4a2cc0905e9ea2f",
+    "pair": "pgom_pdem",
+    "sequences": {
+      "pgom": [
+        "RepairGenome"
+      ],
+      "pdem": [
+        "Potentiation"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_2ed1b4ea928450db9fdd2c835770c19a44d90c8957d57a0ab7763122185e4295",
+    "pair": "pgom_pdem",
+    "sequences": {
+      "pgom": [
+        "Activate"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_2d8e949343bbc24aad5dced04f56a63ef7a8c91692ef7aae715e3cb29b93eeb6",
+    "pair": "pgom_pdem",
+    "sequences": {
+      "pgom": [
+        "PathwayInhibition",
+        "Repress"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_41e28496f68f4c2af5cb34bb500610f3fdb58707d24150d1b7ec8e5d2e07af09",
+    "pair": "pgom_pdem",
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod",
+        "Mutation"
+      ],
+      "pdem": [
+        "Signal"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_2e37835c0fa20f24fa9f9e64aca4b6494aa57cff877ff4eb90f3411847a25f74",
+    "pair": "pgom_pdem",
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Signal"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_c22e71602c8cb0e2b3b1f7ce64d7c8a7d6dfff285c5a1e217e97b4434d2a95a7",
+    "pair": "pgom_pdem",
+    "sequences": {
+      "pgom": [
+        "PathwayInhibition"
+      ],
+      "pdem": [
+        "Bind",
+        "InverseAgonist"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_08e668e4d6170eb0783ae67adebbf83971660a8f5a1fe863325cde7a7ef97fc5",
+    "pair": "pgom_pdem",
+    "sequences": {
+      "pgom": [
+        "RepairGenome",
+        "Repress"
+      ],
+      "pdem": [
+        "Potentiation"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_975a1dd1686a4a7a3d3194e131e70a8d0771ae92b28e1886a428a26ade897627",
+    "pair": "pgom_pdem",
+    "sequences": {
+      "pgom": [
+        "RepairGenome",
+        "PathwayInduction"
+      ],
+      "pdem": [
+        "Potentiation"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_b410989c2152c50a45c2462bc4a8cbc43311c09698f4f449fd7f526374926cb5",
+    "pair": "pgom_pdem",
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod",
+        "PathwayInhibition"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Bind"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_d248e875d7783990c77b34c5ba91ec1f69cff8b799edc9f14e29e681e9d2318f",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Absorb"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_26d60c2f4f4034f5ef7bfc03f7aa2051a4be68851b600a866411c9c8d5e01f78",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Absorb"
+      ],
+      "iem": [
+        "CytokineRelease"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_d248e875d7783990c77b34c5ba91ec1f69cff8b799edc9f14e29e681e9d2318f",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Absorb"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_6c6ca512c75c441d3b55cc3f328ef5e0bda0382ee888c22c096ae282f44b6e22",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Absorb",
+        "Distribute"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_0667d81c4c468525372e065bd25cc084cff8cd7c2c4ad12bd8acda6843617516",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Absorb",
+        "Dose"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_94470485662b2bd843bc9ab2293df52eb0248daeeba960e6bdd3c0c34135d0b9",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Absorb",
+        "Transport"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_75c56cee493af667b5534f1758da2c9e31bd0ba512e8a4616e082257bc03868d",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Bind",
+        "Absorb"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_2fa73e36576580293d11385604666b28aab07eb417aa3066a87139d490a543fd",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Dose",
+        "Excrete"
+      ],
+      "iem": [
+        "Memory",
+        "CytokineRelease"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_724cce73210d8896413822a6dc9762c65b2e6f7a6bca85d16ad669432ba7d5e1",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Transport",
+        "Dose"
+      ],
+      "iem": [
+        "Memory",
+        "CytokineRelease"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_120bd1ffad3c945347b97ad5d9f61d96f459fa26141481ad90db7f5fd4c029de",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Excrete",
+        "Bind"
+      ],
+      "iem": [
+        "Proliferate",
+        "Suppress"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_e96d1f103c84a139444039da786ea73b7855e9d51709f1f217617c58e73d925d",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Absorb"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_d5b1ec1fdd5da348d497a35c56ed1d6cef7ad05bbcf6fce9e4b928ad019472d4",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Bind"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_2ade76b1c2523bc16edfb2b03ddc4281f81a669b7c5c33fb7d3d078926e11a4b",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Excrete"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Antagonist"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_4580552f52101261bf65c04bf1141fe3e54eb4210072f008bf2bb2f3310d5a3c",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Bind"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Desensitization"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_24eaa7792ba7ce734bd89076bfda43df4defb0f552f82f791eae62718cc3d801",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Dose"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Signal"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_db6185a6f1aa8ed4f7514b1b0a4d8aa333a4960b6a148d396bdccee1fa630e35",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Distribute",
+        "Metabolize"
+      ],
+      "pdem": [
+        "Signal"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_d66c2e7ee500056cf6714094cc5792fbc793f38f52f22ce3daa1e758fea44ba8",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Dose"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Signal"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_b82866bfc3245e5c2b1fea7a482694f6b9d16e2fb83e1b2b7f2dc32ed893de47",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Distribute",
+        "Excrete"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_c729b2b437702db864174dc304bb3d50f0fa47ff4adb724f66fd2a85c0ffa7b1",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Absorb",
+        "Transport"
+      ],
+      "pdem": [
+        "Potentiation"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_cfaa049fa01b9e4b11defd44e98e36525ac7da071bfc9a18989a7d48ed1691ce",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Excrete",
+        "Bind"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Desensitization"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_d3dd7f7318b55d78b4ecd6e493e6e242f08bfdd672ef823abb3bf905cd196431",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Absorb"
+      ],
+      "pgom": [
+        "PathwayInhibition"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_9663e801e427fd9c06f3adf6471bce6937a8886d091a270ba642482a1533faa3",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Dose"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_605917be58bfbdad2f0dc03443699efa85a3f28888af106fdb3c653fcebc9f94",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Distribute"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_1d3a20118a6c07e7fc1239f027194709429b34152ff10555cc90832d44e47561",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Dose"
+      ],
+      "pgom": [
+        "Repress"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_14d6e4c0c0ed238b5757ddde5fa49d0df07de0e813cbee8f9d52655170794792",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Bind"
+      ],
+      "pgom": [
+        "RepairGenome",
+        "Activate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_5c97af638ee2573dc0d568f6d97578f4aecf34ce840172d9653b7381e1849b9e",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Absorb",
+        "Bind"
+      ],
+      "pgom": [
+        "PathwayInhibition"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_df1fd5aeccbe980e7a98f458998e806621fd2100852ced14ca79b9f272a540aa",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Transport",
+        "Distribute"
+      ],
+      "pgom": [
+        "EpigeneticMod"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_6a93bc8acaf080ec33ba7bc03f1f19abe60d6f19596c299a7275937c4eb694fc",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Distribute"
+      ],
+      "pgom": [
+        "Repress",
+        "Activate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_33c31c2a25d8ee0b3f7ee96c31ee5265fdd37dc2ccef531ce0a7c0b4040454e9",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Absorb",
+        "Dose"
+      ],
+      "pgom": [
+        "Mutation",
+        "PathwayInduction"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_a532ee8fd30fd82daa22547df9b2d5e36230246166b6fd51c65c25580b2f0633",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Bind",
+        "Transport"
+      ],
+      "pgom": [
+        "Activate",
+        "EpigeneticMod"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_7ca4fe32b060a2f48e3f49b3fe154fbc01f57a454591c141e34c04f08216f8af",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_be8489f6b832e709dd70bb7858fc138b82e1b97843668cbab21f2be39132ba14",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_9143426c9c3e93a4938c66a623dfb3811828949bbd8e72a41d64fb6831644d70",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Ingest"
+      ],
+      "iem": [
+        "CytokineRelease"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_855561c615d96f4200ec9532fc0b89fb6fe086542941e8ce91db0397549c0d5f",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Hormone"
+      ],
+      "iem": [
+        "CytokineRelease"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_5a3662fcdd0948c255cfc0444d0716a86535270378818bbf294e481e77679164",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Hormone"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_9461dd574746123a317426f4860acfa89c0077299f31d1d68ec42de103936a12",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Activate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_9aa8beac7df9a818a1b2ff787fd7c590a11f11f5a05d9a55aa48ad013fee5eb3",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Adaptation"
+      ],
+      "iem": [
+        "CytokineRelease"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_fdcee26b3ded37dadb4fc10e207e12a6b8f5c80ff4daac792a3a6fd454971c06",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Ingest"
+      ],
+      "iem": [
+        "CytokineRelease"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_80b634a4abbae8fdb06b0d7c5ba9276b58f8e65d0abc80cb6b8ae22acfb07592",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Hormone"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Memory"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_4ff6a8c2ae8465c1a86bb2e9f05edf3972bf4203c36ca345be14a5c72c0baa9c",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Exercise",
+        "Hormone"
+      ],
+      "iem": [
+        "Differentiate",
+        "CytokineRelease"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_3a7bb7ea3101aca3285bb2ab948152c0bd7c6e51be0586bd0822f710f32c82d4",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_049d3edb7d7679cac71b9ff0036a2234288e0df295821269de9b68c7777388e0",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pdem": [
+        "Antagonist"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_2fec53ece2745894842dce113a0766efd26f3385d12067ecb9f10e079ede133c",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Hormone"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_07bbe84a0104cf9096e3895d5378e73e1ccdf6597e42f3184a5dac9513ba808d",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Potentiation"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_a7765ebd38e810722b4fd138dcd95c10ff79eed23b76dd3175ad6705bffd1a3d",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Bind"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_bb1fce7710391a8d7f6c0beda734cd2e5756964fbb74961a20e4874684ecc814",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pdem": [
+        "Bind",
+        "Signal"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_146f1a7f324c05e192b4b0c93c63bb202e007948a0db83a0144fc79a1c529620",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pdem": [
+        "Signal",
+        "Bind"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_8f1a1086ad0e31a005fd962923e7f2445eb953546f132d07f084103d471d43aa",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "pdem": [
+        "Potentiation",
+        "Desensitization"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_d7e2f8367c03e376edd816dc5cdd3a0d42855523b0a08eff0c5167e8cc5c7462",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pdem": [
+        "Bind",
+        "Antagonist"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_1933eb8763a7baf10203c9bba85e945823cd501edd82037aa19006c52c6e0c21",
+    "pair": "prm_pdem",
+    "sequences": {
+      "prm": [
+        "Ingest",
+        "Stimulus"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Signal"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_2aec16250957659d3cf1660a11a3831f40b5a0628e7ca1f4895e1b57e66bcb27",
+    "pair": "prm_pgom",
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_b118c9cb8a64485b46685522b0319e266ca2299d263d76cd56721c45b4eb7c25",
+    "pair": "prm_pgom",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_4506ba619105285946acc0996f58c89587e94f23ccb535de024e41d6b933dae8",
+    "pair": "prm_pgom",
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Hormone"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_b043ae005a229815476894546ea581ba39b1c3cb9f5a5c215011d2170dcf1429",
+    "pair": "prm_pgom",
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Hormone"
+      ],
+      "pgom": [
+        "PathwayInhibition"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_1c613b370ad60f9020ef9fb562ef1dbc78a6f3e48fc2f10df7d81de43c0785a0",
+    "pair": "prm_pgom",
+    "sequences": {
+      "prm": [
+        "Exercise",
+        "Stimulus"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_a91e05a34e2c2048b67b0e372aef3e3a83fb6ec302f374bb418571a1bb565d3e",
+    "pair": "prm_pgom",
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "pgom": [
+        "Mutation",
+        "EpigeneticMod"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_791feefea6098d0d3a31543fbd987e094f45d16e0a4fb4383f62be79a427874f",
+    "pair": "prm_pgom",
+    "sequences": {
+      "prm": [
+        "Ingest"
+      ],
+      "pgom": [
+        "RepairGenome",
+        "Repress"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_9de3da872caa77174dad48ef3b444a18601357e4894c0f0479d6aeb62423bc80",
+    "pair": "prm_pgom",
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Proliferation"
+      ],
+      "pgom": [
+        "Repress",
+        "RepairGenome"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_7e21cde8e83f5fae41aad40cb1db927bf386165f5ad44299284c66ce8f1064a0",
+    "pair": "prm_pgom",
+    "sequences": {
+      "prm": [
+        "Exercise",
+        "Ingest"
+      ],
+      "pgom": [
+        "Mutation",
+        "EpigeneticMod"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_778df874804b5bdb9c293c3da1a92ae0bc7d5dfe1958d326367d61457dcf9155",
+    "pair": "prm_pgom",
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Exercise"
+      ],
+      "pgom": [
+        "Mutation",
+        "Repress"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_1de2c8921e59c9a7a2d8c4f825eb02ddaa6029c6b8a54ebdc11fb0a1ccf6c1a9",
+    "pair": "prm_pktm",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pktm": [
+        "Excrete"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_50fd6c5311116d671433e99b4003daa3320437ce3c4c4006e7ab08edebf7a604",
+    "pair": "prm_pktm",
+    "sequences": {
+      "prm": [
+        "Hormone"
+      ],
+      "pktm": [
+        "Excrete"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_111c216e7ec61d6d9ea3d9dec1e857b87318e1781e7a6d2b4c285e7509168cc9",
+    "pair": "prm_pktm",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pktm": [
+        "Excrete",
+        "Bind"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_f0a6cb269819aca3ec4c0135ad86ace36f421678b856ef61188de1fe85d4308d",
+    "pair": "prm_pktm",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pktm": [
+        "Transport",
+        "Distribute"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_dcdf4dfccfa999431dd7a06de4a9fd645d4f9ad673bd126c0af5218fddbe07e4",
+    "pair": "prm_pktm",
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Proliferation"
+      ],
+      "pktm": [
+        "Bind"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_50a76ae46c1e14842660cc6e3ed5cd7815d72845dd6ecfa95a0c430750e350e1",
+    "pair": "prm_pktm",
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Ingest"
+      ],
+      "pktm": [
+        "Metabolize"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_c161f0cbf7af3f7eaa58a18926669d7dad1ca61df2b74defca62f9d6d14a32ed",
+    "pair": "prm_pktm",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pktm": [
+        "Absorb",
+        "Distribute"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_815eab7c5536f78bca44a761430843b6dbcde73d1382f7fe45ff075fc0b97018",
+    "pair": "prm_pktm",
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Adaptation"
+      ],
+      "pktm": [
+        "Dose"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_61383a36e9c089cdfc03ad19a35939a5ca28e5779d8f84ce705e6584c245d421",
+    "pair": "prm_pktm",
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Stimulus"
+      ],
+      "pktm": [
+        "Absorb",
+        "Transport"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_04a39e5ae9e9b9ddfba26d3e15be31b6259bafd004a0e642155816cdce092200",
+    "pair": "prm_pktm",
+    "sequences": {
+      "prm": [
+        "Ingest",
+        "Hormone"
+      ],
+      "pktm": [
+        "Metabolize",
+        "Distribute"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_32e225a1f10d9cb7443ada62c9deddad6f8c40584cf34451d655e80f00441751",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Exercise"
+      ],
+      "tem": [
+        "Distribution"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_67d7dee20007c6e7d7736bfbaabba8bd65a223c568d931d73bb965bc67cf6317",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Exercise"
+      ],
+      "tem": [
+        "Lesion"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_12e055a8788fd003586b3a5b74628b1e3ff0540ac7e218744331ec6f7c66adbd",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "tem": [
+        "Repair"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_3b86bb60bb16f1a113af96153a9c157cc92e7298f60e3f2ef52b8c786149b479",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "tem": [
+        "Detox"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_67d7dee20007c6e7d7736bfbaabba8bd65a223c568d931d73bb965bc67cf6317",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Exercise"
+      ],
+      "tem": [
+        "Lesion"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_0ee94de70164cbcc040e8e34198bd9420b0c0ef9a6f91916ed32bb2299c99a5f",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Ingest",
+        "Hormone"
+      ],
+      "tem": [
+        "Repair"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_2cde982052a84bc1da697a6375c63e99862a37418bd708917c7d668f3fdaad93",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "tem": [
+        "Detox",
+        "Repair"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_4b23e230c93715a00833028b7e597cb323212e16e24fad38dc6a619971c41a8d",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Ingest"
+      ],
+      "tem": [
+        "Detox",
+        "Lesion"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_e8aed9d64b1752f4b93f89df5145a434fde7c8bc1db3ab6eab22b347b525ba7c",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Hormone"
+      ],
+      "tem": [
+        "Distribution",
+        "Detox"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_df506d221dcfa13c4e0e6cc64640692524f685990d59fbe37e35bfd90bfe8253",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Hormone",
+        "Ingest"
+      ],
+      "tem": [
+        "Lesion",
+        "Detox"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_a29b71dc2e177cd545d21df3816c19243a9ec202fed33968d0e8fb6a851cd377",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_1fae23479608d8ce1dcd53b11898542a9cda9eb63d34fcf61d896732135bacfa",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_3bfeaafbc5c2ad12c2742b3c57d26db964fd23665f10c60c7053ca70b196f384",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "iem": [
+        "CytokineRelease"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_bd83c5dcdd32a522bfe5e4550f7559028a7a8aa39e68fe76c17ed3a51ba358c8",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "iem": [
+        "Suppress",
+        "Differentiate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_0ce77d25a00c4a6784ba5d3cb30ee11bb2a752cec212165223a09252774dd56c",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "iem": [
+        "Differentiate",
+        "Activate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_58fbc1d842db49972c22ee217db0ae9999da02741558df5e66d0213ee8f6b3f3",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Differentiate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_ea4cf8835edf28f67b7c1b854b780f528c6ce0e4abc92c52ff2f0f54d30d1930",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Distribution"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_4f1ca6bdaf9bdc08e2b65eb2de8aa9659cce01e38f3aa2319b91cd3ee51c1074",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Distribution",
+        "Repair"
+      ],
+      "iem": [
+        "Proliferate",
+        "Differentiate"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_482db445b86b9975eeb665f09bb33f238fe255a3bf2771f9349865f2c9b0ec51",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Distribution",
+        "Lesion"
+      ],
+      "iem": [
+        "Activate",
+        "Differentiate"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_95d714f357292bcc70e5d0604c942c1dfebc174a5befbfd15f968f42559c2121",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Repair"
+      ],
+      "iem": [
+        "Memory",
+        "Differentiate"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_798e184b4d179f701a0a3795317fa78dd7429eb4de1b39f49c932e33d45110d7",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_6bc2007e61a702f187e0501f79ad7caec4730b0acdff88301d9cdf7b24f955b7",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Lesion"
+      ],
+      "pdem": [
+        "Bind"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_e0590f871bee3b94215984a526c74f04dc6d813f669aa7dd81c3680a189b9d62",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Lesion"
+      ],
+      "pdem": [
+        "Antagonist"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_f99ef835c13c31bd946c24da5bd653ab8f183af849b2263c4999d9a1eefab393",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Lesion"
+      ],
+      "pdem": [
+        "Signal"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_45911230d82b3282370bd3833ed2f6af5b8af329ced1a3ed056c322155dc294e",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "pdem": [
+        "Signal",
+        "Antagonist"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_de84c216d94f17661e9d67d9502e3efa5a0a47e150e937f256c5841f3e1379d6",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Repair"
+      ],
+      "pdem": [
+        "Signal"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_e10ce9d55c6262c3bdb7db38e0620c531f98996f2e35dbe07692e12bfb07426c",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Distribution"
+      ],
+      "pdem": [
+        "Signal"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_1d7318586027491dea8cf358513985040e2ef104f2d5cdd360aba5c406b4d0f1",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Repair"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Desensitization"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_7ffefc2733629a73e137281c8f1cf4420718d783193a847398ed819f7ea51bba",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Distribution",
+        "Detox"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Signal"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_3991ded15bd1d55ea869887b80c01349e19f27b9dcbe5e2111f0994b78e71817",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Lesion"
+      ],
+      "pdem": [
+        "Potentiation",
+        "Signal"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_cc0056e297209814715f28bf80224680dbdbb46fa7c13455c147dd8723e3b857",
+    "pair": "tem_pgom",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_3c21a68531e03a23e65bca0869a93fb8a20abed5a4c3f4c3d3205bcad2955200",
+    "pair": "tem_pgom",
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_5a02aecebd8d773dae1773e9793408272214cbae4430d3a7759d7486018b53a5",
+    "pair": "tem_pgom",
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Lesion"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_8972eb836273b7b3a78df5a8c2c47c93f075f87280e1226b1fc24fb12d5b8cc6",
+    "pair": "tem_pgom",
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Detox"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_41c548dd7704ca9e2793d1a118fca04a37b25f6332aed741a06769e9d87b9373",
+    "pair": "tem_pgom",
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pgom": [
+        "EpigeneticMod",
+        "Activate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_39aeec2869c9e401988e43c467691dd16494c15ff1571accdf84baeae200f900",
+    "pair": "tem_pgom",
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "pgom": [
+        "RepairGenome",
+        "PathwayInduction"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_82054a724236ca0eb47773da938b898c6107ce3a1d2b563ae91675eb6f484f51",
+    "pair": "tem_pgom",
+    "sequences": {
+      "tem": [
+        "Distribution",
+        "Repair"
+      ],
+      "pgom": [
+        "Repress"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_1c9983f595adc8787d625a4cffe4997b8482b1bfff6cd2a24bfd755594ed16d3",
+    "pair": "tem_pgom",
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "pgom": [
+        "EpigeneticMod",
+        "PathwayInduction"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_c6c9878be7b92e497c8e1e24157bf74062cbaee24a603f407a6ecf9617ee3085",
+    "pair": "tem_pgom",
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Lesion"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "Repress"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_808de5c14afe53774c09dac0fc6c5d6ed442172340a0e928963d32877a62968b",
+    "pair": "tem_pgom",
+    "sequences": {
+      "tem": [
+        "Distribution",
+        "Repair"
+      ],
+      "pgom": [
+        "Mutation",
+        "Activate"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_4b06adc70b7aba27fb4996fe990373a715e304efe0d55dc6a9abbd96ecd7c01b",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pktm": [
+        "Transport"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_3e52fca520bfd852a7466b330390c0d75fa124b73aed5ac770aa5fb4bfb2b624",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "pktm": [
+        "Dose"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_3e52fca520bfd852a7466b330390c0d75fa124b73aed5ac770aa5fb4bfb2b624",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "pktm": [
+        "Dose"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_b15e3ce7b214b861e7771cd440ec2758b340f0c5ee16c0579b9e39c92e342a81",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "pktm": [
+        "Absorb"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_027a575c4705615afed1d9f25676dbf87fa65656e3a89f3f05a239b8ad4ce2fb",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pktm": [
+        "Excrete",
+        "Absorb"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_74f61acfcfc76d80dc7cdb52f6aac42bbae4b561cc5823716833a757dcab7625",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "pktm": [
+        "Metabolize",
+        "Absorb"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_59c3541e560e9c0d7c038fd2b662155d415dd931c5fc4ee2d7368e2fbb6ec951",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Distribution"
+      ],
+      "pktm": [
+        "Metabolize"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_c96e0961f1586fecdb92f7c446fa57c0e1a99022a3b842f60dcdd0558d250567",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "pktm": [
+        "Metabolize",
+        "Distribute"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_e80ce455656a1e7f31417f8713924a5ee6af3f66491674fcd5d827b6a0b12d81",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Distribution",
+        "Detox"
+      ],
+      "pktm": [
+        "Dose",
+        "Metabolize"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_e1307e0ba7c438cfdd25e36fbc857f47568cf332266c9d0252bccdf7d9189589",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Lesion",
+        "Distribution"
+      ],
+      "pktm": [
+        "Distribute",
+        "Excrete"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

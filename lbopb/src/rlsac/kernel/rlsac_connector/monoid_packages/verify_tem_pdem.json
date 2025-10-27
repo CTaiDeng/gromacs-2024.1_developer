@@ -1,0 +1,60 @@
+{
+  "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/tem_pdem_operator_packages.json",
+  "pair": "tem_pdem",
+  "count": 10,
+  "checked": 3,
+  "ok_both": 3,
+  "ok_syntax": 3,
+  "ok_llm": 3,
+  "items": [
+    {
+      "id": "pkg_tem_pdem_6bc2007e61a702f187e0501f79ad7caec4730b0acdff88301d9cdf7b24f955b7",
+      "pair": "tem_pdem",
+      "sequences": {
+        "tem": [
+          "Repair",
+          "Lesion"
+        ],
+        "pdem": [
+          "Bind"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_tem_pdem_1d7318586027491dea8cf358513985040e2ef104f2d5cdd360aba5c406b4d0f1",
+      "pair": "tem_pdem",
+      "sequences": {
+        "tem": [
+          "Detox",
+          "Repair"
+        ],
+        "pdem": [
+          "Antagonist",
+          "Desensitization"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_tem_pdem_e0590f871bee3b94215984a526c74f04dc6d813f669aa7dd81c3680a189b9d62",
+      "pair": "tem_pdem",
+      "sequences": {
+        "tem": [
+          "Repair",
+          "Lesion"
+        ],
+        "pdem": [
+          "Antagonist"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    }
+  ]
+}

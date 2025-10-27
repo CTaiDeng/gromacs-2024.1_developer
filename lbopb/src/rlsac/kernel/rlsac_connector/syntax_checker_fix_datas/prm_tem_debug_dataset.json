@@ -1,0 +1,319 @@
+[
+  {
+    "id": "pkg_prm_tem_32e225a1f10d9cb7443ada62c9deddad6f8c40584cf34451d655e80f00441751",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Exercise"
+      ],
+      "tem": [
+        "Distribution"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_67d7dee20007c6e7d7736bfbaabba8bd65a223c568d931d73bb965bc67cf6317",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Exercise"
+      ],
+      "tem": [
+        "Lesion"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_12e055a8788fd003586b3a5b74628b1e3ff0540ac7e218744331ec6f7c66adbd",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "tem": [
+        "Repair"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_3b86bb60bb16f1a113af96153a9c157cc92e7298f60e3f2ef52b8c786149b479",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "tem": [
+        "Detox"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_67d7dee20007c6e7d7736bfbaabba8bd65a223c568d931d73bb965bc67cf6317",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Exercise"
+      ],
+      "tem": [
+        "Lesion"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_0ee94de70164cbcc040e8e34198bd9420b0c0ef9a6f91916ed32bb2299c99a5f",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Ingest",
+        "Hormone"
+      ],
+      "tem": [
+        "Repair"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_2cde982052a84bc1da697a6375c63e99862a37418bd708917c7d668f3fdaad93",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "tem": [
+        "Detox",
+        "Repair"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_4b23e230c93715a00833028b7e597cb323212e16e24fad38dc6a619971c41a8d",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Ingest"
+      ],
+      "tem": [
+        "Detox",
+        "Lesion"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_e8aed9d64b1752f4b93f89df5145a434fde7c8bc1db3ab6eab22b347b525ba7c",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Hormone"
+      ],
+      "tem": [
+        "Distribution",
+        "Detox"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_df506d221dcfa13c4e0e6cc64640692524f685990d59fbe37e35bfd90bfe8253",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Hormone",
+        "Ingest"
+      ],
+      "tem": [
+        "Lesion",
+        "Detox"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

@@ -1,0 +1,320 @@
+[
+  {
+    "id": "pkg_tem_pktm_4b06adc70b7aba27fb4996fe990373a715e304efe0d55dc6a9abbd96ecd7c01b",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pktm": [
+        "Transport"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_3e52fca520bfd852a7466b330390c0d75fa124b73aed5ac770aa5fb4bfb2b624",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "pktm": [
+        "Dose"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_3e52fca520bfd852a7466b330390c0d75fa124b73aed5ac770aa5fb4bfb2b624",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "pktm": [
+        "Dose"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_b15e3ce7b214b861e7771cd440ec2758b340f0c5ee16c0579b9e39c92e342a81",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "pktm": [
+        "Absorb"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_027a575c4705615afed1d9f25676dbf87fa65656e3a89f3f05a239b8ad4ce2fb",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pktm": [
+        "Excrete",
+        "Absorb"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_74f61acfcfc76d80dc7cdb52f6aac42bbae4b561cc5823716833a757dcab7625",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "pktm": [
+        "Metabolize",
+        "Absorb"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_59c3541e560e9c0d7c038fd2b662155d415dd931c5fc4ee2d7368e2fbb6ec951",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Distribution"
+      ],
+      "pktm": [
+        "Metabolize"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_c96e0961f1586fecdb92f7c446fa57c0e1a99022a3b842f60dcdd0558d250567",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "pktm": [
+        "Metabolize",
+        "Distribute"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_e80ce455656a1e7f31417f8713924a5ee6af3f66491674fcd5d827b6a0b12d81",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Distribution",
+        "Detox"
+      ],
+      "pktm": [
+        "Dose",
+        "Metabolize"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pktm_e1307e0ba7c438cfdd25e36fbc857f47568cf332266c9d0252bccdf7d9189589",
+    "pair": "tem_pktm",
+    "sequences": {
+      "tem": [
+        "Lesion",
+        "Distribution"
+      ],
+      "pktm": [
+        "Distribute",
+        "Excrete"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

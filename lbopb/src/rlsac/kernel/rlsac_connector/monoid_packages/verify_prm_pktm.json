@@ -1,0 +1,59 @@
+{
+  "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/prm_pktm_operator_packages.json",
+  "pair": "prm_pktm",
+  "count": 10,
+  "checked": 3,
+  "ok_both": 3,
+  "ok_syntax": 3,
+  "ok_llm": 3,
+  "items": [
+    {
+      "id": "pkg_prm_pktm_1de2c8921e59c9a7a2d8c4f825eb02ddaa6029c6b8a54ebdc11fb0a1ccf6c1a9",
+      "pair": "prm_pktm",
+      "sequences": {
+        "prm": [
+          "Adaptation"
+        ],
+        "pktm": [
+          "Excrete"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_prm_pktm_111c216e7ec61d6d9ea3d9dec1e857b87318e1781e7a6d2b4c285e7509168cc9",
+      "pair": "prm_pktm",
+      "sequences": {
+        "prm": [
+          "Adaptation"
+        ],
+        "pktm": [
+          "Excrete",
+          "Bind"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_prm_pktm_61383a36e9c089cdfc03ad19a35939a5ca28e5779d8f84ce705e6584c245d421",
+      "pair": "prm_pktm",
+      "sequences": {
+        "prm": [
+          "Adaptation",
+          "Stimulus"
+        ],
+        "pktm": [
+          "Absorb",
+          "Transport"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    }
+  ]
+}

@@ -1,0 +1,332 @@
+[
+  {
+    "id": "pkg_prm_pktm_1de2c8921e59c9a7a2d8c4f825eb02ddaa6029c6b8a54ebdc11fb0a1ccf6c1a9",
+    "pair": {
+      "a": "prm",
+      "b": "pktm"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pktm": [
+        "Excrete"
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_111c216e7ec61d6d9ea3d9dec1e857b87318e1781e7a6d2b4c285e7509168cc9",
+    "pair": {
+      "a": "prm",
+      "b": "pktm"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pktm": [
+        "Excrete",
+        "Bind"
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_61383a36e9c089cdfc03ad19a35939a5ca28e5779d8f84ce705e6584c245d421",
+    "pair": {
+      "a": "prm",
+      "b": "pktm"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Stimulus"
+      ],
+      "pktm": [
+        "Absorb",
+        "Transport"
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_f0a6cb269819aca3ec4c0135ad86ace36f421678b856ef61188de1fe85d4308d",
+    "pair": {
+      "a": "prm",
+      "b": "pktm"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pktm": [
+        "Transport",
+        "Distribute"
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_dcdf4dfccfa999431dd7a06de4a9fd645d4f9ad673bd126c0af5218fddbe07e4",
+    "pair": {
+      "a": "prm",
+      "b": "pktm"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Proliferation"
+      ],
+      "pktm": [
+        "Bind"
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_50a76ae46c1e14842660cc6e3ed5cd7815d72845dd6ecfa95a0c430750e350e1",
+    "pair": {
+      "a": "prm",
+      "b": "pktm"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Ingest"
+      ],
+      "pktm": [
+        "Metabolize"
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_50fd6c5311116d671433e99b4003daa3320437ce3c4c4006e7ab08edebf7a604",
+    "pair": {
+      "a": "prm",
+      "b": "pktm"
+    },
+    "sequences": {
+      "prm": [
+        "Hormone"
+      ],
+      "pktm": [
+        "Excrete"
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_c161f0cbf7af3f7eaa58a18926669d7dad1ca61df2b74defca62f9d6d14a32ed",
+    "pair": {
+      "a": "prm",
+      "b": "pktm"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pktm": [
+        "Absorb",
+        "Distribute"
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_815eab7c5536f78bca44a761430843b6dbcde73d1382f7fe45ff075fc0b97018",
+    "pair": {
+      "a": "prm",
+      "b": "pktm"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Adaptation"
+      ],
+      "pktm": [
+        "Dose"
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pktm_04a39e5ae9e9b9ddfba26d3e15be31b6259bafd004a0e642155816cdce092200",
+    "pair": {
+      "a": "prm",
+      "b": "pktm"
+    },
+    "sequences": {
+      "prm": [
+        "Ingest",
+        "Hormone"
+      ],
+      "pktm": [
+        "Metabolize",
+        "Distribute"
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

@@ -1,0 +1,322 @@
+[
+  {
+    "id": "pkg_tem_iem_a29b71dc2e177cd545d21df3816c19243a9ec202fed33968d0e8fb6a851cd377",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_1fae23479608d8ce1dcd53b11898542a9cda9eb63d34fcf61d896732135bacfa",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_3bfeaafbc5c2ad12c2742b3c57d26db964fd23665f10c60c7053ca70b196f384",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "iem": [
+        "CytokineRelease"
+      ]
+    },
+    "length": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_bd83c5dcdd32a522bfe5e4550f7559028a7a8aa39e68fe76c17ed3a51ba358c8",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "iem": [
+        "Suppress",
+        "Differentiate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_0ce77d25a00c4a6784ba5d3cb30ee11bb2a752cec212165223a09252774dd56c",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "iem": [
+        "Differentiate",
+        "Activate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_58fbc1d842db49972c22ee217db0ae9999da02741558df5e66d0213ee8f6b3f3",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Differentiate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_ea4cf8835edf28f67b7c1b854b780f528c6ce0e4abc92c52ff2f0f54d30d1930",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Distribution"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "length": 3,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_4f1ca6bdaf9bdc08e2b65eb2de8aa9659cce01e38f3aa2319b91cd3ee51c1074",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Distribution",
+        "Repair"
+      ],
+      "iem": [
+        "Proliferate",
+        "Differentiate"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_482db445b86b9975eeb665f09bb33f238fe255a3bf2771f9349865f2c9b0ec51",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Distribution",
+        "Lesion"
+      ],
+      "iem": [
+        "Activate",
+        "Differentiate"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_95d714f357292bcc70e5d0604c942c1dfebc174a5befbfd15f968f42559c2121",
+    "pair": "tem_iem",
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Repair"
+      ],
+      "iem": [
+        "Memory",
+        "Differentiate"
+      ]
+    },
+    "length": 4,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

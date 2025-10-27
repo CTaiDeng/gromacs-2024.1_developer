@@ -1,0 +1,59 @@
+{
+  "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/pktm_iem_operator_packages.json",
+  "pair": "pktm_iem",
+  "count": 10,
+  "checked": 3,
+  "ok_both": 3,
+  "ok_syntax": 3,
+  "ok_llm": 3,
+  "items": [
+    {
+      "id": "pkg_pktm_iem_d248e875d7783990c77b34c5ba91ec1f69cff8b799edc9f14e29e681e9d2318f",
+      "pair": "pktm_iem",
+      "sequences": {
+        "pktm": [
+          "Absorb"
+        ],
+        "iem": [
+          "Activate"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_pktm_iem_6c6ca512c75c441d3b55cc3f328ef5e0bda0382ee888c22c096ae282f44b6e22",
+      "pair": "pktm_iem",
+      "sequences": {
+        "pktm": [
+          "Absorb",
+          "Distribute"
+        ],
+        "iem": [
+          "Memory"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_pktm_iem_2fa73e36576580293d11385604666b28aab07eb417aa3066a87139d490a543fd",
+      "pair": "pktm_iem",
+      "sequences": {
+        "pktm": [
+          "Dose",
+          "Excrete"
+        ],
+        "iem": [
+          "Memory",
+          "CytokineRelease"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    }
+  ]
+}

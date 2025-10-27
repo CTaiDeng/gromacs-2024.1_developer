@@ -1,0 +1,59 @@
+{
+  "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/pem_pktm_operator_packages.json",
+  "pair": "pem_pktm",
+  "count": 10,
+  "checked": 3,
+  "ok_both": 3,
+  "ok_syntax": 3,
+  "ok_llm": 3,
+  "items": [
+    {
+      "id": "pkg_pem_pktm_04d5aedbf92f438922ae5294903712da5bb39976d9f0836b5a37c58728794e79",
+      "pair": "pem_pktm",
+      "sequences": {
+        "pem": [
+          "Inflammation"
+        ],
+        "pktm": [
+          "Bind"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_pem_pktm_6a4adfc9da4453979a50eb337c8602d533be37eae7ee38b8715457e8e1f1f0be",
+      "pair": "pem_pktm",
+      "sequences": {
+        "pem": [
+          "Metastasis",
+          "Inflammation"
+        ],
+        "pktm": [
+          "Absorb",
+          "Distribute"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_pem_pktm_f682922c41d0b7434850e6d51eeaeeffb7be9febe1ed62a6b9ffe89e4bf22f10",
+      "pair": "pem_pktm",
+      "sequences": {
+        "pem": [
+          "Apoptosis",
+          "Metastasis"
+        ],
+        "pktm": [
+          "Bind"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/tem_pgom_operator_packages.json",
+  "pair": "tem_pgom",
+  "count": 10,
+  "checked": 3,
+  "ok_both": 3,
+  "ok_syntax": 3,
+  "ok_llm": 3,
+  "items": [
+    {
+      "id": "pkg_tem_pgom_5a02aecebd8d773dae1773e9793408272214cbae4430d3a7759d7486018b53a5",
+      "pair": "tem_pgom",
+      "sequences": {
+        "tem": [
+          "Detox",
+          "Lesion"
+        ],
+        "pgom": [
+          "Mutation"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_tem_pgom_cc0056e297209814715f28bf80224680dbdbb46fa7c13455c147dd8723e3b857",
+      "pair": "tem_pgom",
+      "sequences": {
+        "tem": [
+          "Lesion"
+        ],
+        "pgom": [
+          "PathwayInduction"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_tem_pgom_8972eb836273b7b3a78df5a8c2c47c93f075f87280e1226b1fc24fb12d5b8cc6",
+      "pair": "tem_pgom",
+      "sequences": {
+        "tem": [
+          "Repair",
+          "Detox"
+        ],
+        "pgom": [
+          "Activate"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    }
+  ]
+}

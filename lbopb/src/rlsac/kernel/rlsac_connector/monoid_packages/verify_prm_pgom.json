@@ -1,0 +1,60 @@
+{
+  "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/prm_pgom_operator_packages.json",
+  "pair": "prm_pgom",
+  "count": 10,
+  "checked": 3,
+  "ok_both": 3,
+  "ok_syntax": 3,
+  "ok_llm": 3,
+  "items": [
+    {
+      "id": "pkg_prm_pgom_4506ba619105285946acc0996f58c89587e94f23ccb535de024e41d6b933dae8",
+      "pair": "prm_pgom",
+      "sequences": {
+        "prm": [
+          "Proliferation",
+          "Hormone"
+        ],
+        "pgom": [
+          "RepairGenome"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_prm_pgom_9de3da872caa77174dad48ef3b444a18601357e4894c0f0479d6aeb62423bc80",
+      "pair": "prm_pgom",
+      "sequences": {
+        "prm": [
+          "Adaptation",
+          "Proliferation"
+        ],
+        "pgom": [
+          "Repress",
+          "RepairGenome"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_prm_pgom_b043ae005a229815476894546ea581ba39b1c3cb9f5a5c215011d2170dcf1429",
+      "pair": "prm_pgom",
+      "sequences": {
+        "prm": [
+          "Stimulus",
+          "Hormone"
+        ],
+        "pgom": [
+          "PathwayInhibition"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    }
+  ]
+}

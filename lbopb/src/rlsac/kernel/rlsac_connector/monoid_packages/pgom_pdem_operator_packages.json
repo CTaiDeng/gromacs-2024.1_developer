@@ -1,0 +1,330 @@
+[
+  {
+    "id": "pkg_pgom_pdem_2d8e949343bbc24aad5dced04f56a63ef7a8c91692ef7aae715e3cb29b93eeb6",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "PathwayInhibition",
+        "Repress"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_41e28496f68f4c2af5cb34bb500610f3fdb58707d24150d1b7ec8e5d2e07af09",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod",
+        "Mutation"
+      ],
+      "pdem": [
+        "Signal"
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_f74043fb056218e3c5be7a6361c2208683889066fa0fd2a179a9696d6a6009b6",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod"
+      ],
+      "pdem": [
+        "Signal"
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_57df5791451c2261b058b6bdaf20cd67e62ef5bfd49f1877f4a2cc0905e9ea2f",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "RepairGenome"
+      ],
+      "pdem": [
+        "Potentiation"
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_2ed1b4ea928450db9fdd2c835770c19a44d90c8957d57a0ab7763122185e4295",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "Activate"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_2e37835c0fa20f24fa9f9e64aca4b6494aa57cff877ff4eb90f3411847a25f74",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Signal"
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_c22e71602c8cb0e2b3b1f7ce64d7c8a7d6dfff285c5a1e217e97b4434d2a95a7",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "PathwayInhibition"
+      ],
+      "pdem": [
+        "Bind",
+        "InverseAgonist"
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_08e668e4d6170eb0783ae67adebbf83971660a8f5a1fe863325cde7a7ef97fc5",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "RepairGenome",
+        "Repress"
+      ],
+      "pdem": [
+        "Potentiation"
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_975a1dd1686a4a7a3d3194e131e70a8d0771ae92b28e1886a428a26ade897627",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "RepairGenome",
+        "PathwayInduction"
+      ],
+      "pdem": [
+        "Potentiation"
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_b410989c2152c50a45c2462bc4a8cbc43311c09698f4f449fd7f526374926cb5",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod",
+        "PathwayInhibition"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Bind"
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

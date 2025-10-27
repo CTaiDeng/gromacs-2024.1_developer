@@ -1,0 +1,59 @@
+{
+  "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/tem_iem_operator_packages.json",
+  "pair": "tem_iem",
+  "count": 10,
+  "checked": 3,
+  "ok_both": 3,
+  "ok_syntax": 3,
+  "ok_llm": 3,
+  "items": [
+    {
+      "id": "pkg_tem_iem_4f1ca6bdaf9bdc08e2b65eb2de8aa9659cce01e38f3aa2319b91cd3ee51c1074",
+      "pair": "tem_iem",
+      "sequences": {
+        "tem": [
+          "Distribution",
+          "Repair"
+        ],
+        "iem": [
+          "Proliferate",
+          "Differentiate"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_tem_iem_a29b71dc2e177cd545d21df3816c19243a9ec202fed33968d0e8fb6a851cd377",
+      "pair": "tem_iem",
+      "sequences": {
+        "tem": [
+          "Detox"
+        ],
+        "iem": [
+          "Suppress"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_tem_iem_bd83c5dcdd32a522bfe5e4550f7559028a7a8aa39e68fe76c17ed3a51ba358c8",
+      "pair": "tem_iem",
+      "sequences": {
+        "tem": [
+          "Lesion"
+        ],
+        "iem": [
+          "Suppress",
+          "Differentiate"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    }
+  ]
+}

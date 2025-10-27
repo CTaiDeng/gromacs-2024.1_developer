@@ -1,0 +1,333 @@
+[
+  {
+    "id": "pkg_prm_pgom_4506ba619105285946acc0996f58c89587e94f23ccb535de024e41d6b933dae8",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Hormone"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_9de3da872caa77174dad48ef3b444a18601357e4894c0f0479d6aeb62423bc80",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Proliferation"
+      ],
+      "pgom": [
+        "Repress",
+        "RepairGenome"
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_b043ae005a229815476894546ea581ba39b1c3cb9f5a5c215011d2170dcf1429",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Hormone"
+      ],
+      "pgom": [
+        "PathwayInhibition"
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_1c613b370ad60f9020ef9fb562ef1dbc78a6f3e48fc2f10df7d81de43c0785a0",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Exercise",
+        "Stimulus"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_7e21cde8e83f5fae41aad40cb1db927bf386165f5ad44299284c66ce8f1064a0",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Exercise",
+        "Ingest"
+      ],
+      "pgom": [
+        "Mutation",
+        "EpigeneticMod"
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_2aec16250957659d3cf1660a11a3831f40b5a0628e7ca1f4895e1b57e66bcb27",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_a91e05a34e2c2048b67b0e372aef3e3a83fb6ec302f374bb418571a1bb565d3e",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "pgom": [
+        "Mutation",
+        "EpigeneticMod"
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_778df874804b5bdb9c293c3da1a92ae0bc7d5dfe1958d326367d61457dcf9155",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Exercise"
+      ],
+      "pgom": [
+        "Mutation",
+        "Repress"
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_791feefea6098d0d3a31543fbd987e094f45d16e0a4fb4383f62be79a427874f",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Ingest"
+      ],
+      "pgom": [
+        "RepairGenome",
+        "Repress"
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_b118c9cb8a64485b46685522b0319e266ca2299d263d76cd56721c45b4eb7c25",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761588178,
+    "updated_at": 1761588178,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

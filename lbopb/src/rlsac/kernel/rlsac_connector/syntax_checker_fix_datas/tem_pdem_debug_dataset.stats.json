@@ -1,0 +1,28 @@
+{
+  "updated_at": 1761588253,
+  "total": 10,
+  "pairs": {
+    "tem_pdem": 10
+  },
+  "labels": {
+    "1": 10,
+    "0": 0,
+    "unknown": 0
+  },
+  "length": {
+    "min": 2.0,
+    "max": 4.0,
+    "avg": 3.2
+  },
+  "per_pair": {
+    "tem_pdem": {
+      "count": 10,
+      "labels": {
+        "1": 10,
+        "0": 0,
+        "unknown": 0
+      },
+      "avg_length": 3.2
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/pgom_pdem_operator_packages.json",
+  "pair": "pgom_pdem",
+  "count": 10,
+  "checked": 3,
+  "ok_both": 3,
+  "ok_syntax": 3,
+  "ok_llm": 3,
+  "items": [
+    {
+      "id": "pkg_pgom_pdem_2d8e949343bbc24aad5dced04f56a63ef7a8c91692ef7aae715e3cb29b93eeb6",
+      "pair": "pgom_pdem",
+      "sequences": {
+        "pgom": [
+          "PathwayInhibition",
+          "Repress"
+        ],
+        "pdem": [
+          "Desensitization"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_pgom_pdem_41e28496f68f4c2af5cb34bb500610f3fdb58707d24150d1b7ec8e5d2e07af09",
+      "pair": "pgom_pdem",
+      "sequences": {
+        "pgom": [
+          "EpigeneticMod",
+          "Mutation"
+        ],
+        "pdem": [
+          "Signal"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_pgom_pdem_f74043fb056218e3c5be7a6361c2208683889066fa0fd2a179a9696d6a6009b6",
+      "pair": "pgom_pdem",
+      "sequences": {
+        "pgom": [
+          "EpigeneticMod"
+        ],
+        "pdem": [
+          "Signal"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    }
+  ]
+}

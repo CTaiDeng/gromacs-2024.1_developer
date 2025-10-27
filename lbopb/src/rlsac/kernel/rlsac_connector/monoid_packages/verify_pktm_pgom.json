@@ -1,0 +1,60 @@
+{
+  "file": "lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/pktm_pgom_operator_packages.json",
+  "pair": "pktm_pgom",
+  "count": 10,
+  "checked": 3,
+  "ok_both": 3,
+  "ok_syntax": 3,
+  "ok_llm": 3,
+  "items": [
+    {
+      "id": "pkg_pktm_pgom_14d6e4c0c0ed238b5757ddde5fa49d0df07de0e813cbee8f9d52655170794792",
+      "pair": "pktm_pgom",
+      "sequences": {
+        "pktm": [
+          "Bind"
+        ],
+        "pgom": [
+          "RepairGenome",
+          "Activate"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_pktm_pgom_5c97af638ee2573dc0d568f6d97578f4aecf34ce840172d9653b7381e1849b9e",
+      "pair": "pktm_pgom",
+      "sequences": {
+        "pktm": [
+          "Absorb",
+          "Bind"
+        ],
+        "pgom": [
+          "PathwayInhibition"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    },
+    {
+      "id": "pkg_pktm_pgom_33c31c2a25d8ee0b3f7ee96c31ee5265fdd37dc2ccef531ce0a7c0b4040454e9",
+      "pair": "pktm_pgom",
+      "sequences": {
+        "pktm": [
+          "Absorb",
+          "Dose"
+        ],
+        "pgom": [
+          "Mutation",
+          "PathwayInduction"
+        ]
+      },
+      "syntax_ok": true,
+      "llm_ok": true,
+      "both_ok": true
+    }
+  ]
+}
