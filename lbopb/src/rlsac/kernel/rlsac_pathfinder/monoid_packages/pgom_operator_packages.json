@@ -396,7 +396,7 @@
     "cost": 0.011200000000000009,
     "score": 0.07276000000000017,
     "created_at": 1761425689,
-    "updated_at": 1761425689,
+    "updated_at": 1761524591,
     "source": "debug_dataset",
     "ops_detailed": [
       {
@@ -466,6 +466,37 @@
     ],
     "op_space_id": "pgom.v1",
     "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json"
+  },
+  {
+    "id": "pkg_pgom_4670164893",
+    "domain": "pgom",
+    "sequence": [
+      "PathwayInhibition"
+    ],
+    "length": 1,
+    "delta_risk": 0.07500000000000018,
+    "cost": 0.033600000000000026,
+    "score": 0.06828000000000017,
+    "created_at": 1761524591,
+    "updated_at": 1761524591,
+    "source": "debug_dataset",
+    "op_space_id": "pgom.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/pgom_op_space.v1.json",
+    "ops_detailed": [
+      {
+        "name": "PathwayInhibition",
+        "grid_index": [
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.1,
+          "gamma_p": 0.05,
+          "gamma_f": 0.06
+        }
+      }
+    ]
   },
   {
     "id": "pkg_pgom_77ea53f89a17bfc03559a8c43ebe6a831eb5f1ad",
@@ -559,7 +590,7 @@
     "cost": 0.28044999999999987,
     "score": -0.05233999999999983,
     "created_at": 1761425689,
-    "updated_at": 1761425689,
+    "updated_at": 1761524591,
     "source": "debug_dataset",
     "ops_detailed": [
       {
@@ -655,7 +686,7 @@
     "cost": 0.16500000000000017,
     "score": -0.10800000000000021,
     "created_at": 1761425689,
-    "updated_at": 1761425689,
+    "updated_at": 1761524591,
     "source": "debug_dataset",
     "ops_detailed": [
       {

@@ -49,6 +49,104 @@
     "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/prm_op_space.v1.json"
   },
   {
+    "id": "pkg_prm_687574",
+    "domain": "prm",
+    "sequence": [
+      "Exercise"
+    ],
+    "length": 1,
+    "delta_risk": 0.5,
+    "cost": 0.0,
+    "score": 0.5,
+    "created_at": 1761560477,
+    "updated_at": 1761560477,
+    "source": "debug_dataset",
+    "op_space_id": "prm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/prm_op_space.v1.json",
+    "ops_detailed": [
+      {
+        "name": "Exercise",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_p": 0.1,
+          "delta_f": 0.05,
+          "dn": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": "pkg_prm_7187137048",
+    "domain": "prm",
+    "sequence": [
+      "Exercise",
+      "Ingest",
+      "Adaptation"
+    ],
+    "length": 3,
+    "delta_risk": 0.5112499999999995,
+    "cost": 2.045,
+    "score": 0.10224999999999951,
+    "created_at": 1761560477,
+    "updated_at": 1761560477,
+    "source": "debug_dataset",
+    "op_space_id": "prm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/prm_op_space.v1.json",
+    "ops_detailed": [
+      {
+        "name": "Exercise",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_p": 0.1,
+          "delta_f": 0.05,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Ingest",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.25,
+          "alpha_p": 0.05,
+          "delta_f": 0.02,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Adaptation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "eta_b": 0.1,
+          "eta_p": 0.05,
+          "eta_n": 0.05,
+          "delta_f": 0.08
+        }
+      }
+    ]
+  },
+  {
     "id": "pkg_prm_bbb2cd79efb7a14a27b0447295f0b82219790019",
     "domain": "prm",
     "sequence": [
@@ -226,6 +324,55 @@
     ],
     "op_space_id": "prm.v1",
     "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/prm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_prm_3600976542",
+    "domain": "prm",
+    "sequence": [
+      "Ingest",
+      "Exercise"
+    ],
+    "length": 2,
+    "delta_risk": 0.27499999999999947,
+    "cost": 2.55,
+    "score": -0.23500000000000054,
+    "created_at": 1761560477,
+    "updated_at": 1761560477,
+    "source": "debug_dataset",
+    "op_space_id": "prm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/prm_op_space.v1.json",
+    "ops_detailed": [
+      {
+        "name": "Ingest",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.25,
+          "alpha_p": 0.05,
+          "delta_f": 0.02,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Exercise",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_p": 0.1,
+          "delta_f": 0.05,
+          "dn": 0
+        }
+      }
+    ]
   },
   {
     "id": "pkg_prm_2c6035b0ba306e4e735bda172b1f80e5ee8951c9",
@@ -441,6 +588,55 @@
     "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/prm_op_space.v1.json"
   },
   {
+    "id": "pkg_prm_3610304994",
+    "domain": "prm",
+    "sequence": [
+      "Stimulus",
+      "Hormone"
+    ],
+    "length": 2,
+    "delta_risk": -1.0,
+    "cost": 1.22,
+    "score": -1.244,
+    "created_at": 1761560477,
+    "updated_at": 1761560477,
+    "source": "debug_dataset",
+    "op_space_id": "prm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/prm_op_space.v1.json",
+    "ops_detailed": [
+      {
+        "name": "Stimulus",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "xi_b": 0.1,
+          "xi_p": 0.2,
+          "xi_f": 0.05,
+          "dn": 1
+        }
+      },
+      {
+        "name": "Hormone",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.05,
+          "dn": 0
+        }
+      }
+    ]
+  },
+  {
     "id": "pkg_prm_6a84cb6acb49003be62ec9e3a0b90bcece6690c1",
     "domain": "prm",
     "sequence": [
@@ -586,6 +782,87 @@
     ],
     "op_space_id": "prm.v1",
     "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/prm_op_space.v1.json"
+  },
+  {
+    "id": "pkg_prm_4192502871",
+    "domain": "prm",
+    "sequence": [
+      "Hormone",
+      "Proliferation",
+      "Ingest",
+      "Exercise"
+    ],
+    "length": 4,
+    "delta_risk": -1.1975000000000007,
+    "cost": 3.3385000000000002,
+    "score": -1.8652000000000006,
+    "created_at": 1761560477,
+    "updated_at": 1761560477,
+    "source": "debug_dataset",
+    "op_space_id": "prm.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/prm_op_space.v1.json",
+    "ops_detailed": [
+      {
+        "name": "Hormone",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "theta_b": 0.0,
+          "theta_p": 0.0,
+          "theta_f": 0.05,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Proliferation",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.1,
+          "beta_b": 0.05,
+          "beta_f": 0.05
+        }
+      },
+      {
+        "name": "Ingest",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "alpha_b": 0.25,
+          "alpha_p": 0.05,
+          "delta_f": 0.02,
+          "dn": 0
+        }
+      },
+      {
+        "name": "Exercise",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "gamma_b": 0.2,
+          "gamma_p": 0.1,
+          "delta_f": 0.05,
+          "dn": 0
+        }
+      }
+    ]
   },
   {
     "id": "pkg_prm_3d483f9e02ef404069cd0717cf4f79f0c90ab52e",

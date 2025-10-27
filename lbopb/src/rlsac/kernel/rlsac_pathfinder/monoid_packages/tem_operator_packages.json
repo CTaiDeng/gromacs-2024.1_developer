@@ -1,0 +1,100 @@
+[
+  {
+    "id": "pkg_tem_5770958532",
+    "domain": "tem",
+    "sequence": [
+      "Detox",
+      "Distribution"
+    ],
+    "length": 2,
+    "delta_risk": 1.1032999999999995,
+    "cost": 0.5866999999999999,
+    "score": 0.9859599999999995,
+    "created_at": 1761560301,
+    "updated_at": 1761560301,
+    "source": "debug_dataset",
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json",
+    "ops_detailed": [
+      {
+        "name": "Detox",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "gamma_b": 0.25,
+          "gamma_p": 0.2,
+          "gamma_n": 0.1,
+          "delta_f": 0.08
+        }
+      },
+      {
+        "name": "Distribution",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "alpha_n": 2.0,
+          "alpha_p": 0.2,
+          "alpha_b": 0.05,
+          "alpha_f": 0.04
+        }
+      }
+    ]
+  },
+  {
+    "id": "pkg_tem_4735622103",
+    "domain": "tem",
+    "sequence": [
+      "Repair",
+      "Lesion"
+    ],
+    "length": 2,
+    "delta_risk": -0.5450000000000008,
+    "cost": 1.8575000000000004,
+    "score": -0.916500000000001,
+    "created_at": 1761560301,
+    "updated_at": 1761560301,
+    "source": "debug_dataset",
+    "op_space_id": "tem.v1",
+    "op_space_ref": "lbopb/src/rlsac/kernel/rlsac_pathfinder/operator_spaces/tem_op_space.v1.json",
+    "ops_detailed": [
+      {
+        "name": "Repair",
+        "grid_index": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "params": {
+          "rho_b": 0.15,
+          "rho_p": 0.25,
+          "rho_n": 0.1,
+          "delta_f": 0.12
+        }
+      },
+      {
+        "name": "Lesion",
+        "grid_index": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "params": {
+          "k_b": 0.3,
+          "k_p": 0.35,
+          "k_f": 0.12,
+          "dn": 1
+        }
+      }
+    ]
+  }
+]
