@@ -25,5 +25,7 @@
   "updates_per_step": 1,
   "minibatch_floor": 1,
   "output_dir": "out_connector",
-  "use_llm_oracle": true
+  "use_llm_oracle": true,
+  "explore_only": true,
+  "dataset_per_pair": 3
 }

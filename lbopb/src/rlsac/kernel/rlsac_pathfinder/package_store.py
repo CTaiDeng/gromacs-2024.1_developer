@@ -272,7 +272,8 @@ def ingest_from_debug_dataset(debug_dataset_path: str | Path, *, domain: str | N
 
     text = json.dumps(items, ensure_ascii=False, indent=2)
     text = _normalize_lf(text)
-    out_path.write_text(text, encoding="utf-8")
+    with out_path.open("w", encoding="utf-8", newline="\n") as f:
+        f.write(text)
     return out_path
 
 

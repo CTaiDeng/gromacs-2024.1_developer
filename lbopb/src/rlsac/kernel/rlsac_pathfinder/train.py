@@ -875,7 +875,8 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
                         pkgs_map[sid] = pkg
                 labeled_items = list(pkgs_map.values())
                 labeled_items.sort(key=lambda d: (-float(d.get("score", 0.0)), int(d.get("length", 0)), tuple(str(x) for x in d.get("sequence", []))))
-                labeled_path.write_text(json.dumps(labeled_items, ensure_ascii=False, indent=2), encoding='utf-8')
+                with labeled_path.open('w', encoding='utf-8', newline='\n') as f:
+                    f.write(json.dumps(labeled_items, ensure_ascii=False, indent=2))
                 if debug:
                     print(f"[TRAIN] labeled packages written: {labeled_path} items={len(labeled_items)}")
             except Exception:
@@ -923,7 +924,8 @@ def train(config_path: str | Path | None = None, domain_override: str | None = N
             arr.append(pkg)
             text = json.dumps(arr, ensure_ascii=False, indent=2)
             text = text.replace("\r\n", "\n")
-            run_dict_path.write_text(text, encoding="utf-8")
+            with run_dict_path.open("w", encoding="utf-8", newline="\n") as f:
+                f.write(text)
         except Exception:
             pass
 
@@ -1034,7 +1036,8 @@ def extract_operator_package(run_dir: str | Path, config_path: str | Path | None
     arr.append(pkg)
     text = json.dumps(arr, ensure_ascii=False, indent=2)
     text = text.replace("\r\n", "\n")
-    dict_path.write_text(text, encoding="utf-8")
+    with dict_path.open("w", encoding="utf-8", newline="\n") as f:
+        f.write(text)
     return pkg
 
 

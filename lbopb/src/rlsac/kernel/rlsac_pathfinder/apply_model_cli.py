@@ -206,7 +206,8 @@ def main() -> None:
         except Exception:
             continue
 
-    out_path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    with out_path.open("w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(out, ensure_ascii=False, indent=2))
     print(f"[apply_cli] written: {out_path} items={len(out)}")
 
 

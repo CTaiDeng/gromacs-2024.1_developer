@@ -58,10 +58,10 @@ def main() -> None:
             out.append(o)
         except Exception:
             out.append(dict(it))
-    out_path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    with out_path.open("w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(out, ensure_ascii=False, indent=2))
     print(f"[apply_triscore] written: {out_path}")
 
 
 if __name__ == "__main__":
     main()
-

@@ -67,10 +67,10 @@ def main() -> None:
             except Exception:
                 continue
     random.shuffle(items)
-    (run / "debug_dataset.json").write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
+    with (run / "debug_dataset.json").open("w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(items, ensure_ascii=False, indent=2))
     print(f"[dataset] written: {run / 'debug_dataset.json'} items={len(items)}")
 
 
 if __name__ == "__main__":
     main()
-

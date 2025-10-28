@@ -248,7 +248,8 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path,
         try:
             if n_check < total:
                 kept.extend(arr[n_check:])
-            pack_file.write_text(json.dumps(kept, ensure_ascii=False, indent=2), encoding="utf-8")
+            with pack_file.open("w", encoding="utf-8", newline="\n") as f:
+                f.write(json.dumps(kept, ensure_ascii=False, indent=2))
             if debug:
                 _cprint(f"[校验] 回写：{pack_file} 保留={len(kept)}/{len(arr)} (已检={n_check})", ANSI_CYAN)
         except Exception as e:
@@ -264,7 +265,8 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path,
         "ok_llm": sum(1 for x in report_items if x["llm_ok"]),
         "items": report_items,
     }
-    (out_dir / f"verify_{pair_a}_{pair_b}.json").write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    with (out_dir / f"verify_{pair_a}_{pair_b}.json").open("w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(out, ensure_ascii=False, indent=2))
     return out
 
 
@@ -297,7 +299,8 @@ def main() -> None:
             continue
         rep = verify_file(f, cfg, out_dir=out_dir, debug=debug, prune=prune, limit=limit)
         summary["reports"].append(rep)
-    (out_dir / "verify_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    with (out_dir / "verify_summary.json").open("w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(summary, ensure_ascii=False, indent=2))
     print(json.dumps({
         "ok_both_total": sum(r["ok_both"] for r in summary["reports"]),
         "count_total": sum(r["count"] for r in summary["reports"]),
@@ -307,4 +310,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

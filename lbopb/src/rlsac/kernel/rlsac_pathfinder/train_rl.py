@@ -195,7 +195,8 @@ def train_from_debug_dataset(config_path: str | Path | None = None, domain_overr
         "train_rounds": int(cfg.get("train_rounds", 3)),
         "epochs_per_round": int(cfg.get("epochs_per_round", cfg.get("epochs", 20)))
     }
-    (run_dir / "train_meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+    with (run_dir / "train_meta.json").open("w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(meta, ensure_ascii=False, indent=2))
     print(f"{ANSI_GREEN}[train_rl] saved scorer to: {run_dir / 'scorer.pt'}{ANSI_RESET}")
     # 不再生成内嵌 apply_model.py；请使用 CLI：
     # python lbopb/src/rlsac/kernel/rlsac_pathfinder/apply_model_cli.py <run_dir> [infile] [outfile]
@@ -247,7 +248,8 @@ def train_from_debug_dataset(config_path: str | Path | None = None, domain_overr
             {"id": "demo_1", "domain": d0, "sequence": seq1, "ops_detailed": steps1},
             {"id": "demo_2", "domain": d0, "sequence": seq2, "ops_detailed": steps2},
         ]
-        (run_dir / "samples.input.json").write_text(json.dumps(samples, ensure_ascii=False, indent=2), encoding="utf-8")
+        with (run_dir / "samples.input.json").open("w", encoding="utf-8", newline="\n") as f:
+            f.write(json.dumps(samples, ensure_ascii=False, indent=2))
         print(f"{ANSI_YELLOW}[train_rl] sample written: {run_dir / 'samples.input.json'}")
         print("使用 CLI 推理: python lbopb/src/rlsac/kernel/rlsac_pathfinder/apply_model_cli.py <run_dir> [infile] [outfile]")
     except Exception:
@@ -377,14 +379,16 @@ def main() -> None:
         except Exception:
             continue
 
-    out_path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    with out_path.open("w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(out, ensure_ascii=False, indent=2))
     print(f"{ANSI_GREEN}[apply] written: {out_path}{ANSI_RESET}")
 
 
 if __name__ == "__main__":
     main()
 """
-        apply_py.write_text(apply_src.replace("\r\n", "\n"), encoding="utf-8")
+        with apply_py.open("w", encoding="utf-8", newline="\n") as f:
+            f.write(apply_src.replace("\r\n", "\n"))
 
         # 样本输入（基于元数据提供 2 条最小样例）
         ops = meta.get("op_names", []) or []
@@ -435,7 +439,8 @@ if __name__ == "__main__":
             {"id": "demo_1", "domain": d0, "sequence": seq1, "ops_detailed": steps1},
             {"id": "demo_2", "domain": d0, "sequence": seq2, "ops_detailed": steps2},
         ]
-        (run_dir / "samples.input.json").write_text(json.dumps(samples, ensure_ascii=False, indent=2), encoding="utf-8")
+        with (run_dir / "samples.input.json").open("w", encoding="utf-8", newline="\n") as f:
+            f.write(json.dumps(samples, ensure_ascii=False, indent=2))
         print(f"{ANSI_YELLOW}[train_rl] helper scripts written: {apply_py.name}, samples.input.json{ANSI_RESET}")
     except Exception:
         pass
@@ -444,4 +449,3 @@ if __name__ == "__main__":
 
 if __name__ == "__main__":
     train_from_debug_dataset()
-

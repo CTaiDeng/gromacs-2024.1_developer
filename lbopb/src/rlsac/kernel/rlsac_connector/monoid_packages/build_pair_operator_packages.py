@@ -84,8 +84,10 @@ def build_pair_packages(n_per_pair: int = 32, seed: int | None = None) -> None:
         ops_b = ops.get(b, [])
         items: List[Dict[str, Any]] = []
         if not ops_a or not ops_b:
-            # 无可用原子操作，写空文件以便后续替换
-            (base / f"{a}_{b}_operator_packages.json").write_text("[]", encoding="utf-8")
+            # 无可用原子操作，写空文件（UTF-8+LF）以便后续替换
+            p = base / f"{a}_{b}_operator_packages.json"
+            with p.open("w", encoding="utf-8", newline="\n") as f:
+                f.write("[]\n")
             continue
         for _ in range(n_per_pair):
             la = random.choice([1, 2])
@@ -113,7 +115,8 @@ def build_pair_packages(n_per_pair: int = 32, seed: int | None = None) -> None:
             )
 
         out = base / f"{a}_{b}_operator_packages.json"
-        out.write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
+        with out.open("w", encoding="utf-8", newline="\n") as f:
+            f.write(json.dumps(items, ensure_ascii=False, indent=2))
         print(f"[build] written: {out} items={len(items)}")
 
 
@@ -138,4 +141,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

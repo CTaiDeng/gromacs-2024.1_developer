@@ -255,7 +255,8 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path,
         try:
             if n_check < total:
                 kept.extend(arr[n_check:])
-            pack_file.write_text(json.dumps(kept, ensure_ascii=False, indent=2), encoding="utf-8")
+            with pack_file.open("w", encoding="utf-8", newline="\n") as f:
+                f.write(json.dumps(kept, ensure_ascii=False, indent=2))
             if debug:
                 _cprint(f"[校验] 已写回：{pack_file} 保留={len(kept)}/{len(arr)} (已检={n_check})", ANSI_CYAN)
         except Exception as e:
@@ -271,7 +272,8 @@ def verify_file(pack_file: Path, cfg: Dict[str, Any], *, out_dir: Path,
         "ok_llm": sum(1 for x in report_items if x["llm_ok"]),
         "items": report_items,
     }
-    (out_dir / f"verify_{domain}.json").write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    with (out_dir / f"verify_{domain}.json").open("w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(out, ensure_ascii=False, indent=2))
     return out
 
 
@@ -310,7 +312,8 @@ def main() -> None:
     # 每次运行先清空 PEM 专用输出文件，确保只存本次
     pem_out = base / "verify_pem.json"
     try:
-        pem_out.write_text("{}", encoding="utf-8")
+        with pem_out.open("w", encoding="utf-8", newline="\n") as f:
+            f.write("{}")
     except Exception:
         pass
 
@@ -323,10 +326,12 @@ def main() -> None:
         # 若为 PEM 域，单独写入 verify_pem.json（仅保存本次）
         try:
             if str(rep.get("domain","")) == "pem":
-                pem_out.write_text(json.dumps(rep, ensure_ascii=False, indent=2), encoding="utf-8")
+                with pem_out.open("w", encoding="utf-8", newline="\n") as f:
+                    f.write(json.dumps(rep, ensure_ascii=False, indent=2))
         except Exception:
             pass
-    (out_dir / "verify_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    with (out_dir / "verify_summary.json").open("w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(summary, ensure_ascii=False, indent=2))
     print(json.dumps({
         "ok_both_total": sum(r["ok_both"] for r in summary["reports"]),
         "count_total": sum(r["count"] for r in summary["reports"]),

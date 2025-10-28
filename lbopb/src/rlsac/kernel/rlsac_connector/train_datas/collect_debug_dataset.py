@@ -34,7 +34,8 @@ def _read_json(path: Path) -> Any:
 
 def _write_json(path: Path, obj: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+    with path.open("w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(obj, ensure_ascii=False, indent=2))
 
 
 def _fmt(x: float | int) -> str:
@@ -189,7 +190,8 @@ def main() -> None:
             md.append(f"- 标签：1={int(ls.get('1', 0))} 0={int(ls.get('0', 0))} unknown={int(ls.get('unknown', 0))}")
     else:
         md.append("- <空>")
-    (out_dir / "debug_dataset.stats.md").write_text("\n".join(md), encoding="utf-8")
+    with (out_dir / "debug_dataset.stats.md").open("w", encoding="utf-8", newline="\n") as f:
+        f.write("\n".join(md) + "\n")
     print(f"[collect] written: {out_dir / 'debug_dataset.stats.json'} and .md")
 
 

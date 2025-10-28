@@ -245,7 +245,8 @@ def main() -> None:
     out_dir = Path(__file__).resolve().parent
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / "debug_dataset.json"
-    out_path.write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
+    with out_path.open("w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(items, ensure_ascii=False, indent=2))
     print(f"[collect] written: {out_path} items={len(items)}")
 
     # write stats (json + md)
@@ -345,7 +346,8 @@ def main() -> None:
             }
 
         out_stats = out_dir / "debug_dataset.stats.json"
-        out_stats.write_text(json.dumps(stats, ensure_ascii=False, indent=2), encoding="utf-8")
+        with out_stats.open("w", encoding="utf-8", newline="\n") as f:
+            f.write(json.dumps(stats, ensure_ascii=False, indent=2))
         print(f"[collect] written: {out_stats}")
 
         # also write human-readable markdown
@@ -424,7 +426,8 @@ def main() -> None:
         md_lines.append("")
         md_lines.append("> 本文件由 collect_debug_dataset.py 每次运行自动覆盖生成，配合 debug_dataset.json 的可读呈现。")
         md_path = out_dir / "debug_dataset.stats.md"
-        md_path.write_text("\n".join(md_lines), encoding="utf-8")
+        with md_path.open("w", encoding="utf-8", newline="\n") as f:
+            f.write("\n".join(md_lines))
         print(f"[collect] written: {md_path}")
     except Exception as e:
         print(f"[collect] stats failed: {e}")
