@@ -1,0 +1,380 @@
+[
+  {
+    "id": "global_part_1761679325",
+    "chosen": {
+      "pem": [
+        "Carcinogenesis",
+        "Apoptosis"
+      ],
+      "tem": [
+        "Lesion"
+      ],
+      "iem": [
+        "Suppress"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "missing_domains": [
+      "pktm",
+      "pgom",
+      "prm"
+    ],
+    "meta": {
+      "strategy": "partial_pairwise_max_cover",
+      "size": 4,
+      "missing_count": 3
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_part_1761679325",
+    "chosen": {
+      "pem": [
+        "Carcinogenesis",
+        "Apoptosis"
+      ],
+      "iem": [
+        "Suppress"
+      ],
+      "pdem": [
+        "Desensitization"
+      ],
+      "pktm": [
+        "Bind"
+      ]
+    },
+    "missing_domains": [
+      "pgom",
+      "tem",
+      "prm"
+    ],
+    "meta": {
+      "strategy": "partial_pairwise_max_cover",
+      "size": 4,
+      "missing_count": 3
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_part_1761679325",
+    "chosen": {
+      "pem": [
+        "Inflammation"
+      ],
+      "iem": [
+        "Proliferate",
+        "Differentiate"
+      ],
+      "pktm": [
+        "Excrete"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "missing_domains": [
+      "pdem",
+      "tem",
+      "prm"
+    ],
+    "meta": {
+      "strategy": "partial_pairwise_max_cover",
+      "size": 4,
+      "missing_count": 3
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Differentiate",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_part_1761679325",
+    "chosen": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "tem": [
+        "Lesion"
+      ],
+      "iem": [
+        "Suppress"
+      ],
+      "prm": [
+        "Adaptation"
+      ]
+    },
+    "missing_domains": [
+      "pdem",
+      "pktm",
+      "pgom"
+    ],
+    "meta": {
+      "strategy": "partial_pairwise_max_cover",
+      "size": 4,
+      "missing_count": 3
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_part_1761679325",
+    "chosen": {
+      "tem": [
+        "Lesion"
+      ],
+      "iem": [
+        "Suppress"
+      ],
+      "prm": [
+        "Stimulus"
+      ],
+      "pktm": [
+        "Distribute",
+        "Transport"
+      ]
+    },
+    "missing_domains": [
+      "pem",
+      "pdem",
+      "pgom"
+    ],
+    "meta": {
+      "strategy": "partial_pairwise_max_cover",
+      "size": 4,
+      "missing_count": 3
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Transport",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_part_1761679325",
+    "chosen": {
+      "tem": [
+        "Lesion"
+      ],
+      "iem": [
+        "Suppress"
+      ],
+      "prm": [
+        "Adaptation"
+      ],
+      "pktm": [
+        "Distribute",
+        "Transport"
+      ]
+    },
+    "missing_domains": [
+      "pem",
+      "pdem",
+      "pgom"
+    ],
+    "meta": {
+      "strategy": "partial_pairwise_max_cover",
+      "size": 4,
+      "missing_count": 3
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Transport",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  }
+]
