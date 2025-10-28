@@ -1,0 +1,2658 @@
+[
+  {
+    "id": "pkg_tem_iem_1fae23479608d8ce1dcd53b11898542a9cda9eb63d34fcf61d896732135bacfa",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_4e5b781474b3b38c96f55ddcdc2f501e56e5b65d35f62dceb913d4ada2281b56",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Distribution",
+        "Detox"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        },
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_5a20806cced393af8dc682a676365627e885dcfbf2f12141d84b2f545a3230c1",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_3bfeaafbc5c2ad12c2742b3c57d26db964fd23665f10c60c7053ca70b196f384",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "iem": [
+        "CytokineRelease"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_2f6144f05dcb2d5f4b90827b8273bf6e891aa4e503dc6da377baff250d1d1547",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "iem": [
+        "Suppress",
+        "CytokineRelease"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_546f2033b1eaf29c273f8284392509986a4a7d9d3a59e5a6328720bd7bc45250",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Distribution"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_19ae55404aaf52ae3a1fb0e9dd66c1d172682a0efaeda153565286c15cbfc1e8",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "iem": [
+        "Memory",
+        "CytokineRelease"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_d06ca30fb647aa63f290b7e1df54090ba6fabd357e7b9e252fcc0d4d12d5f687",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "iem": [
+        "Memory",
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_3fbd5a9453238d2389c253d4d9a56661ea4650082a8b078f57c329ab960ff4f9",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "iem": [
+        "Memory",
+        "CytokineRelease"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_f5eac085ced9dc11c68ecddb3e7a43f2257f982b5a950b2552052bc4737e268b",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_986da90eb8bb4e17a1ecb38fd6d6a6c7878e2ac89a13f333080e1ba5355af48a",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Lesion"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_49374bdf33ca157bb88f47d6513aefdd8c27dca23ce72d1f47c5cb1bbdb63935",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_4a62f90064689c55417334d7be7fd532e62e89640e55a6b1fdd18bbcaf793542",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Distribution",
+        "Lesion"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_34486901d750ab7f108e87124cee5219703174d8a3a791582df3ebf1735551b9",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Lesion",
+        "Detox"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_986da90eb8bb4e17a1ecb38fd6d6a6c7878e2ac89a13f333080e1ba5355af48a",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Lesion"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_f5eac085ced9dc11c68ecddb3e7a43f2257f982b5a950b2552052bc4737e268b",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_148ce35e8d0fc636de39e38cc30fb73d9f6317d4c2a3f6135a187a7f5f7aa932",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Lesion"
+      ],
+      "iem": [
+        "Activate",
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_37cacdee5e7ed18eac8ca23c9abe8d253310bb54a794895a9a84d21a05fc7569",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Distribution"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_ef508e97fc8e7a177272ccf5fba6e4ce785372c6d8849383145284ac4105032b",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "iem": [
+        "Suppress",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_323c4eba4e814cfd34f017b28f53bd28b5265be2d6c191771ffb479225571d1b",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Detox"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_934992059c4f2cbc31521691963327e6a44c2f401869f3f2ce5259bb2829440e",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "iem": [
+        "Memory",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_d2e3bdcf29eba25d2f2703100b3edd48a872acc307f18204951b96e30d91fe47",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "iem": [
+        "Differentiate",
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_52a0ba89f308254ea40dbcd4973e8118a539a7a42bbb6f618c9e0a09b4b45ae0",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Lesion"
+      ],
+      "iem": [
+        "CytokineRelease"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_9caee42b5986432fede14ef765af7c4a15110d5342a5353433ed936b28ec0bbc",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Lesion",
+        "Repair"
+      ],
+      "iem": [
+        "Differentiate",
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_b94aaad22530fbdca3c163931da37ba093d0cbdf7904cd89b76221a997741308",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_9c38dcd8c096a8d839579e81fa14c631f70d1b5885526a831818f6cd9aeda167",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_34879bbf9c2343a7742ee95e093668df4a1fca22d7c31e70babef12971397394",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Lesion",
+        "Detox"
+      ],
+      "iem": [
+        "Activate",
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_9c9ce13664eb3d4e4c15fab033e94254c7593db25976d2f3942d5f202ec97c44",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_8c3c14d7c29f2db579601d73513038bd3cc290aa2045d09157368c0819f74bc5",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Distribution"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_6678f7cc0ad9cb944875e8cf8c71c1d41221446452b02b17141d8d081e84b1f4",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_7edc8caec21fcced689de4cb46edc110e41ccfb7fe8d5a0f8072e4287a1192fe",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "iem": [
+        "Suppress",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_iem_934992059c4f2cbc31521691963327e6a44c2f401869f3f2ce5259bb2829440e",
+    "pair": {
+      "a": "tem",
+      "b": "iem"
+    },
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "iem": [
+        "Memory",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

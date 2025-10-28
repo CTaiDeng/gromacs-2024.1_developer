@@ -65,6 +65,40 @@ def _stable_id(pair: Tuple[str, str], seqs: Dict[str, List[str]]) -> str:
     return hashlib.sha256(blob).hexdigest()
 
 
+def _ensure_repo_in_sys_path() -> None:
+    try:
+        import lbopb  # type: ignore  # noqa: F401
+        return
+    except Exception:
+        pass
+    try:
+        import sys as _sys
+        root = _repo_root()
+        _sys.path.insert(0, str(root))
+    except Exception:
+        pass
+
+
+def _build_steps(domain: str, seq: List[str]) -> List[Dict[str, Any]]:
+    """为 domain/seq 生成带参数与取值的 ops_detailed。
+
+    优先调用 pathfinder 的参数空间工具；若失败则回退为仅 name，并补齐 params/grid_index。
+    """
+    try:
+        _ensure_repo_in_sys_path()
+        from lbopb.src.rlsac.kernel.rlsac_pathfinder.make_samples_with_params import synth_ops  # type: ignore
+        base_root = Path(__file__).resolve().parents[2] / 'rlsac_pathfinder'
+        steps = list(synth_ops(domain, seq, base_root))
+        for st in steps:
+            if 'params' not in st:
+                st['params'] = {}
+            if 'grid_index' not in st:
+                st['grid_index'] = []
+        return steps
+    except Exception:
+        return [{"name": nm, "grid_index": [], "params": {}} for nm in seq]
+
+
 def build_pair_packages(n_per_pair: int = 32, seed: int | None = None) -> None:
     if seed is not None:
         random.seed(int(seed))
@@ -101,6 +135,7 @@ def build_pair_packages(n_per_pair: int = 32, seed: int | None = None) -> None:
                     "id": f"pkg_{a}_{b}_{pid}",
                     "pair": {"a": a, "b": b},
                     "sequences": seqs,
+                    "ops_detailed": {a: _build_steps(a, seq_a), b: _build_steps(b, seq_b)},
                     "length_a": len(seq_a),
                     "length_b": len(seq_b),
                     "created_at": ts,

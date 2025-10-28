@@ -1,0 +1,2790 @@
+[
+  {
+    "id": "pkg_pem_pgom_cfeb333c6ce843bcf9737eba1a8250c9bebd19129f1803676b2095dc7afc8812",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "pgom": [
+        "Mutation",
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_364f101b1f511b00af173e6a81215ab5cf346403456c599ee6c9d4317e20d8d2",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "pgom": [
+        "Repress",
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_b213dfeba84569eeb997cafd55639f54516245301d53127a504d64ec85fd9e8b",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "pgom": [
+        "Mutation",
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_a508caa766504637d836e404b8cfd86a1c782c6675eb15faf21515b0e78a3a2e",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "pgom": [
+        "Mutation",
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        },
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_89906da44785e8c9391a6e084084456c796cef11ff61354f942ad9cf1f8c7a48",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "pgom": [
+        "Repress",
+        "PathwayInhibition"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_adfb4f659adadcb497a906be9e0e0029629d044d8201442ecc04e6f8e42ef50e",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "pgom": [
+        "Repress",
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_7493cb99980ef8b28e00cb7cc8e3c3e035560b32c0996af478b8757d9d8dbd2c",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pgom": [
+        "EpigeneticMod",
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_16bb86103314ff27c5f8f099cc79e2c5f2778dfa228a7b8ce02f0d80b7b2ce0b",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pgom": [
+        "Repress"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_1cabcf9f960e053530d9db721ce28b940aa9c6a73fb8716792fa56e1e5ec1ae8",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "pgom": [
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_3ee2e5b980f0c0124182b688cd420ac2958af8c244cd010c50b8d413926de866",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pgom": [
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_9a8a201c398a72e7d6889e173c4f27de1290f95c87a94e1025b5f33e1b89680f",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "pgom": [
+        "PathwayInduction",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_5333f0fa061c4ac9712ab89f42381cd40e0a388d63555b8685a0a226aaa47d9b",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Carcinogenesis"
+      ],
+      "pgom": [
+        "Activate",
+        "Repress"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_1cabcf9f960e053530d9db721ce28b940aa9c6a73fb8716792fa56e1e5ec1ae8",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "pgom": [
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_ca26ccf0653c269023af432b9cc1ba432ab4122d7845d33052d0103c20bf6a73",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "pgom": [
+        "RepairGenome",
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_9968388660e294c25df697fbd03326fd9c070787648bae7d9b9784ca8c0d9e04",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_a2f0299441f2910367ebda2f83a09834416330180ce4f4beb0a97481778fbe62",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Carcinogenesis"
+      ],
+      "pgom": [
+        "Mutation",
+        "PathwayInhibition"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        },
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_2cc7a201c4b5e01adcfc856d8ad5ee2e9c5b8ce69a79eab205202311b024e5bb",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Inflammation"
+      ],
+      "pgom": [
+        "Repress",
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_bdbd6a7c96ca95165729324c872a39cc214f468b94a1b04a075af297605b48fc",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "pgom": [
+        "Repress",
+        "PathwayInhibition"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_247e8dd4c80a05487c6cb46f813256a39629d1f7974309e9a0c4e84b05e1c9a7",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Metastasis"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_f41de5a866ad29c4d535f7902df7e053a2b0c3019946f7b747da517ada8876f0",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "pgom": [
+        "Repress",
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_f6a0d94ba4d00ec54b36bfa411fb06bbee24bb4983c070f03c82c4ef83380ae7",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pgom": [
+        "Repress",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_b5983b23d3f65a90167fc34510d370720bc4f51e546af82e140f72aa3be30ef5",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_1b21b7914960c10d8cdaf102423da8f53340c4d5896cf3492f5381921ce7bfef",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "pgom": [
+        "EpigeneticMod",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_7f17eab1d64490c8b84d7c8ce7a1a2d02a71f4ece3456b699066373be5b2e29e",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_b5983b23d3f65a90167fc34510d370720bc4f51e546af82e140f72aa3be30ef5",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_989aebf21becaf5a61f0590d75e7bb4ec6423996a521028228f5810c501e0922",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "pgom": [
+        "Mutation",
+        "PathwayInhibition"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        },
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_7f17eab1d64490c8b84d7c8ce7a1a2d02a71f4ece3456b699066373be5b2e29e",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_eef107dfe0f152f7fdd65ffa95e582882f29b3f5719d576a1ae3a83757b688ea",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Inflammation"
+      ],
+      "pgom": [
+        "Mutation",
+        "Repress"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        },
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_04b81e5ae0eae8467845a01345a8aee86247bdd77b69fa8bd24343cad0610a0f",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_09deef936398caf74509c6840a0eea04218191edbd3be4d84afe5490f697c2e1",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Inflammation"
+      ],
+      "pgom": [
+        "PathwayInduction",
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_3d9c3453ccedef17cd369a444b1f88cd4e769ad2cd556f84958d78c2df9ec4f0",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "pgom": [
+        "PathwayInduction",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pgom_55bf35932a6289777bd3d898d3030478652187a67fb01c93388059940f6b4dfb",
+    "pair": {
+      "a": "pem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

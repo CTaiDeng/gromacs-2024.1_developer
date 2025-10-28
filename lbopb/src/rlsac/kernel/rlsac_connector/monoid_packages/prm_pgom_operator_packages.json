@@ -1,0 +1,2718 @@
+[
+  {
+    "id": "pkg_prm_pgom_a18fd9f1555c1bb08e16c2bd9f50ab2c15551b65855805dd6915d0fb99520baf",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Exercise"
+      ],
+      "pgom": [
+        "PathwayInduction",
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_381e5399cdce3aef6de3c915edee7d3129b01a89faa5da2d594ca0ae541e6d4b",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Hormone"
+      ],
+      "pgom": [
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_d40a24953fc0615ba8c3782619e71a8c7555436dac9292fff049f2806308bd02",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Hormone"
+      ],
+      "pgom": [
+        "PathwayInduction",
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_71559c1de32f99ed0f7cae73918df715f50f7e97783fc1b22dab95c46d413765",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Stimulus"
+      ],
+      "pgom": [
+        "Repress",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_4199c0d277feb2a105240f2b74b9c69c1a24e28aeebf73a8fe038e9082bb58d7",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Exercise"
+      ],
+      "pgom": [
+        "Mutation",
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        },
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_5d0e765247c708aed61d7e7da8bc6f4a8f4b8d784860f62d3d0ddc9f0cc08a0b",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_852b0d7a976cee88dbbd66230ac9cff53bcd5406b161e883eeac689b82868742",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_275f1c9d2c57f24b7a768b0278b80323f18d6d5eee92c12498723ee9748ab3d4",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pgom": [
+        "Activate",
+        "Repress"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_0ff108eb2adca40a5d4a1dbdbeb1b936d8349a8ab241c47ca8decf20a64b2268",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Stimulus"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_739f1efb0f3b887be7ba20c477aa8400748d240f721d6b536c031d402e0210d4",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Exercise",
+        "Ingest"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_57273ca4924e9dd43ab8ba515b618ce742d20a0246f18a07da6693c55e1a4a54",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        },
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_db7ef5bd99012600c24c9dbbe6fcb90e32d150e9b46c23d70460adf9a79f4bb8",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_d41ce2b03006ff48925698b2e455c1348c2466d4573e9ce2af88dee3b989918f",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_54ea867c42e893f3b3205888e0b9804741bf7bc1cd01663e1d8e0968f2b77833",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Stimulus"
+      ],
+      "pgom": [
+        "Activate",
+        "Repress"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_9619f7fbc8b81b32d3190569cfb5aefb923d212eae0d92dac476572e7bc83073",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Ingest"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_27e873901364fbfb1589c1209a3f87d721dde5fee22076a924739a5f26bcb818",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Proliferation"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_d41ce2b03006ff48925698b2e455c1348c2466d4573e9ce2af88dee3b989918f",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_77d910c804b5632c91611b7b3e3db49c15b622c864b49bf59d7a1a56e9f4523e",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Adaptation"
+      ],
+      "pgom": [
+        "PathwayInduction",
+        "PathwayInhibition"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_2392f27b29c7354c2fcae47a59b1d907b5511c0a6da443f33838acad600bfd86",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Exercise"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_b590f1bbb8d2a5ca79959a459970a7434b7f9ebc6d5ef746942ab8c5ef6355be",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Ingest",
+        "Hormone"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_ecb66635ac1844930f1f155682f03456e10e155fd3123fde5c2938ed2fffa4b4",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Ingest",
+        "Exercise"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_f4fc97b50ab91acfdc8fd8098f0bb73199c56b226a982b9866358da00cbb0164",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pgom": [
+        "Repress",
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_84c92e56f0e43e0cbbb7ebf8c6cd3a55cd447c55152cc24c86a800fd26ccb8e8",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Ingest",
+        "Adaptation"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_3bc9ec029e705966b2216ee144a30f149e3100364332d724c80b0b643a0a5b6c",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Hormone"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_73fafbd2584c8fd4e5185fb8d6d2d861511f3cec68dba809959b276c89080832",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Ingest"
+      ],
+      "pgom": [
+        "RepairGenome",
+        "PathwayInhibition"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_3bc0770f640c7b2db145039716406d51b5e09d6ceba1d656f39fcc6124677135",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pgom": [
+        "RepairGenome",
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_46071fd2163e47486e6de378df07ea9a274b15b0f44fd9a64539526791ef423d",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Hormone",
+        "Ingest"
+      ],
+      "pgom": [
+        "Repress",
+        "PathwayInhibition"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_033650adf07aff28e88d54889fa76473ff01f95f553e7baa18ecf78b4b2b9518",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Exercise"
+      ],
+      "pgom": [
+        "RepairGenome",
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_39a28f22626d3940f25c624ab2ec4eb154d51beee72e9250eb437b73f2ce87ab",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Exercise"
+      ],
+      "pgom": [
+        "PathwayInduction",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_603aa22f75c2b6c0e451fdaa21af1e537129c72d87aa4191c3475e1b2870f76a",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Ingest",
+        "Hormone"
+      ],
+      "pgom": [
+        "Mutation",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_c86fe04cd062591278c3f3f6ea140c58dc558afc7b26639c897610bd36ac4c44",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Hormone",
+        "Adaptation"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pgom_980c0933876e0587a70dccd6959ab7d07e11e770e0ede788b132e9abfb519821",
+    "pair": {
+      "a": "prm",
+      "b": "pgom"
+    },
+    "sequences": {
+      "prm": [
+        "Exercise",
+        "Adaptation"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

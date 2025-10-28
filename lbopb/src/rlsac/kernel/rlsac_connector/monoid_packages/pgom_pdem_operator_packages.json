@@ -1,0 +1,2620 @@
+[
+  {
+    "id": "pkg_pgom_pdem_d7c16ac75a2d3b495217ca14c7965aa796e8b1c753e7237567494611ab4b63da",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "Activate",
+        "RepairGenome"
+      ],
+      "pdem": [
+        "Desensitization",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_a9389f17cf8fc407cc0021a535440cd2636cfcfe8b277935ab3875e06b322fe6",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod",
+        "RepairGenome"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_6f5a8ede767c540deec3f5b8270b1dbc517b47c5853de259d9d177ad53873f1c",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "RepairGenome"
+      ],
+      "pdem": [
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_a98ee32eebb62c33bca642edc67810e8260ecc454bf4e672a05d59ee6db2546a",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "Repress"
+      ],
+      "pdem": [
+        "Signal",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_0b7c3b09d2411bd3fe15f9dc76ac09272105a843fc62076839eafe6367428fd9",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "RepairGenome",
+        "Activate"
+      ],
+      "pdem": [
+        "Antagonist"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_ca810857ac7d82cdca532e86d75eb1d21ed6f7b1a2eee910b027bc9c0bb8cfe0",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "RepairGenome",
+        "EpigeneticMod"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Antagonist"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_d27587a3bfea67f335ede55d378712710f7d4305c8419d55c89531891328b86d",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_f029d559cf8e635961f41d1b59f9ce5d2ec9fbc54f9b1716c09a10d77e817649",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "RepairGenome",
+        "Repress"
+      ],
+      "pdem": [
+        "Antagonist"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_d27587a3bfea67f335ede55d378712710f7d4305c8419d55c89531891328b86d",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_fe76eceb4907c8167491a63ba26ff30f45e83c0cf71f54f0bc7148304db6f955",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod",
+        "PathwayInduction"
+      ],
+      "pdem": [
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_884a390df66e706aaa7609d1370a820d70fcff619773821616bcabdc5065f811",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "PathwayInhibition",
+        "Mutation"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Antagonist"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        },
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_88eb054e195d4e71dba521e6cf68964e1b0b2e61b779d4009c6e3e2e3bb3419b",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "Activate"
+      ],
+      "pdem": [
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_46c374235c9b2104f05cdfc193cd1043675d688a82061f5d2af57d4d1d8a334a",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "Repress",
+        "PathwayInduction"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_588940ad77321d15b019785451ce0d208d6628bdf6906c208087d82c56678887",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "Activate",
+        "RepairGenome"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Potentiation"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_d7c16ac75a2d3b495217ca14c7965aa796e8b1c753e7237567494611ab4b63da",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "Activate",
+        "RepairGenome"
+      ],
+      "pdem": [
+        "Desensitization",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_d68e1d8aef4904b8146368c3e547b4b7f69d1a70437391bb4b2dd80deea764cc",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "Mutation"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        },
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_bf1093e8f51f4584276f35d9981e412d37bb201453a9ef95c82000c76017b5bb",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "PathwayInhibition"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_45ecd605002efd598126d118d71bc3e23199ca9aefae46a510a24aaf47c396ad",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "PathwayInhibition",
+        "EpigeneticMod"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Antagonist"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        },
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_9dd0e3357ba81e16359034b8df192b220b87a2d7b0994d29086baa903408b1fe",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "Mutation"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_e66b663a220b67d0f7bf02dab0af70c0f291ee1a039a3e0528d46f85009436ae",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "PathwayInhibition"
+      ],
+      "pdem": [
+        "Potentiation",
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_ca1f61176e23cf7cf9296bbf30bfd7d63be23bd5fc72084bed36a999df466737",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "PathwayInduction",
+        "RepairGenome"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_7a09e8059b929931b1c44636dd759aeb65a7dbca1964f50e7f5121ee1dcb6287",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "RepairGenome",
+        "Mutation"
+      ],
+      "pdem": [
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_0b1af0245d6a1f4e83ee40692dea4593f1a4c2cdb374f7d05b44ca9b5f7d8915",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "RepairGenome"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Potentiation"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_ad08ac870c8a01c570ee6fa758e4fd514bed0c2d2e0332291e5919dfa15cc39d",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "Repress",
+        "Activate"
+      ],
+      "pdem": [
+        "Signal",
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_ae93def1ddf81a8dc4219481b7e04a82c86b6f9a457d473d24b3979bc6775834",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "RepairGenome"
+      ],
+      "pdem": [
+        "Potentiation",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_a9f6d78135dd920deb4e9821a2d51027721676d6c1b879ea238038d031a98612",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "PathwayInduction"
+      ],
+      "pdem": [
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_981038d1c052e092cfd9f7e8f7c21b18f5df5db0cfbb9a5100c24516933a44e5",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "PathwayInduction",
+        "PathwayInhibition"
+      ],
+      "pdem": [
+        "Signal",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_8a6392551314f12d00667d672c972006e2975e34d7092ee8ad3ea7c8c75b0c59",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "PathwayInhibition"
+      ],
+      "pdem": [
+        "Potentiation"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_1803e74a418ad9bc302f9080bd1f682223d00d32643a06e270c5f5da0ee629cf",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "PathwayInhibition"
+      ],
+      "pdem": [
+        "Bind",
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_00ecba3603d79557bb38e590067548976335d8c850fb1fc338854f1c81580a6d",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "Mutation"
+      ],
+      "pdem": [
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_f74043fb056218e3c5be7a6361c2208683889066fa0fd2a179a9696d6a6009b6",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "EpigeneticMod"
+      ],
+      "pdem": [
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pgom_pdem_a3dc9236fc010d591090c34400cf200f51802063acecf1d74f444d39b30648cd",
+    "pair": {
+      "a": "pgom",
+      "b": "pdem"
+    },
+    "sequences": {
+      "pgom": [
+        "Activate",
+        "PathwayInduction"
+      ],
+      "pdem": [
+        "Bind",
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

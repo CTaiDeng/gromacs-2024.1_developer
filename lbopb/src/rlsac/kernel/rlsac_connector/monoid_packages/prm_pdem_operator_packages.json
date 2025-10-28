@@ -1,0 +1,2632 @@
+[
+  {
+    "id": "pkg_prm_pdem_656e58bd2b053c23d7b20a638881b8627e2d332f46e35485c8a215eb08f65b9d",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Hormone",
+        "Exercise"
+      ],
+      "pdem": [
+        "Signal",
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_2a1167e7bcdf08f91d0af2d83d86cd206cffaf5c67767c243027f9191862ccca",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pdem": [
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_a0b4df2e69688b2924fee4bf95846cfddf98703f7ee9126d1ce6b56513140b9c",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Proliferation"
+      ],
+      "pdem": [
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_379209f53960ca2ee9c893c0a1768584fb3ca5bff0cfcbee751bba8a9f448032",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Hormone"
+      ],
+      "pdem": [
+        "Antagonist",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_994934b1b78d6fd721b48519f2959fcd05e28ee8bfd992706956f48f561647a2",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Hormone"
+      ],
+      "pdem": [
+        "Signal",
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_d23ba491520334aa704b81ca7e6f980e3749fd6dd796041691374dd2280916f1",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Hormone"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_1204cd45d348b09fd04c590793fee41b2de82d71cfa7336a363016daa949818b",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_71147dec30f4f16f98b6760dc25a6219efbc75137b02d918fe87b2d49c9e99f4",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Ingest"
+      ],
+      "pdem": [
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_4c97851de79dec0236bdf820a79ff987308c1f8eb1f136c38c50670af3e9b252",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Exercise",
+        "Adaptation"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_e31846f7282d18e41b504a581f116a1dfa7d7fde5c23bd3f50d426b24beadff6",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Hormone",
+        "Stimulus"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_cf44e3de582cdf98bbadf2ea2304f0d31c610355ec63be28b3cada1b3c41f353",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "pdem": [
+        "Antagonist"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_fe262d38b18e6d6fc9b81d7bddbd1a836bc93a7f97d98f702c770bfbcb474c29",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Exercise",
+        "Proliferation"
+      ],
+      "pdem": [
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_6a62b289b4f3a3f7697ab622c8324b58b888f594bcdfb7e64e7550c21ee7a33d",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "pdem": [
+        "Bind",
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_c76d07e6a4e6a7b65c4cc6730793d1aacee14a73eb1180340a18f87cf302333a",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Antagonist"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_a20db0f1d283c73a38f4df5733c37f5860b371b891edf508444be6d34c07e593",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Ingest"
+      ],
+      "pdem": [
+        "Signal",
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_c98b3cf936b9b4d16eeb50beecaf7e263af875e008a991d5b33328c720d27bf3",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Ingest"
+      ],
+      "pdem": [
+        "Signal",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_d2454852c698aea8b1fe55a3b65748ff1ceaca2296dac753066236db880a2fb1",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Exercise"
+      ],
+      "pdem": [
+        "Signal",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_5897baacd4fd9a3941027bd56723b885a300b8e0106c52bb223a57af98dd5f97",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "pdem": [
+        "Potentiation"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_5bed6c7dad8782cf91958a4416b94b9d0eb310568d5eb51da5eb75eb40c0a6d5",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "pdem": [
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_00576a080fc54ad9c66465aacfa2ba28e5495f08795c68c7d275df1bb95139ac",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Exercise",
+        "Ingest"
+      ],
+      "pdem": [
+        "Signal",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_5d55a32e282a708e67dffbddbdf4f6ccfb0e6dac23278def35a966d1ace9224e",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Adaptation"
+      ],
+      "pdem": [
+        "Bind",
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_d711d41609c402bd06a6ce114c4d6b54cf5e42dc4b1c2345dc4c1dcb7d87ba3d",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Proliferation"
+      ],
+      "pdem": [
+        "Antagonist"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_e1c67b54b67781f5b1685449b6b9b05b0c8724807a5414c4f6b768bf3699553c",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_f8024550424554560ad6fed66893a75afbb961281b4804e9288845c061205f86",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Hormone"
+      ],
+      "pdem": [
+        "Potentiation"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_3929da92be5c433319d6834f16d6bb449a22ed2b0f792be78f567e4955076b8d",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Exercise"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_14be9835f15a1ef053986bea7552b16f02858a86b4a58bb6d1c21818c114e8a4",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "pdem": [
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_884e0154d9f0a8f0b299126564ffae2895bff0de2ee9c301dd62064439bbecda",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Adaptation"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Antagonist"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_d95b5fe77bb3aeed78e1157e66cf0f1df9cf446f99eeb73674ae65c8e054b6b6",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Ingest"
+      ],
+      "pdem": [
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_73cc5833eeb2d70c0b92924b55a898a97d813b26545dd4ba65039f56c0b23262",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Hormone",
+        "Ingest"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_68cf6e580c5fe33bfa71ff48f41bded9854c80b2510e565c9748a7002652b23c",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Exercise"
+      ],
+      "pdem": [
+        "Potentiation",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_c77f940e6da4afad6ed1b9101a79bafdafb06257574b3edb978f892d0056f014",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Exercise",
+        "Proliferation"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_pdem_4b2dfeda40ee5877424cbba1ea848505a8f2b6d2083bc37bdb2810a4f5f69535",
+    "pair": {
+      "a": "prm",
+      "b": "pdem"
+    },
+    "sequences": {
+      "prm": [
+        "Hormone"
+      ],
+      "pdem": [
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

@@ -1,0 +1,2642 @@
+[
+  {
+    "id": "pkg_tem_pgom_46199e1093fce4ce2ddd7195ae553ee29d15d0197eb12dcdff606db1058d76c0",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "pgom": [
+        "EpigeneticMod",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_958f6dfbd334ef3b9555d02875ba1823d16e65c39e3fb24d001086e5c56ba8da",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Repair"
+      ],
+      "pgom": [
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_6f0517d27abad5b8a5593b18659beca9e8515b3d81ace0d329a0278857c3395c",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Repair"
+      ],
+      "pgom": [
+        "RepairGenome",
+        "PathwayInhibition"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_0cad1d15028be87c3b95a11ce78b366249461454d117685e6bf8959b911e9dd1",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Lesion",
+        "Distribution"
+      ],
+      "pgom": [
+        "Repress",
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_0111fdbc3ef7cba560f0a341bd8347637845565c75f119f21564a71b8117e67a",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_2e56eda3acabb14a4aedd9a45bd85e3b58b97bbdb4dec857a2bc63a5752b08a8",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "pgom": [
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_3b51b47dfa7c810fe3bc4a89b3814d28d45ef80a91169f176320a4381abb377f",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Lesion"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_b7f9cd45aeb6d57d0633f28637195fe1d765525c338cc983b4444e3f42312531",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Repair"
+      ],
+      "pgom": [
+        "RepairGenome",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_a7edad5f25c23e9769cd784c0339e7afb2047935eef0a6fb85698aa1b66b3f22",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Lesion"
+      ],
+      "pgom": [
+        "PathwayInduction",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_e6a319cc132e4e2f2ee6b69bf47a10c0c0ec578ab6bf04bd09528aab63660aa4",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_0111fdbc3ef7cba560f0a341bd8347637845565c75f119f21564a71b8117e67a",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_4ce75c2d81f3b2a8310e7d57ee677e049fbd8b55f4cadf2f7a3b776038f451f1",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Lesion"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_4e9be90905b97b9fee903e8d07c31c61bdaa56e6960726e90b4359308cd2768a",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Distribution",
+        "Lesion"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_4db0b7915026c4a4412fad67036a61cf3258d655d75388e34ebddaf94d8ae620",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Lesion",
+        "Detox"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        },
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_64f477326b44ef36f71d8132eda4cc9a1a6d9a03621daa93ebc3731f6fde4b0e",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pgom": [
+        "PathwayInduction",
+        "Repress"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_87cb565a13325b7e1cbc49a7312fe28a42ec2b1664a515abf687c8dfaf4f04b4",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Distribution",
+        "Repair"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_ed4825f55782184f8dad900288428221979bb25483b390140147534cfedb6472",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Lesion"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_38aa6bf57d53a681bd93885b2dc5d07f64794b6f21c7921bc0143ee486b2cf50",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Lesion",
+        "Repair"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_372a1d61b94c758443e1e961cdf415b314d410644760f1f48ef600978ef13b36",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Lesion"
+      ],
+      "pgom": [
+        "PathwayInhibition"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_1e479fbeece916521b9223b773436ac4c527bdca9c51d674a286003725e4aa37",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_06206944bf4cf8ddbf4859b976f627561a36413cbcc8c5c1ac5270b757cdbbfb",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_431703f1f3ceca3d15927b9fe74c4d4c9876d3f487878e7f41ea4b90163f28fb",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_e6a319cc132e4e2f2ee6b69bf47a10c0c0ec578ab6bf04bd09528aab63660aa4",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_3f3a79c13103a7921a1a508c46df00eec076d62de74d84f9b578e950b156ff90",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Distribution",
+        "Lesion"
+      ],
+      "pgom": [
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_4d645731eb60a00ee3617b2a57f38e7e76ba6132a5f25819b078b7270d240a75",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Distribution",
+        "Detox"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        },
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        },
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_73200f586df6e28ce110663e38ca09801c08f7ebf54f68c77a8bf8cf6d3daae5",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Distribution"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_350922b279d9dec2c3ce9fad3978bc4b91b267d045d596b1c2773503ad7b2f83",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pgom": [
+        "PathwayInduction",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_420258f57fe7909b2eed3126210c4774fbfd2a93e7b286817ed33065d0a8745b",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Repair"
+      ],
+      "pgom": [
+        "PathwayInduction",
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_4d5725ba2fc86340fe68e9cce3ed83d36cf5befd2df747a74551d08979f6541c",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pgom": [
+        "PathwayInhibition"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_003d564065ac90c218df6f4f76d7ec21cabc0f71ad15d0e3fb1e81cf0cd34b60",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Lesion",
+        "Distribution"
+      ],
+      "pgom": [
+        "PathwayInhibition"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_50ebb4fbf389c5153aca5888a3f855b17dbb004e70cf62dbf7c05051b18f6544",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Lesion",
+        "Detox"
+      ],
+      "pgom": [
+        "PathwayInhibition"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pgom_3c21a68531e03a23e65bca0869a93fb8a20abed5a4c3f4c3d3205bcad2955200",
+    "pair": {
+      "a": "tem",
+      "b": "pgom"
+    },
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

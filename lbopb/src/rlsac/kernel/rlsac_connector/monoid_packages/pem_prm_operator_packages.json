@@ -1,0 +1,2722 @@
+[
+  {
+    "id": "pkg_pem_prm_adc686ea80e33710b28d6a935dd5b98da072e351d1ab880a24e356670592c788",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "prm": [
+        "Ingest",
+        "Hormone"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_007f9baf7fbf5be96862c2b5fb368c8d14f130a19232d14117aa472c0dbe7b0e",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "prm": [
+        "Hormone",
+        "Exercise"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_f8e60c21b1b7de7576d8b0254c2f83149d2fab87d8081295a1de82e52af6b8eb",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Metastasis"
+      ],
+      "prm": [
+        "Ingest",
+        "Hormone"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_912f2230d794e95db5e0c4139e1d84769f7fea728c5c0735adf288abf0d55693",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "prm": [
+        "Proliferation"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_01d276e19805275260884764afe36539611e755c4d962d6ea29d1eaa3bf25353",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Carcinogenesis"
+      ],
+      "prm": [
+        "Stimulus",
+        "Exercise"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_be67df82073a8ab45cff087295d0a4d5390afaaa27c695f2c4f4c12a06a530c1",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "prm": [
+        "Exercise"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_1a0b0e264b708bc2013c7084be95c481cac8223889e997814ea0734d5777674a",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "prm": [
+        "Adaptation"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_702d0b23736c1ce269f8a1202b5dc8bc6a4ba5d5c064ce4fd3dbfc6b107a144a",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "prm": [
+        "Proliferation",
+        "Ingest"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_f4b7422ca6d87da4f63af18496091badf2c2b8449957344ea240d6bf05be45c4",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "prm": [
+        "Ingest"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_2801639d92b913a5be82114a5bf24ab892fe1e4cd6566c2633f1e90c6a757512",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "prm": [
+        "Proliferation"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_d4a7c9c06795dcd0247b0446b1b8b84648443f07aecbe9f87134106a516d124d",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "prm": [
+        "Proliferation"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_e399c43edf1057092bca61370cfde3da2bb545756820949775f3c8fb05c12f48",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "prm": [
+        "Proliferation"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_03a9db0cbcc5d7dc8cf22e4df5fc7e63df934ee6d8503d3c7371701cae3610e6",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "prm": [
+        "Adaptation"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_51ddc953e00abe4f3762e41c7f182c98bfd0715a9f8d14a16aa73c6810aca4e7",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "prm": [
+        "Proliferation",
+        "Adaptation"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_9be19960b705c625b7172e38d637422f74867abb2507aee72eee6c9c65e633f6",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "prm": [
+        "Adaptation"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_03a9db0cbcc5d7dc8cf22e4df5fc7e63df934ee6d8503d3c7371701cae3610e6",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "prm": [
+        "Adaptation"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_95a3627e6aca51cd5b38eb0fd5c092a5eeda164634359134d62d4ed167399b52",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "prm": [
+        "Hormone"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_3da922bac5484402b5108ffcdbdbe5d1bf92b3be6324434e6652b0370e57f75b",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "prm": [
+        "Stimulus",
+        "Proliferation"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_c0f7bdaaa9219841ff1ac3dfbaf52743292834362c892105d888c2897ecc11cf",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Inflammation"
+      ],
+      "prm": [
+        "Hormone"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_08e9187a4e2690ef1b0f438f0309e5bca104cec75e05be27dbc6dad1aedd41e9",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Metastasis"
+      ],
+      "prm": [
+        "Ingest",
+        "Adaptation"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_ed13c340f729e9e57e982e6c6c8186eda30c486ee17af2fbf9865ec0d69afcd5",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Inflammation"
+      ],
+      "prm": [
+        "Hormone"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_5961c27180c6d3f9c7920bbac88f6c1ff57f0f27ffdbbe72865a1e97f1daaf3a",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "prm": [
+        "Proliferation",
+        "Adaptation"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_cbdf020be14ddb1e470e6ab817bd018ab5770cb2fc043067bb9e4ad2cb631df5",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "prm": [
+        "Stimulus"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_8b5f283ae07e2f780a7841034200256726efcf87a6af357739377c518f88f46a",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "prm": [
+        "Stimulus"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_d4a701d44f8f0bbb6926fa0ddd271532f799771bf25a969016f5ffd981d242b3",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "prm": [
+        "Hormone",
+        "Stimulus"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_4e458896d6cc88b625b799b790b21e733a985a602eb602681080510f09798b93",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "prm": [
+        "Hormone",
+        "Ingest"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_66b25b04792b56fcadca6144d9bbedd91d8c49de5ac947440cd962a8ddb18dde",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "prm": [
+        "Adaptation",
+        "Stimulus"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_7ed1cfba1e2f1ba2de97bc3676002f2c19b2eb6700f5a3b893904cf6835e3f91",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "prm": [
+        "Hormone",
+        "Ingest"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_6f3ea8589ba184ee22e4f627e9bc7be74208eda0321a7410d37c6ce10d0a923b",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Metastasis"
+      ],
+      "prm": [
+        "Exercise"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_f4f60b85f382ca3f7c8b601505935c6f3751733d6f1d3576520fdc11797cfcc9",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Apoptosis"
+      ],
+      "prm": [
+        "Proliferation",
+        "Hormone"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_8234b67352a75ad63ad18b5488f5364e0d4ef09890672ec5e4cf38ab1571f04c",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "prm": [
+        "Proliferation"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length_a": 1,
+    "length_b": 1,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_prm_b39f66e1dc890f9e1d1156baccd31f11d51991494ce5bf24659cf696d3b3cc1a",
+    "pair": {
+      "a": "pem",
+      "b": "prm"
+    },
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "prm": [
+        "Ingest",
+        "Stimulus"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length_a": 2,
+    "length_b": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "pair_generated",
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "待校验",
+        "errors": 0,
+        "warnings": 0
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]
