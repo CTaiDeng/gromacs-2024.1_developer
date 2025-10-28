@@ -1,0 +1,2738 @@
+[
+  {
+    "id": "pkg_pem_tem_212dafad75d70719c1a29d7376aab0c5a4f413d7e93b240597c3391092c3d710",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "tem": [
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_ce0aebc6a1bf288a1148a34f6ae41d829b19027b8c1234af15feeb33cb9fec1b",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "tem": [
+        "Lesion"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_ce0aebc6a1bf288a1148a34f6ae41d829b19027b8c1234af15feeb33cb9fec1b",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "tem": [
+        "Lesion"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_50bc9bd1d7be80125ce1b315b8653e955764376678d40a20a971720b8e409187",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "tem": [
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_f3d610ade2d7342bb4a94e9513a569ac72c5e0604561c8fb7615c65f50d6fe5c",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "tem": [
+        "Lesion"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_ee302af7c0dee3e34abc55f6610c4ba23ea8ed72a5bb35bfa3027a71cf555666",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "tem": [
+        "Detox"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_ec65d60c38e6e21096b282ea3e62ba73356071f5cb797e27e3d23dc7accb62d8",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "tem": [
+        "Detox"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_6c4d9d95d1b752728bacc33f59bcd2edd5a2e0d4ef0fc1ae162853739259efc4",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Carcinogenesis"
+      ],
+      "tem": [
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_a442afa7e51233b29f00e20860714ce1b3da63bf2cf6cae517c261db5707980b",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "tem": [
+        "Detox",
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_2797335caac3a9e5809ab2c24c07829736294211e6c17bc5e94f340be850e7ad",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Metastasis"
+      ],
+      "tem": [
+        "Lesion"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_7b272cb91f57de808e406f5e081c5cceff2515203510133ed6b93858c931683e",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Carcinogenesis"
+      ],
+      "tem": [
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_500f38b6d00771c81d348d0dd58f6ffc507528cb91ec3a6f971fd74d14cfdc6d",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "tem": [
+        "Repair",
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_41e1923033e1939d141f9c1ec1632f89fe397289f6923e3c7ae4734dd593f1df",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Apoptosis"
+      ],
+      "tem": [
+        "Lesion"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_500f38b6d00771c81d348d0dd58f6ffc507528cb91ec3a6f971fd74d14cfdc6d",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "tem": [
+        "Repair",
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_4f2a7d988ac4ba06c65f673067913eb33727ecfd041b273e67019d19797e97d1",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "tem": [
+        "Lesion"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_67d8773d619591be969c25575a6323d1ad791b0a0954a9bc2f6bb3cf442468bc",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "tem": [
+        "Lesion",
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_8c601992fc8164c5d9aa745d26a59d227b603c62361563f7d114a47b8a8a66fd",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "tem": [
+        "Detox",
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_909eb82979a3d90d793b4edaef591709430894b54170f5b019750a506d1e07ce",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "tem": [
+        "Lesion",
+        "Detox"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_3ddb527c9063cfb7fdb6afa07e57261f841ae01b114d6e7580539c7922170946",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "tem": [
+        "Repair",
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_f24ae706979ab4c3b23226275ab2e79d89a05d8359a71f21070c8a93bfaeed5c",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Apoptosis"
+      ],
+      "tem": [
+        "Detox"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_8c714e50f2338900eaba83fcc541f2a53c156c61147a4e15de03cd9bd12c8466",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "tem": [
+        "Lesion",
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_9352e400885887e2dca92d0473bfa6f4f479017726db3ce3b0d6c303ab1d33b2",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Metastasis"
+      ],
+      "tem": [
+        "Lesion",
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_7100f86284344ada3a2181f26649e2df0077ee04071bf7d3a0dfee58f694f2e7",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Inflammation"
+      ],
+      "tem": [
+        "Distribution",
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_054ab3faf5cbd6f6b6799f4ba19cb3c4e95c2b34b05585f592234a082a731848",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Inflammation"
+      ],
+      "tem": [
+        "Detox",
+        "Lesion"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_c3200194120993695f1b9017305f283560feddd12081810a562ba8c6328425ad",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "tem": [
+        "Repair",
+        "Lesion"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_52d8dbeb10ac9d1a6191269792c61c4f2b21ae356544f112bda618cdb1d4a5df",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "tem": [
+        "Repair",
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_35c492e09b95c6c0ed2835bbcfcf9d1d9864c0ba7eafa48c242ebbe37e32624e",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "tem": [
+        "Lesion",
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_96fcc89c37d130818182bdeafb198a9c65673800b11e1d7e72dc4b1a479e9b22",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "tem": [
+        "Detox",
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_1a36552c8fc9aa62060e9bc829e3805b470881fe60eeb85205edad503624d3fe",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Inflammation"
+      ],
+      "tem": [
+        "Repair",
+        "Lesion"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_9aea1cc8f90d46f8100acfb2e8d888f7b87e71083e3c9eb32cd92d29ae61280b",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Metastasis"
+      ],
+      "tem": [
+        "Lesion",
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_90d7cab49243cbf02ad7355b3dbc115abac6f6badaff0f0662141299070c5564",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Inflammation"
+      ],
+      "tem": [
+        "Detox",
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_tem_635f9011cb02ba76b869edbf377ff565569bcbdf01afa6d725a8c8e36acabb1e",
+    "pair": "pem_tem",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Inflammation"
+      ],
+      "tem": [
+        "Detox",
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

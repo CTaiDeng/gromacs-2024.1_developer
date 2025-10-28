@@ -1,0 +1,2626 @@
+[
+  {
+    "id": "pkg_pem_iem_6c6ca3509524162ba4554524ea96481557ccb53ddcd1362b1a7a2c77eae7447d",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_f893b856281afa31bfbad433f818c55bdb54cd4f106b57bd3ed1dce8a85b8d44",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_8aff3ce1f9a8f59a7eafdc9da046500f8676325132fdb945d5cd9407079a4440",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_9839dbaa58f932ba4642cb8d748362dd39c0451806a13b900ed35189f594a591",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_53c761caa77ec25462a188a9565ccb2aea12960c8835e2cb2e3473af7a198f2e",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_55cf8a601b335d0c262c5c8960d3b39d2c1e7911abc01095b297dd5209e5b17e",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_f893b856281afa31bfbad433f818c55bdb54cd4f106b57bd3ed1dce8a85b8d44",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_f893b856281afa31bfbad433f818c55bdb54cd4f106b57bd3ed1dce8a85b8d44",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_5fb13d9c659b728a9ad2835f17c22fac298fe66b8d24597f7b667fe59f4c82c4",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_4166ede42647e3b909edd07ee230a1ef2998b69e8c48a95649d0fa8bf9e776fd",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Metastasis"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_e03f26c5b85913569240f4cd30e6b92460e4d088d1246256acd083c786e7f5f3",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_73645a2fef656e0e814d90de763a4d891ef9b1c64a0c02968bfcced47c6e447f",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "iem": [
+        "Activate",
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_a7b0b11e4e1555fc520f80361d5ac96d71ae1778fee1346b2a169869f11d7c16",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "iem": [
+        "Differentiate",
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_dbc0c6088de193ca50b2e59b008fb7d972d68774054fd36bc0c6268d280317f0",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Inflammation"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_2100a882d64b136ea49faa00da0a4dec19aad4d8da9a268624bd8d1477bb3529",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Carcinogenesis"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_0ce73e2992282b5589c8396e0d416cb888804068ea0113b57ae9b228ea70f03d",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "iem": [
+        "Proliferate",
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        },
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_25ab03d48c99721597425f573b828b874039ef53757283c2afdf1a71f5aff732",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_fd78de95da3712c2cb8d96552eacb8a4fda92eaf1d4e1859a01375edd81d07fe",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_bcda832184c04950abf03f73409f1d64180883cdf3c19dd902c30d94f029b584",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Inflammation"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_76b118187f4dd1bc7926bc49146526b3fc690402eb4cf2d09a3de9f76ca85b8b",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "iem": [
+        "Differentiate",
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_6ad43033bc2bcd585be7f31052eeeb8ca08b71e689d2385abf93d336ddd1229b",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "iem": [
+        "Proliferate",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_1483d024f273396bc4c71434faade09e11921e642af3cd38a4bd6e1e2bd87c4a",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "iem": [
+        "Activate",
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_e5a6f68c343b7a51021bf059ed3411e1a0c9c34acf692f9a4385593db4cb5619",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_01ee69895117f49f6812c36d9a1545102d1ce95a95c87d1b3b23c64ae239e96d",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_3473c0befa824ec82b7efd871548fc46ffa40ebc60c0db60b5a91f5fbb57953d",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Apoptosis"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_7a24da9e31e473ec917e28ac33b76ce6bcfe90d93df5bca88760be7cf115550c",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Metastasis"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_170c348da1830fcaf8fd777524b4bf8029b8d452db521e106c706573c120b9a3",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Inflammation"
+      ],
+      "iem": [
+        "Memory",
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_323463b8bda57d2b02e0a391eb9ae4954023a36150d4e8010fdba5f1025a780a",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Apoptosis"
+      ],
+      "iem": [
+        "Proliferate",
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        },
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_4ed7316a2aee6ccb9e3ba8c18d47b7574b5847b96cc75574340d1d10e4b67c91",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Inflammation"
+      ],
+      "iem": [
+        "Activate",
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_7e17ce01f344b15c646b816ddeb550bb3415e84515661febc99018531b99b5ec",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Inflammation"
+      ],
+      "iem": [
+        "Suppress",
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_90aed24349e5289dcae62ff35a29a68a589d08931eb257000d584a8a746ccc71",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "iem": [
+        "Proliferate",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_iem_654686998b087528de8a8ad8d4fd1f61a709df4e7da7cb2c8637be457ab218d4",
+    "pair": "pem_iem",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Apoptosis"
+      ],
+      "iem": [
+        "Memory",
+        "CytokineRelease"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

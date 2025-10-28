@@ -1,0 +1,2486 @@
+[
+  {
+    "id": "pkg_pktm_pdem_ec2edf4a6bdc58c1fa56362d38e8d2d8040578ebed25ebbf94d6b6ab88c4d2a0",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Absorb"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_a91cbe5ce0361a62f3bed154e55cc98889d7ef13d775ec23a83a6cb8a63970cc",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Metabolize"
+      ],
+      "pdem": [
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_48160ad4255a60f4ed851f5473995891dcf2007c51936ac85c5a4adf3a6c1685",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Transport"
+      ],
+      "pdem": [
+        "Antagonist"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_19f2dc012ed9f15ae10f619730483bb4c2f1f7c6e8b23cc4709d49013fc174ae",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Bind"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_19f2dc012ed9f15ae10f619730483bb4c2f1f7c6e8b23cc4709d49013fc174ae",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Bind"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_d5b1ec1fdd5da348d497a35c56ed1d6cef7ad05bbcf6fce9e4b928ad019472d4",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Bind"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_17c9d5febdd35d3b4a81adc058e93bbf24accb29d40e83a72f2714df47aeb575",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Dose"
+      ],
+      "pdem": [
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_9bc6e0a9c195b74eb31afb24170d652b3ffbf59774a9661f170d9234bcc88698",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Absorb"
+      ],
+      "pdem": [
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_5bfd098655b39dc31d42dacc20bc25c6d53913b867e4e3a9949d62c438f8781e",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Dose"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_3e4c1ae042fa544054b83eeee6449e2f84cfd240386ad13598b11b67e5e3fde0",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Distribute"
+      ],
+      "pdem": [
+        "Bind",
+        "Potentiation"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_c5bfe88c5d4ff2c3141a78773a1cd38a75fe86aa86df72797ece89241fbc570f",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Absorb",
+        "Distribute"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        },
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_97104a45631a43fd8295fec4cec3ad2141396c3ae79b1c82b57c23469b92e0ec",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Transport"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_3650e96ae1057604e7dea8bff2ad4504d764473bf5a5fa099f7b0b0e54d801dc",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Transport"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        },
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_cd85c4c7c1fb6b9c4cb519155f27d330b0aa86e9f5c8e0c970638928bd151cbc",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Distribute"
+      ],
+      "pdem": [
+        "Signal",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_f03225d48ac8ce54566bc57c8fcd852b6a8f171f6858efa125631dfe2e56c8ed",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Metabolize",
+        "Dose"
+      ],
+      "pdem": [
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_14a19fb5b33f9a67b282eb8f955e62d51aa9a32835e7a5d64f2346ac2c1eca7d",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Transport",
+        "Excrete"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        },
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_e25d2ec6629c4c950785d02c4e2c8ccd11b592c0d07245ee7ff31de2ed11568c",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Absorb",
+        "Distribute"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        },
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_591f150080769b2db015adc218ca4c3343cf34dbe7aaf90574dd2ee4cefccfca",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Excrete",
+        "Metabolize"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_9a9a3159aaed7638d99bd73b924540ce490e08a97e2016cca4ba645b2ff523fc",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Excrete"
+      ],
+      "pdem": [
+        "Signal",
+        "Potentiation"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_25fd62ad13c6d61b248942d92f686ec227f1967d50e1579203e360115ce8ed78",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Bind"
+      ],
+      "pdem": [
+        "Bind",
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_def4aada01ac3aff77207844c6a07543af03ab1277f6cab2bca1835179d86de3",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Absorb"
+      ],
+      "pdem": [
+        "Signal",
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_2cb9c6ea6f75a4deb74e73d893501c00bce65207ee37b89b8614225aeac072c1",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Bind",
+        "Distribute"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        },
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_b619a6c90486c5dfed56b054dc20159837356b00629ead4b7808ad046792d1db",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Transport"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_ba7f47a215247bc3065adef1be32dbb3d54ae53ba34dfe7b9445e841162cde2a",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Metabolize",
+        "Excrete"
+      ],
+      "pdem": [
+        "Antagonist"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_bc1be1d9abe1b3ff9e6422954aadb4576e6b77b63fe1e47373f2a2cdef9970e9",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Bind",
+        "Metabolize"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Potentiation"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        },
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_179101d08cf9ebcdee16acdbb9b1a1597e823f9b025d5783ac5408c115da10a2",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Metabolize",
+        "Bind"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_45b96bd9009522cdbbc5f4ae21d91fa187e0e3302b398fff900afd3b17161187",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Bind",
+        "Absorb"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Potentiation"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        },
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_d4b827084a35e57dfec40412f3954bd28e2e013dae5cc73e18468b4ed3492e45",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Metabolize",
+        "Transport"
+      ],
+      "pdem": [
+        "Bind",
+        "Potentiation"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_c00f4971a35f0b953cbf94dc4249efd9da3129eb1a5bb8ada2efe56103a8d488",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Distribute",
+        "Transport"
+      ],
+      "pdem": [
+        "Signal",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        },
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_22df999a0a59f3385181cd357566c2a86206e391e1cf437eacde3b2d41790bb4",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Distribute",
+        "Bind"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_1c6691afa57e2920f888de7f134e1f5f2e164fa5a0accee935bdfb1b5838d0ab",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Excrete",
+        "Transport"
+      ],
+      "pdem": [
+        "Bind",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pdem_47e6a691f20da95f793b59a0d26040aba1e56443eab3c3a16e762e033d362beb",
+    "pair": "pktm_pdem",
+    "sequences": {
+      "pktm": [
+        "Transport",
+        "Dose"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        },
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

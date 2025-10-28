@@ -1,0 +1,2568 @@
+[
+  {
+    "id": "pkg_pdem_iem_c7fc9eac0181f6f6f5c3d69a2e57a76d13fa4c4cb9d11589ce870d63dd417743",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Signal"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_c7fc9eac0181f6f6f5c3d69a2e57a76d13fa4c4cb9d11589ce870d63dd417743",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Signal"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_2d2e4f0f3617fc859e29b14d6aadb5d49758babc7c4a6118a65cd491898323ce",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "InverseAgonist"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_c7fc9eac0181f6f6f5c3d69a2e57a76d13fa4c4cb9d11589ce870d63dd417743",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Signal"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_132b7cc37130ae7b956ec5f7d35ce2c810f199f47899669d4a0218a8a1bbf770",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Antagonist"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_bf7c3051b639d025b44e36fce5656198f43ba0439c27bb3d9c8eb5330a7d2e52",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Desensitization"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_bf7c3051b639d025b44e36fce5656198f43ba0439c27bb3d9c8eb5330a7d2e52",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Desensitization"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_2d2e4f0f3617fc859e29b14d6aadb5d49758babc7c4a6118a65cd491898323ce",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "InverseAgonist"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_6d474bb5bcf9e1be50fd7337268c957b3598dec5ac54feba7403c95bad83602a",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Desensitization"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_0f90598b83b54d543656445abeae6505e2c8bff4a9144d0240b4267780b74af6",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Bind"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_55ba325c69892d4cdaafea64746ad52218e140422cf24151d04b0c80c51fe7ea",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Bind"
+      ],
+      "iem": [
+        "Activate",
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_1c02c8faa0f0fffd483859ed56c3f512ea3d1849b77fc51186258ac99713e142",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Bind",
+        "Antagonist"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_1c02c8faa0f0fffd483859ed56c3f512ea3d1849b77fc51186258ac99713e142",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Bind",
+        "Antagonist"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_807247004f7bd09744c6e8a9d3f1806681f0872a5913a2e48faa4bb226019a1c",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "InverseAgonist"
+      ],
+      "iem": [
+        "Differentiate",
+        "CytokineRelease"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_6a90ed57cc4a1258a944d793fb6c273c4be47d51361788fbdb7e168a82dcf8d8",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Potentiation"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_bd7b68f3cbf3873c2e6b3990851fd09cb57bc8e8955833f4337ad73e7bb2b2b3",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Bind"
+      ],
+      "iem": [
+        "Activate",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_7436795ab60b1c3b65fd356d9e30959d9ad79c03970622475092873b50636fd6",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Bind",
+        "Antagonist"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_bc91f1f14d3a858e62fdeda7c3e2f77d6ad19560c27944e8501c982b58568483",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Signal"
+      ],
+      "iem": [
+        "Memory",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_9e23384b2d4618b12ffc8ce320c6062d76309abcd8f6529ac85fe96dbedcd280",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Potentiation"
+      ],
+      "iem": [
+        "Memory",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_0e24c24213f5a79ae81b215737dc0b7a3e9d3d23243b3cfcad52fa890ebe2d88",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Potentiation"
+      ],
+      "iem": [
+        "Memory",
+        "CytokineRelease"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_1082943f554a7000f4a4ce1218ca7e2762e737b5781d21732382dffcf231908c",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "InverseAgonist"
+      ],
+      "iem": [
+        "Activate",
+        "CytokineRelease"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_dc32d5e1f215da03db8d4f5525c473affc996f364c5aca19534e90f4e98627d9",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Desensitization"
+      ],
+      "iem": [
+        "Differentiate",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_3851a4f4b68da1bc2863dc4edabc4306ba7bcc26e50e8e63d7f9cbed7e53b8cc",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "InverseAgonist",
+        "Potentiation"
+      ],
+      "iem": [
+        "CytokineRelease"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_630ff3d33953ce8bc4c6335a80f4bb3739f3b297c6be55328044e32f4c6872fe",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Antagonist",
+        "Signal"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        },
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_0511b4256fa09dc2fc1621523faff7e773c1eb470eaf815d34754dee97f1349c",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Bind",
+        "Signal"
+      ],
+      "iem": [
+        "Suppress",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_de2c9edc102450f70be8364a10b8dabc4e3443f754ad0febac71df6318f33a30",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Signal",
+        "Desensitization"
+      ],
+      "iem": [
+        "Proliferate",
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        },
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_f0c492a34ea5180ef534cdd7944c73339eace38d4340a6ee8beb6c16cea7723f",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Desensitization",
+        "Signal"
+      ],
+      "iem": [
+        "Memory",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_7ecc1ad36683d4e759fcd29ec7d4e21bf78ec668fbd348fa1db13744d68a81d8",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Signal",
+        "Antagonist"
+      ],
+      "iem": [
+        "Activate",
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_e9ecb48ed607547867e3846db7aed3059b6d22cc3de3062530de3d8b45c888db",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Potentiation",
+        "Bind"
+      ],
+      "iem": [
+        "Activate",
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_83aceaa5a2990e0bc03210a3118001f02437a9e8a3179996f4acaaa65ddeac98",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "InverseAgonist",
+        "Desensitization"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_a4b4bd5dac165c6b2e68e0abe78aebb8da71e647733eed9352625904d79f8802",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "InverseAgonist",
+        "Signal"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pdem_iem_907bd860ea796c6a2611eab46a989496c150ab942456de7131003906e5e2fc4a",
+    "pair": "pdem_iem",
+    "sequences": {
+      "pdem": [
+        "Signal",
+        "Bind"
+      ],
+      "iem": [
+        "Memory",
+        "CytokineRelease"
+      ]
+    },
+    "ops_detailed": {
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

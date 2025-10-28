@@ -1,0 +1,2626 @@
+[
+  {
+    "id": "pkg_prm_iem_7560f0dc44968be34020294e6b3191d4fd4d029664f267398bc1b0c204867294",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Ingest"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_e750f974e7d31be8e622d9bb133e19a9a8b9ba5462472f7dd13990f132df64ef",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_f2daa869259973bf94192aa355a43f46de8b4564cdbfa6337b21b4560577e82a",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Exercise"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_c7afc4bb2760dda053bdcae5ee24ac8527ef0c90c5f8bf05202d9f0899898f28",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Hormone"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_dd7d339d9962a6a356e4d0b6c9331c72a9b09b02468d5a72b23cf48b758b5583",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Ingest"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_cd39f2bf6f257baadc689e5bc9b53bbc5f5712cc4559f99e7111fc5c78fc0b7b",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_62ece1b20de49ae30bce18298d7d181092eefc1bb0033fa55709c7c92a00cd4c",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_71de2393b6641ea058225651e0fedde20e39fbafa180fa8c3b3d39f401221232",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Ingest"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_74d329b981cea68db7c848698a188ad5b3015496d41bcbacb4f0e905ddba07c5",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_eebcaa66fabf38855d78bcd22df70fbef2976f04451c4fe9eb07cb0220663c76",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Exercise"
+      ],
+      "iem": [
+        "Memory",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_c782e89ccc5ec5bccd4d1e53bd515a4b04187b0affb01241adef3417a0af43b9",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "iem": [
+        "Suppress",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_a5805963e5adacec322c6eb97a16b90bcee7474fceba7ee484c30661c8e55181",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Hormone"
+      ],
+      "iem": [
+        "Differentiate",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_7cb2f879de4891d0b14a9ba018ca077310a89c4ad27fb0ef4c3ed96c8797222f",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "iem": [
+        "Differentiate",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_8bcd7d9749d3e28f8cd43fb9471241d6214d9e7e980d5ee719d46c8abaedb4b8",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Ingest",
+        "Hormone"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_1aa616f9e283fa843d0fcd26883c55ac9ef8680f5e648dba6005d90b3e71540f",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Exercise"
+      ],
+      "iem": [
+        "Suppress",
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_f69301c7c8a66e92d1dca21407ee85e3f51a87cabae946144d4c5cb9d3180cb5",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Hormone"
+      ],
+      "iem": [
+        "Differentiate",
+        "CytokineRelease"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_3867bc228d56fe2cd569fb8c8735c1653b4b71e63fc203a4203e3409931018bb",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Ingest"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_edeb2f75ce38938405c6fa75c21644d5a7673ed967dc3d001207edd181408fd5",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Exercise",
+        "Hormone"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_cd51809c48735ddf18ea913e1bb068094c2f54860fb0b94f198cf41111dcdd50",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Ingest"
+      ],
+      "iem": [
+        "Suppress",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_88d837cdb3281c0539f4dfe6c568aa075153fe82297dac05780eadbfd3f920d4",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Hormone"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_b20750e01a67b4631f8d4b5f5b90d4aeb12c006446e9d6c58c711d0fe958ec7b",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Ingest"
+      ],
+      "iem": [
+        "Differentiate",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_6b7166e22a0d0fed4fa8f77da4e33073b613073ad48f4b84af4a30172f50797f",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "iem": [
+        "Suppress",
+        "CytokineRelease"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_9ef1f5907e399f26a25cd920318e278804064bda42660dae26434fa57a9dafaa",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "iem": [
+        "Memory",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_732d1203bcfca3b7602276fd593567deccda6a5bcf1a771ff3d43ffd78ab2619",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "iem": [
+        "Memory",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_e661a081a8c5a7998ee2143e551ef3267d9ed924d5b958c60b5a484d5853b816",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "iem": [
+        "Memory",
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_ddcd61371596745b85f1488ff2621de3ad30fe48d4659d19957fb0caadd409ff",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Ingest",
+        "Proliferation"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_a325c46df6e946325350e8b2be19f73ece98967815513f7b998f44afcf762a97",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Hormone"
+      ],
+      "iem": [
+        "Memory",
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_0d72b347d1160e0c7815fa60fd77f9c2d3f2448d62fe1f12074158284a287c54",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Stimulus"
+      ],
+      "iem": [
+        "Proliferate",
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        },
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_86c0dc5f11b38144baf43a9c99bb6d4e1e2de2ec4072d984e11a532a6a84ea09",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Proliferation"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_b6c9387598587282202a807f70d2cb69fa870246ade6b2a6cde099b9b46650d1",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Ingest",
+        "Exercise"
+      ],
+      "iem": [
+        "Suppress",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_47920e141eeec1f838309507cf8a92694784168efdf8b5e6f10a2fecdf5fe121",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Hormone",
+        "Proliferation"
+      ],
+      "iem": [
+        "Suppress",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_iem_d6539104c41918dfcc7bb30007c1a1e0a3c74f33527d3d95c660d2fa28e73b08",
+    "pair": "prm_iem",
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Exercise"
+      ],
+      "iem": [
+        "Activate",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

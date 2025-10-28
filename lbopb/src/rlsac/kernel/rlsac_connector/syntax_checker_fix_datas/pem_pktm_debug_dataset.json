@@ -1,0 +1,2498 @@
+[
+  {
+    "id": "pkg_pem_pktm_022264faec7d15e9695db5c35ba8cfa7b479a61dc9851588e2895a0d15570385",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "pktm": [
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_7ab05f0d003306a9a8f07c4bd5fc47fbc2a94336c82e7d5eca8e41d0cb26a852",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "pktm": [
+        "Metabolize"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_1f61c18e0ac5c835c849a61519f3d21cc72d483b6634359882c2eafbeb78e385",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "pktm": [
+        "Transport"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_879c231654bfffe579ca1720534e3739182eade360fe11ed493130e4ea332347",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pktm": [
+        "Transport"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_e2c832c225bc41f17331183be0e75767cba24c14690ef28beb24d18557f5692b",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pktm": [
+        "Excrete"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_a83c9fbc3cf4a6f0a15f5a7a9feddb14b1f2da82b7a7b709a8e86eccf5cc5a39",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "pktm": [
+        "Metabolize"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_c9451f295a3127399adca090ba3b22ae6002d2dc827188edb5186233f82c2e59",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "pktm": [
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_386e6225182be972e20338294cea71bf9545e7adca9030b315f592ade5ddc3f2",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pktm": [
+        "Absorb"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_23e1c8e9bcb3e4e7e6c2175ca7fff1ced4faa70f64e129617ed828c05d19b7d7",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "pktm": [
+        "Distribute"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_4e60460b7db6be840b6795e13e684be270e523274d85b79f164cf70ccc3f9e99",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pktm": [
+        "Dose"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_15cd60dd53f6b0c8bd2d5bda9b14e94805943ae31158c79d08d9d5e4b106157b",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pktm": [
+        "Excrete"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_1a01e772a771beef89b0026253e3ad93b78bbf036f457355158dbdcfe9f2d5eb",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Inflammation"
+      ],
+      "pktm": [
+        "Excrete"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_e9101a790a2ce86787956a4ef95eb6693beb9aa6901ec85e30f3924c67a1e05e",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Metastasis"
+      ],
+      "pktm": [
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_4e55bccfc7a906342c362e40e0617dd4a8184a69591ad4d1a17828fac13194f2",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Apoptosis"
+      ],
+      "pktm": [
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_6d6289ff8d3e5ca262ba752abf65533df113223de5e17773dde50a4d9290f5d5",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Apoptosis"
+      ],
+      "pktm": [
+        "Distribute"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_bb7a334f4926a4adffcbc0f7dddab60e8a45959bde5668b4390889396e10b3ba",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Metastasis"
+      ],
+      "pktm": [
+        "Distribute"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_b969d29d52eea5d3732f8b8bb32d6efdb3b38cd966a6089af5c773aa8ed8c489",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Inflammation"
+      ],
+      "pktm": [
+        "Excrete"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_1ecf51d0e4c0819a51fe2a8b96378e921a8f17b6e7661302069a3ac0a43ac0e8",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "pktm": [
+        "Dose"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_b26ded4af9007166511025f0fb4c61e0dd058f457ba790238e3dcdfcf94825ea",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Apoptosis"
+      ],
+      "pktm": [
+        "Metabolize"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_74c5c1144663ae12f2e4542c94c2425f519c96f86e2bd7fc0ec4d81c2077bc47",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Inflammation"
+      ],
+      "pktm": [
+        "Absorb"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_5a7de71899249cbeb772cc53b8decc4f6e5e0fb4fd5cee7e1c477aea1970bd2e",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "pktm": [
+        "Excrete"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_4c2872eba60c9340036cb0f8416d149b77e06f7d7d18d7b633942b68ab75728c",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Inflammation"
+      ],
+      "pktm": [
+        "Metabolize"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_ce5ff5c9bf2afff5ade79671e7cc362a5794816327913d62f0b978c0ba133fa2",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pktm": [
+        "Transport",
+        "Metabolize"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        },
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_72141da51d76175ec576c262ea8927c3a421cbad69e075fdf0a7bec8e4865dab",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pktm": [
+        "Distribute",
+        "Absorb"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        },
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_90376d59687eb36f8fd8e30309d6dc070d0a50a265e53377d4b30b442c9a237a",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Inflammation"
+      ],
+      "pktm": [
+        "Absorb"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_e4da76bfbcfcb650594e4394abb3052a1cecfc5cfcaed18f8dcbf9c0acad5ba3",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Inflammation",
+        "Apoptosis"
+      ],
+      "pktm": [
+        "Excrete"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_bb07c3138c2eb51e50f866868c9a0668abc3b52620069cbfe11ef597be757edb",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "pktm": [
+        "Bind",
+        "Excrete"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        },
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_0969cc54239b2d995d032c220330368cdbd0e1a6f64db3ecb02eebdb140bbaee",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Inflammation"
+      ],
+      "pktm": [
+        "Transport",
+        "Dose"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "eta_b": 0.05,
+            "eta_p": 0.25,
+            "eta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        },
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_99664f138d0ae12d9091e4b858659a8e546ebee832b21cc1866de585786e51e0",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Metastasis"
+      ],
+      "pktm": [
+        "Absorb",
+        "Dose"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        },
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_f36c8980438a397a5cecbb0f1f34b2ded54b51e663015f1dc0fcc7f0b2ff5eed",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "pktm": [
+        "Dose",
+        "Metabolize"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.1
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        },
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_29c8987b9f649681b64fe16ec981b2614ce67e3421331cd77ca9b37b3da9f191",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Apoptosis",
+        "Carcinogenesis"
+      ],
+      "pktm": [
+        "Excrete",
+        "Metabolize"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pem_pktm_2541a0eeb7af7e0f324616d13d56e1e82df2ff16496c8932c2cac30c108d821e",
+    "pair": "pem_pktm",
+    "sequences": {
+      "pem": [
+        "Carcinogenesis",
+        "Apoptosis"
+      ],
+      "pktm": [
+        "Dose",
+        "Distribute"
+      ]
+    },
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.25,
+            "k_p": 0.15,
+            "k_f": 0.1,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_n": 0.1,
+            "gamma_p": 0.15,
+            "delta_f": 0.1
+          }
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        },
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

@@ -1,0 +1,2548 @@
+[
+  {
+    "id": "pkg_pktm_iem_25c963264798e32860f8a6a1de7b8ce68a1b852dd7a3f3e09408e47767fef12b",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Bind"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_45b2cde1378735b730e53bbf400bbb1b6ea19b8133a0831caf15844f97abcb1a",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Metabolize"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_25c963264798e32860f8a6a1de7b8ce68a1b852dd7a3f3e09408e47767fef12b",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Bind"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_5bce427d4d0eb12852c90f181e6ab141340ff11745739efeb43519ccc5a4cfc3",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Distribute"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_2b7564b0c2c60f2a824adaa7b46f979f5a72e74efb953cf3e2a2b00d906bb123",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Absorb"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_a826e2baf8f2da2e11f1ec38ba5761b26a1742f041edf6b61a1949119d3ea345",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Dose"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_f4ca799231da890f46768e6cec695a35128d005de60a8af559926b8d97cfc722",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Metabolize"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_bcd5989e4240bc84e70d0f6faa836e158c4b826dfcc61352fd9754657d6f6de9",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Metabolize"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_d6c6443b82d6dd194f8a48cbad9866936264870e02d301ad3d1104693a2ab3cc",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Excrete"
+      ],
+      "iem": [
+        "Differentiate",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_dcc6b6691bb101c1bb93e83bad64f66bce1167ab2b1480557bf61d9a891b6e46",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Excrete",
+        "Transport"
+      ],
+      "iem": [
+        "CytokineRelease"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_f4d036405d6e2532a2721d5efefe78a4614235ccd90e80b64b1db594450d855e",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Bind"
+      ],
+      "iem": [
+        "Memory",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_15e82b4c9357581e2b0d26876d30eda202c07ad9b3a110a67377a1d8da5b655d",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Excrete"
+      ],
+      "iem": [
+        "Suppress",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_167b8016bc788ba6830479d31cd8d4becf2b89741442941f9dbb5d98275ca360",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Distribute",
+        "Transport"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        },
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_ba2176536d62bac721a62dc9340d59e6017fa379b9d2ec0956415b7c2e5ec74b",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Metabolize"
+      ],
+      "iem": [
+        "Proliferate",
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        },
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_1f46fe6c98c19981cc3c291f77be00e1516ee4410ff9bae8204fd9839bba6fe7",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Metabolize",
+        "Distribute"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_61274db3a1039f981ef04858b1e16bd3ddd91a53bd21cb2713984574deb43e66",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Metabolize"
+      ],
+      "iem": [
+        "Suppress",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_a749a86a3dd00592ec94bbe6c8c93c3378272a2861a92e187c2228ed2aed1ae1",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Metabolize"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_a4448d58abcf84799e27c21ac4f437c6c7c01b6bc5e99defcfb789883c4dd16f",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Bind",
+        "Dose"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        },
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_83d981ca72bda3e4a39af7e2a050f963c0825e2c97a7fcf82e0fa5e6267102dc",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Absorb",
+        "Excrete"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        },
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_1efeb565742e7be99121ac6cc510d1faada96fbdbe551196bb23570926bbaad2",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Excrete"
+      ],
+      "iem": [
+        "Differentiate",
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_9a9ed67df8722a42120f1a3bee87f24148e5110b5592eedb239b2c04b3aa5d4c",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Excrete",
+        "Bind"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_cb46f799363ade7c8eeffce7e751d31fb6c27d1b7f846ae9f2822599a492da8b",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Excrete"
+      ],
+      "iem": [
+        "Proliferate",
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        },
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_15a1dc04eb76c96db4ea006e353aaa68c625e295b9ea77adf1b3beb243d201bf",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Bind"
+      ],
+      "iem": [
+        "Suppress",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_75c56cee493af667b5534f1758da2c9e31bd0ba512e8a4616e082257bc03868d",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Bind",
+        "Absorb"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        },
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_810f8e336b13a0f1f6fb61203e806655434acf8e8df16ca6188b3c2d05e001cb",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Transport",
+        "Dose"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        },
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_53f9f9731d720d20b7bc78dc407356b1a65f4c8fe046a415406aafd97a7d5967",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Bind",
+        "Transport"
+      ],
+      "iem": [
+        "Suppress",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        },
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_05d9474e8fa1c5108df1a83a15dcd9277311076af0c10bff2c5cb661ac449b0f",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Absorb",
+        "Excrete"
+      ],
+      "iem": [
+        "Differentiate",
+        "CytokineRelease"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        },
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "delta_f": 0.12,
+            "theta_p": 0.02,
+            "theta_b": 0.0,
+            "dn": 0
+          }
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_22d1d633886fd13915ea0b63d6c05bdac614d9ea8672d372dce5f2f76840bc97",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Dose",
+        "Absorb"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        },
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_6d998414f9dc8a5d46d6ccc864190b2fb9c8771c83754c3f92222a875cfdf09b",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Distribute",
+        "Dose"
+      ],
+      "iem": [
+        "Suppress",
+        "Proliferate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        },
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.15,
+            "theta_f": 0.05
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_f9a0c60c8cd0122dd2cb6c9c68126955a51e9dbe6cb90ae16ce1217cfc103791",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Bind",
+        "Dose"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        },
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_88bd23ea504509f417387c2e23fd64fcc449545a612c73846478ab272e315202",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Dose",
+        "Absorb"
+      ],
+      "iem": [
+        "Activate",
+        "CytokineRelease"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        },
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.08,
+            "delta_f": 0.06,
+            "dn": 1
+          }
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "xi_b": 0.3,
+            "xi_p": 0.35,
+            "xi_f": 0.15,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_iem_c2838dec00a2e0f7d3aff49cd1c09838bfcb89ab590b1b37c4fc9b4b706d4aa6",
+    "pair": "pktm_iem",
+    "sequences": {
+      "pktm": [
+        "Absorb",
+        "Dose"
+      ],
+      "iem": [
+        "Suppress",
+        "Memory"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        },
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.15,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Memory",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.15,
+            "rho_n": 0.05,
+            "delta_f": 0.15
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

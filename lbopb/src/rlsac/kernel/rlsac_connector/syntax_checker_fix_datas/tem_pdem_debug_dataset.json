@@ -1,0 +1,2606 @@
+[
+  {
+    "id": "pkg_tem_pdem_b274bd8ffdfec99da3ab39d9ff59537c0292ebade4a2d112b829f54b7a4790f1",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_d8007702be972930462972eea68c1c783fb70c209746936bf611133643961702",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "pdem": [
+        "Antagonist"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_4414c671179e28682963c46eeb4a87f90ce35d2e0fe4f68c839edb762ea347ea",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_ca17ea92cd67f6c5517ee459badd96fb992d84c5e69bdf580987da508e2e9f84",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_798e184b4d179f701a0a3795317fa78dd7429eb4de1b39f49c932e33d45110d7",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_557eef6401f21cb94cee2ec2e966e14e5da40687b65a7856712e4d75fbc17eca",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "pdem": [
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_c47c6e31512d1588e51a75fa7b87379435bd38567c9790fecfe8233e8df99448",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pdem": [
+        "Antagonist"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_edc6e647d4415db3ddf2cfd9ba459089bbbc86e5480115d0c00bbf5d132b8e51",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Lesion",
+        "Detox"
+      ],
+      "pdem": [
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_1c8faa1caf4b93a70cb48aa42f1896961362cc354dc19d69c852ce8a96f375ee",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "pdem": [
+        "Potentiation",
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_548bea9312806196da2e4068074dbfbfe2d5a7fb6c9be664491dd7852694294f",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_66a2c00be4415282d7ff65a9cb1ca89190a0977ad2dc2581df3dee3dc96f5217",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_1c3caa3acfba30026948ef1603a895284e8a57eadef6f26fd88f2d61b15e6682",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "pdem": [
+        "Signal",
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_8eaf6b54615f5f9d9ae267ddcdc3be4abadcd22e65c318ff37daf4109d070fc1",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Potentiation"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_260a2cec38ab19d7b9cb477d3d65fb8b1c44ed15cc1d1006db575d215f4eb558",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "pdem": [
+        "Bind",
+        "Potentiation"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_a74f95e87a42448c0188bcdc544517b0c9d039028448fb2edbe9fabfd986e836",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_4c06eccaa1239a897f9c8f8a952f7963484751554382075f3bc41e0b87dcbfa7",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pdem": [
+        "Bind",
+        "Potentiation"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_c1301428f7228b280fde2d15669a8acb5f018594429b23bdbbb73afd808ab32a",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Desensitization"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_43c1672866d0c387bf6fb5c24d423e3eef0b670055ba5f1454ddc0fda30b79e2",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_f4ff9a87060d7a5cd2b3254a937c221c2b86dd951708b740efd49d44c8e680ef",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_aa6a3f9514fc02060667fae04b8ced4f7e80dcaf321091ea24c390bae8ecbe26",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Repair"
+      ],
+      "pdem": [
+        "Potentiation",
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_9e24cf396b4bd995419109763de976738c01e663020b620cb8b239937b5ab313",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Lesion"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_a8efe5805a8caeb275e29a2b30e446b4def0b7711588da89c1213fc7e99fbadd",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Detox"
+      ],
+      "pdem": [
+        "Bind",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_30c2f99dfe513eeff46e111d20eb47efd54e2f4276683e7a05d1c19016983a7c",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Distribution"
+      ],
+      "pdem": [
+        "Signal",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_8c47b48fae69f05280a239519f682fe84b94877e9f89b585e25638dabc2e35b9",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Distribution",
+        "Repair"
+      ],
+      "pdem": [
+        "Potentiation"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_dbf6539372ad0e0576b6a4d271e7e9fca907da3d574815614de8386806dcf29e",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Lesion",
+        "Repair"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_776e06746d945882cbe15273ed8b2ebceb9c7da9c83cb450ea31587bfe1d7c93",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Distribution"
+      ],
+      "pdem": [
+        "Desensitization",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_863af319b198d0e3280586b835cc8747a615726075d325ee525b6b89929806ac",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Lesion"
+      ],
+      "pdem": [
+        "Desensitization",
+        "InverseAgonist"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_1b8a7a6e6f2169d90dae57fc117a9e95cc5177a5efc68f08cb77cb3895f850d9",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Lesion",
+        "Distribution"
+      ],
+      "pdem": [
+        "Bind",
+        "Potentiation"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_851cd7f059962aa7e3f96b82fbc64718d44d8cb1df11c92ec0790547437682a4",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Distribution"
+      ],
+      "pdem": [
+        "Potentiation",
+        "Signal"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        },
+        {
+          "name": "Signal",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "beta_b": 0.25,
+            "beta_p": 0.1,
+            "delta_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_ba0fca50664063d3b05fb10508baf87b0ee02c6b61dae62f715e56084e21f687",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Distribution"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Potentiation"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.05,
+            "delta_f": 0.1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_d4c06ac475a0603f25923be83afc1e8d76d1cc7c643d44077f5c3a0089563768",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Repair",
+        "Lesion"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Bind"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.1,
+            "gamma_n": 0.05,
+            "gamma_f": 0.08
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.04,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_tem_pdem_a32676e5e674e3b03f384f1ed988e89f851cbca52ac85d0228ea95fcd0e6efe8",
+    "pair": "tem_pdem",
+    "sequences": {
+      "tem": [
+        "Detox",
+        "Distribution"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Antagonist"
+      ]
+    },
+    "ops_detailed": {
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.1,
+            "rho_p": 0.05,
+            "rho_f": 0.08
+          }
+        },
+        {
+          "name": "Antagonist",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "k_b": 0.2,
+            "k_p": 0.1,
+            "k_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

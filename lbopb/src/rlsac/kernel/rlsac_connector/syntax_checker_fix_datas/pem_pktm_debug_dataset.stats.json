@@ -1,0 +1,28 @@
+{
+  "updated_at": 1761675664,
+  "total": 32,
+  "pairs": {
+    "pem_pktm": 32
+  },
+  "labels": {
+    "1": 32,
+    "0": 0,
+    "unknown": 0
+  },
+  "length": {
+    "min": 2.0,
+    "max": 4.0,
+    "avg": 2.84375
+  },
+  "per_pair": {
+    "pem_pktm": {
+      "count": 32,
+      "labels": {
+        "1": 32,
+        "0": 0,
+        "unknown": 0
+      },
+      "avg_length": 2.84375
+    }
+  }
+}

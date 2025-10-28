@@ -1,0 +1,2706 @@
+[
+  {
+    "id": "pkg_prm_tem_b83f1000f6d9eb672d17040bd6ebc0199f405a31b0730bd8ea150e17e67bb07b",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "tem": [
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_078c0509b99cab423a5db4e0ab8714ba1db7240073afe210caa03c30fae6f601",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "tem": [
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_3b86bb60bb16f1a113af96153a9c157cc92e7298f60e3f2ef52b8c786149b479",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Proliferation"
+      ],
+      "tem": [
+        "Detox"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_078c0509b99cab423a5db4e0ab8714ba1db7240073afe210caa03c30fae6f601",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "tem": [
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_67d7dee20007c6e7d7736bfbaabba8bd65a223c568d931d73bb965bc67cf6317",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Exercise"
+      ],
+      "tem": [
+        "Lesion"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_1790f8a970ba065b9da047835828622433d6467efb99a322f416a2e28cf19275",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "tem": [
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_1a80fa0264ce8aa74f9ef289f504ff26cd5855d70b4d73634d6088a870a09ae5",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "tem": [
+        "Lesion"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_b83f1000f6d9eb672d17040bd6ebc0199f405a31b0730bd8ea150e17e67bb07b",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "tem": [
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_f1430cf6d4aad0c1ebb36b0710e4eda6e9ca082a83152a6db22788c0f452984d",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "tem": [
+        "Lesion"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_7bb8c574c1d162573b07b49fae9dc6ffdef0af0dc4e07c8c438ca3f03b132288",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Hormone",
+        "Exercise"
+      ],
+      "tem": [
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_349924f6db097de06052d901bc4200bac0ebff613a7e8328f872cbddd16604fa",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Exercise"
+      ],
+      "tem": [
+        "Detox"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_cec2ba0f6b80330b2d6f80e6515197cf8a334cb7c614758947fa38e0fdbd23bd",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Stimulus"
+      ],
+      "tem": [
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_c802b8759af8498ee85f4e4e924361159973ab2b1cc0f0733b9306300b4d3e64",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Exercise"
+      ],
+      "tem": [
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_f5e2d8011a4a0f51423710ca95e4a2daba8f9db6a090255e0144d140545e7c47",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Ingest"
+      ],
+      "tem": [
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_2e1aadedb6e40902202cb434468624afce624bdcea85a3a42983077c86e6a809",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Ingest",
+        "Stimulus"
+      ],
+      "tem": [
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_c67d769d3084ef3b0eae7c1e40e89e7af0065adaf494d93dccc87b5c6d78258f",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Stimulus"
+      ],
+      "tem": [
+        "Detox",
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_4f28b18d6935e2449263d938c2993e557e9b295f602d580f9e75888b61c38362",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Hormone",
+        "Adaptation"
+      ],
+      "tem": [
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_eb587c9473e0f9df1131d7b78b643db0fb8778bde9758f783f29da1946e8adff",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Hormone",
+        "Ingest"
+      ],
+      "tem": [
+        "Lesion"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_997062e489517a6b95a3e48bb88be5c95b5d88d9954b91a2ade019329b80a2d4",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Exercise",
+        "Stimulus"
+      ],
+      "tem": [
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_941742ce4268e16a5566fca2d8b0f4cb5c5a25b18c3791e77fddb1c32d635029",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Adaptation"
+      ],
+      "tem": [
+        "Lesion",
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_1f73cc56e80e2b4456ebfc18707598006f0cc25a23c42177c663ccffcfaadc6b",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Ingest"
+      ],
+      "tem": [
+        "Repair",
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_2c7c3f72678ce37253cc77315a582bf0e78fcf36db1fb2976f838cdd3d8d0fe0",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Exercise"
+      ],
+      "tem": [
+        "Detox",
+        "Lesion"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "gamma_b": 0.2,
+            "gamma_p": 0.1,
+            "delta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_87d508923089befa215e788bd326451d87fd6088c932b2f440e399c109ea8237",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Adaptation",
+        "Proliferation"
+      ],
+      "tem": [
+        "Distribution",
+        "Detox"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        },
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_733fb75d45df27dd979e46b3fb479735ccb83aca73ac8acdeb15d575cf85fbee",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Ingest"
+      ],
+      "tem": [
+        "Detox",
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_25491585252b7e7152c74f7a02521f47632fe6cdda62b7fa6914d4da3acaa882",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Ingest",
+        "Adaptation"
+      ],
+      "tem": [
+        "Lesion",
+        "Detox"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_79aa68e3a3c4643b2c66d5e2ccaa77e6012165a1122224cdedd9dbaec2daf237",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Ingest",
+        "Adaptation"
+      ],
+      "tem": [
+        "Lesion",
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_2f14925a6976ee328a6241ba1458993daf8b724ba84b6e9648e42881594988f3",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Stimulus"
+      ],
+      "tem": [
+        "Distribution",
+        "Repair"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        },
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_bf8d4b986a2c894d7d0434247a0c0b92da990ff588562d972de4619dc188fe0b",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Stimulus",
+        "Hormone"
+      ],
+      "tem": [
+        "Detox",
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.1,
+            "xi_p": 0.2,
+            "xi_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.2,
+            "gamma_n": 0.1,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_ff7ea48344f9180719c83963122d9e40b59511be15dc80b743823c0da463b802",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Proliferation",
+        "Adaptation"
+      ],
+      "tem": [
+        "Distribution",
+        "Lesion"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.05,
+            "beta_f": 0.05
+          }
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_55f8194f792b389b50e01d7dbb81554644b2d537f1a71cf67f5c61aef63b6096",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Hormone",
+        "Adaptation"
+      ],
+      "tem": [
+        "Lesion",
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_e7104257b98a2b23303c93dac0b0f6466579e6eb495cbe2e2bc090b83f48491e",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Hormone",
+        "Adaptation"
+      ],
+      "tem": [
+        "Repair",
+        "Lesion"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "eta_b": 0.1,
+            "eta_p": 0.05,
+            "eta_n": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "k_b": 0.3,
+            "k_p": 0.35,
+            "k_f": 0.12,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_prm_tem_45a4b90469d69fb64634df32e6e4b68923a4d5390e2c2e8a7caea4555ae5926a",
+    "pair": "prm_tem",
+    "sequences": {
+      "prm": [
+        "Hormone",
+        "Ingest"
+      ],
+      "tem": [
+        "Repair",
+        "Distribution"
+      ]
+    },
+    "ops_detailed": {
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 0
+          }
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.25,
+            "alpha_p": 0.05,
+            "delta_f": 0.02,
+            "dn": 0
+          }
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.15,
+            "rho_p": 0.25,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.2,
+            "alpha_b": 0.05,
+            "alpha_f": 0.04
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]

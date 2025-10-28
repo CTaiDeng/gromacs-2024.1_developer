@@ -1,0 +1,2468 @@
+[
+  {
+    "id": "pkg_pktm_pgom_24cf6dfa3643872f1369e247c290cd91ba01ff67c6717ed70efe39ad55f967bf",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Excrete"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_e0ce6597cd0700a22d39439bcb985a5252eacc937fcd3f57cff1262ece0ffbee",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Excrete"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_900cbd4ae7c77253346248a05b4f5760f8ec11deab7008eb44fbc7c27be64e59",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Metabolize"
+      ],
+      "pgom": [
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_d3dd7f7318b55d78b4ecd6e493e6e242f08bfdd672ef823abb3bf905cd196431",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Absorb"
+      ],
+      "pgom": [
+        "PathwayInhibition"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_ae0672b674ff669af16203464b49c0a7457bec168ab4520e0ad81ea4f16572d8",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Excrete"
+      ],
+      "pgom": [
+        "PathwayInhibition"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_3da99c88414421ffb92a52f54f83100bdc116aca66bf8ae9e3ba45c11bd27675",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Distribute"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_d83177417f779891bb02ea65a56b8921175968ec16bb6e929f0cfe29f097d49a",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Absorb"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_5fe2b1ebf6f55d17c2518acd78cc7c3b563b81e05ec27e01a7128dec58cdd002",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Transport"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_c93e5b78e49206488a359bb5295a3b14055f4bdc6a214c99fec78c905dc3afec",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Transport"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_46e4d9997bc461d2c43564937489a655dcc201f718e5be77d9d35f85b43adc0f",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Excrete"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_5214120c53e99293928951ad1aa2e5d7fc934d857010380497a2f27227b702d6",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Excrete"
+      ],
+      "pgom": [
+        "Repress"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_c93e5b78e49206488a359bb5295a3b14055f4bdc6a214c99fec78c905dc3afec",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Transport"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 2,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_4469c6ee397fc619b2562ec1c5bb9b779f239334d9ed26028e7f4d8ca6b7bd6f",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Bind",
+        "Absorb"
+      ],
+      "pgom": [
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        },
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_bcd267312b7e7beb7b2e2c82a2e616ed1da44bdda9085795cba6cbfc979438cd",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Excrete",
+        "Bind"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_4da71a6eab840af332e8e78449968c68ddc638773c90969f85bc8a1e75fbf8db",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Dose"
+      ],
+      "pgom": [
+        "PathwayInduction",
+        "PathwayInhibition"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_63ed86eb1b72300c3978599f8aff0776783c8e6d063f3f3c850fd3bbe522fd30",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Transport"
+      ],
+      "pgom": [
+        "EpigeneticMod",
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_49e2b8e3ef27749aeef87a4da82dc9862eb93cbe40cee14557f1232e3ef1097a",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Excrete"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "Repress"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        },
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_e0153106d6eaaba11a307fe914c4fe7790135cb998655c00527a0b8e08ce23cc",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Metabolize"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_343ef912df3d1f6e668b73f76b772c94351f0bbf2ae0957dc122d96cd274e9b5",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Excrete",
+        "Metabolize"
+      ],
+      "pgom": [
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_bfa4fff891ff99b21173dc4e7dca94ae4a436e7fe4b9b4c048c4f207226249dc",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Metabolize",
+        "Excrete"
+      ],
+      "pgom": [
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_08d2ef1deb1ebb43825739c350e50a55a0eb19555315472108aaceb20c67242b",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Distribute"
+      ],
+      "pgom": [
+        "RepairGenome",
+        "PathwayInhibition"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_0be1e429fb03f9c6d6e72341655bb1d05c06a2ac9c97abda652cbca101d45f49",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Bind"
+      ],
+      "pgom": [
+        "Repress",
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_22662565b404ff2f9c88af43fb073f60ac9fc11fabfe874587b9bfd0dec6c214",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Distribute"
+      ],
+      "pgom": [
+        "Repress",
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_83afcc85d6ddcf1ed32f5150662249bd1a269287e5b7d05ea2751d8b7b63cb44",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Bind",
+        "Absorb"
+      ],
+      "pgom": [
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        },
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 3,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_cedfa1f0feac7a0a9dd443fa90a94bd667fd752148458995a9146e1615ddaf55",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Distribute",
+        "Metabolize"
+      ],
+      "pgom": [
+        "EpigeneticMod",
+        "Activate"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 2.0,
+            "alpha_p": 0.15,
+            "alpha_b": 0.05
+          }
+        },
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "Activate",
+          "grid_index": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.05,
+            "delta_f": 0.06,
+            "dn": 0
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_989cc43cd142327ed3a9b190061888be7f6f32b07aefa2b6cd82adf348eb1546",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Bind",
+        "Dose"
+      ],
+      "pgom": [
+        "Mutation",
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        },
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        },
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_74f6db94a044dcc2667844268097d0e74af6a53103bc2067a10b5d764514df7a",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Excrete",
+        "Absorb"
+      ],
+      "pgom": [
+        "Mutation",
+        "EpigeneticMod"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        },
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_c3d35d244ec54180ec9b1d1f2da4e6cefb458f6495a4cd5eb07658092e1e3b75",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Dose",
+        "Bind"
+      ],
+      "pgom": [
+        "RepairGenome",
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_f43f5cf043470cca6fc71701c830d64ea1cd6c0901acffb69916069e89d2a539",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Dose",
+        "Bind"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "Mutation"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Dose",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "delta_b": 1.0,
+            "alpha_p": 0.05,
+            "alpha_f": 0.02
+          }
+        },
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        },
+        {
+          "name": "Mutation",
+          "grid_index": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_n": 1.0,
+            "alpha_p": 0.1,
+            "beta_b": 0.1,
+            "beta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_7dd6111aeea7e4e52cb4c6c9e0e531d639cdca5f20dde20beebc28dd78fa4a72",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Absorb",
+        "Metabolize"
+      ],
+      "pgom": [
+        "PathwayInduction",
+        "Repress"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.2,
+            "alpha_p": 0.1,
+            "alpha_f": 0.02
+          }
+        },
+        {
+          "name": "Metabolize",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.25,
+            "gamma_p": 0.15,
+            "delta_f": 0.06
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        },
+        {
+          "name": "Repress",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.15,
+            "gamma_p": 0.05,
+            "gamma_f": 0.05,
+            "dn": 1
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_a3814c4c89eb98409ee2ed4e43cc1f8647914b2e6d92b87b1228986c274d4ab0",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Excrete",
+        "Transport"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "RepairGenome"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.2,
+            "rho_p": 0.2,
+            "delta_f": 0.06
+          }
+        },
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "gamma_b": 0.1,
+            "gamma_p": 0.05,
+            "gamma_f": 0.06
+          }
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "rho_b": 0.05,
+            "rho_p": 0.15,
+            "rho_n": 0.1,
+            "delta_f": 0.12
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  },
+  {
+    "id": "pkg_pktm_pgom_465ffe278cd6af0537e28c10d53c3aa703a51df744b6f0f211bd20b167363c75",
+    "pair": "pktm_pgom",
+    "sequences": {
+      "pktm": [
+        "Bind",
+        "Transport"
+      ],
+      "pgom": [
+        "EpigeneticMod",
+        "PathwayInduction"
+      ]
+    },
+    "ops_detailed": {
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.0
+          }
+        },
+        {
+          "name": "Transport",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "xi_b": 0.05,
+            "xi_p": 0.1,
+            "xi_f": 0.0
+          }
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "theta_b": 0.0,
+            "theta_p": 0.0,
+            "theta_f": 0.05,
+            "dn": 1
+          }
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [
+            1,
+            1,
+            1
+          ],
+          "params": {
+            "alpha_b": 0.1,
+            "alpha_p": 0.05,
+            "delta_f": 0.08
+          }
+        }
+      ]
+    },
+    "length": 4,
+    "created_at": 1761673750,
+    "updated_at": 1761673750,
+    "source": "connector_monoid",
+    "label": 1,
+    "validation": {
+      "mode": "dual",
+      "syntax": {
+        "result": "通过",
+        "errors": 0,
+        "warnings": 0,
+        "errors_text": [],
+        "warnings_text": []
+      },
+      "gemini": {
+        "used": false,
+        "result": "未知"
+      }
+    }
+  }
+]
