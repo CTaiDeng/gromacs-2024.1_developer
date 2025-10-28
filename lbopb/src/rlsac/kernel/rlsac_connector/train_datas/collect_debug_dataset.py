@@ -9,6 +9,7 @@ import time as _t
 from pathlib import Path
 from typing import Any, Dict, List
 import importlib
+import sys
 
 
 def _repo_root() -> Path:
@@ -23,6 +24,19 @@ def _repo_root() -> Path:
         return p.parents[6]
     except Exception:
         return p.parents[-1]
+
+
+def _ensure_repo_in_sys_path() -> None:
+    try:
+        import lbopb  # type: ignore  # noqa: F401
+        return
+    except Exception:
+        pass
+    try:
+        root = _repo_root()
+        sys.path.insert(0, str(root))
+    except Exception:
+        pass
 
 
 def _read_json(path: Path) -> Any:
@@ -55,14 +69,6 @@ def _stat(vals: List[float]) -> Dict[str, float]:
     }
 
 
-def _ensure_repo_in_sys_path() -> None:
-    try:
-        import lbopb  # type: ignore  # noqa: F401
-        return
-    except Exception:
-        pass
-
-
 def _build_steps(domain: str, seq: List[str]) -> List[Dict[str, Any]]:
     """为给定 domain/seq 生成带参数与取值的 ops_detailed。
 
@@ -82,69 +88,109 @@ def _build_steps(domain: str, seq: List[str]) -> List[Dict[str, Any]]:
         return steps
     except Exception:
         return [{"name": nm, "grid_index": [], "params": {}} for nm in seq]
-    try:
-        import sys as _sys
-        root = _repo_root()
-        _sys.path.insert(0, str(root))
-    except Exception:
-        pass
+
+
+def _latest_dataset_debug(repo_root: Path) -> Path | None:
+    ds_root = repo_root / 'out' / 'out_connector'
+    ds_dirs = [p for p in ds_root.glob('dataset_*') if p.is_dir()]
+    if not ds_dirs:
+        return None
+    def _ts_of(p: Path) -> int:
+        try:
+            return int(str(p.name).split('_', 1)[1])
+        except Exception:
+            return 0
+    ds_dirs.sort(key=_ts_of, reverse=True)
+    return ds_dirs[0] / 'debug_dataset.json'
 
 
 def main() -> None:
-    # 读取 pair 辭海，生成 debug_dataset.json + 统计
+    # 读取 out/out_connector/dataset_<ts>/debug_dataset.json（可传入路径或自动取最新），写入 train_datas
     mod_dir = Path(__file__).resolve().parents[1]
-    mono = mod_dir / "monoid_packages"
-    out_dir = Path(__file__).resolve().parent
+    out_dir = mod_dir / 'train_datas'
     out_dir.mkdir(parents=True, exist_ok=True)
     _ensure_repo_in_sys_path()
 
+    repo_root = _repo_root()
+    # 可选参数：直接传入 debug_dataset.json 路径或 dataset 目录
+    in_arg = Path(sys.argv[1]).resolve() if len(sys.argv) >= 2 else None
+    in_path: Path | None = None
+    if in_arg is not None:
+        if in_arg.is_dir():
+            in_path = in_arg / 'debug_dataset.json'
+        else:
+            in_path = in_arg
+    if in_path is None or not in_path.exists():
+        in_path = _latest_dataset_debug(repo_root)
+    if in_path is None or not in_path.exists():
+        print("[collect] input debug_dataset.json not found")
+        return
+
+    data = _read_json(in_path) or {}
+    samples = (data if isinstance(data, list) else (data.get('samples', []) or []))
+
     items: List[Dict[str, Any]] = []
-    for f in sorted(mono.glob("*_operator_packages.json")):
-        arr = _read_json(f) or []
-        for it in (arr or []):
-            try:
-                pair = it.get("pair") or {}
-                a = str(pair.get("a")).lower()
-                b = str(pair.get("b")).lower()
-                seqs = it.get("sequences") or {}
+    for rec in samples:
+        try:
+            pair_val = rec.get("pair")
+            a = b = ""
+            if isinstance(pair_val, str) and "_" in pair_val:
+                parts = pair_val.split("_", 1)
+                a, b = parts[0].strip().lower(), parts[1].strip().lower()
+            elif isinstance(pair_val, dict):
+                a = str((pair_val.get("a") or '')).lower()
+                b = str((pair_val.get("b") or '')).lower()
+            elif isinstance(pair_val, list) and len(pair_val) == 2:
+                a = str(pair_val[0]).lower(); b = str(pair_val[1]).lower()
+
+            # 兼容不同数据结构的序列来源
+            seq_a = []
+            seq_b = []
+            if isinstance(rec.get('sequences'), dict):
+                seqs = rec.get('sequences') or {}
                 seq_a = list(seqs.get(a, []) or [])
                 seq_b = list(seqs.get(b, []) or [])
-                # syntax check to fill validation
-                syn = None
-                try:
-                    mod = importlib.import_module(f"lbopb.src.common.{a}_{b}_syntax_checker")
-                    syn = getattr(mod, "check")(seq_a, seq_b)
-                except Exception:
-                    syn = None
-                val = {
-                    "mode": "dual",
-                    "syntax": syn if isinstance(syn, dict) else {"result": "未知", "errors": 0, "warnings": 0},
-                    "gemini": {"used": False, "result": "未知"},
-                }
-                label = 1 if (isinstance(syn, dict) and int(syn.get("errors", 0)) == 0) else 0
-                items.append(
-                    {
-                        "id": it.get("id"),
-                        "pair": f"{a}_{b}",
-                        "sequences": {a: seq_a, b: seq_b},
-                        "ops_detailed": {a: _build_steps(a, seq_a), b: _build_steps(b, seq_b)},
-                        "length": int(len(seq_a) + len(seq_b)),
-                        "created_at": int(it.get("created_at", _t.time())),
-                        "updated_at": int(it.get("updated_at", _t.time())),
-                        "source": "connector_monoid",
-                        "label": label,
-                        "validation": val,
-                    }
-                )
+            else:
+                pa = rec.get('package_a') or rec.get('src') or {}
+                pb = rec.get('package_b') or rec.get('dst') or {}
+                seq_a = list((pa.get('sequence') or []))
+                seq_b = list((pb.get('sequence') or []))
+            # syntax check
+            syn = None
+            try:
+                mod = importlib.import_module(f"lbopb.src.common.{a}_{b}_syntax_checker")
+                syn = getattr(mod, "check")(seq_a, seq_b)
             except Exception:
-                continue
+                syn = None
+            val = {
+                "mode": "dual",
+                "syntax": syn if isinstance(syn, dict) else {"result": "δ֪", "errors": 0, "warnings": 0},
+                "gemini": {"used": False, "result": "δ֪"},
+            }
+            label = 1 if (isinstance(syn, dict) and int(syn.get("errors", 0)) == 0) else 0
+            items.append(
+                {
+                    "id": rec.get("id"),
+                    "pair": f"{a}_{b}",
+                    "sequences": {a: seq_a, b: seq_b},
+                    "ops_detailed": {a: _build_steps(a, seq_a), b: _build_steps(b, seq_b)},
+                    "length": int(len(seq_a) + len(seq_b)),
+                    "created_at": int(rec.get("created_at", _t.time())),
+                    "updated_at": int(rec.get("updated_at", _t.time())),
+                    "source": str(rec.get("source", "pair_from_packages")),
+                    "label": label,
+                    "validation": val,
+                }
+            )
+        except Exception:
+            continue
 
-    # sort
+    # 排序与写出
     items.sort(key=lambda d: (d.get("pair", ""), int(d.get("length", 0))))
     _write_json(out_dir / "debug_dataset.json", items)
     print(f"[collect] written: {out_dir / 'debug_dataset.json'} items={len(items)}")
 
-    # stats
+    # 统计
     lengths: List[float] = []
     by_pair: Dict[str, int] = {}
     by_label: Dict[str, int] = {"1": 0, "0": 0, "unknown": 0}
@@ -179,15 +225,15 @@ def main() -> None:
     }
     _write_json(out_dir / "debug_dataset.stats.json", stats)
 
-    # md
+    # markdown
     ts_local = _t.strftime("%Y-%m-%d %H:%M:%S", _t.localtime(stats.get("updated_at", int(_t.time()))))
     md: List[str] = []
     md.append("# connector debug_dataset 统计（自动生成）")
     md.append("")
-    md.append(f"- 更新时间：{ts_local}")
+    md.append(f"- 生成时间：{ts_local}")
     md.append(f"- 样本总数：{int(stats.get('total', 0))}")
     md.append("")
-    md.append("## 分布（pairs）")
+    md.append("## 按 pair 计数（pairs）")
     for k, v in (stats.get("pairs", {}) or {}).items():
         md.append(f"- {k}: {int(v)}")
     md.append("")
@@ -205,7 +251,7 @@ def main() -> None:
     per = stats.get("per_pair", {}) or {}
     if isinstance(per, dict) and per:
         for k, st in per.items():
-            md.append(f"### · {k}")
+            md.append(f"### - {k}")
             md.append(f"- 样本数：{int(st.get('count', 0))}")
             md.append(f"- 平均 length：{_fmt(st.get('avg_length', 0.0))}")
             ls = st.get("labels", {}) or {}
