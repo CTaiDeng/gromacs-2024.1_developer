@@ -1,37 +1,48 @@
-# 开发协议（最高优先级补充）：文档一律 UTF-8 + LF
+# 开发协同（重点约束补充）—统一 UTF-8 + LF
 
-本补充条款确立：仓库内“文档类文件”（README/CITATION.cff/Markdown/纯文本/项目知识库与说明性文档）一律采用 UTF-8 编码与 LF 换行。本条为最高优先级补充；如与其他说明发生冲突，以本条为准（建议后续并入根 `AGENTS.md` 以长期固化）。
+本文明确本仓库在“文档与源码”的编码/换行规范：所有生成与编辑一律使用 UTF‑8（无 BOM）+ LF。该条为最高优先；当与上游风格冲突时，以本条为准（可在 README 顶部保留“非官方派生”声明对冲）。更多总纲见根目录 `AGENTS.md`。
 
 ## 适用范围
-- 顶层文档：`README`、`README.md`、`CITATION.cff`
-- 全仓库的 Markdown/纯文本：`*.md`、`*.txt`
-- 项目知识库与文档目录：
+- 项目根部文档：`README`、`README.md`、`CITATION.cff` 等
+- 仓库内所有 Markdown/纯文本文档：`*.md`、`*.txt`、`*.json`、`*.yml`/`*.yaml`、`*.toml`、`*.ini`
+- 项目知识库：
   - `my_docs/project_docs/**`
   - `my_project/gmx_split_20250924_011827/docs/**`
 
-（说明）为避免影响跨平台构建，源码与脚本文件不在本强制规则内，仍按各自既有约定（通常 LF）维护；如需扩展到更多文件类型，请在评估构建/工具链兼容性后再行更新。
+说明：为覆盖多平台/多语言工具链，统一 LF 便于差异对比、脚本处理与持续集成。
 
-## 工程落地（已完成）
-- 在根目录新增 `.gitattributes`，对上述范围启用：`text eol=lf working-tree-encoding=UTF-8`；并显式标记常见二进制为 `binary`，避免任何换行处理。
+## 基线与仓库配置
+- 根目录 `.gitattributes` 已固定范围：`text eol=lf working-tree-encoding=UTF-8`；常见二进制扩展已标记为 `binary`，避免文本化写入。
+
+## 脚本写入规范（强制）
+- Python 文本写入统一使用：
+  - `open(path, 'w', encoding='utf-8', newline='\n')`
+  - 如使用 Pathlib，显式 `open(..., newline='\n')`；不推荐直接 `Path.write_text()`（Windows 上可能写出 CRLF）。
+- 生成文本在写盘前统一替换：`text = text.replace('\r\n', '\n')`。
+- Markdown/JSON/CMake/脚本等文本类文件均以 LF 结尾；必要时补齐结尾 `\n`。
 
 ## 迁移与校验（可选手动执行）
-- 将现有文件按规则重规范化（可能产生大量行尾更新，请在专用提交中完成）：
+- 对既有文件批量对齐规范（不会更改二进制）：
   - `git add --renormalize .`
   - `git commit -m "chore: renormalize docs to UTF-8+LF"`
-- 编辑器层面可配合 `.editorconfig`（非必需）：
+- 编辑器层面建议添加 `.editorconfig`：
   - `[*] charset = utf-8`
   - `[*.md] end_of_line = lf`、`[*.txt] end_of_line = lf`
 
-## 与现有协作规范的关系
-- 本条款为对现在的协作规范（AGENTS 指南）的“最高优先级补充”。
-- 不改变“知识库只读/白名单”等既有合规约束；本变更仅通过 Git 属性控制检出/提交时的行尾与编码，不直接修改知识库内容。
+## 批量修复与验证脚本
+- 使用根目录脚本执行统一修复/校验：
+  - `pwsh ./convert_to_utf8_lf.ps1 -ConfigPath convert_to_utf8_lf_config_whitelist.json`
+- 行为说明：
+  - 按白名单目录/文件遍历，二进制扩展自动跳过，文本扩展参与转换。
+  - 去除 UTF‑8 BOM，统一 CRLF/CR 为 LF，并以 UTF‑8（无 BOM）落盘。
+  - 输出 `changed=0` 表示当前工作区已满足 UTF‑8+LF 规范。
 
-## 日期与时区（统一约定）
-- 所有“开发协议/文档协议”中出现的“本地日期”，统一指北京时间（China Standard Time，Asia/Shanghai，UTC+8）。
-- 典型场景：
-  - 文档头部字段 `- 日期：YYYY-MM-DD`；
-  - 文档时间戳规范中“对应当日本地时间 00:00:00 的 Unix 秒”之“本地时间”；
-  - 相关自动化脚本（如对齐/生成脚本）未显式指定时区时的默认解析。
+## 与 AGENTS 的关系
+- 本文为开发协作的“执行细则”，与根目录 `AGENTS.md` 的“最高规范”一致；若出现冲突，以 `AGENTS.md` 为准。
+
+## 时间与时区统一（说明）
+- 与“时间戳/头部格式”相关的自动化，统一使用 Asia/Shanghai（UTC+8）。
 - 建议：
-  - 脚本层面显式指定 `Asia/Shanghai`（例如 Python 使用 `zoneinfo.ZoneInfo('Asia/Shanghai')`），避免不同运行环境的时区差异；
-  - CI/本地环境可设置 `TZ=Asia/Shanghai` 或等效配置，保证一致性。
+  - Python 使用 `zoneinfo.ZoneInfo('Asia/Shanghai')`，避免跨平台时区差异。
+  - CI/本地可设置 `TZ=Asia/Shanghai`，保证一致性。
+

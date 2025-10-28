@@ -94,3 +94,13 @@
   - 对 `my_docs/project_docs` 的任何“写入型”改动（含重命名、内容更新、批量脚本处理），必须在指令中显式给出目标文档的仓库相对路径（例如：`my_docs/project_docs/1760284819_论纤维丛的静态统一性：作为点集拓扑与离散拓扑之桥梁的传统微分几何.md`）。
   - 未显式指明相对路径的泛化指令（如“修改知识库/同步知识库”）无权更改 `my_docs/project_docs` 下的文档。
   - 本原则优先级最高；`kernel_reference` 目录仍为只读并排除一切写入型脚本。
+
+## 附：编码与换行（实践清单）
+- 统一规范：仓库所有“源码与文档”一律使用 UTF‑8（无 BOM）+ LF。
+- 写入规范：
+  - Python 文本写入使用 `open(path, 'w', encoding='utf-8', newline='\n')`；避免 `Path.write_text()` 在 Windows 生成 CRLF。
+  - 生成文本建议先 `text = text.replace('\r\n', '\n')` 再写盘。
+- 批量修复与验证：
+  - `pwsh ./convert_to_utf8_lf.ps1 -ConfigPath convert_to_utf8_lf_config_whitelist.json`
+  - 输出 `changed=0` 表示当前工作区已满足规范。
+  - `.gitattributes` 已固定 `text eol=lf working-tree-encoding=UTF-8`，提交/检出层面保持一致。
