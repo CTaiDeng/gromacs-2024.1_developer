@@ -5,6 +5,7 @@
 from __future__ import annotations
 
 import json
+import sys
 import time as _t
 from pathlib import Path
 from typing import Any, Dict, Iterable, List
@@ -41,14 +42,31 @@ def _fmt(x: float | int) -> str:
         return str(x)
 
 
+def _normalize_mojibake(text: str) -> str:
+    try:
+        s = str(text)
+    except Exception:
+        return text
+    rep = {
+        "δ֪": "未知",
+        "ͨ��": "通过",
+        "��У��": "未校验",
+    }
+    for k, v in rep.items():
+        s = s.replace(k, v)
+    return s
+
+
 def main() -> None:
     base = Path(__file__).resolve().parents[1]
-    in_path = base / "train_datas" / "debug_dataset.json"
+    in_path = Path(sys.argv[1]).resolve() if len(sys.argv) >= 2 else (base / "train_datas" / "debug_dataset.json")
     out_dir = Path(__file__).resolve().parent
     out_dir.mkdir(parents=True, exist_ok=True)
     src = _read_json(in_path)
+    if isinstance(src, dict):
+        src = src.get("samples", []) or []
     if not isinstance(src, list):
-        print(f"[split] 输入不可用：{in_path}")
+        print(f"[split] 输入格式不支持: {in_path}")
         return
 
     by_pair: Dict[str, List[Dict[str, Any]]] = {}
@@ -95,10 +113,10 @@ def main() -> None:
         md: List[str] = []
         md.append(f"# {pr}_debug_dataset 统计（自动生成）")
         md.append("")
-        md.append(f"- 更新时间：{ts_local}")
+        md.append(f"- 生成时间：{ts_local}")
         md.append(f"- 样本总数：{int(stats.get('total', 0))}")
         md.append("")
-        md.append("## 分布（pairs）")
+        md.append("## 按 pair 计数（pairs）")
         md.append(f"- {pr}: {len(arr)}")
         md.append("")
         md.append("## 标签统计（labels）")
