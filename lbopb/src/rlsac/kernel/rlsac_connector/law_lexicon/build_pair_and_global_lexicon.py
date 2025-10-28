@@ -204,10 +204,8 @@ def main() -> None:
     out_dir = mod_dir / "law_lexicon"
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    # 1) 生成 pairs 级辞海
+    # 1) 加载 pairs 级数据（不落盘 pairwise 文件）
     pairs = collect_pairwise_entries(mono_dir)
-    for (a, b), arr in pairs.items():
-        _write_json(out_dir / f"lexicon_{a}_{b}.json", arr)
 
     # 2) 生成全局七维辞海（条件：每个域至少存在一个候选）
     global_items = build_global_lexicon_from_pairs(pairs, max_items=50)
@@ -221,14 +219,13 @@ def main() -> None:
     except Exception:
         pass
 
-    # 可选：清理由本次生成的 pairwise lexicon（临时文件）
-    if any(arg in ("--cleanup", "--cleanup-pairwise") for arg in sys.argv[1:]):
-        for (a, b) in pairs.keys():
-            try:
-                (out_dir / f"lexicon_{a}_{b}.json").unlink(missing_ok=True)
-            except Exception:
-                pass
-    print(f"[lexicon] pairwise={len(pairs)} files, global={len(global_items)} entries written under {out_dir}")
+    # 始终清理残留的 pairwise lexicon 文件，确保只保留全局文件
+    for p in out_dir.glob("lexicon_*.json"):
+        try:
+            p.unlink()
+        except Exception:
+            pass
+    print(f"[lexicon] pairwise=0 files (skipped), global={len(global_items)} entries written under {out_dir}")
 
 
 if __name__ == "__main__":

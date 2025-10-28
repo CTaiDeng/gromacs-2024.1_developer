@@ -1,0 +1,5036 @@
+[
+  {
+    "id": "global_1761678029",
+    "chosen": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Bind"
+      ],
+      "pktm": [
+        "Bind",
+        "Excrete"
+      ],
+      "pgom": [
+        "Mutation",
+        "PathwayInduction"
+      ],
+      "tem": [
+        "Lesion",
+        "Repair"
+      ],
+      "prm": [
+        "Ingest",
+        "Hormone"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Differentiate"
+      ]
+    },
+    "meta": {
+      "strategy": "longest_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Excrete",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Differentiate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_50634",
+    "chosen": {
+      "pem": [
+        "Inflammation",
+        "Carcinogenesis"
+      ],
+      "pdem": [
+        "Signal",
+        "Bind"
+      ],
+      "pktm": [
+        "Distribute",
+        "Transport"
+      ],
+      "pgom": [
+        "Activate"
+      ],
+      "tem": [
+        "Detox"
+      ],
+      "prm": [
+        "Ingest"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Proliferate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Transport",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_830289",
+    "chosen": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pdem": [
+        "Signal",
+        "Bind"
+      ],
+      "pktm": [
+        "Bind"
+      ],
+      "pgom": [
+        "Mutation"
+      ],
+      "tem": [
+        "Repair"
+      ],
+      "prm": [
+        "Proliferation"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_363433",
+    "chosen": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pdem": [
+        "Desensitization"
+      ],
+      "pktm": [
+        "Bind"
+      ],
+      "pgom": [
+        "Activate"
+      ],
+      "tem": [
+        "Repair"
+      ],
+      "prm": [
+        "Proliferation",
+        "Exercise"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_333051",
+    "chosen": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Desensitization"
+      ],
+      "pktm": [
+        "Distribute"
+      ],
+      "pgom": [
+        "PathwayInduction",
+        "Activate"
+      ],
+      "tem": [
+        "Lesion"
+      ],
+      "prm": [
+        "Proliferation",
+        "Ingest"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_674692",
+    "chosen": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pdem": [
+        "Bind"
+      ],
+      "pktm": [
+        "Excrete"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ],
+      "tem": [
+        "Detox"
+      ],
+      "prm": [
+        "Ingest"
+      ],
+      "iem": [
+        "CytokineRelease"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_749982",
+    "chosen": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pdem": [
+        "Signal",
+        "Desensitization"
+      ],
+      "pktm": [
+        "Absorb"
+      ],
+      "pgom": [
+        "Mutation"
+      ],
+      "tem": [
+        "Detox"
+      ],
+      "prm": [
+        "Proliferation",
+        "Hormone"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_229962",
+    "chosen": {
+      "pem": [
+        "Apoptosis",
+        "Inflammation"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ],
+      "pktm": [
+        "Bind",
+        "Excrete"
+      ],
+      "pgom": [
+        "Repress",
+        "RepairGenome"
+      ],
+      "tem": [
+        "Detox"
+      ],
+      "prm": [
+        "Ingest",
+        "Exercise"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Differentiate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Excrete",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Differentiate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_259266",
+    "chosen": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ],
+      "pktm": [
+        "Dose"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ],
+      "tem": [
+        "Repair"
+      ],
+      "prm": [
+        "Hormone",
+        "Exercise"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Dose",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_791492",
+    "chosen": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pdem": [
+        "Signal",
+        "InverseAgonist"
+      ],
+      "pktm": [
+        "Distribute"
+      ],
+      "pgom": [
+        "Activate",
+        "RepairGenome"
+      ],
+      "tem": [
+        "Repair"
+      ],
+      "prm": [
+        "Stimulus"
+      ],
+      "iem": [
+        "Activate",
+        "Memory"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_846942",
+    "chosen": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pdem": [
+        "Potentiation"
+      ],
+      "pktm": [
+        "Excrete"
+      ],
+      "pgom": [
+        "RepairGenome",
+        "Mutation"
+      ],
+      "tem": [
+        "Lesion"
+      ],
+      "prm": [
+        "Hormone",
+        "Stimulus"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Proliferate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Mutation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Stimulus",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_884960",
+    "chosen": {
+      "pem": [
+        "Apoptosis",
+        "Inflammation"
+      ],
+      "pdem": [
+        "Antagonist",
+        "InverseAgonist"
+      ],
+      "pktm": [
+        "Transport",
+        "Dose"
+      ],
+      "pgom": [
+        "PathwayInduction",
+        "RepairGenome"
+      ],
+      "tem": [
+        "Distribution"
+      ],
+      "prm": [
+        "Ingest"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Activate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Dose",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_443959",
+    "chosen": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pdem": [
+        "Bind"
+      ],
+      "pktm": [
+        "Distribute",
+        "Dose"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ],
+      "tem": [
+        "Lesion",
+        "Detox"
+      ],
+      "prm": [
+        "Stimulus"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Activate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Dose",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_858146",
+    "chosen": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ],
+      "pktm": [
+        "Bind",
+        "Absorb"
+      ],
+      "pgom": [
+        "Activate"
+      ],
+      "tem": [
+        "Lesion",
+        "Detox"
+      ],
+      "prm": [
+        "Exercise"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Proliferate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Absorb",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_182367",
+    "chosen": {
+      "pem": [
+        "Carcinogenesis",
+        "Apoptosis"
+      ],
+      "pdem": [
+        "Potentiation",
+        "Bind"
+      ],
+      "pktm": [
+        "Distribute"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "EpigeneticMod"
+      ],
+      "tem": [
+        "Distribution",
+        "Detox"
+      ],
+      "prm": [
+        "Proliferation"
+      ],
+      "iem": [
+        "Activate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_738879",
+    "chosen": {
+      "pem": [
+        "Metastasis",
+        "Inflammation"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ],
+      "pktm": [
+        "Bind",
+        "Metabolize"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ],
+      "tem": [
+        "Detox",
+        "Lesion"
+      ],
+      "prm": [
+        "Hormone",
+        "Adaptation"
+      ],
+      "iem": [
+        "Proliferate",
+        "Memory"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Metabolize",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_6910",
+    "chosen": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pdem": [
+        "Antagonist"
+      ],
+      "pktm": [
+        "Bind"
+      ],
+      "pgom": [
+        "Mutation",
+        "Repress"
+      ],
+      "tem": [
+        "Detox"
+      ],
+      "prm": [
+        "Hormone",
+        "Exercise"
+      ],
+      "iem": [
+        "Differentiate",
+        "Memory"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Repress",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_227098",
+    "chosen": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "pdem": [
+        "Potentiation"
+      ],
+      "pktm": [
+        "Transport"
+      ],
+      "pgom": [
+        "PathwayInhibition"
+      ],
+      "tem": [
+        "Lesion"
+      ],
+      "prm": [
+        "Hormone",
+        "Adaptation"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_182180",
+    "chosen": {
+      "pem": [
+        "Carcinogenesis",
+        "Metastasis"
+      ],
+      "pdem": [
+        "Bind"
+      ],
+      "pktm": [
+        "Bind",
+        "Metabolize"
+      ],
+      "pgom": [
+        "PathwayInduction"
+      ],
+      "tem": [
+        "Detox"
+      ],
+      "prm": [
+        "Proliferation",
+        "Exercise"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Activate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Metabolize",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_424130",
+    "chosen": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "pdem": [
+        "Antagonist"
+      ],
+      "pktm": [
+        "Absorb"
+      ],
+      "pgom": [
+        "PathwayInhibition"
+      ],
+      "tem": [
+        "Lesion"
+      ],
+      "prm": [
+        "Exercise"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_562307",
+    "chosen": {
+      "pem": [
+        "Metastasis",
+        "Inflammation"
+      ],
+      "pdem": [
+        "Potentiation"
+      ],
+      "pktm": [
+        "Excrete"
+      ],
+      "pgom": [
+        "RepairGenome",
+        "PathwayInhibition"
+      ],
+      "tem": [
+        "Detox",
+        "Lesion"
+      ],
+      "prm": [
+        "Adaptation",
+        "Stimulus"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Potentiation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Stimulus",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_690687",
+    "chosen": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pdem": [
+        "Signal"
+      ],
+      "pktm": [
+        "Metabolize"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ],
+      "tem": [
+        "Repair"
+      ],
+      "prm": [
+        "Hormone",
+        "Ingest"
+      ],
+      "iem": [
+        "Differentiate",
+        "Proliferate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_954881",
+    "chosen": {
+      "pem": [
+        "Apoptosis",
+        "Carcinogenesis"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Signal"
+      ],
+      "pktm": [
+        "Absorb"
+      ],
+      "pgom": [
+        "Activate"
+      ],
+      "tem": [
+        "Detox",
+        "Repair"
+      ],
+      "prm": [
+        "Hormone"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Differentiate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Signal",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Differentiate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_199322",
+    "chosen": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Potentiation"
+      ],
+      "pktm": [
+        "Excrete",
+        "Distribute"
+      ],
+      "pgom": [
+        "Repress",
+        "PathwayInduction"
+      ],
+      "tem": [
+        "Repair"
+      ],
+      "prm": [
+        "Ingest",
+        "Hormone"
+      ],
+      "iem": [
+        "Differentiate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Distribute",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_271546",
+    "chosen": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Potentiation"
+      ],
+      "pktm": [
+        "Distribute"
+      ],
+      "pgom": [
+        "Activate"
+      ],
+      "tem": [
+        "Detox",
+        "Repair"
+      ],
+      "prm": [
+        "Adaptation"
+      ],
+      "iem": [
+        "Memory",
+        "Activate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_698888",
+    "chosen": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pdem": [
+        "Signal",
+        "Desensitization"
+      ],
+      "pktm": [
+        "Transport"
+      ],
+      "pgom": [
+        "EpigeneticMod"
+      ],
+      "tem": [
+        "Repair",
+        "Lesion"
+      ],
+      "prm": [
+        "Exercise"
+      ],
+      "iem": [
+        "Proliferate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_428532",
+    "chosen": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "pdem": [
+        "Bind",
+        "Desensitization"
+      ],
+      "pktm": [
+        "Distribute",
+        "Metabolize"
+      ],
+      "pgom": [
+        "PathwayInhibition"
+      ],
+      "tem": [
+        "Detox"
+      ],
+      "prm": [
+        "Ingest",
+        "Hormone"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Metabolize",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Hormone",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_312966",
+    "chosen": {
+      "pem": [
+        "Carcinogenesis",
+        "Inflammation"
+      ],
+      "pdem": [
+        "Antagonist",
+        "InverseAgonist"
+      ],
+      "pktm": [
+        "Metabolize"
+      ],
+      "pgom": [
+        "Activate"
+      ],
+      "tem": [
+        "Repair"
+      ],
+      "prm": [
+        "Stimulus"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Suppress"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Suppress",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_844439",
+    "chosen": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ],
+      "pktm": [
+        "Excrete",
+        "Transport"
+      ],
+      "pgom": [
+        "Repress",
+        "RepairGenome"
+      ],
+      "tem": [
+        "Lesion",
+        "Repair"
+      ],
+      "prm": [
+        "Proliferation",
+        "Exercise"
+      ],
+      "iem": [
+        "Memory",
+        "CytokineRelease"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Transport",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_22629",
+    "chosen": {
+      "pem": [
+        "Carcinogenesis",
+        "Apoptosis"
+      ],
+      "pdem": [
+        "Signal",
+        "Bind"
+      ],
+      "pktm": [
+        "Excrete"
+      ],
+      "pgom": [
+        "PathwayInhibition"
+      ],
+      "tem": [
+        "Lesion"
+      ],
+      "prm": [
+        "Hormone"
+      ],
+      "iem": [
+        "Suppress",
+        "Proliferate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_181060",
+    "chosen": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Signal"
+      ],
+      "pktm": [
+        "Bind",
+        "Dose"
+      ],
+      "pgom": [
+        "Activate"
+      ],
+      "tem": [
+        "Detox"
+      ],
+      "prm": [
+        "Stimulus"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Suppress"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Signal",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Dose",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Suppress",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_224093",
+    "chosen": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "pdem": [
+        "Signal"
+      ],
+      "pktm": [
+        "Excrete",
+        "Transport"
+      ],
+      "pgom": [
+        "Mutation"
+      ],
+      "tem": [
+        "Distribution",
+        "Repair"
+      ],
+      "prm": [
+        "Ingest",
+        "Exercise"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Transport",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Exercise",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_720654",
+    "chosen": {
+      "pem": [
+        "Apoptosis"
+      ],
+      "pdem": [
+        "InverseAgonist"
+      ],
+      "pktm": [
+        "Excrete",
+        "Metabolize"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "PathwayInduction"
+      ],
+      "tem": [
+        "Detox",
+        "Lesion"
+      ],
+      "prm": [
+        "Adaptation"
+      ],
+      "iem": [
+        "Activate",
+        "Proliferate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Metabolize",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_219511",
+    "chosen": {
+      "pem": [
+        "Inflammation",
+        "Carcinogenesis"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Signal"
+      ],
+      "pktm": [
+        "Absorb"
+      ],
+      "pgom": [
+        "EpigeneticMod",
+        "RepairGenome"
+      ],
+      "tem": [
+        "Lesion"
+      ],
+      "prm": [
+        "Hormone",
+        "Adaptation"
+      ],
+      "iem": [
+        "Activate",
+        "Proliferate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Signal",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Absorb",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_256023",
+    "chosen": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Signal"
+      ],
+      "pktm": [
+        "Excrete"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ],
+      "tem": [
+        "Detox",
+        "Distribution"
+      ],
+      "prm": [
+        "Adaptation"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Activate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Signal",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_319240",
+    "chosen": {
+      "pem": [
+        "Inflammation",
+        "Metastasis"
+      ],
+      "pdem": [
+        "Desensitization"
+      ],
+      "pktm": [
+        "Excrete"
+      ],
+      "pgom": [
+        "Activate"
+      ],
+      "tem": [
+        "Lesion"
+      ],
+      "prm": [
+        "Hormone",
+        "Ingest"
+      ],
+      "iem": [
+        "Differentiate",
+        "CytokineRelease"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Ingest",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_727968",
+    "chosen": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pdem": [
+        "Bind"
+      ],
+      "pktm": [
+        "Bind"
+      ],
+      "pgom": [
+        "EpigeneticMod",
+        "RepairGenome"
+      ],
+      "tem": [
+        "Repair",
+        "Lesion"
+      ],
+      "prm": [
+        "Ingest"
+      ],
+      "iem": [
+        "CytokineRelease",
+        "Activate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "RepairGenome",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_814312",
+    "chosen": {
+      "pem": [
+        "Carcinogenesis",
+        "Inflammation"
+      ],
+      "pdem": [
+        "Desensitization"
+      ],
+      "pktm": [
+        "Transport",
+        "Dose"
+      ],
+      "pgom": [
+        "PathwayInhibition",
+        "PathwayInduction"
+      ],
+      "tem": [
+        "Detox"
+      ],
+      "prm": [
+        "Adaptation"
+      ],
+      "iem": [
+        "Differentiate",
+        "Memory"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Dose",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "PathwayInduction",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_317282",
+    "chosen": {
+      "pem": [
+        "Carcinogenesis"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Potentiation"
+      ],
+      "pktm": [
+        "Distribute"
+      ],
+      "pgom": [
+        "PathwayInhibition"
+      ],
+      "tem": [
+        "Repair",
+        "Lesion"
+      ],
+      "prm": [
+        "Stimulus"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Stimulus",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_915188",
+    "chosen": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Potentiation"
+      ],
+      "pktm": [
+        "Metabolize",
+        "Bind"
+      ],
+      "pgom": [
+        "Activate"
+      ],
+      "tem": [
+        "Distribution",
+        "Repair"
+      ],
+      "prm": [
+        "Exercise",
+        "Stimulus"
+      ],
+      "iem": [
+        "Memory",
+        "CytokineRelease"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Potentiation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Metabolize",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Stimulus",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_84833",
+    "chosen": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "pdem": [
+        "Desensitization"
+      ],
+      "pktm": [
+        "Excrete"
+      ],
+      "pgom": [
+        "Activate"
+      ],
+      "tem": [
+        "Distribution"
+      ],
+      "prm": [
+        "Ingest"
+      ],
+      "iem": [
+        "Suppress",
+        "Activate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_773521",
+    "chosen": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "pdem": [
+        "Signal"
+      ],
+      "pktm": [
+        "Excrete"
+      ],
+      "pgom": [
+        "Repress",
+        "PathwayInhibition"
+      ],
+      "tem": [
+        "Detox"
+      ],
+      "prm": [
+        "Adaptation"
+      ],
+      "iem": [
+        "Memory",
+        "CytokineRelease"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Adaptation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_48433",
+    "chosen": {
+      "pem": [
+        "Metastasis",
+        "Carcinogenesis"
+      ],
+      "pdem": [
+        "Antagonist",
+        "Bind"
+      ],
+      "pktm": [
+        "Dose"
+      ],
+      "pgom": [
+        "PathwayInduction",
+        "PathwayInhibition"
+      ],
+      "tem": [
+        "Detox",
+        "Distribution"
+      ],
+      "prm": [
+        "Proliferation"
+      ],
+      "iem": [
+        "Suppress"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Carcinogenesis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Antagonist",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Dose",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "PathwayInduction",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_122723",
+    "chosen": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pdem": [
+        "Desensitization",
+        "Bind"
+      ],
+      "pktm": [
+        "Distribute",
+        "Dose"
+      ],
+      "pgom": [
+        "Repress"
+      ],
+      "tem": [
+        "Repair"
+      ],
+      "prm": [
+        "Exercise"
+      ],
+      "iem": [
+        "Activate",
+        "Memory"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Dose",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_910308",
+    "chosen": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pdem": [
+        "Signal",
+        "InverseAgonist"
+      ],
+      "pktm": [
+        "Bind"
+      ],
+      "pgom": [
+        "Repress",
+        "PathwayInhibition"
+      ],
+      "tem": [
+        "Detox",
+        "Distribution"
+      ],
+      "prm": [
+        "Proliferation"
+      ],
+      "iem": [
+        "Memory",
+        "CytokineRelease"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "InverseAgonist",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Repress",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "CytokineRelease",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_753240",
+    "chosen": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "pdem": [
+        "InverseAgonist",
+        "Desensitization"
+      ],
+      "pktm": [
+        "Dose"
+      ],
+      "pgom": [
+        "Activate"
+      ],
+      "tem": [
+        "Detox"
+      ],
+      "prm": [
+        "Hormone"
+      ],
+      "iem": [
+        "Memory",
+        "Proliferate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "InverseAgonist",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Dose",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Activate",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_726538",
+    "chosen": {
+      "pem": [
+        "Metastasis",
+        "Apoptosis"
+      ],
+      "pdem": [
+        "Desensitization"
+      ],
+      "pktm": [
+        "Excrete"
+      ],
+      "pgom": [
+        "EpigeneticMod"
+      ],
+      "tem": [
+        "Distribution",
+        "Detox"
+      ],
+      "prm": [
+        "Proliferation"
+      ],
+      "iem": [
+        "Suppress",
+        "Proliferate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Excrete",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "EpigeneticMod",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Distribution",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Detox",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Proliferation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Suppress",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Proliferate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_483243",
+    "chosen": {
+      "pem": [
+        "Metastasis"
+      ],
+      "pdem": [
+        "Signal",
+        "Desensitization"
+      ],
+      "pktm": [
+        "Bind"
+      ],
+      "pgom": [
+        "Mutation",
+        "PathwayInhibition"
+      ],
+      "tem": [
+        "Repair",
+        "Distribution"
+      ],
+      "prm": [
+        "Exercise",
+        "Adaptation"
+      ],
+      "iem": [
+        "Memory"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Desensitization",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "Mutation",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "PathwayInhibition",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Distribution",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Exercise",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Adaptation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_940099",
+    "chosen": {
+      "pem": [
+        "Inflammation"
+      ],
+      "pdem": [
+        "Signal",
+        "Bind"
+      ],
+      "pktm": [
+        "Distribute",
+        "Transport"
+      ],
+      "pgom": [
+        "RepairGenome",
+        "Mutation"
+      ],
+      "tem": [
+        "Lesion"
+      ],
+      "prm": [
+        "Ingest"
+      ],
+      "iem": [
+        "Proliferate",
+        "Differentiate"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Inflammation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Signal",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Distribute",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Transport",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Mutation",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Lesion",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Ingest",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Proliferate",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Differentiate",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  },
+  {
+    "id": "global_1761678029_203459",
+    "chosen": {
+      "pem": [
+        "Apoptosis",
+        "Metastasis"
+      ],
+      "pdem": [
+        "Bind"
+      ],
+      "pktm": [
+        "Transport"
+      ],
+      "pgom": [
+        "RepairGenome"
+      ],
+      "tem": [
+        "Repair"
+      ],
+      "prm": [
+        "Hormone"
+      ],
+      "iem": [
+        "Differentiate",
+        "Memory"
+      ]
+    },
+    "meta": {
+      "strategy": "random_per_domain"
+    },
+    "score": 0.0,
+    "ops_detailed": {
+      "pem": [
+        {
+          "name": "Apoptosis",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Metastasis",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pdem": [
+        {
+          "name": "Bind",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pktm": [
+        {
+          "name": "Transport",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "pgom": [
+        {
+          "name": "RepairGenome",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "tem": [
+        {
+          "name": "Repair",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "prm": [
+        {
+          "name": "Hormone",
+          "grid_index": [],
+          "params": {}
+        }
+      ],
+      "iem": [
+        {
+          "name": "Differentiate",
+          "grid_index": [],
+          "params": {}
+        },
+        {
+          "name": "Memory",
+          "grid_index": [],
+          "params": {}
+        }
+      ]
+    }
+  }
+]

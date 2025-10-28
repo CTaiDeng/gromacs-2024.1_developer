@@ -113,3 +113,40 @@ for conn in random_connections:
 
 
 
+## 使用流程（四步）
+
+- 第一步：生成两两域联络对（含参数与取值）
+  - 数据来源：`lbopb/src/rlsac/kernel/rlsac_pathfinder/monoid_packages` 下的 `<domain>_operator_packages.json`。
+  - 生成脚本：`lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/build_pair_operator_packages.py`。
+  - 作用：为每一对领域生成 `*_operator_packages.json`，并为每步补齐 `ops_detailed`（`name/grid_index/params`）。
+  - 用法示例：
+    - `python lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages/build_pair_operator_packages.py 32 --seed=42`
+
+- 第二步：探索生成数据集（dataset_<unixtime>）
+  - 入口：`python -m lbopb.src.rlsac.kernel.rlsac_connector.train`。
+  - 行为：当 `config.json` 中 `explore_only=true` 时，只生成数据集：
+    - `out/out_connector/dataset_<unixtime>/debug_dataset.json`
+    - `out/out_connector/dataset_<unixtime>/debug_dataset.stats.json`
+  - 说明：控制台会优先打印将要写入的 dataset 目录路径，便于确认批次。
+
+- 第三步：收集整合用于训练
+  - 收集脚本：`lbopb/src/rlsac/kernel/rlsac_connector/train_datas/collect_debug_dataset.py`。
+  - 行为：自动选择最新的 `out/out_connector/dataset_<unixtime>/debug_dataset.json`，整合为：
+    - `lbopb/src/rlsac/kernel/rlsac_connector/train_datas/debug_dataset.json`
+    - `lbopb/src/rlsac/kernel/rlsac_connector/train_datas/debug_dataset.stats.json`
+    - `lbopb/src/rlsac/kernel/rlsac_connector/train_datas/debug_dataset.stats.md`
+  - 特性：为每条样本生成 `ops_detailed`（每步含 `name/grid_index/params`），并归一化“未知/通过”等中文字段。
+
+- 第四步：构建全局联络辞海
+  - 构建脚本：`lbopb/src/rlsac/kernel/rlsac_connector/law_lexicon/build_pair_and_global_lexicon.py`。
+  - 数据来源：`lbopb/src/rlsac/kernel/rlsac_connector/monoid_packages` 下 21 个两两域 JSON 文件。
+  - 产物：仅保留全局文件（已去除 pairwise 临时文件），包含参数与取值：
+    - `lbopb/src/rlsac/kernel/rlsac_connector/law_lexicon/global_law_connections.json`
+  - 用法：`python lbopb/src/rlsac/kernel/rlsac_connector/law_lexicon/build_pair_and_global_lexicon.py`
+
+附：按 pair 分类数据（用于编译器修复）
+- 脚本：`lbopb/src/rlsac/kernel/rlsac_connector/syntax_checker_fix_datas/make_syntax_checker_fix_datas.py`。
+- 作用：将 `train_datas/debug_dataset.json` 按 `pair` 拆分为 `{pair}_debug_dataset.{json,stats.json,stats.md}`，便于逐对调试与修复。
+- 用法：
+  - `python lbopb/src/rlsac/kernel/rlsac_connector/syntax_checker_fix_datas/make_syntax_checker_fix_datas.py`
+  - 或传入自定义输入路径：`python .../make_syntax_checker_fix_datas.py <path/to/debug_dataset.json>`
