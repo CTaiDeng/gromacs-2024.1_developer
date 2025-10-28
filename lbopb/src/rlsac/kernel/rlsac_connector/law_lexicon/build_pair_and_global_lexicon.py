@@ -53,6 +53,14 @@ def _write_json(p: Path, data: Any) -> None:
         f.write(txt)
 
 
+def _color(txt: str, code: int) -> str:
+    # ANSI color helper: 31=red, 32=green, 33=yellow, 36=cyan
+    try:
+        return f"\033[{code}m{txt}\033[0m"
+    except Exception:
+        return txt
+
+
 def collect_pairwise_entries(mono_dir: Path) -> Dict[Tuple[str, str], List[Dict[str, Any]]]:
     _ensure_repo_in_sys_path()
     out: Dict[Tuple[str, str], List[Dict[str, Any]]] = {}
@@ -112,42 +120,74 @@ def collect_pairwise_entries(mono_dir: Path) -> Dict[Tuple[str, str], List[Dict[
 
 
 def build_global_lexicon_from_pairs(pairs: Dict[Tuple[str, str], List[Dict[str, Any]]], *, max_items: int = 100) -> List[Dict[str, Any]]:
+    """在两两联络约束下，搜索“完备七域联络”的一致七域算子包（每域一条序列）。
+
+    - 仅当找到满足所有 21 对约束的七域组合时才产出（每步含参数/取值）。
+    - 若无解，返回空列表。
+    """
     _ensure_repo_in_sys_path()
-    # 将每个域在全部 pair 列表中出现过的序列汇总，形成“七维可选池”
-    pool: Dict[str, List[List[str]]] = {m: [] for m in MODULES}
+
+    # 1) 构建每个 pair 的“允许组合”集合，以及每个域的候选序列池
+    def key_of(seq: List[str]) -> Tuple[str, ...]:
+        return tuple(str(x) for x in (seq or []))
+
+    domain_index: Dict[str, int] = {m: i for i, m in enumerate(MODULES)}
+    allowed: Dict[Tuple[str, str], set[Tuple[Tuple[str, ...], Tuple[str, ...]]]] = {}
+    domain_pool: Dict[str, set[Tuple[str, ...]]] = {m: set() for m in MODULES}
+
     for (a, b), arr in pairs.items():
+        a2, b2 = (a, b) if domain_index[a] < domain_index[b] else (b, a)
+        st: set = allowed.setdefault((a2, b2), set())
         for it in arr:
             seqs = it.get("sequences") or {}
-            sa = list(seqs.get(a) or [])
-            sb = list(seqs.get(b) or [])
+            sa = key_of(seqs.get(a2) or [])
+            sb = key_of(seqs.get(b2) or [])
+            st.add((sa, sb))
             if sa:
-                pool[a].append(sa)
+                domain_pool[a2].add(sa)
             if sb:
-                pool[b].append(sb)
+                domain_pool[b2].add(sb)
 
-    # 条件：七维都至少存在一个候选序列，才生成全局词条
-    if not all(pool[m] for m in MODULES):
+    # 覆盖检查：每个域必须至少有一个候选序列
+    if not all(domain_pool[m] for m in MODULES):
         return []
 
-    # 策略：为每个域选“最长序列”作为代表，拼成一个全局词条；
-    # 可随机采样若干条（此处生成 1 条 + 最多 max_items-1 条随机）
-    def longest(lst: List[List[str]]) -> List[str]:
-        return sorted(lst, key=lambda s: len(s), reverse=True)[0]
+    # 2) 回溯搜索一致赋值（满足所有 pair 约束）
+    solutions: List[Dict[str, List[str]]] = []
+    order = sorted(MODULES, key=lambda m: len(domain_pool[m]))  # 先搜候选少的域
 
-    import random
+    def consistent(assign: Dict[str, Tuple[str, ...]], m: str, val: Tuple[str, ...]) -> bool:
+        mi = domain_index[m]
+        for n, v in assign.items():
+            a, b = (m, n) if domain_index[m] < domain_index[n] else (n, m)
+            va, vb = (val, v) if a == m else (v, val)
+            if (a, b) not in allowed:
+                return False
+            if (va, vb) not in allowed[(a, b)]:
+                return False
+        return True
+
+    def backtrack(i: int, assign: Dict[str, Tuple[str, ...]]):
+        if len(solutions) >= max_items:
+            return
+        if i == len(order):
+            solutions.append({k: list(map(str, v)) for k, v in assign.items()})
+            return
+        m = order[i]
+        for val in domain_pool[m]:
+            if consistent(assign, m, val):
+                assign[m] = val
+                backtrack(i + 1, assign)
+                assign.pop(m, None)
+
+    backtrack(0, {})
+
+    if not solutions:
+        return []
+
+    # 3) 构造含参数与取值的输出条目
     items: List[Dict[str, Any]] = []
-
-    # 1) 基准条目（各域最长）
-    baseline = {m: longest(pool[m]) for m in MODULES}
-    base_item: Dict[str, Any] = {
-        "id": f"global_{int(time.time())}",
-        "chosen": {m: baseline[m] for m in MODULES},
-        "meta": {"strategy": "longest_per_domain"},
-        "score": 0.0,
-    }
-    # 生成 per-domain ops_detailed（含参数取值），失败则回退为仅 name
     try:
-        _ensure_repo_in_sys_path()
         from lbopb.src.rlsac.kernel.rlsac_pathfinder.make_samples_with_params import synth_ops  # type: ignore
         base_root = Path(__file__).resolve().parents[2] / 'rlsac_pathfinder'
         def build_steps(domain: str, seq: List[str]) -> List[Dict[str, Any]]:
@@ -161,39 +201,19 @@ def build_global_lexicon_from_pairs(pairs: Dict[Tuple[str, str], List[Dict[str, 
                 return steps
             except Exception:
                 return [{"name": nm, "grid_index": [], "params": {}} for nm in seq]
-        base_item["ops_detailed"] = {m: build_steps(m, baseline[m]) for m in MODULES}
     except Exception:
-        base_item["ops_detailed"] = {m: [{"name": nm, "grid_index": [], "params": {}} for nm in baseline[m]] for m in MODULES}
-    items.append(base_item)
+        def build_steps(domain: str, seq: List[str]) -> List[Dict[str, Any]]:  # type: ignore
+            return [{"name": nm, "grid_index": [], "params": {}} for nm in seq]
 
-    # 2) 随机条目（可选）
-    for _ in range(max(0, max_items - 1)):
-        choice = {m: list(random.choice(pool[m])) for m in MODULES}
-        gi: Dict[str, Any] = {
-            "id": f"global_{int(time.time())}_{random.randint(0, 10**6)}",
-            "chosen": choice,
-            "meta": {"strategy": "random_per_domain"},
+    for sol in solutions[:max_items]:
+        item: Dict[str, Any] = {
+            "id": f"global_{int(time.time())}",
+            "chosen": {m: list(sol[m]) for m in MODULES},
+            "meta": {"strategy": "pairwise_complete_clique"},
             "score": 0.0,
         }
-        try:
-            _ensure_repo_in_sys_path()
-            from lbopb.src.rlsac.kernel.rlsac_pathfinder.make_samples_with_params import synth_ops  # type: ignore
-            base_root = Path(__file__).resolve().parents[2] / 'rlsac_pathfinder'
-            def build_steps(domain: str, seq: List[str]) -> List[Dict[str, Any]]:
-                try:
-                    steps = list(synth_ops(domain, seq, base_root))
-                    for st in steps:
-                        if "params" not in st:
-                            st["params"] = {}
-                        if "grid_index" not in st:
-                            st["grid_index"] = []
-                    return steps
-                except Exception:
-                    return [{"name": nm, "grid_index": [], "params": {}} for nm in seq]
-            gi["ops_detailed"] = {m: build_steps(m, choice[m]) for m in MODULES}
-        except Exception:
-            gi["ops_detailed"] = {m: [{"name": nm, "grid_index": [], "params": {}} for nm in choice[m]] for m in MODULES}
-        items.append(gi)
+        item["ops_detailed"] = {m: build_steps(m, list(sol[m])) for m in MODULES}
+        items.append(item)
     return items
 
 
@@ -207,9 +227,36 @@ def main() -> None:
     # 1) 加载 pairs 级数据（不落盘 pairwise 文件）
     pairs = collect_pairwise_entries(mono_dir)
 
-    # 2) 生成全局七维辞海（条件：每个域至少存在一个候选）
+    # 覆盖性检查：必须具备“完备七域联络”，否则放弃并彩色打印结果
+    pool: Dict[str, List[List[str]]] = {m: [] for m in MODULES}
+    for (a, b), arr in pairs.items():
+        for it in arr:
+            seqs = it.get("sequences") or {}
+            sa = list(seqs.get(a) or [])
+            sb = list(seqs.get(b) or [])
+            if sa:
+                pool[a].append(sa)
+            if sb:
+                pool[b].append(sb)
+    missing = [m for m in MODULES if not pool[m]]
+    if missing:
+        print(_color("[global-lexicon] 覆盖性不足：缺少完备七域联络；放弃写入 global_law_connections.json。", 31))
+        print(_color("域覆盖统计：", 36))
+        for m in MODULES:
+            cnt = len(pool[m])
+            col = 32 if cnt > 0 else 31
+            print(_color(f" - {m}: {cnt}", col))
+        # 清理残留的 pairwise lexicon 文件，确保目录整洁
+        for p in out_dir.glob("lexicon_*.json"):
+            try:
+                p.unlink()
+            except Exception:
+                pass
+        return
+
+    # 2) 搜索完备七域联络并写入（每次重写）
     global_items = build_global_lexicon_from_pairs(pairs, max_items=50)
-    # 角色重复：仅保留 global_law_connections.json
+    # 始终重写，若无解写入空数组
     _write_json(out_dir / "global_law_connections.json", global_items)
     # 若历史存在 global_lexicon.json，则清理
     old = out_dir / "global_lexicon.json"
