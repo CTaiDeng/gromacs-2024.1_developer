@@ -8,7 +8,11 @@
 在统一的 LBOPB 全息状态上同时应用并评分其全局自洽性。
 """
 
-from .env import LBOPBConnectorEnv
+# 延迟导入，避免在仅运行 train/dataset 时强制依赖 torch
+try:
+    from .env import LBOPBConnectorEnv
+except Exception:
+    LBOPBConnectorEnv = None  # type: ignore
 
 
 def train(*args, **kwargs):

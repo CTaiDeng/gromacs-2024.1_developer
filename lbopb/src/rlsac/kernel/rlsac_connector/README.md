@@ -33,7 +33,7 @@
 ## 产物
 
 - `out/out_connector/train_*/`: 训练日志（`train.log`）与 `scorer.pt` 模型权重，`law_connections.json`（本次 Top‑K 联络）
-- `lbopb/src/rlsac/kernel/rlsac_connector/law_connections.json`: 全局联络辞海（累积记录）
+- `lbopb/src/rlsac/kernel/rlsac_connector/law_lexicon/global_law_connections.json`: 全局联络辞海（累积记录）
 
 > 说明：默认判定为内置一致性与度量启发式；如需更严格校验，可结合各模块 syntax_checker 的结果。
 

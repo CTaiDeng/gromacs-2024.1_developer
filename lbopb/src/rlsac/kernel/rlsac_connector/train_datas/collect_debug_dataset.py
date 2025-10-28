@@ -61,6 +61,27 @@ def _ensure_repo_in_sys_path() -> None:
         return
     except Exception:
         pass
+
+
+def _build_steps(domain: str, seq: List[str]) -> List[Dict[str, Any]]:
+    """为给定 domain/seq 生成带参数与取值的 ops_detailed。
+
+    - 优先使用 pathfinder 的参数空间工具合成（存在则返回带 params/grid_index 的 steps）
+    - 若缺失参数空间，则回退为仅 name 的占位结构，并补齐空的 params 与 grid_index
+    """
+    try:
+        _ensure_repo_in_sys_path()
+        from lbopb.src.rlsac.kernel.rlsac_pathfinder.make_samples_with_params import synth_ops  # type: ignore
+        base_root = _repo_root() / 'lbopb' / 'src' / 'rlsac' / 'kernel' / 'rlsac_pathfinder'
+        steps = list(synth_ops(domain, seq, base_root))
+        for st in steps:
+            if 'params' not in st:
+                st['params'] = {}
+            if 'grid_index' not in st:
+                st['grid_index'] = []
+        return steps
+    except Exception:
+        return [{"name": nm, "grid_index": [], "params": {}} for nm in seq]
     try:
         import sys as _sys
         root = _repo_root()
@@ -106,6 +127,7 @@ def main() -> None:
                         "id": it.get("id"),
                         "pair": f"{a}_{b}",
                         "sequences": {a: seq_a, b: seq_b},
+                        "ops_detailed": {a: _build_steps(a, seq_a), b: _build_steps(b, seq_b)},
                         "length": int(len(seq_a) + len(seq_b)),
                         "created_at": int(it.get("created_at", _t.time())),
                         "updated_at": int(it.get("updated_at", _t.time())),

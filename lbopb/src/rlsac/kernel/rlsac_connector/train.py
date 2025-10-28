@@ -8,24 +8,24 @@ import time as _pytime
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
-import torch
+try:
+    import torch  # type: ignore
+except Exception:
+    # 允许在仅生成数据集（explore_only=true）时无 PyTorch 环境也能运行
+    torch = None  # type: ignore
 
 # 支持脚本直跑与包内运行的双路径导入
 try:
-    from .sampler import load_domain_packages, sample_random_connection  # type: ignore
-    from .oracle import ConnectorAxiomOracle, MODULES  # type: ignore
+    from .sampler import load_domain_packages, sample_random_connection, MODULES  # type: ignore
 except Exception:
     try:
         import sys as _sys
         from pathlib import Path as _Path
         _sys.path.insert(0, str(_Path(__file__).resolve().parents[5]))
-        from lbopb.src.rlsac.kernel.rlsac_connector.sampler import load_domain_packages, sample_random_connection  # type: ignore
-        from lbopb.src.rlsac.kernel.rlsac_connector.oracle import ConnectorAxiomOracle, MODULES  # type: ignore
+        from lbopb.src.rlsac.kernel.rlsac_connector.sampler import load_domain_packages, sample_random_connection, MODULES  # type: ignore
     except Exception as _e:
         raise _e
 
-from lbopb.src.rlsac.kernel.rlsac_pathfinder.scorer import PackageScorer, train_scorer  # type: ignore
-from lbopb.src.rlsac.application.rlsac_nsclc.utils import select_device_from_config  # type: ignore
 
 
 def _repo_root() -> Path:
@@ -66,7 +66,7 @@ def _ops_detailed_of(pkg: Dict[str, Any]) -> List[Dict[str, Any]] | None:
     return [{"name": str(nm)} for nm in seq]
 
 
-def _dump_pairwise_dataset(cfg: Dict[str, Any], *, pkg_map: Dict[str, List[Dict]]) -> Path:
+def _dump_pairwise_dataset(cfg: Dict[str, Any], *, pkg_map: Dict[str, List[Dict]], run_dir: Path | None = None) -> Path:
     """生成两两域算子包联络数据集（含参数 steps），写入 out/rlsac_connector/dataset_<ts>。"""
     import hashlib
     import importlib
@@ -74,10 +74,15 @@ def _dump_pairwise_dataset(cfg: Dict[str, Any], *, pkg_map: Dict[str, List[Dict]
 
     repo_root = _repo_root()
     out_root = repo_root / "out"
-    base_out = out_root / "rlsac_connector"
+    base_out = out_root / Path(cfg.get("output_dir", "out_connector"))
     base_out.mkdir(parents=True, exist_ok=True)
-    run_dir = base_out / ("dataset_" + str(int(_pytime.time())))
+    if run_dir is None:
+        run_dir = base_out / ("dataset_" + str(int(_pytime.time())))
+    run_dir.parent.mkdir(parents=True, exist_ok=True)
     run_dir.mkdir(parents=True, exist_ok=True)
+    trace_on = bool(cfg.get("trace", True))
+    if trace_on:
+        print(f"[TRACE][dataset] run_dir={run_dir}", flush=True)
 
     per_pair = int(cfg.get("dataset_per_pair", 50))
     use_llm = bool(cfg.get("use_llm_oracle", False))
@@ -92,7 +97,9 @@ def _dump_pairwise_dataset(cfg: Dict[str, Any], *, pkg_map: Dict[str, List[Dict]
             arr_b = pkg_map.get(b) or []
             if not arr_b:
                 continue
-            for _ in range(min(per_pair, max(len(arr_a), len(arr_b)))):
+            if trace_on:
+                print(f"[TRACE][dataset] pair={a}-{b} per_pair={per_pair}", flush=True)
+            for j in range(min(per_pair, max(len(arr_a), len(arr_b)))):
                 pa = _rnd.choice(arr_a)
                 pb = _rnd.choice(arr_b)
                 seq_a = list(pa.get("sequence", []) or [])
@@ -151,6 +158,8 @@ def _dump_pairwise_dataset(cfg: Dict[str, Any], *, pkg_map: Dict[str, List[Dict]
                     "source": "pair_from_packages",
                 }
                 samples.append(rec)
+                if trace_on:
+                    print(f"[TRACE][dataset] pair={a}-{b} j={j} done", flush=True)
 
     # 写文件：debug_dataset.json + 简要统计
     ds_path = run_dir / "debug_dataset.json"
@@ -200,16 +209,33 @@ def train(config_path: str | Path | None = None) -> Path:
     mod_dir = Path(__file__).resolve().parent
     cfg_path = Path(config_path) if config_path else (mod_dir / "config.json")
     cfg = _load_config(cfg_path)
-    device = select_device_from_config(cfg_path)
+    # 注意：仅在训练分支使用设备选择，避免无 torch 环境崩溃
+    device = None
 
     debug = bool(cfg.get("debug", False))
     log_every_step = bool(cfg.get("log_every_step", True))
     log_to_file = bool(cfg.get("log_to_file", True))
+    # 追踪日志开关（默认开启，用于卡点排查）
+    trace_on = bool(cfg.get("trace", True))
+    # 提前声明 logger（用于 trace 写文件）
+    logger = None  # type: ignore
+
+    # 当仅生成数据集时，首先打印生成目录路径
+    pre_run_dir: Path | None = None
+    try:
+        if bool(cfg.get('explore_only', True)):
+            repo_root = _repo_root()
+            out_root = repo_root / 'out'
+            base_out = out_root / Path(cfg.get('output_dir', 'out_connector'))
+            pre_run_dir = base_out / ("dataset_" + str(int(_pytime.time())))
+            print(str(pre_run_dir), flush=True)
+    except Exception:
+        pre_run_dir = None
 
     class RunLogger:
         def __init__(self, path: Path, append: bool = False):
             self.path = path
-            self.f = open(path, 'a' if append else 'w', encoding='utf-8', newline='')
+            self.f = open(path, 'a' if append else 'w', encoding='utf-8', newline='\n')
 
         def write_line(self, text: str) -> None:
             try:
@@ -236,6 +262,12 @@ def train(config_path: str | Path | None = None) -> Path:
             print(msg)
             if logger:
                 logger.write_line(msg)
+    
+    def trace(msg: str) -> None:
+        if trace_on:
+            print(f"[TRACE][train] {msg}", flush=True)
+            if logger:
+                logger.write_line(f"[TRACE] {msg}")
 
     # 采样-监督设置
     samples = int(cfg.get("samples", 2000))
@@ -245,24 +277,69 @@ def train(config_path: str | Path | None = None) -> Path:
     cand_gen = int(cfg.get("candidate_generate", 1000))
     cost_lambda = float(cfg.get("cost_lambda", 0.2))
     eps_change = float(cfg.get("eps_change", 1e-3))
+    trace(f"start cfg={cfg_path} explore_only={cfg.get('explore_only', True)} output_dir={cfg.get('output_dir', 'out_connector')}")
     pk_dir = Path(cfg.get("packages_dir", "lbopb/src/rlsac/kernel/rlsac_pathfinder"))
     # 兼容 monoid_packages 子目录
     if not (pk_dir / "pem_operator_packages.json").exists():
         pk_dir = pk_dir / "monoid_packages"
+    trace(f"packages_dir resolved: {pk_dir}")
     pkg_map = load_domain_packages(pk_dir)
-    oracle = ConnectorAxiomOracle(cost_lambda=cost_lambda, eps_change=eps_change,
-                                  use_llm=bool(cfg.get('use_llm_oracle', False)))
+    try:
+        sizes = {m: int(len(pkg_map.get(m) or [])) for m in MODULES}
+        trace(f"packages loaded sizes={sizes}")
+    except Exception:
+        trace("packages loaded (sizes unavailable)")
 
     # explore_only: 仅生成 out/rlsac_connector/dataset_<ts>
     if bool(cfg.get('explore_only', True)):
-        return _dump_pairwise_dataset(cfg, pkg_map=pkg_map)
+        trace("explore_only=true -> dumping dataset")
+        return _dump_pairwise_dataset(cfg, pkg_map=pkg_map, run_dir=pre_run_dir)
 
+    print("[TRACE][train] checking torch availability before training", flush=True)
+    if torch is None:
+        raise RuntimeError("需要提取连接但未检测到 PyTorch，请先安装 torch（或将 explore_only 设为 true 以仅生成数据集）。")
+
+    # 加载 scorer 和模型
+    from lbopb.src.rlsac.kernel.rlsac_pathfinder.scorer import PackageScorer  # type: ignore
+    feat_dim = 10
+    model = PackageScorer(feat_dim)
+    try:
+        # 训练目录尚未创建，跳过预加载
+        pass
+    except Exception:
+        pass
+    model.eval()
+
+    if torch is None:
+        raise RuntimeError("需要提取连接但未检测到 PyTorch，请先安装 torch（或将 explore_only 设为 true 以仅生成数据集）。")
+
+    # 加载模型
+    feat_dim = 10
+    model = PackageScorer(feat_dim)
+    try:
+        # 训练目录尚未创建，跳过预加载
+        pass
+    except Exception:
+        pass
+    model.eval()
+
+    if torch is None:
+        raise RuntimeError("需要训练但未检测到 PyTorch，请先安装 torch（或将 explore_only 设为 true 以仅生成数据集）。")
+
+    # 延迟导入 scorer（其依赖的 env 需要 torch）
+    from lbopb.src.rlsac.kernel.rlsac_pathfinder.scorer import PackageScorer, train_scorer  # type: ignore
     repo_root = Path(__file__).resolve().parents[5]
     out_root = repo_root / 'out'
     base_out = out_root / Path(cfg.get('output_dir', 'out_connector'))
     base_out.mkdir(parents=True, exist_ok=True)
     run_dir = base_out / ("train_" + str(int(_pytime.time())))
     run_dir.mkdir(parents=True, exist_ok=True)
+    print(f"[TRACE][train] run_dir prepared: {run_dir}", flush=True)
+    # 选择设备（延迟导入，避免 explore_only 强依赖 torch）
+    from lbopb.src.rlsac.application.rlsac_nsclc.utils import select_device_from_config  # type: ignore
+    device = select_device_from_config(cfg_path)
+    print(f"[TRACE][train] device selected: {device}", flush=True)
+
     log_path = run_dir / "train.log"
     logger: RunLogger | None = None
     if log_to_file:
@@ -270,12 +347,23 @@ def train(config_path: str | Path | None = None) -> Path:
         logger.write_line(f"# TRAIN START {_pytime.strftime('%Y-%m-%d %H:%M:%S', _pytime.localtime())}")
         logger.write_line(f"device={device}")
         logger.write_line(f"config={json.dumps(cfg, ensure_ascii=False)}")
+    print("[TRACE][train] logger ready" if logger else "[TRACE][train] logger disabled", flush=True)
+
+    # 延迟导入，避免 explore_only 场景强依赖
+    try:
+        from lbopb.src.rlsac.kernel.rlsac_connector.oracle import ConnectorAxiomOracle  # type: ignore
+    except Exception:
+        from .oracle import ConnectorAxiomOracle  # type: ignore
+    oracle = ConnectorAxiomOracle(cost_lambda=cost_lambda, eps_change=eps_change,
+                                  use_llm=bool(cfg.get('use_llm_oracle', False)))
+    print("[TRACE][train] oracle constructed", flush=True)
 
     # 构造监督数据
     # 特征维度与监督数据容器
     feat_dim = 10
     X = torch.zeros((samples, feat_dim), dtype=torch.float32)
     y = torch.zeros((samples,), dtype=torch.float32)
+    print(f"[TRACE][train] sampling {samples} training examples", flush=True)
 
     for i in range(samples):
         choice = sample_random_connection(pkg_map)
@@ -285,11 +373,15 @@ def train(config_path: str | Path | None = None) -> Path:
         y[i] = float(label)
         if logger and (i % max(1, samples // 10) == 0):
             logger.write_line(f"[SAMPLE {i}] lens={lens} meta={meta} label={int(label)}")
+        if trace_on:
+            print(f"[TRACE][train] sample_done i={i} label={int(label)}", flush=True)
 
     # 训练打分器
     model = PackageScorer(feat_dim).to(device)
+    print("[TRACE][train] start training", flush=True)
     train_scorer(model, X.to(device), y.to(device), epochs=epochs, batch_size=batch_size,
                  lr=float(cfg.get("learning_rate_actor", 3e-4)))
+    print("[TRACE][train] training finished; saving model", flush=True)
     torch.save(model.state_dict(), run_dir / "scorer.pt")
 
     # 生成候选并评分，取 Top-K
@@ -302,6 +394,8 @@ def train(config_path: str | Path | None = None) -> Path:
             vec = _feat_from_meta(lens, meta).unsqueeze(0).to(device)
             score = float(model(vec).item())
             cand.append((score, choice, meta))
+            if trace_on:
+                print(f"[TRACE][train] cand_gen_added size={len(cand)} score={score:.4f}", flush=True)
     cand.sort(key=lambda t: t[0], reverse=True)
 
     # 写入联络辞海（模块目录与运行目录）
@@ -316,7 +410,9 @@ def train(config_path: str | Path | None = None) -> Path:
         law_entries.append(entry)
 
     # 追加写入模块目录 law_connections.json
-    mod_law = mod_dir / "law_connections.json"
+    global_dir = mod_dir / "law_lexicon"
+    global_dir.mkdir(parents=True, exist_ok=True)
+    mod_law = global_dir / "global_law_connections.json"
     mod_arr: List[Dict[str, Any]] = []
     if mod_law.exists():
         try:
@@ -351,23 +447,35 @@ def extract_connection(run_dir: str | Path, config_path: str | Path | None = Non
     cfg_path = Path(config_path) if config_path else (mod_dir / "config.json")
     cfg = _load_config(cfg_path)
     run_dir = Path(run_dir)
+    trace_on = bool(cfg.get("trace", True))
+    if trace_on:
+        print(f"[TRACE][extract] start run_dir={run_dir} cfg={cfg_path}", flush=True)
 
     # 加载打分器
-    feat_dim = 10
-    model = PackageScorer(feat_dim)
-    try:
-        model.load_state_dict(torch.load(run_dir / "scorer.pt", map_location="cpu"))
-    except Exception:
-        pass
-    model.eval()
+    # 延后加载模型，先处理 explore_only 分支
 
     pk_dir = Path(cfg.get("packages_dir", "lbopb/src/rlsac/kernel/rlsac_pathfinder"))
     pkg_map = load_domain_packages(pk_dir)
+    if trace_on:
+        try:
+            sizes = {m: int(len(pkg_map.get(m) or [])) for m in MODULES}
+            print(f"[TRACE][extract] packages sizes={sizes}", flush=True)
+        except Exception:
+            print("[TRACE][extract] packages loaded", flush=True)
+    # 延迟导入，避免 explore_only 场景强依赖
+    try:
+        from lbopb.src.rlsac.kernel.rlsac_connector.oracle import ConnectorAxiomOracle  # type: ignore
+    except Exception:
+        from .oracle import ConnectorAxiomOracle  # type: ignore
     oracle = ConnectorAxiomOracle(cost_lambda=cost_lambda, eps_change=eps_change,
                                   use_llm=bool(cfg.get('use_llm_oracle', False)))
+    if trace_on:
+        print("[TRACE][extract] oracle constructed", flush=True)
 
     # explore_only: 仅生成 out/rlsac_connector/dataset_<ts>
     if bool(cfg.get('explore_only', True)):
+        if trace_on:
+            print("[TRACE][extract] explore_only=true -> dumping dataset", flush=True)
         return _dump_pairwise_dataset(cfg, pkg_map=pkg_map)
 
     repo_root = Path(__file__).resolve().parents[5]
@@ -387,6 +495,8 @@ def extract_connection(run_dir: str | Path, config_path: str | Path | None = Non
                 best = score;
                 best_choice = choice;
                 best_meta = meta
+            if trace_on:
+                print(f"[TRACE][extract] cand_step score={score:.4f} best={best:.4f}", flush=True)
 
     conn = {
         "id": f"conn_{int(_pytime.time())}",
@@ -395,7 +505,9 @@ def extract_connection(run_dir: str | Path, config_path: str | Path | None = Non
         "score": float(best or 0.0),
     }
 
-    law_path = mod_dir / "law_connections.json"
+    global_dir = mod_dir / "law_lexicon"
+    global_dir.mkdir(parents=True, exist_ok=True)
+    law_path = global_dir / "global_law_connections.json"
     arr: List[Dict[str, Any]] = []
     if law_path.exists():
         try:
@@ -403,6 +515,8 @@ def extract_connection(run_dir: str | Path, config_path: str | Path | None = Non
         except Exception:
             arr = []
     arr.append(conn)
+    if trace_on:
+        print(f"[TRACE][extract] chosen id={conn['id']} score={conn['score']}", flush=True)
     text = json.dumps(arr, ensure_ascii=False, indent=2).replace("\r\n", "\n")
     with law_path.open("w", encoding="utf-8", newline="\n") as f:
         f.write(text)
