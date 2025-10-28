@@ -90,6 +90,21 @@ def _build_steps(domain: str, seq: List[str]) -> List[Dict[str, Any]]:
         return [{"name": nm, "grid_index": [], "params": {}} for nm in seq]
 
 
+def _normalize_mojibake(text: str) -> str:
+    try:
+        s = str(text)
+    except Exception:
+        return text
+    rep = {
+        "δ֪": "未知",
+        "ͨ��": "通过",
+        "��У��": "未校验",
+    }
+    for k, v in rep.items():
+        s = s.replace(k, v)
+    return s
+
+
 def _latest_dataset_debug(repo_root: Path) -> Path | None:
     ds_root = repo_root / 'out' / 'out_connector'
     ds_dirs = [p for p in ds_root.glob('dataset_*') if p.is_dir()]
@@ -164,9 +179,17 @@ def main() -> None:
                 syn = None
             val = {
                 "mode": "dual",
-                "syntax": syn if isinstance(syn, dict) else {"result": "δ֪", "errors": 0, "warnings": 0},
-                "gemini": {"used": False, "result": "δ֪"},
+                "syntax": syn if isinstance(syn, dict) else {"result": "未知", "errors": 0, "warnings": 0},
+                "gemini": {"used": False, "result": "未知"},
             }
+            # 归一化潜在乱码
+            try:
+                if isinstance(val.get("syntax"), dict):
+                    val["syntax"]["result"] = _normalize_mojibake(val["syntax"].get("result", ""))
+                if isinstance(val.get("gemini"), dict):
+                    val["gemini"]["result"] = _normalize_mojibake(val["gemini"].get("result", ""))
+            except Exception:
+                pass
             label = 1 if (isinstance(syn, dict) and int(syn.get("errors", 0)) == 0) else 0
             items.append(
                 {
