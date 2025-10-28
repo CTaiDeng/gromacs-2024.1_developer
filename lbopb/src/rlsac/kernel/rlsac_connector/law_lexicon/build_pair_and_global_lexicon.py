@@ -9,6 +9,7 @@ import json
 import time
 from pathlib import Path
 from typing import Dict, List, Any, Tuple
+import hashlib
 
 MODULES: List[str] = ["pem", "pdem", "pktm", "pgom", "tem", "prm", "iem"]
 
@@ -206,13 +207,18 @@ def build_global_lexicon_from_pairs(pairs: Dict[Tuple[str, str], List[Dict[str, 
             return [{"name": nm, "grid_index": [], "params": {}} for nm in seq]
 
     for sol in solutions[:max_items]:
+        chosen = {m: list(sol[m]) for m in MODULES}
+        ops = {m: build_steps(m, list(sol[m])) for m in MODULES}
+        # 以 chosen+ops_detailed 的规范 JSON 作为哈希输入
+        blob = json.dumps({"chosen": chosen, "ops_detailed": ops}, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        hid = hashlib.sha256(blob).hexdigest()
         item: Dict[str, Any] = {
-            "id": f"global_{int(time.time())}",
-            "chosen": {m: list(sol[m]) for m in MODULES},
+            "id": f"global_{hid}",
+            "chosen": chosen,
+            "ops_detailed": ops,
             "meta": {"strategy": "pairwise_complete_clique"},
             "score": 0.0,
         }
-        item["ops_detailed"] = {m: build_steps(m, list(sol[m])) for m in MODULES}
         items.append(item)
     return items
 

@@ -8,6 +8,7 @@ import json
 import time
 from pathlib import Path
 from typing import Dict, List, Any, Tuple
+import hashlib
 
 MODULES: List[str] = ["pem", "pdem", "pktm", "pgom", "tem", "prm", "iem"]
 
@@ -164,14 +165,17 @@ def build_partial_global_from_pairs(pairs: Dict[Tuple[str, str], List[Dict[str, 
     for sol in sols:
         chosen = {m: list(map(str, sol[m])) for m in sol.keys()}
         missing = [m for m in MODULES if m not in sol]
+        ops = {m: default_steps(chosen[m]) for m in chosen.keys()}
+        blob = json.dumps({"chosen": chosen, "ops_detailed": ops}, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        hid = hashlib.sha256(blob).hexdigest()
         item: Dict[str, Any] = {
-            "id": f"global_part_{int(time.time())}",
+            "id": f"global_part_{hid}",
             "chosen": chosen,
+            "ops_detailed": ops,
             "missing_domains": missing,
             "meta": {"strategy": "partial_pairwise_max_cover", "size": len(chosen), "missing_count": len(missing)},
             "score": 0.0,
         }
-        item["ops_detailed"] = {m: default_steps(chosen[m]) for m in chosen.keys()}
         items.append(item)
     return items
 
@@ -190,4 +194,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -1,6 +1,6 @@
 [
   {
-    "id": "global_part_1761679325",
+    "id": "global_part_cb145845d288d9a0bc0568e785ba6c086935738d8a01b1d83f5345e94730d3cf",
     "chosen": {
       "pem": [
         "Carcinogenesis",
@@ -16,17 +16,6 @@
         "Desensitization"
       ]
     },
-    "missing_domains": [
-      "pktm",
-      "pgom",
-      "prm"
-    ],
-    "meta": {
-      "strategy": "partial_pairwise_max_cover",
-      "size": 4,
-      "missing_count": 3
-    },
-    "score": 0.0,
     "ops_detailed": {
       "pem": [
         {
@@ -61,10 +50,21 @@
           "params": {}
         }
       ]
-    }
+    },
+    "missing_domains": [
+      "pktm",
+      "pgom",
+      "prm"
+    ],
+    "meta": {
+      "strategy": "partial_pairwise_max_cover",
+      "size": 4,
+      "missing_count": 3
+    },
+    "score": 0.0
   },
   {
-    "id": "global_part_1761679325",
+    "id": "global_part_56af41e3e982062435f45c369080c01a2913a3bce368a0c5ae30466a70665635",
     "chosen": {
       "pem": [
         "Carcinogenesis",
@@ -80,17 +80,6 @@
         "Bind"
       ]
     },
-    "missing_domains": [
-      "pgom",
-      "tem",
-      "prm"
-    ],
-    "meta": {
-      "strategy": "partial_pairwise_max_cover",
-      "size": 4,
-      "missing_count": 3
-    },
-    "score": 0.0,
     "ops_detailed": {
       "pem": [
         {
@@ -125,10 +114,21 @@
           "params": {}
         }
       ]
-    }
+    },
+    "missing_domains": [
+      "pgom",
+      "tem",
+      "prm"
+    ],
+    "meta": {
+      "strategy": "partial_pairwise_max_cover",
+      "size": 4,
+      "missing_count": 3
+    },
+    "score": 0.0
   },
   {
-    "id": "global_part_1761679325",
+    "id": "global_part_335d7f85bcd095c8b62447e6c4bc62d866113a5ff1ebf18f50db9cc44a7903d7",
     "chosen": {
       "pem": [
         "Inflammation"
@@ -144,17 +144,6 @@
         "Activate"
       ]
     },
-    "missing_domains": [
-      "pdem",
-      "tem",
-      "prm"
-    ],
-    "meta": {
-      "strategy": "partial_pairwise_max_cover",
-      "size": 4,
-      "missing_count": 3
-    },
-    "score": 0.0,
     "ops_detailed": {
       "pem": [
         {
@@ -189,10 +178,21 @@
           "params": {}
         }
       ]
-    }
+    },
+    "missing_domains": [
+      "pdem",
+      "tem",
+      "prm"
+    ],
+    "meta": {
+      "strategy": "partial_pairwise_max_cover",
+      "size": 4,
+      "missing_count": 3
+    },
+    "score": 0.0
   },
   {
-    "id": "global_part_1761679325",
+    "id": "global_part_96a677407ee16969319ffb715f59d9dd841a69ae1e2c0f483c28c019673c2981",
     "chosen": {
       "pem": [
         "Apoptosis"
@@ -207,17 +207,6 @@
         "Adaptation"
       ]
     },
-    "missing_domains": [
-      "pdem",
-      "pktm",
-      "pgom"
-    ],
-    "meta": {
-      "strategy": "partial_pairwise_max_cover",
-      "size": 4,
-      "missing_count": 3
-    },
-    "score": 0.0,
     "ops_detailed": {
       "pem": [
         {
@@ -247,10 +236,21 @@
           "params": {}
         }
       ]
-    }
+    },
+    "missing_domains": [
+      "pdem",
+      "pktm",
+      "pgom"
+    ],
+    "meta": {
+      "strategy": "partial_pairwise_max_cover",
+      "size": 4,
+      "missing_count": 3
+    },
+    "score": 0.0
   },
   {
-    "id": "global_part_1761679325",
+    "id": "global_part_5070116b4c48e99a7bc9d0cef8b4a81be412d2a3850c60df2236058583ea462f",
     "chosen": {
       "tem": [
         "Lesion"
@@ -266,17 +266,6 @@
         "Transport"
       ]
     },
-    "missing_domains": [
-      "pem",
-      "pdem",
-      "pgom"
-    ],
-    "meta": {
-      "strategy": "partial_pairwise_max_cover",
-      "size": 4,
-      "missing_count": 3
-    },
-    "score": 0.0,
     "ops_detailed": {
       "tem": [
         {
@@ -311,10 +300,21 @@
           "params": {}
         }
       ]
-    }
+    },
+    "missing_domains": [
+      "pem",
+      "pdem",
+      "pgom"
+    ],
+    "meta": {
+      "strategy": "partial_pairwise_max_cover",
+      "size": 4,
+      "missing_count": 3
+    },
+    "score": 0.0
   },
   {
-    "id": "global_part_1761679325",
+    "id": "global_part_967881aea7a306515836a8ac2bf36db3919547f78c7a999a0d6090fa56b168c0",
     "chosen": {
       "tem": [
         "Lesion"
@@ -330,17 +330,6 @@
         "Transport"
       ]
     },
-    "missing_domains": [
-      "pem",
-      "pdem",
-      "pgom"
-    ],
-    "meta": {
-      "strategy": "partial_pairwise_max_cover",
-      "size": 4,
-      "missing_count": 3
-    },
-    "score": 0.0,
     "ops_detailed": {
       "tem": [
         {
@@ -375,6 +364,17 @@
           "params": {}
         }
       ]
-    }
+    },
+    "missing_domains": [
+      "pem",
+      "pdem",
+      "pgom"
+    ],
+    "meta": {
+      "strategy": "partial_pairwise_max_cover",
+      "size": 4,
+      "missing_count": 3
+    },
+    "score": 0.0
   }
 ]
