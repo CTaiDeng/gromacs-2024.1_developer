@@ -353,7 +353,7 @@ def search_git_history(
         message_matches=message_matches,
     )
 
-    base_out_dir = output_dir or (root / "out" / "git_search")
+    base_out_dir = output_dir or (root / "out" / "out_git_search")
     base_out_dir.mkdir(parents=True, exist_ok=True)
     # 目录与文件名统一使用“秒级时间戳”
     ts_sec = str(int(time.time()))

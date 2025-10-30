@@ -1,12 +1,12 @@
 # git_search：Git 历史全文搜索工具
 
-`git_search` 是一个仓库内置的 Python 工具，用于在整个 Git 历史进行全文搜索，可同时搜索“文件内容快照（跨所有提交）”与“提交信息（subject/body）”，并将报告输出到 `out/git_search`（Markdown 与 JSON）。
+`git_search` 是一个仓库内置的 Python 工具，用于在整个 Git 历史进行全文搜索，可同时搜索“文件内容快照（跨所有提交）”与“提交信息（subject/body）”，并将报告输出到 `out/out_git_search`（Markdown 与 JSON）。
 
 - 依赖：已安装 Git、Python 3.8+（仓库自带运行，无需单独安装包）
 - 输出结构：
-  - 目录：`out/git_search/report_<时间戳秒>/`
-  - 文件：`out/git_search/report_<时间戳秒>/report_<时间戳秒>.md`
-  - 文件：`out/git_search/report_<时间戳秒>/report_<时间戳秒>.json`
+  - 目录：`out/out_git_search/report_<时间戳秒>/`
+  - 文件：`out/out_git_search/report_<时间戳秒>/report_<时间戳秒>.md`
+  - 文件：`out/out_git_search/report_<时间戳秒>/report_<时间戳秒>.json`
 - 适用场景：
   - 回溯关键符号/常量/接口在历史中的演化
   - 甄别某段文案或许可证文本在不同版本中的分布
@@ -58,7 +58,7 @@
 - `--path-glob <glob>`：限制“文件内容”搜索的路径通配，可多次指定；例：`--path-glob "*.c" --path-glob "src/**"`。
 - `--limit-blobs <n>`：文件内容匹配最大条数（-1 为不限）。
 - `--limit-messages <n>`：提交信息匹配最大条数（-1 为不限）。
-- `--output-dir <dir>`：输出目录（默认 `out/git_search`）。
+- `--output-dir <dir>`：输出目录（默认 `out/out_git_search`）。
 - `--output-prefix <name>`：输出文件名前缀（默认 `report`）。
 
 ## 输出内容
