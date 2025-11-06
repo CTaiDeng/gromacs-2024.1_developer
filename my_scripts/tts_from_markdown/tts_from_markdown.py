@@ -44,8 +44,18 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, List, Optional
 
-# 让仓库根目录可导入本地包 video_production（本文件位于 test/video_production/tts_from_markdown/）
-_repo_root = Path(__file__).resolve().parents[3]
+# 让仓库根目录可导入本地包等（本文件位于 script/tts_from_markdown/）
+# 在不同目录层级下运行时，稳健定位仓库根（包含 docs/ 与 video_production/）
+_here = Path(__file__).resolve()
+_repo_root: Path
+try:
+    _repo_root = next(
+        cand for cand in _here.parents
+        if (cand / "docs").exists() and (cand / "video_production").exists()
+    )
+except StopIteration:
+    # 回退：常见层级（script/tts_from_markdown/ -> repo_root）
+    _repo_root = _here.parents[2] if len(_here.parents) >= 3 else _here.parent
 if str(_repo_root) not in sys.path:
     sys.path.insert(0, str(_repo_root))
 
