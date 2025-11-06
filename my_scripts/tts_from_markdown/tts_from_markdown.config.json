@@ -1,0 +1,15 @@
+{
+  "generate_srt": true,
+  "voice_src": {
+    "zh-CN-XiaomengNeural": 1,
+    "zh-CN-YunyeNeural": 2
+  },
+  "voice": 1,
+  "AZURE_SPEECH_KEY": "",
+  "AZURE_SPEECH_REGION": "eastasia",
+  "GEMINI_API_KEY": "",
+  "GEMINI_MODEL": "gemini-2.5-pro",
+  "srt_max_chars": 20,
+  "azure_tts_batch_chars": 500,
+  "azure_tts_batch_enable": true
+}

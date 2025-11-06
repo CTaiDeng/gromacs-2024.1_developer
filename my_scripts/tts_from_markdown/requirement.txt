@@ -1,0 +1,12 @@
+# Local requirements for test/video_production/tts_from_markdown
+# 安装：pip install -r requirement.txt
+
+# Azure 语音合成（必需）
+azure-cognitiveservices-speech==1.37.0
+
+# 控制台彩色输出（可选，但推荐）
+colorama==0.4.6
+
+# Gemini 数学朗读增强（可选；启用需设置 GOOGLE_API_KEY 或 GEMINI_API_KEY）
+google-generativeai==0.8.3
+
