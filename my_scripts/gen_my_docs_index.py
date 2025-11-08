@@ -179,6 +179,17 @@ def build_index_section() -> str:
     return body
 
 
+def _find_donate_anchor(lines: list[str]) -> int:
+    """返回捐赠图片锚点所在的行号（0-based），未找到返回 -1。"""
+    for i, ln in enumerate(lines):
+        s = ln.strip()
+        if "![Donate ETH/EVM]" in s and "0x3ea6fc8b18820bfb4bbd0bde69b4769ae8a86e99.png" in s:
+            return i
+        if s.startswith("![Donate ETH/EVM]("):
+            return i
+    return -1
+
+
 def replace_or_append_index_section(readme_text: str, index_section: str) -> str:
     """在现有 README 文本中替换或追加 `# my_docs 文档索引` 小节。
 
@@ -186,9 +197,14 @@ def replace_or_append_index_section(readme_text: str, index_section: str) -> str
     - 若不存在该小节，则在文末以 1 个空行间隔后追加该小节。
     """
     lines = readme_text.splitlines()
+    # 保护锚点：脚本不得改动锚点以上内容
+    anchor = _find_donate_anchor(lines)
+
+    # 在锚点之后查找小节（若未找到锚点，则全文件范围内查找）
+    search_begin = 0 if anchor == -1 else (anchor + 1)
     start = -1
-    for i, ln in enumerate(lines):
-        if ln.strip() == "# my_docs 文档索引":
+    for i in range(search_begin, len(lines)):
+        if lines[i].strip() == "# my_docs 文档索引":
             start = i
             break
     if start == -1:
@@ -233,4 +249,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

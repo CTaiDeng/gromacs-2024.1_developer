@@ -73,28 +73,59 @@ function UpdateReadmeProjectDocs([string]$readmePath, [System.Collections.Generi
     throw "README not found: $readmePath"
   }
   $all = Get-Content -LiteralPath $readmePath -Encoding UTF8
-  $start = -1; $end = $all.Length
-  for($i=0; $i -lt $all.Length; $i++){
+
+  # 锚点：禁止改动该锚点以上的内容
+  $donateIdx = -1
+  for($k=0; $k -lt $all.Length; $k++){
+    if($all[$k] -match '!\[Donate ETH/EVM\]' -and $all[$k] -match '0x3ea6fc8b18820bfb4bbd0bde69b4769ae8a86e99\.png'){
+      $donateIdx = $k; break
+    }
+    if($all[$k] -match '^\s*!\[Donate ETH/EVM\]\('){ $donateIdx = $k; break }
+  }
+
+  # 在锚点之后定位 `# my_docs 文档索引` 小节
+  $secStart = -1; $secEnd = $all.Length
+  $scanStart = if($donateIdx -ge 0){ $donateIdx + 1 } else { 0 }
+  for($i=$scanStart; $i -lt $all.Length; $i++){
+    if($all[$i].Trim() -eq '# my_docs 文档索引'){ $secStart = $i; break }
+  }
+  if($secStart -ge 0){
+    for($j=$secStart+1; $j -lt $all.Length; $j++){
+      if($all[$j] -match '^\s*#\s+'){ $secEnd = $j; break }
+    }
+  }
+
+  if($secStart -lt 0){
+    Write-Host 'Section "# my_docs 文档索引" not found after donate anchor; skip update.'
+    return
+  }
+
+  # 在该小节内查找/更新 `## project_docs`
+  $start = -1; $end = $secEnd
+  for($i=$secStart+1; $i -lt $secEnd; $i++){
     if($all[$i] -match '^\s*##\s*project_docs\s*$'){ $start = $i; break }
   }
   if($start -lt 0){
-    # 若无该小节，则在末尾追加
-    $out = New-Object System.Collections.Generic.List[string]
-    foreach($ln in $all){ $out.Add($ln) }
+    # 小节存在但无 project_docs：在该小节末尾追加
+    $pre  = $all[0..($secEnd-1)]
+    $post = if($secEnd -lt $all.Length) { $all[$secEnd..($all.Length-1)] } else { @() }
+    $out  = New-Object System.Collections.Generic.List[string]
+    foreach($ln in $pre){ $out.Add($ln) }
     if($out.Count -gt 0 -and $out[$out.Count-1] -ne ''){ $out.Add('') }
     $out.Add('## project_docs')
     $out.AddRange($indexLines)
+    foreach($ln in $post){ $out.Add($ln) }
     $out | Set-Content -LiteralPath $readmePath -Encoding UTF8
     return
   }
-  for($j=$start+1; $j -lt $all.Length; $j++){
+  for($j=$start+1; $j -lt $secEnd; $j++){
     if($all[$j] -match '^\s*##\s+' ){ $end = $j; break }
   }
-  $pre  = if($start -gt 0) { $all[0..$start] } else { @($all[$start]) }
+  $pre  = $all[0..$start]
   $post = if($end -lt $all.Length) { $all[$end..($all.Length-1)] } else { @() }
   $out  = New-Object System.Collections.Generic.List[string]
   foreach($ln in $pre){ $out.Add($ln) }
-  # 用新索引替换该小节下的全部内容
+  # 用新索引替换该小节下的全部内容（保持标题行不变）
   $out.AddRange($indexLines)
   foreach($ln in $post){ $out.Add($ln) }
   $out | Set-Content -LiteralPath $readmePath -Encoding UTF8
@@ -103,4 +134,3 @@ function UpdateReadmeProjectDocs([string]$readmePath, [System.Collections.Generi
 $index = BuildProjectDocsIndex -docsDir $DocsDir -maxChars $MaxChars
 UpdateReadmeProjectDocs -readmePath $ReadmePath -indexLines $index
 Write-Host "Updated $ReadmePath project_docs index with $($index.Count) lines."
-
