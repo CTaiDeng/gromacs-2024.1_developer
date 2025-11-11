@@ -62,6 +62,12 @@
   - 提交信息生成脚本 `my_scripts/gen_commit_msg_googleai.py` 在生成摘要时忽略该路径的改动；
   - 统一由 `my_scripts/docs_whitelist.json` 管理白名单/排除项，默认已包含该排除路径。
 
+### 受保护文档（只读，需显式许可）
+- 以下文档在未获作者 GaoZheng 明确许可前，任何自动化或人工流程不得更名、不得改写内容：
+  - `my_docs/project_docs/1762636780_🚩🚩gromacs-2024.1_developer项目的著作权设计策略：“宿主-载荷”与“双轨制”复合架构.md`
+- 已在 `my_scripts/docs_whitelist.json` 的 `doc_write_exclude` 中明确排除；所有脚本须读取该配置并尊重其只读属性。
+- 如需对该文档进行编辑，请在指令中显式说明并获得作者书面确认后再行处理。
+
 ## 文档时间戳规范（强制）
 - 适用范围（非递归）：
   - `my_docs/project_docs`

@@ -74,6 +74,12 @@
 - `my_docs/project_docs`：项目知识库（可写）。
 - `my_docs/project_docs/kernel_reference`：外部参考（只读，排除写入型脚本遍历）。
 
+## 受保护文档（只读，需显式许可）
+- 以下文档为知识库的法务与授权基石文档，未获作者 GaoZheng 明确许可前，任何自动化或人工流程不得更名、不得改写内容：
+  - `my_docs/project_docs/1762636780_🚩🚩gromacs-2024.1_developer项目的著作权设计策略：“宿主-载荷”与“双轨制”复合架构.md`
+- 已在 `my_scripts/docs_whitelist.json` 的 `doc_write_exclude` 中明确排除；本目录内的一切脚本与辅助工具须尊重该只读属性。
+- 如需编辑该文档，请在指令中显式指明上述完整相对路径，并附作者书面许可后再执行。
+
 ## 编码规范（重点）
 - 为兼容 Windows 传统控制台编码，`my_docs/AGENTS.md` 与 根目录 `README.md` 使用 UTF-8（无 BOM） 保存。
 - 其他 Markdown 文件建议使用 UTF-8；如需在控制台直接阅读，也可手动转换为 UTF-8（无 BOM）。
@@ -92,7 +98,6 @@
 - [MUST] 文件名与 H1 标题不得包含“标题：/标题:”前缀；脚本自动清理，已有文件将被批量迁移与重命名。
 
 以上规范在仓库脚本持续演进下保持兼容与更新。
-
 
 
 

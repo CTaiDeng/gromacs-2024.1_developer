@@ -29,6 +29,7 @@ import re
 import sys
 import time
 from pathlib import Path
+import json
 from datetime import datetime
 try:
     from zoneinfo import ZoneInfo  # py3.9+
@@ -41,6 +42,26 @@ DEFAULT_FOLDERS = [
     REPO / "my_docs" / "project_docs",
     REPO / "my_project" / "gmx_split_20250924_011827" / "docs",
 ]
+
+# Load doc write exclude list to protect specific files from renaming
+CFG_PATH = REPO / "my_scripts" / "docs_whitelist.json"
+
+def _load_excludes() -> list[str]:
+    try:
+        if CFG_PATH.exists():
+            data = json.loads(CFG_PATH.read_text(encoding="utf-8"))
+            return [str(x).replace("\\", "/").rstrip("/") for x in data.get("doc_write_exclude", [])]
+    except Exception:
+        pass
+    return []
+
+DOC_EXCLUDES = _load_excludes()
+
+def _rel_posix(p: Path) -> str:
+    try:
+        return p.resolve().relative_to(REPO.resolve()).as_posix()
+    except Exception:
+        return p.as_posix().replace("\\", "/")
 
 
 def read_date(md: Path) -> Optional[str]:
@@ -84,6 +105,15 @@ def desired_mapping(folder: Path) -> Dict[Path, int]:
     wants: Dict[Path, Tuple[str, str]] = {}
     for p in folder.glob('*.md'):
         if not p.is_file():
+            continue
+        # Honor global excludes
+        rp = _rel_posix(p)
+        excluded = False
+        for e in DOC_EXCLUDES:
+            if rp == e or rp.startswith(e + "/"):
+                excluded = True
+                break
+        if excluded:
             continue
         # Explicitly skip LICENSE.md in knowledge base root
         if p.name.lower() == "license.md":
