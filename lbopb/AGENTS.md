@@ -1,13 +1,19 @@
 # lbopb 子目录协作规范（子 AGENTS）
 
 本文件为子目录 AGENTS，作用域为 `lbopb/` 及其全部递归子目录（包含 `lbopb/lbopb_examples/`）。如与仓库根级 `AGENTS.md`
-存在冲突，以本文件对本作用域内的条目为准。
+存在冲突，以本文件对本作用域内的条目为准（最高管辖性仅限 `lbopb/` 作用域内生效）。
 
 ## 许可与头注
 
 - 源码文件统一采用 GPL-3.0-only 许可头注（SPDX）。
 - 版权与声明遵循仓库根级 AGENTS.md 的“源代码头注规范（MUST）”。
 - 建议使用仓库提供的脚本进行自动化对齐，保持一致性。
+
+### 开发协议与独立性（必读）
+
+- 法律独立性：`lbopb` 为“载荷”，在法律上独立于 GROMACS（“宿主”）。
+- 头注模板：统一采用含“著作权独立性声明”的标准头注；由 `lbopb/scripts/sync_headers.py` 强制对齐。
+- 管辖优先：在 `lbopb/` 目录范围内，如本文件与仓库根级 `AGENTS.md` 存在冲突，以本文件为准；该优先级不外溢到 `lbopb/` 之外。
 
 ## 注释语言
 
@@ -45,4 +51,3 @@
 2. 运行 `python -m lbopb.src.gen_operator_crosswalk_md` 同步 Markdown；
 3. 运行 `python lbopb/scripts/sync_headers.py` 检查头注；
 4. 添加/更新示例至 `lbopb/lbopb_examples/`（可选）。
-

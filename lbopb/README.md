@@ -1,3 +1,29 @@
+<!-- @guard-begin: lbopb-legal-guard (DO NOT EDIT BY SCRIPTS) -->
+# LBOPB 子项目：著作权与独立性声明
+
+**重要法律声明：**
+
+本项目（`lbopb`，下称“载荷”）是作者 GaoZheng 的原创著作物，其知识产权源自“高政 G 框架（渊源：PL-PI 元数学理论）”。
+
+“载荷”被设计为在 GROMACS 平台（下称“宿主”）上运行，但**在法律上是独立于“宿主”的著作物**。
+
+* **宿主（GROMACS）**：受其原始许可证（GPL/LGPL）约束。
+* **载荷（本项目 `lbopb`）**：
+    * **理论文档**（如 `my_docs` 及相关理论文件）：遵循 `CC-BY-NC-ND 4.0` 许可及“思想即表达”原则。
+    * **源代码**（如 `lbopb/src` 内文件）：遵循 `GPL-3.0-only` 许可，著作权由 GaoZheng 独立持有。
+
+本“载荷”的著作权与授权策略（“双轨制”）独立于“宿主”的许可证，不受其“传染”。详细的法律架构请参见《[🚩🚩gromacs-2024.1_developer项目的著作权设计策略：“宿主-载荷”与“双轨制”复合架构](my_docs/project_docs/1762636780_🚩🚩gromacs-2024.1_developer项目的著作权设计策略：“宿主-载荷”与“双轨制”复合架构.md)》。
+
+## 开发协议（受保护区域）
+- 默认沟通语言：简体中文。
+- 区域保护：本区块受审查脚本保护，任何自动化脚本不得修改；仅允许人工编辑并经代码评审。
+- 许可遵循：理论文档遵循 CC-BY-NC-ND 4.0；源代码遵循 GPL-3.0-only；源码头注需符合根级 AGENTS 的“源代码头注规范（MUST）”。
+- 合规约束：严禁宣称“官方/official”身份；如需引用上游原文，须在 README 顶部保留非官方/派生声明进行对冲。
+- 审查脚本：`python3 my_scripts/check_lbopb_readme_guard.py`（只读校验，不进行任何自动修改）。
+- 自动化范围限制：`my_scripts/**` 与 `lbopb/scripts/**` 不得对本受保护区域进行写入类操作。
+
+<!-- @guard-end: lbopb-legal-guard -->
+
 # lbopb
 
 lbopb（Local Binding & Operator Prototypes
@@ -45,4 +71,3 @@ python lbopb/lbopb_examples/hiv_therapy_case.py
 ```
 
 规范说明：本子目录遵循仓库根级 `AGENTS.md`（最高规范）；并提供子目录专用规范见 `lbopb/AGENTS.md`。
-

@@ -12,6 +12,13 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
+# --- 著作权独立性声明 (Copyright Independence Declaration) ---
+# 本文件（“载荷”）是作者 (GaoZheng) 的原创著作物，其知识产权
+# 独立于其运行平台 GROMACS（“宿主”）。
+# 本文件的授权遵循上述 SPDX 标识，不受“宿主”许可证的管辖。
+# 详情参见项目文档 "my_docs/project_docs/1762636780_🚩🚩gromacs-2024.1_developer项目的著作权设计策略：“宿主-载荷”与“双轨制”复合架构.md"。
+# ------------------------------------------------------------------
 
 """lbopb：本地绑定与算子原型集合。
 
