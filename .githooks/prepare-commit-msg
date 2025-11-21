@@ -67,8 +67,9 @@ if [[ $IS_UPDATE -eq 1 ]]; then
         OUT=$("$PY" "$SCRIPT_PATH" 2>/dev/null || true)
       fi
       OUT_TRIM=$(printf '%s' "$OUT" | sed 's/^\s\+//;s/\s\+$//')
-      if [[ -n "$OUT_TRIM" ]]; then
-        printf '%s\n' "$OUT_TRIM" > "$MSG_FILE"
+      OUT_COMPACT=$(printf '%s\n' "$OUT_TRIM" | sed '/^[[:space:]]*$/d')
+      if [[ -n "$OUT_COMPACT" ]]; then
+        printf '%s\n' "$OUT_COMPACT" > "$MSG_FILE"
       fi
     else
       # Windows 兼容：尝试通过 cmd.exe 调用 py -3（将路径转换为 Windows 形式）
@@ -83,8 +84,9 @@ if [[ $IS_UPDATE -eq 1 ]]; then
           OUT=$(cmd.exe /c py -3 "$W_SCRIPT" 2>/dev/null || true)
         fi
         OUT_TRIM=$(printf '%s' "$OUT" | sed 's/^\s\+//;s/\s\+$//')
-        if [[ -n "$OUT_TRIM" ]]; then
-          printf '%s\n' "$OUT_TRIM" > "$MSG_FILE"
+        OUT_COMPACT=$(printf '%s\n' "$OUT_TRIM" | sed '/^[[:space:]]*$/d')
+        if [[ -n "$OUT_COMPACT" ]]; then
+          printf '%s\n' "$OUT_COMPACT" > "$MSG_FILE"
         fi
       fi
     fi
