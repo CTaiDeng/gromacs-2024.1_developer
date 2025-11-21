@@ -3,8 +3,8 @@
 
 # 项目说明
 
-### [若为项目Mini版或非Github的镜像点击这里为项目官方在Github的完整原版](https://github.com/CTaiDeng/gromacs-2024.1_developer)
-### [作者：GaoZheng](https://mymetamathematics.blogspot.com)
+### [若为非Github的镜像点击这里为项目官方在Github的完整原版](https://github.com/CTaiDeng/gromacs-2024.1_developer)
+### [作者：GaoZheng（高政）](https://mymetamathematics.blogspot.com) [![ORCID](https://orcid.org/sites/default/files/images/orcid_16x16.png) https://orcid.org/0009-0008-3013-6626](https://orcid.org/0009-0008-3013-6626)
 
 ---
 
