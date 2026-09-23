@@ -1,8 +1,3 @@
-> [!NOTE]
-> 本仓库默认使用简体中文沟通。本仓库是 GROMACS 的非官方派生研究仓库，与 GROMACS 上游、Dream-RSI 作者及其所属机构均无隶属或担保关系。
->
-> This repository communicates in Simplified Chinese by default. It is an unofficial research derivative of GROMACS and is not affiliated with or endorsed by upstream GROMACS, the Dream-RSI authors, or their institutions.
-
 # G 框架与 Dream-RSI：中性相关工作与谱系对照
 
 # GaoZheng G-Framework and Dream-RSI: A Neutral Related-Work and Lineage Comparison
