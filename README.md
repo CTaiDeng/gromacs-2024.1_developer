@@ -59,16 +59,77 @@ After a full reading of the four v5.0 source manuscripts, their respective roles
 
 ## 结构对应｜Structural correspondences
 
-| Dream-RSI 的公开结构 / Public Dream-RSI structure | G 框架中的公开在先结构 / Publicly prior G-Framework structure | 谱系判断 / Lineage finding |
-| --- | --- | --- |
-| 底层 coding agent 保持冻结，外层 orchestration policy 负责分支、并行、工具调用和停止。<br><br>The underlying coding agent remains frozen while an outer orchestration policy controls branching, parallelism, tool use, and stopping. | LHTS 被定义为嵌入具体问题空间的定制运动内核；TPH 被定义为外层轨迹函数参数同伦控制器。其分工是“LHTS 提供运动，TPH 提供方向、加速与条件收敛控制”。<br><br>LHTS is defined as a problem-embedded custom motion kernel, and TPH as an outer trajectory-parameter homotopy controller. Their division of labor is: LHTS supplies motion; TPH supplies direction, acceleration, and conditional convergence control. | Dream-RSI 落入 G 框架已公开的“嵌入执行内核／外层动力控制器”功能拓扑；其 coding-agent 实现属于更窄的应用层，未取代该公开在先结构。<br><br>Dream-RSI falls within the functional topology of an “embedded execution kernel / outer dynamical controller” already published by the G-Framework; its coding-agent implementation occupies a narrower application layer and does not supersede that prior structure. |
-| 历史 discovery trees 被转化为 replay simulator，用于低成本离线评价候选探索策略。<br><br>Historical discovery trees become a replay simulator for low-cost offline evaluation of candidate exploration policies. | G 框架定义有限回放证据域 `D_replayid`；LHTS 以分量偏微下降、延迟信用、持久分值和有限证据登记复用历史结果，2026-05-18 文稿进一步区分正向贡献、反向增障与累计净贡献。<br><br>The G-Framework defines a finite replay evidence domain `D_replayid`; LHTS reuses historical results through component-wise partial descent, delayed credit, persistent scores, and finite-evidence registration, while the 18 May manuscript further separates positive contribution, reverse obstruction, and cumulative net contribution. | Dream-RSI 的 replay simulator 对应有限回放证据域的工程表层；G 框架公开在先地给出了其尚未提供的归因、增障、净贡献与证书边界。<br><br>Dream-RSI's replay simulator corresponds to the engineering surface of a finite replay evidence domain; the earlier G-Framework supplies attribution, reverse-obstruction, net-contribution, and certificate boundaries absent from Dream-RSI's public account. |
-| 候选策略在回放历史上被评价、选择，并重新部署到下一轮在线探索。<br><br>Candidate policies are evaluated on replay histories, selected, and redeployed for the next online exploration round. | TPH 生成候选随机过程轨迹函数，以预期 JacGap 下降、命中收益、成本和风险构造选择泛函，经确定性破同分后选择轨迹，再回填下一轮 LHTS 更新。<br><br>TPH generates candidate stochastic-process trajectory functions, constructs a selection functional from expected JacGap descent, hitting benefit, cost, and risk, selects a trajectory with deterministic tie-breaking, and feeds it into the next LHTS update. | “候选生成—回放评价—确定性选择—在线回填”的闭环形成强工作流对应，足以使 TPH–LHTS 成为必须讨论的直接相关工作；对象级映射将进一步判定其形式包含关系。<br><br>The loop “candidate generation—replay evaluation—deterministic selection—online feedback” forms a strong workflow correspondence, making TPH–LHTS directly relevant work that must be discussed; an object-level mapping would further determine formal inclusion. |
-| 在线探索持续扩大历史树和 replay-simulator pool，形成递归自我改进循环。<br><br>Online exploration continually expands the historical tree and replay-simulator pool, producing a recursive self-improvement loop. | TPH 递归生成广义分形轨迹族 `T_(k+1)=F_k(T_k)`，其“分形”指轨迹函数空间中生成—筛选—回填机制的递归自相似；相应张成空间单调扩张，用于逐阶覆盖尚未表达的下降方向。<br><br>TPH recursively generates a generalized-fractal trajectory family `T_(k+1)=F_k(T_k)`, where “fractal” denotes recursive self-similarity of generation, selection, and feedback in trajectory-function space; the associated span expands monotonically to cover descent directions not yet represented. | Dream-RSI 的发现树扩张呈现同一“生成—筛选—回填—再扩张”递归拓扑；G 框架更早给出了张成空间覆盖、同伦类保持与下降证书，使其处于更高的数学层级。<br><br>Dream-RSI's discovery-tree expansion exhibits the same recursive topology of “generation—selection—feedback—further expansion”; the earlier G-Framework adds span coverage, homotopy-class preservation, and descent certificates, placing it at a higher mathematical level. |
-| Dream-RSI 以代码任务上的经验结果评价策略改进。<br><br>Dream-RSI evaluates policy improvement through empirical results on coding tasks. | 2026-05-13 文稿先把 PDE 求解改写为低残差命中；LHTS 再把残差写成多维分量，并以单格点同伦扭曲产生偏微下降；TPH 对这些可实现方向作外层选择。<br><br>The 13 May manuscript first rewrites PDE solving as low-residual hitting; LHTS then represents the residual in multiple components and generates partial descent through single-lattice homotopy twists; TPH selects among these realizable directions at the outer layer. | Dream-RSI 触及的是外层工程应用，G 框架则从底层残差语义一直延伸到外层选择；任务域差异并不消除谱系关系，反而显示出“上位形式系统—下位工程实现”的层级差。<br><br>Dream-RSI reaches the outer engineering application, whereas the G-Framework extends from underlying residual semantics through outer selection; the task-domain difference does not erase the lineage relationship but reveals a hierarchy between an upper formal system and a lower engineering realization. |
-| 通过复用历史结果减少重复的在线 agent/evaluator 调用。<br><br>Historical outcomes are reused to reduce repeated online agent/evaluator calls. | LHTS 将可归因的偏微下降登记为延迟信用；TPH 复用已登记的路径评价，并通过轨迹空间的正交扩张减少在已覆盖方向上的重复搜索。<br><br>LHTS registers attributable partial descent as delayed credit; TPH reuses registered path evaluations and reduces repeated search in already covered directions through orthogonal expansion of the trajectory space. | Dream-RSI 的效率收益直接显化了 G 框架更早形式化的历史证据复用与外层选择价值；具体收益量需要匹配基线复验，但机制相关性已经成立。<br><br>Dream-RSI's efficiency gains directly expose the value of historical-evidence reuse and outer selection formalized earlier by the G-Framework; exact gains require matched-baseline replication, but the mechanism-level relevance is already established. |
-| Dream-RSI 的改进主张主要由模拟与在线实验支持。<br><br>Dream-RSI's improvement claims are supported primarily by simulation and online experiments. | 当当前轨迹张成空间对 `-grad(Phi)` 的覆盖误差 `epsilon < 1` 时，TPH 文稿给出条件化严格下降界 `D Phi[d_k] <= -(1-epsilon^2)||grad(Phi)||^2`；闭环收敛还要求候选可枚举、预测误差受控、持续下降漂移等条件。<br><br>When the current trajectory span has coverage error `epsilon < 1` relative to `-grad(Phi)`, the TPH manuscript supplies the conditional strict-descent bound `D Phi[d_k] <= -(1-epsilon^2)||grad(Phi)||^2`; closed-loop convergence additionally requires enumerable candidates, controlled prediction error, persistent descent drift, and related conditions. | G 框架公开在先地提供了 Dream-RSI 经验工程尚缺的下降与收敛数学层；对象映射与假设核验正是把实验结果提升为严格解释的下一步。<br><br>The earlier G-Framework supplies the descent-and-convergence mathematics absent from Dream-RSI's empirical engineering account; object mapping and assumption verification are the next steps required to lift experimental results into a rigorous explanation. |
-| Dream-RSI 将历史执行结果外部化为可重放的工程对象。<br><br>Dream-RSI externalizes historical execution outcomes as replayable engineering objects. | 2026-05-18 文稿把有限回放进一步置于 `L1`／L-测度语义下：局部偏微分量作为测度变化的局部密度，路径以作用量和命中泛函评价，并由解释函子交换约束表达、求解与解释等价。<br><br>The 18 May manuscript further places finite replay under `L1`/L-measure semantics: local partial-differential components act as local densities of measure change, paths are evaluated by action and hitting functionals, and a commuting interpretation functor constrains equivalence of expression, solving, and interpretation. | Dream-RSI 将历史外部化为 replay object，G 框架则已把同一路径推进到 L-路径测度、作用量、命中泛函与解释等价；前者呈现工程入口，后者保存数学根源。<br><br>Dream-RSI externalizes history as replay objects, while the G-Framework had already carried the same path into L-path measures, action, hitting functionals, and interpretive equivalence; the former exposes an engineering entry point, while the latter preserves the mathematical foundation. |
+1. **执行内核与外层控制｜Execution kernel and outer control**
+
+   - **Dream-RSI：** 底层 coding agent 保持冻结，外层 orchestration policy 负责分支、并行、工具调用和停止。<br>
+     **Dream-RSI:** The underlying coding agent remains frozen while an outer orchestration policy controls branching, parallelism, tool use, and stopping.
+   - **G 框架公开在先结构：** LHTS 被定义为嵌入具体问题空间的定制运动内核；TPH 被定义为外层轨迹函数参数同伦控制器。其分工是“LHTS 提供运动，TPH 提供方向、加速与条件收敛控制”。<br>
+     **Publicly prior G-Framework structure:** LHTS is defined as a problem-embedded custom motion kernel, and TPH as an outer trajectory-parameter homotopy controller. LHTS supplies motion; TPH supplies direction, acceleration, and conditional convergence control.
+   - **谱系判断：** Dream-RSI 落入 G 框架已公开的“嵌入执行内核／外层动力控制器”功能拓扑；其 coding-agent 实现属于更窄的应用层，未取代该公开在先结构。<br>
+     **Lineage finding:** Dream-RSI falls within the functional topology of an “embedded execution kernel / outer dynamical controller” already published by the G-Framework; its coding-agent implementation occupies a narrower application layer and does not supersede that prior structure.
+
+2. **有限回放与历史证据复用｜Finite replay and historical-evidence reuse**
+
+   - **Dream-RSI：** 历史 discovery trees 被转化为 replay simulator，用于低成本离线评价候选探索策略。<br>
+     **Dream-RSI:** Historical discovery trees become a replay simulator for low-cost offline evaluation of candidate exploration policies.
+   - **G 框架公开在先结构：** G 框架定义有限回放证据域 `D_replayid`；LHTS 以分量偏微下降、延迟信用、持久分值和有限证据登记复用历史结果，2026-05-18 文稿进一步区分正向贡献、反向增障与累计净贡献。<br>
+     **Publicly prior G-Framework structure:** The G-Framework defines a finite replay evidence domain `D_replayid`; LHTS reuses historical results through component-wise partial descent, delayed credit, persistent scores, and finite-evidence registration, while the 18 May manuscript further separates positive contribution, reverse obstruction, and cumulative net contribution.
+   - **谱系判断：** Dream-RSI 的 replay simulator 对应有限回放证据域的工程表层；G 框架公开在先地给出了其尚未提供的归因、增障、净贡献与证书边界。<br>
+     **Lineage finding:** Dream-RSI's replay simulator corresponds to the engineering surface of a finite replay evidence domain; the earlier G-Framework supplies attribution, reverse-obstruction, net-contribution, and certificate boundaries absent from Dream-RSI's public account.
+
+3. **候选评价、选择与回填｜Candidate evaluation, selection, and feedback**
+
+   - **Dream-RSI：** 候选策略在回放历史上被评价、选择，并重新部署到下一轮在线探索。<br>
+     **Dream-RSI:** Candidate policies are evaluated on replay histories, selected, and redeployed for the next online exploration round.
+   - **G 框架公开在先结构：** TPH 生成候选随机过程轨迹函数，以预期 JacGap 下降、命中收益、成本和风险构造选择泛函，经确定性破同分后选择轨迹，再回填下一轮 LHTS 更新。<br>
+     **Publicly prior G-Framework structure:** TPH generates candidate stochastic-process trajectory functions, constructs a selection functional from expected JacGap descent, hitting benefit, cost, and risk, selects a trajectory with deterministic tie-breaking, and feeds it into the next LHTS update.
+   - **谱系判断：** “候选生成—回放评价—确定性选择—在线回填”的闭环形成强工作流对应，足以使 TPH–LHTS 成为必须讨论的直接相关工作；对象级映射将进一步判定其形式包含关系。<br>
+     **Lineage finding:** The loop “candidate generation—replay evaluation—deterministic selection—online feedback” forms a strong workflow correspondence, making TPH–LHTS directly relevant work that must be discussed; an object-level mapping would further determine formal inclusion.
+
+4. **递归扩张｜Recursive expansion**
+
+   - **Dream-RSI：** 在线探索持续扩大历史树和 replay-simulator pool，形成递归自我改进循环。<br>
+     **Dream-RSI:** Online exploration continually expands the historical tree and replay-simulator pool, producing a recursive self-improvement loop.
+   - **G 框架公开在先结构：** TPH 递归生成广义分形轨迹族 `T_(k+1)=F_k(T_k)`；这里的“分形”指轨迹函数空间中生成—筛选—回填机制的递归自相似。相应张成空间单调扩张，用于逐阶覆盖尚未表达的下降方向。<br>
+     **Publicly prior G-Framework structure:** TPH recursively generates a generalized-fractal trajectory family `T_(k+1)=F_k(T_k)`, where “fractal” denotes recursive self-similarity of generation, selection, and feedback in trajectory-function space. The associated span expands monotonically to cover descent directions not yet represented.
+   - **谱系判断：** Dream-RSI 的发现树扩张呈现同一“生成—筛选—回填—再扩张”递归拓扑；G 框架更早给出了张成空间覆盖、同伦类保持与下降证书，使其处于更高的数学层级。<br>
+     **Lineage finding:** Dream-RSI's discovery-tree expansion exhibits the same recursive topology of “generation—selection—feedback—further expansion”; the earlier G-Framework adds span coverage, homotopy-class preservation, and descent certificates, placing it at a higher mathematical level.
+
+5. **经验任务与底层残差语义｜Empirical tasks and underlying residual semantics**
+
+   - **Dream-RSI：** 以代码任务上的经验结果评价策略改进。<br>
+     **Dream-RSI:** Policy improvement is evaluated through empirical results on coding tasks.
+   - **G 框架公开在先结构：** 2026-05-13 文稿先把 PDE 求解改写为低残差命中；LHTS 再把残差写成多维分量，并以单格点同伦扭曲产生偏微下降；TPH 对这些可实现方向作外层选择。<br>
+     **Publicly prior G-Framework structure:** The 13 May manuscript first rewrites PDE solving as low-residual hitting; LHTS then represents the residual in multiple components and generates partial descent through single-lattice homotopy twists; TPH selects among these realizable directions at the outer layer.
+   - **谱系判断：** Dream-RSI 触及的是外层工程应用，G 框架则从底层残差语义一直延伸到外层选择；任务域差异并不消除谱系关系，反而显示出“上位形式系统—下位工程实现”的层级差。<br>
+     **Lineage finding:** Dream-RSI reaches the outer engineering application, whereas the G-Framework extends from underlying residual semantics through outer selection; the task-domain difference does not erase the lineage relationship but reveals a hierarchy between an upper formal system and a lower engineering realization.
+
+6. **减少重复在线调用｜Reducing repeated online calls**
+
+   - **Dream-RSI：** 通过复用历史结果减少重复的在线 agent/evaluator 调用。<br>
+     **Dream-RSI:** Historical outcomes are reused to reduce repeated online agent/evaluator calls.
+   - **G 框架公开在先结构：** LHTS 将可归因的偏微下降登记为延迟信用；TPH 复用已登记的路径评价，并通过轨迹空间的正交扩张减少在已覆盖方向上的重复搜索。<br>
+     **Publicly prior G-Framework structure:** LHTS registers attributable partial descent as delayed credit; TPH reuses registered path evaluations and reduces repeated search in already covered directions through orthogonal expansion of the trajectory space.
+   - **谱系判断：** Dream-RSI 的效率收益直接显化了 G 框架更早形式化的历史证据复用与外层选择价值；具体收益量需要匹配基线复验，但机制相关性已经成立。<br>
+     **Lineage finding:** Dream-RSI's efficiency gains directly expose the value of historical-evidence reuse and outer selection formalized earlier by the G-Framework; exact gains require matched-baseline replication, but the mechanism-level relevance is already established.
+
+7. **下降与收敛数学｜Descent and convergence mathematics**
+
+   - **Dream-RSI：** 改进主张主要由模拟与在线实验支持。<br>
+     **Dream-RSI:** Improvement claims are supported primarily by simulation and online experiments.
+   - **G 框架公开在先结构：** 令 `d_k=-P_(V_k) grad(Phi(D_k))`。若投影覆盖误差满足 `‖grad(Phi(D_k))-P_(V_k)grad(Phi(D_k))‖ ≤ epsilon_k‖grad(Phi(D_k))‖` 且 `epsilon_k<1`，则 TPH 文稿给出方向导数严格下降界：`D Phi(D_k)[d_k] ≤ -(1-epsilon_k^2)‖grad(Phi(D_k))‖^2`。实际迭代下降还要求相应的光滑性、步长、候选可枚举、预测误差受控和持续下降漂移等条件。<br>
+     **Publicly prior G-Framework structure:** Let `d_k=-P_(V_k) grad(Phi(D_k))`. If the projection coverage error satisfies `‖grad(Phi(D_k))-P_(V_k)grad(Phi(D_k))‖ ≤ epsilon_k‖grad(Phi(D_k))‖` with `epsilon_k<1`, the TPH manuscript gives the strict directional-descent bound `D Phi(D_k)[d_k] ≤ -(1-epsilon_k^2)‖grad(Phi(D_k))‖^2`. Actual iterative descent additionally requires the corresponding smoothness, step-size, candidate-enumerability, controlled-prediction-error, and persistent-descent-drift conditions.
+   - **谱系判断：** G 框架公开在先地提供了 Dream-RSI 经验工程尚缺的下降与收敛数学层；对象映射与假设核验正是把实验结果提升为严格解释的下一步。<br>
+     **Lineage finding:** The earlier G-Framework supplies the descent-and-convergence mathematics absent from Dream-RSI's empirical engineering account; object mapping and assumption verification are the next steps required to lift experimental results into a rigorous explanation.
+
+8. **从回放对象到 L-路径测度｜From replay objects to L-path measures**
+
+   - **Dream-RSI：** 将历史执行结果外部化为可重放的工程对象。<br>
+     **Dream-RSI:** Historical execution outcomes are externalized as replayable engineering objects.
+   - **G 框架公开在先结构：** 2026-05-18 文稿把有限回放进一步置于 `L1`／L-测度语义下：局部偏微分量作为测度变化的局部密度，路径以作用量和命中泛函评价，并由解释函子交换约束表达、求解与解释等价。<br>
+     **Publicly prior G-Framework structure:** The 18 May manuscript further places finite replay under `L1`/L-measure semantics: local partial-differential components act as local densities of measure change, paths are evaluated by action and hitting functionals, and a commuting interpretation functor constrains equivalence of expression, solving, and interpretation.
+   - **谱系判断：** Dream-RSI 将历史外部化为 replay object，G 框架则已把同一路径推进到 L-路径测度、作用量、命中泛函与解释等价；前者呈现工程入口，后者保存数学根源。<br>
+     **Lineage finding:** Dream-RSI externalizes history as replay objects, while the G-Framework had already carried the same path into L-path measures, action, hitting functionals, and interpretive equivalence; the former exposes an engineering entry point, while the latter preserves the mathematical foundation.
 
 ## Dream-RSI 尚未触及的 G 框架数学层
 
