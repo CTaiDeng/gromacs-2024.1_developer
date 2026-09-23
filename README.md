@@ -1,3 +1,139 @@
+> [!NOTE]
+> 本仓库默认使用简体中文沟通。本仓库是 GROMACS 的非官方派生研究仓库，与 GROMACS 上游、Dream-RSI 作者及其所属机构均无隶属或担保关系。
+>
+> This repository communicates in Simplified Chinese by default. It is an unofficial research derivative of GROMACS and is not affiliated with or endorsed by upstream GROMACS, the Dream-RSI authors, or their institutions.
+
+# G 框架与 Dream-RSI：中性相关工作与谱系对照
+
+# GaoZheng G-Framework and Dream-RSI: A Neutral Related-Work and Lineage Comparison
+
+## 声明与目的｜Scope and purpose
+
+**中文：** 本节记录两套公开材料之间值得进一步审查的结构对应、公开时间线及差异边界，目的是促进准确引用和相关工作澄清。本文不预设 Dream-RSI 作者接触过 G 框架，也不据此指控复制、抄袭或派生；相似结构可能由独立研究产生。是否存在来源关系，应由文献检索记录、独立演化材料和作者说明进一步判定。
+
+**English:** This section records structural correspondences, the public timeline, and important differences between two sets of public materials for related-work review and accurate attribution. It does **not** presume that the Dream-RSI authors accessed the GaoZheng G-Framework, nor does it allege copying, plagiarism, or derivation. Similar structures may arise independently. Any claim of source dependence would require literature-search records, independent-development evidence, and clarification from the authors.
+
+## 版本谱系与可核时间线｜Version lineage and verifiable timeline
+
+与本对照直接相关的四篇文稿，并非到 v5.2 才首次出现。应从同一概念记录的 v5.0 开始追溯：
+
+The four manuscripts directly relevant to this comparison did not first appear in v5.2. Their public lineage should be traced from v5.0 of the same concept record:
+
+三版共享概念 DOI [10.5281/zenodo.19677398](https://doi.org/10.5281/zenodo.19677398)。
+
+All three versions share the concept DOI [10.5281/zenodo.19677398](https://doi.org/10.5281/zenodo.19677398).
+
+| 公开版本 / Public version | Zenodo 记录 / Record | 公开日期 / Publication date | 与四篇文稿的关系 / Relation to the four manuscripts |
+| --- | --- | --- | --- |
+| v5.0 | [21399006](https://zenodo.org/records/21399006) / [DOI](https://doi.org/10.5281/zenodo.21399006) | 2026-07-17 | 本次追溯中最早公开收录四篇 PDF 的版本；本对照的公开在先锚点。<br><br>Earliest public version identified in this trace that contains all four PDFs; the public-priority anchor used here. |
+| v5.1 | [22720924](https://zenodo.org/records/22720924) / [DOI](https://doi.org/10.5281/zenodo.22720924) | 2026-09-12 | 继续收录四篇文稿。<br><br>Continues to include all four manuscripts. |
+| v5.2 | [22739417](https://zenodo.org/records/22739417) / [DOI](https://doi.org/10.5281/zenodo.22739417) | 2026-09-14 | 继续收录四篇文稿；不是下列核心结构的首次公开版本。<br><br>Continues to include all four manuscripts; it is not the first public version of the core structures listed below. |
+| Dream-RSI | [arXiv:2609.14858](https://arxiv.org/abs/2609.14858) / [public repository](https://github.com/zhengkid/Dream-RSI) | submitted 2026-09-14 | 作为后发公开工程材料纳入中性相关工作比较。<br><br>Included as the later public engineering work in this neutral related-work comparison. |
+
+四篇文稿为：
+
+The four manuscripts are:
+
+1. `20260513_gframework_homotopy_hitting_pde_paradigm_replacement_formal_system`
+2. `20260514_gframework_lhts_delayed_credit_lattice_homotopy_twist_scoring_formal_system`
+3. `20260515_gframework_tph_lhts_trajectory_parameter_homotopy_probability_fractal_d_structure_formal_system`
+4. `20260518_gframework_pde_lmeasure_tunnel_equiv_formal_system`
+
+本地版本化目录中，四篇文稿的 TeX 源码在 v5.0、v5.1、v5.2 之间分别具有相同的 SHA-256，支持“v5.0 首次公开收录、v5.1/v5.2 延续同一源码内容”的谱系判断。Zenodo 三个记录均含同名且同尺寸的四份 PDF；v5.1 与 v5.2 的对应 PDF 校验和相同，v5.0 的 PDF 二进制校验和不同，因此本文只主张经源码核验的内容连续性，不主张 v5.0 与后续版本的 PDF 文件逐字节相同。上述文件名中的 2026-05-13 至 2026-05-18 是文稿署期，不替代 2026-07-17 这一可核公开日期。
+
+In the local versioned archive, each of the four TeX sources has the same SHA-256 across v5.0, v5.1, and v5.2. This supports the lineage statement “first publicly included in v5.0 and carried forward with the same source content in v5.1/v5.2.” All three Zenodo records contain the four same-named PDFs with the same respective file sizes; the v5.1 and v5.2 PDF checksums match, whereas the v5.0 PDF binary checksums differ. This comparison therefore claims source-verified content continuity, not byte-for-byte PDF identity between v5.0 and later versions. The dates 13–18 May 2026 embedded in the filenames are manuscript dates and do not replace the verifiable public date of 17 July 2026.
+
+<details>
+<summary>本地三版 TeX 源码 SHA-256／SHA-256 of the local TeX sources across all three versions</summary>
+
+- `20260513...`: `8df99e3d5610c4afae999fc5c17c133d9ea7f075a5936d6944fd8e064fa28289`
+- `20260514...`: `5f65e1dc3b23e2ae71a06cc93fddadd5c0146371d29e7f30139305b00d43944b`
+- `20260515...`: `5a7008afabd54dfabd3715383a770be94aeba7db9789f3f67e2fac0a4afd0981`
+- `20260518...`: `66d7d81660efa41435f856bde9303e61b710fe2307a7dc92162e81cc9a957af8`
+
+Each value is identical in the local v5.0, v5.1, and v5.2 source directories.
+
+</details>
+
+因此，公开时间线能够建立的是：四篇 G 框架文稿至迟已于 Dream-RSI 提交前约 59 天公开存在。它建立公开可得性与在先比较资格；文稿署期、公开日期和结构相似性仍不单独证明 Dream-RSI 作者实际接触、复制或派生了这些材料。
+
+Accordingly, the public timeline establishes that the four G-Framework manuscripts were publicly available no later than approximately 59 days before the Dream-RSI submission. This establishes public availability and priority for comparison; manuscript dates, public dates, and structural similarity still do not by themselves prove actual access, copying, or derivation by the Dream-RSI authors.
+
+## 四篇原典的联合结构｜Joint structure of the four source manuscripts
+
+全面阅读四篇 v5.0 原典后，其分工应准确表述为：
+
+After a full reading of the four v5.0 source manuscripts, their respective roles are most accurately summarized as follows:
+
+- **2026-05-13：同伦命中与 PDE 范式替代。** 将求解目标改写为低残差集合的统计力学同伦命中；建立轨迹函数、首次命中泛函、高阶正交方向、JacGap、工程截断确定性收敛及“问题转化／极限保真性”分层。它明确保留条件边界：问题可以先被构造性转化，而恢复严格 PDE 解仍需相容性、紧致性、残差闭性与一致极限等条件。
+- **13 May 2026: homotopy hitting and PDE paradigm replacement.** Reformulates solving as statistical-mechanical homotopy hitting of a low-residual set; develops trajectory functions, first-hitting functionals, higher-order orthogonal directions, JacGap, deterministic convergence of engineering truncations, and the separation between problem transformation and limit fidelity. It explicitly preserves the boundary that a constructive transformation may be defined first, while recovery of a strict PDE solution still requires compatibility, compactness, residual closedness, uniform limits, and related conditions.
+- **2026-05-14：LHTS 运动内核。** 将 PDE 残差统一登记为多维分量对象，以单格点同伦扭曲产生偏微下降分量；延迟信用只登记可归因证据，分量 JacGap 将残差压力反拉回参数方向，并以 A/B/C 证书分别约束有限工程覆盖、连续极限提升及非零支持探索。
+- **14 May 2026: the LHTS motion kernel.** Represents PDE residuals as multidimensional component objects and obtains partial-descent components through single-lattice homotopy twists; delayed credit records only attributable evidence, component-wise JacGap pulls residual pressure back to parameter directions, and A/B/C certificates separately constrain finite engineering coverage, continuous-limit lifting, and nonzero-support exploration.
+- **2026-05-15：TPH–LHTS 外层控制。** 明确区分“LHTS 决定系统怎样移动”与“TPH 决定向哪里移动、为何移动及何时收敛”；以广义分形轨迹族递归扩张轨迹张成空间，通过正交投影形成严格下降界，并在有限候选、确定性破同分、预测误差受控、持续下降漂移及梯度覆盖等条件下给出闭环收敛证书；同时构造概率路径、频域命中与 D-结构接口。
+- **15 May 2026: TPH–LHTS outer control.** Explicitly separates “how the system can move,” governed by LHTS, from “where it should move, why, and under what convergence conditions,” governed by TPH. A generalized-fractal trajectory family recursively expands the trajectory span, orthogonal projection supplies a strict-descent bound, and closed-loop convergence is certified under finite candidates, deterministic tie-breaking, controlled prediction error, persistent descent drift, gradient coverage, and related conditions; probability paths, frequency-domain hitting, and the D-structure interface are also constructed.
+- **2026-05-18：有限回放、L-测度与替代边界。** 在有限回放证据域中登记偏微 JacGap 下降、正负归因贡献与非退化传导；把 PDE 局部微分表达提升为 L-积分／测度表达，把求解提升为 L-路径测度上的低作用量命中，并以解释函子交换限定表达替代、求解替代与解释等价。其依据不是裸 `L0` 差分，而是保留 Law-Space 语义的 `L1`／L-测度结构。
+- **18 May 2026: finite replay, L-measure, and substitution boundaries.** Registers partial JacGap descent, positive and negative attributable contributions, and nondegenerate transmission on a finite replay evidence domain; lifts local PDE differential expressions to L-integral/measure expressions and solving to low-action hitting on an L-path measure, while an interpretation-functor commuting condition delimits expression substitution, solving substitution, and interpretive equivalence. Its basis is not a bare `L0` difference, but an `L1`/L-measure structure that preserves Law-Space semantics.
+
+## 结构对应｜Structural correspondences
+
+| Dream-RSI 的公开结构 / Public Dream-RSI structure | G 框架中的对应结构 / Corresponding G-Framework structure | 中性边界 / Neutral boundary |
+| --- | --- | --- |
+| 底层 coding agent 保持冻结，外层 orchestration policy 负责分支、并行、工具调用和停止。<br><br>The underlying coding agent remains frozen while an outer orchestration policy controls branching, parallelism, tool use, and stopping. | LHTS 被定义为嵌入具体问题空间的定制运动内核；TPH 被定义为外层轨迹函数参数同伦控制器。其分工是“LHTS 提供运动，TPH 提供方向、加速与条件收敛控制”。<br><br>LHTS is defined as a problem-embedded custom motion kernel, and TPH as an outer trajectory-parameter homotopy controller. Their division of labor is: LHTS supplies motion; TPH supplies direction, acceleration, and conditional convergence control. | 二者都采用“执行内核／外层控制”分离，但 Dream-RSI 的 coding-agent 接口不等同于 LHTS 的 PDE 残差运动内核。<br><br>Both separate an execution kernel from outer control, but Dream-RSI's coding-agent interface is not identical to the PDE-residual motion kernel of LHTS. |
+| 历史 discovery trees 被转化为 replay simulator，用于低成本离线评价候选探索策略。<br><br>Historical discovery trees become a replay simulator for low-cost offline evaluation of candidate exploration policies. | G 框架定义有限回放证据域 `D_replayid`；LHTS 以分量偏微下降、延迟信用、持久分值和有限证据登记复用历史结果，2026-05-18 文稿进一步区分正向贡献、反向增障与累计净贡献。<br><br>The G-Framework defines a finite replay evidence domain `D_replayid`; LHTS reuses historical results through component-wise partial descent, delayed credit, persistent scores, and finite-evidence registration, while the 18 May manuscript further separates positive contribution, reverse obstruction, and cumulative net contribution. | 两者具有明确的回放功能对应；但有限回放域只支持其已登记证据，G 框架也明确限制了逐步因果归因和域外反事实外推。<br><br>The replay functions clearly correspond; however, a finite replay domain supports only its registered evidence, and the G-Framework explicitly limits stepwise causal attribution and out-of-domain counterfactual extrapolation. |
+| 候选策略在回放历史上被评价、选择，并重新部署到下一轮在线探索。<br><br>Candidate policies are evaluated on replay histories, selected, and redeployed for the next online exploration round. | TPH 生成候选随机过程轨迹函数，以预期 JacGap 下降、命中收益、成本和风险构造选择泛函，经确定性破同分后选择轨迹，再回填下一轮 LHTS 更新。<br><br>TPH generates candidate stochastic-process trajectory functions, constructs a selection functional from expected JacGap descent, hitting benefit, cost, and risk, selects a trajectory with deterministic tie-breaking, and feeds it into the next LHTS update. | 这是功能结构上的强对应；要建立形式包含关系，仍需给出 Dream-RSI 状态、动作、回放数据、目标量与 TPH-LHTS 对象的显式映射。<br><br>This is a strong functional correspondence; a formal inclusion result would still require an explicit mapping from Dream-RSI states, actions, replay data, and objectives to TPH-LHTS objects. |
+| 在线探索持续扩大历史树和 replay-simulator pool，形成递归自我改进循环。<br><br>Online exploration continually expands the historical tree and replay-simulator pool, producing a recursive self-improvement loop. | TPH 递归生成广义分形轨迹族 `T_(k+1)=F_k(T_k)`，其“分形”指轨迹函数空间中生成—筛选—回填机制的递归自相似；相应张成空间单调扩张，用于逐阶覆盖尚未表达的下降方向。<br><br>TPH recursively generates a generalized-fractal trajectory family `T_(k+1)=F_k(T_k)`, where “fractal” denotes recursive self-similarity of generation, selection, and feedback in trajectory-function space; the associated span expands monotonically to cover descent directions not yet represented. | “发现树扩张”与“广义分形轨迹族扩张”存在结构类比，但前者的树增长本身不自动满足后者的张成空间覆盖、同伦类保持或下降义务。<br><br>Discovery-tree expansion and generalized-fractal trajectory expansion are structurally analogous, but tree growth alone does not automatically satisfy the latter's span-coverage, homotopy-class-preservation, or descent obligations. |
+| Dream-RSI 以代码任务上的经验结果评价策略改进。<br><br>Dream-RSI evaluates policy improvement through empirical results on coding tasks. | 2026-05-13 文稿先把 PDE 求解改写为低残差命中；LHTS 再把残差写成多维分量，并以单格点同伦扭曲产生偏微下降；TPH 对这些可实现方向作外层选择。<br><br>The 13 May manuscript first rewrites PDE solving as low-residual hitting; LHTS then represents the residual in multiple components and generates partial descent through single-lattice homotopy twists; TPH selects among these realizable directions at the outer layer. | 两者的经验任务域不同。此对应说明 G 框架给出了比一般 replay-policy 语言更细的残差语义，不说明 Dream-RSI 已实现 PDE/L-测度结构。<br><br>The empirical task domains differ. This correspondence shows that the G-Framework supplies a finer residual semantics than generic replay-policy language; it does not imply that Dream-RSI implements the PDE/L-measure structure. |
+| 通过复用历史结果减少重复的在线 agent/evaluator 调用。<br><br>Historical outcomes are reused to reduce repeated online agent/evaluator calls. | LHTS 将可归因的偏微下降登记为延迟信用；TPH 复用已登记的路径评价，并通过轨迹空间的正交扩张减少在已覆盖方向上的重复搜索。<br><br>LHTS registers attributable partial descent as delayed credit; TPH reuses registered path evaluations and reduces repeated search in already covered directions through orthogonal expansion of the trajectory space. | 两者都指向降低重复探索成本；具体复杂度、API 节省或算力收益仍需在匹配任务、预算和基线上独立测量。<br><br>Both point toward lower repeated-exploration cost; concrete complexity, API-saving, or compute gains still require independent measurement under matched tasks, budgets, and baselines. |
+| Dream-RSI 的改进主张主要由模拟与在线实验支持。<br><br>Dream-RSI's improvement claims are supported primarily by simulation and online experiments. | 当当前轨迹张成空间对 `-grad(Phi)` 的覆盖误差 `epsilon < 1` 时，TPH 文稿给出条件化严格下降界 `D Phi[d_k] <= -(1-epsilon^2)||grad(Phi)||^2`；闭环收敛还要求候选可枚举、预测误差受控、持续下降漂移等条件。<br><br>When the current trajectory span has coverage error `epsilon < 1` relative to `-grad(Phi)`, the TPH manuscript supplies the conditional strict-descent bound `D Phi[d_k] <= -(1-epsilon^2)||grad(Phi)||^2`; closed-loop convergence additionally requires enumerable candidates, controlled prediction error, persistent descent drift, and related conditions. | 这是 G 框架的附加数学层，而不是 Dream-RSI 实验结果的自动证明；将该证明用于 Dream-RSI 前，必须验证其假设与对象映射。<br><br>This is an additional mathematical layer of the G-Framework, not an automatic proof of Dream-RSI's experimental results; its assumptions and object mapping must be verified before applying it to Dream-RSI. |
+| Dream-RSI 将历史执行结果外部化为可重放的工程对象。<br><br>Dream-RSI externalizes historical execution outcomes as replayable engineering objects. | 2026-05-18 文稿把有限回放进一步置于 `L1`／L-测度语义下：局部偏微分量作为测度变化的局部密度，路径以作用量和命中泛函评价，并由解释函子交换约束表达、求解与解释等价。<br><br>The 18 May manuscript further places finite replay under `L1`/L-measure semantics: local partial-differential components act as local densities of measure change, paths are evaluated by action and hitting functionals, and a commuting interpretation functor constrains equivalence of expression, solving, and interpretation. | Dream-RSI 的 replay object 与 G 框架的 L-路径测度之间目前只有待检验的功能映射；不能由“都使用历史”直接推出数学等价。<br><br>At present, there is only a functional mapping to be tested between Dream-RSI's replay objects and the G-Framework's L-path measure; mathematical equivalence does not follow merely because both use history. |
+
+## G 框架中尚未在 Dream-RSI 公开描述中找到直接对应的结构
+
+## G-Framework structures without a direct counterpart identified in the public Dream-RSI description
+
+**中文：** 当前对照尚未在 Dream-RSI 的公开论文与仓库说明中识别出以下 G 框架结构的直接对应物：
+
+- 将高阶 PDE 求解构造性改写为低残差集合的统计力学同伦命中，并把“问题转化已经成立”与“极限恢复严格 PDE 解”分层登记；
+- LHTS 将问题统一登记为多维 PDE 残差，由单格点同伦扭曲产生可审计的偏微下降分量，并限制延迟信用的因果归因范围；
+- 残差压力通过分量 JacGap 的转置反拉回格点参数方向；
+- TPH 广义分形轨迹族通过递归张成空间扩张与正交投影度量未覆盖方向，并给出条件化严格下降界；
+- 概率路径同伦类、广义分形轨迹同伦类、JacGap 势、选择算子与递归更新共同组成 D-结构；
+- 有限回放中的正向贡献、反向增障、累计净贡献与非退化传导被分别登记，而不是把所有历史改善都归因于当前一步；
+- PDE 的 L-积分表达替代、L-路径测度求解替代与解释严格等价被明确区分，且替代基础不是裸 `L0` 差分；
+- A/B/C 与分层证书分别限定工程覆盖、极限提升、非零支持探索，以及命中、下降、跳跃、保真性和收敛结论。
+
+**English:** The present comparison has not identified direct counterparts in the public Dream-RSI paper or repository description for the following G-Framework structures:
+
+- a constructive reformulation of higher-order PDE solving as statistical-mechanical homotopy hitting of a low-residual set, with separate registration of “problem transformation established” and “strict PDE recovery in the limit”;
+- LHTS representation of a problem through multidimensional PDE residuals, auditable partial-descent components from single-lattice homotopy twists, and explicit limits on causal attribution by delayed credit;
+- pullback of residual pressure to lattice-parameter directions through the transpose of a component-wise JacGap representation;
+- recursive span expansion and orthogonal projection by the TPH generalized-fractal trajectory family, including a conditional strict-descent bound;
+- a D-structure jointly formed from probability-path homotopy classes, generalized-fractal trajectory homotopy classes, a JacGap potential, a selection operator, and recursive update;
+- separate registration of positive contribution, reverse obstruction, cumulative net contribution, and nondegenerate transmission in finite replay, rather than attributing all historical improvement to the current step;
+- an explicit distinction among L-integral expression substitution, L-path-measure solving substitution, and strict interpretive equivalence, where substitution is not based on a bare `L0` difference;
+- A/B/C and layered certificates that delimit engineering coverage, limit lifting, nonzero-support exploration, and claims about hitting, descent, jumps, fidelity, and convergence.
+
+因此，本对照提出的是“存在值得审查的功能结构对应”，而不是“两个体系完全相同”，也不把 Dream-RSI 已经判定为 G 框架的形式实例。当前最稳健的中性定位是：Dream-RSI 公开展示了面向 coding-agent 的“冻结执行器—外层策略—历史回放—选择—再部署”工程闭环；公开在先的 G 框架 v5.0 四篇文稿则给出了范围更广的“PDE 残差—LHTS 偏微下降—TPH 广义分形正交控制—有限回放—L-测度解释—证书边界”形式体系。若要进一步证明前者是后者的受限工程实例，需要建立显式对象映射并逐项验证假设，而不能只依赖术语或架构类比。
+
+Accordingly, this comparison identifies functional structural correspondences worthy of review; it neither claims that the two systems are identical nor treats Dream-RSI as an already established formal instance of the G-Framework. The most defensible neutral characterization at present is that Dream-RSI publicly demonstrates an engineering loop of “frozen executor—outer policy—historical replay—selection—redeployment” for coding-agent exploration, while the earlier public v5.0 G-Framework manuscripts provide the broader formal system “PDE residual—LHTS partial descent—TPH generalized-fractal orthogonal control—finite replay—L-measure interpretation—certificate boundaries.” Establishing the former as a restricted engineering instance of the latter would require an explicit object mapping and assumption-by-assumption verification, not terminology or architectural analogy alone.
+
+## 建议澄清的问题｜Questions for clarification
+
+1. Dream-RSI 的文献检索或独立演化过程中，是否曾检索、阅读或讨论过上述 G 框架材料？
+   During the literature search or independent development of Dream-RSI, were the G-Framework materials above searched, read, or discussed?
+2. 若两者独立演化，是否可以公开足以区分独立贡献的概念与实现时间线？
+   If the two lines developed independently, could a concept and implementation timeline sufficient to distinguish the independent contributions be shared?
+3. Dream-RSI 作者是否愿意在 Related Work 或后续版本中讨论上述结构对应及差异？
+   Would the Dream-RSI authors consider discussing these correspondences and differences in Related Work or a future revision?
+4. 是否可以公开检验一份对象级映射：Dream-RSI 的世界状态、策略、发现树、replay simulator、评价器与更新规则，分别是否满足 LHTS–TPH 的残差、轨迹函数、有限回放、选择泛函、覆盖和证书条件？
+   Could an object-level mapping be examined publicly: do Dream-RSI's world states, policies, discovery trees, replay simulators, evaluators, and update rules respectively satisfy the LHTS–TPH residual, trajectory-function, finite-replay, selection-functional, coverage, and certificate conditions?
+
+本节欢迎基于原文、版本记录和可复验证据的修正。任何后续更新都应保持对双方独立贡献的准确区分。
+
+Corrections grounded in primary texts, version records, and reproducible evidence are welcome. Any future update should preserve an accurate distinction between the independent contributions of both bodies of work.
+
+---
+
 > [!IMPORTANT]
 > ## **本项目已不再维护**
 >
